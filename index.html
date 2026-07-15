@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fbf4e8}
+  a{color:#6b3ec7;text-decoration:none}
+  a:hover{color:#5630a8}
+  .vb-strike{text-decoration:line-through;color:#9aa4ad}
+</style>
+</helmet>
+<div style="width:100%;font-family:Mulish,'Segoe UI',sans-serif;color:#465562;background:#fbf4e8;overflow-x:hidden;line-height:1.5">
+
+  <!-- ============ HEADER ============ -->
+  <header style="max-width:1140px;margin:0 auto;padding:26px 40px;display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="position:relative;width:26px;height:26px">
+        <span style="position:absolute;left:0;top:4px;width:16px;height:16px;background:#2b5f86;border-radius:4px;transform:rotate(45deg)"></span>
+        <span style="position:absolute;left:9px;top:1px;width:16px;height:16px;background:#e14a3b;border-radius:4px;transform:rotate(45deg)"></span>
+      </div>
+      <span style="font-family:'Roboto Slab',serif;font-weight:700;font-size:22px;color:#1c3d59">VidyBack</span>
+    </div>
+    <nav style="display:flex;align-items:center;gap:38px">
+      <a href="#features" style="color:#3f4f5c;font-weight:600;font-size:15px">Features</a>
+      <a href="#pricing" style="color:#3f4f5c;font-weight:600;font-size:15px">Pricing</a>
+      <a href="#" style="background:#7a3fd6;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;padding:9px 22px;border-radius:20px">LOGIN</a>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section style="max-width:1140px;margin:0 auto;padding:34px 40px 70px;display:flex;gap:56px;align-items:flex-start">
+    <div style="flex:1;padding-top:14px">
+      <h1 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:40px;line-height:1.22;color:#1c3d59;margin-bottom:18px">Your AI Powered Social Media Assistant for Your Store</h1>
+      <p style="font-size:15px;color:#5b6771;max-width:400px;margin-bottom:22px">Connect your Shopify, Jumpseller or WooCommerce store, choose templates and let VidyBack automatically create high-converting content.</p>
+      <p style="font-size:15px;font-weight:700;color:#1c3d59;margin-bottom:26px">Free to Start/Pro: $9.99 a month.</p>
+      <div style="display:flex;gap:14px;align-items:center">
+        <a href="#" style="display:flex;align-items:center;gap:10px;background:#6b3ec7;color:#fff;padding:13px 24px;border-radius:12px">
+          <span style="font-size:24px;line-height:1">&#63743;</span>
+          <span style="text-align:left;line-height:1.1"><span style="font-size:9px;display:block;opacity:.85">Download on the</span><span style="font-size:16px;font-weight:700">App Store</span></span>
+        </a>
+        <a href="#" style="display:flex;align-items:center;gap:10px;background:#111;color:#fff;padding:12px 22px;border-radius:12px">
+          <span style="width:20px;height:22px;background:conic-gradient(from -30deg,#00d2ff,#00c853,#ffd600,#ff3d00,#00d2ff);clip-path:polygon(0 0,100% 50%,0 100%,15% 50%);display:inline-block"></span>
+          <span style="text-align:left;line-height:1.1"><span style="font-size:9px;display:block;opacity:.85">GET IT ON</span><span style="font-size:16px;font-weight:700">Google Play</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- hero mockup -->
+    <div style="flex:1;position:relative;min-height:340px;display:flex;justify-content:center">
+      <!-- back card -->
+      <div style="position:absolute;top:26px;right:26px;width:150px;height:260px;background:#c9a24a;border-radius:18px;transform:rotate(6deg)"></div>
+      <!-- main product card -->
+      <div style="position:relative;width:170px;height:280px;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.18);z-index:2">
+        <div style="width:100%;height:100%;background-color:#5c6b74;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 8px,rgba(0,0,0,.05) 8px 16px);display:flex;flex-direction:column;justify-content:space-between;color:#fff;font-family:monospace">
+          <span style="align-self:flex-end;margin:10px;background:#fff;color:#1c3d59;font-family:'Roboto Slab',serif;font-weight:800;font-size:11px;padding:3px 6px;border-radius:4px;line-height:1;text-align:center">NEW<br>ARRIVAL</span>
+          <span style="margin:12px;font-family:'Roboto Slab',serif;font-weight:800;font-size:18px;text-shadow:0 1px 4px rgba(0,0,0,.5)">NEW<br>ARRIVAL</span>
+        </div>
+      </div>
+      <!-- left icon cluster -->
+      <div style="position:absolute;left:0;top:8px;display:flex;flex-direction:column;gap:12px;z-index:3">
+        <span style="width:34px;height:34px;border-radius:9px;background:#95bf47;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 4px 10px rgba(0,0,0,.15)">S</span>
+        <span style="width:34px;height:34px;border-radius:9px;background:#f56400;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 4px 10px rgba(0,0,0,.15)">E</span>
+        <span style="width:34px;height:34px;border-radius:9px;background:#fff;color:#96588a;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 4px 10px rgba(0,0,0,.15)">&#128722;</span>
+      </div>
+      <div style="position:absolute;left:0;bottom:56px;display:flex;flex-direction:column;gap:10px;z-index:3">
+        <span style="width:34px;height:34px;border-radius:9px;background:#7f54b3;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 4px 10px rgba(0,0,0,.15)">Woo</span>
+        <span style="font-size:12px;font-weight:800;color:#1c3d59;padding-left:4px">Wix</span>
+      </div>
+      <!-- right icon cluster -->
+      <div style="position:absolute;right:-4px;top:0;display:flex;flex-direction:column;gap:11px;z-index:3">
+        <span style="width:34px;height:34px;border-radius:9px;background:#1877f2;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 10px rgba(0,0,0,.15)">f</span>
+        <span style="width:34px;height:34px;border-radius:9px;background:linear-gradient(45deg,#feda75,#d62976,#962fbf);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.15)"><span style="width:15px;height:15px;border:2px solid #fff;border-radius:5px"></span></span>
+        <span style="width:34px;height:34px;border-radius:9px;background:#0a66c2;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 4px 10px rgba(0,0,0,.15)">in</span>
+      </div>
+      <div style="position:absolute;right:-4px;bottom:44px;display:flex;flex-direction:column;gap:11px;z-index:3">
+        <span style="width:34px;height:34px;border-radius:9px;background:#ff0000;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.15)"><span style="width:0;height:0;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:2px"></span></span>
+        <span style="width:34px;height:34px;border-radius:9px;background:#e60023;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 4px 10px rgba(0,0,0,.15)">P</span>
+        <span style="width:34px;height:34px;border-radius:50%;background:#ffd11a;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.15)">&#128522;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANY OTHER BUSINESS BAND ============ -->
+  <section style="width:100%;background:#205377">
+    <div style="max-width:1140px;margin:0 auto;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:30px">
+      <div>
+        <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:26px;color:#eaa11f;margin-bottom:10px">Any Other Business?</h2>
+        <p style="color:#dbe5ec;font-size:15px;max-width:360px">Use your website to generate social posts instantly.</p>
+      </div>
+      <a href="#" style="background:#6b3ec7;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;padding:14px 28px;border-radius:8px;white-space:nowrap">EXPLORE BUSINESS</a>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section style="max-width:1140px;margin:0 auto;padding:70px 40px 60px">
+    <!-- laptop mockup -->
+    <div style="max-width:520px;margin:0 auto">
+      <div style="border:10px solid #2a2a2a;border-radius:16px;overflow:hidden;background:#000">
+        <div style="background-color:#eef1e6;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.03) 0 10px,rgba(0,0,0,.06) 10px 20px);padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;min-height:220px;justify-content:center">
+          <div style="position:absolute;top:12px;left:14px;background:#c33;color:#fff;font-size:9px;padding:4px 8px;border-radius:4px;max-width:70%">Struggling to Create Engaging Social Media Content for Shopify...</div>
+          <h3 style="font-family:'Roboto Slab',serif;font-weight:800;font-size:22px;color:#1c3d59;text-align:center;line-height:1.25;max-width:340px">Are you struggling to create engaging <span style="color:#eaa11f">Social Media</span> content?</h3>
+          <span style="width:52px;height:52px;border-radius:50%;background:#ff0000;display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:16px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px"></span></span>
+          <span style="font-family:monospace;font-size:10px;color:#8a97a0">[ product intro video ]</span>
+        </div>
+      </div>
+      <div style="height:12px;background:#c7ccce;border-radius:0 0 10px 10px;width:70%;margin:0 auto"></div>
+    </div>
+
+    <div style="text-align:center;margin:38px auto 34px;max-width:440px">
+      <p style="font-weight:700;color:#1c3d59;font-size:15px;margin-bottom:4px">Simply share details of your business with us.</p>
+      <p style="font-size:14px;color:#6b7681">We will analyze and create content and visuals for you to share or schedule on social media.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="border:1px solid #e3d9c5;border-radius:12px;padding:22px;background:#fdf9f0">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span style="width:22px;height:22px;border:2px solid #6b3ec7;border-radius:6px;display:inline-block"></span>
+          <span style="font-family:'Roboto Slab',serif;font-weight:700;font-size:28px;color:#2b5f86">01</span>
+        </div>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:6px">Connect</h4>
+        <p style="font-size:12.5px;color:#7a8590">Login with Shopify, Wix, Ecwid, JumpSeller or paste your website URL.</p>
+      </div>
+      <div style="border:1px solid #e3d9c5;border-radius:12px;padding:22px;background:#fdf9f0">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span style="font-size:18px;color:#6b3ec7">&#10022;</span>
+          <span style="font-family:'Roboto Slab',serif;font-weight:700;font-size:28px;color:#2b5f86">02</span>
+        </div>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:6px">AI Analyzes</h4>
+        <p style="font-size:12.5px;color:#7a8590">Detects your category, brand colors, fonts and products.</p>
+      </div>
+      <div style="border:1px solid #e3d9c5;border-radius:12px;padding:22px;background:#fdf9f0">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span style="width:20px;height:18px;border:2px solid #6b3ec7;border-radius:4px;border-top-width:5px;display:inline-block"></span>
+          <span style="font-family:'Roboto Slab',serif;font-weight:700;font-size:28px;color:#2b5f86">03</span>
+        </div>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:6px">Schedule &amp; Analyze</h4>
+        <p style="font-size:12.5px;color:#7a8590">Schedule posts for optimal times and track performance with detailed analytics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUTO POST BAND ============ -->
+  <section style="width:100%;background:#205377">
+    <div style="max-width:1140px;margin:0 auto;padding:40px">
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:10px;padding:8px 14px">
+          <span style="width:26px;height:26px;border-radius:50%;background:#1f9d55;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px">&#10003;</span>
+          <span style="font-weight:800;color:#1c3d59;font-size:13px;line-height:1.1">7 Days<br>Auto Post</span>
+        </span>
+        <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:24px;color:#eaa11f;flex:1">Set It Once. VidyBack Posts for You.</h2>
+        <a href="#" style="background:#6b3ec7;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;padding:12px 26px;border-radius:8px;white-space:nowrap">GET STARTED</a>
+      </div>
+      <p style="color:#dbe5ec;font-size:14px;margin-top:16px;max-width:640px">Activate 7 Days Auto Posting and let VidyBack automatically publish content daily across your selected social media platforms.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTENT IDEAS ============ -->
+  <section style="max-width:1140px;margin:0 auto;padding:64px 40px 60px">
+    <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:30px;color:#1c3d59;margin-bottom:10px">Content Ideas for you</h2>
+    <p style="font-size:15px;color:#5b6771;max-width:420px;margin-bottom:40px">Social media content springs to life when it's animated and bursting with visuals!</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;align-items:end">
+      <div style="text-align:center">
+        <div style="width:150px;height:300px;margin:0 auto;border:8px solid #1c1c1c;border-radius:26px;overflow:hidden;background-color:#3f6b52;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 9px,rgba(0,0,0,.06) 9px 18px);display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px">
+          <span style="background:#fff;color:#1c3d59;font-family:'Roboto Slab',serif;font-weight:700;font-size:12px;padding:4px 10px;border-radius:14px">Just Landed</span>
+        </div>
+        <h4 style="font-family:'Roboto Slab',serif;font-weight:700;color:#1c3d59;font-size:17px;margin:16px 0 6px">Videos</h4>
+        <p style="font-size:12.5px;color:#7a8590">Add animated magic with videos to capture attention.</p>
+      </div>
+      <div style="text-align:center">
+        <div style="height:300px;position:relative;display:flex;align-items:flex-end;justify-content:center">
+          <div style="position:absolute;bottom:36px;left:14px;width:120px;height:170px;background:#d9cdb8;border-radius:8px;transform:rotate(-10deg);background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 8px,rgba(0,0,0,.08) 8px 16px)"></div>
+          <div style="position:absolute;bottom:26px;right:14px;width:120px;height:180px;background:#e7c948;border-radius:8px;transform:rotate(8deg);background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 8px,rgba(0,0,0,.08) 8px 16px)"></div>
+          <div style="position:relative;width:128px;height:200px;background-color:#c9d2d6;border-radius:8px;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 8px,rgba(0,0,0,.08) 8px 16px);z-index:2;display:flex;align-items:flex-start;justify-content:flex-start;padding:10px"><span style="font-family:'Roboto Slab',serif;font-weight:800;color:#1c3d59;font-size:14px;line-height:1">NEW<br>IN</span></div>
+        </div>
+        <h4 style="font-family:'Roboto Slab',serif;font-weight:700;color:#1c3d59;font-size:17px;margin:16px 0 6px">Multi Product Videos</h4>
+        <p style="font-size:12.5px;color:#7a8590">Create multiple videos with multiple products.</p>
+      </div>
+      <div style="text-align:center">
+        <div style="height:300px;position:relative;display:flex;align-items:flex-end;justify-content:center">
+          <div style="position:absolute;top:20px;left:24px;width:110px;height:150px;background-color:#c9d2d6;border-radius:8px;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 8px,rgba(0,0,0,.08) 8px 16px)"></div>
+          <div style="position:absolute;top:40px;right:20px;width:120px;height:160px;background-color:#d7cdbe;border-radius:8px;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 8px,rgba(0,0,0,.08) 8px 16px)"></div>
+          <div style="position:absolute;bottom:10px;left:40px;width:130px;height:120px;background-color:#b9c3c7;border-radius:8px;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 8px,rgba(0,0,0,.08) 8px 16px)"></div>
+        </div>
+        <h4 style="font-family:'Roboto Slab',serif;font-weight:700;color:#1c3d59;font-size:17px;margin:16px 0 6px">Image</h4>
+        <p style="font-size:12.5px;color:#7a8590">They say a picture speaks a thousand words. Do they!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRANDING BAND ============ -->
+  <section style="width:100%;background:#205377;position:relative;overflow:hidden">
+    <span style="position:absolute;left:70px;top:50px;width:14px;height:14px;border-radius:50%;background:#eaa11f"></span>
+    <span style="position:absolute;left:0;top:180px;width:60px;height:60px;border-radius:50%;background:#e07b2f;transform:translateX(-30px)"></span>
+    <div style="max-width:1140px;margin:0 auto;padding:60px 40px;display:flex;gap:56px;align-items:center">
+      <!-- brand card mockup -->
+      <div style="flex:1;position:relative;min-height:280px">
+        <div style="position:absolute;left:20px;top:0;width:230px;background:#fff;border-radius:12px;padding:18px 18px 22px;box-shadow:0 14px 34px rgba(0,0,0,.22);z-index:2">
+          <h5 style="font-family:'Roboto Slab',serif;font-weight:700;color:#2b5f86;font-size:15px;margin-bottom:14px">Brand Setting</h5>
+          <div style="font-size:9px;color:#8a97a0;margin-bottom:3px">Your Brand Name *</div>
+          <div style="border:1px solid #e2e6ea;border-radius:5px;padding:6px 8px;font-size:10px;color:#4a5560;margin-bottom:10px">VidyBack</div>
+          <div style="font-size:9px;color:#8a97a0;margin-bottom:3px">Address</div>
+          <div style="border:1px solid #e2e6ea;border-radius:5px;padding:6px 8px;font-size:10px;color:#4a5560;margin-bottom:10px">Address</div>
+          <div style="font-size:9px;color:#8a97a0;margin-bottom:3px">Website Url *</div>
+          <div style="border:1px solid #e2e6ea;border-radius:5px;padding:6px 8px;font-size:10px;color:#4a5560;margin-bottom:10px">www.vidyback.com</div>
+          <div style="font-size:9px;color:#8a97a0;margin-bottom:3px">Your Brand Font *</div>
+          <div style="border:1px solid #e2e6ea;border-radius:5px;padding:6px 8px;font-size:10px;color:#4a5560">www.vidyback.com</div>
+        </div>
+        <div style="position:absolute;left:200px;top:56px;width:150px;background:#fff;border-radius:12px;padding:16px;box-shadow:0 14px 34px rgba(0,0,0,.22);z-index:3;text-align:center">
+          <div style="font-size:9px;color:#8a97a0;text-align:left;margin-bottom:6px">Your Logo Here</div>
+          <div style="background:#3f7fd0;border-radius:8px;padding:14px 0;margin-bottom:6px;position:relative">
+            <span style="font-family:'Roboto Slab',serif;font-weight:800;color:#fff;font-size:30px">Aa</span>
+            <span style="position:absolute;right:14px;bottom:10px;color:#fff;font-size:16px">&#9998;</span>
+          </div>
+          <div style="font-weight:700;color:#1c3d59;font-size:12px;margin:8px 0 6px">Brand Color</div>
+          <div style="display:flex;gap:6px;justify-content:center">
+            <span style="width:22px;height:22px;border-radius:5px;background:#2ea3c9"></span>
+            <span style="width:22px;height:22px;border-radius:5px;background:#e14a3b"></span>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1">
+        <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:30px;color:#eaa11f;line-height:1.25;margin-bottom:18px">Absolutely, you can brand it!</h2>
+        <p style="color:#dbe5ec;font-size:15px;margin-bottom:16px">Maintain brand consistency across all social media posts and content.</p>
+        <p style="color:#9db4c4;font-size:13.5px;margin-bottom:22px">Tip: Simply setup E-commerce shop VidyBack We will automatically, extract the logo, along with your brand colors and fonts.</p>
+        <span style="display:block;width:70px;height:3px;background:#eaa11f;border-radius:2px"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section id="features" style="max-width:1000px;margin:0 auto;padding:64px 40px 50px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:44px">
+      <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:30px;color:#1c3d59">Powerful Features with AI</h2>
+      <span style="width:40px;height:40px;border-radius:50%;background:#e6ddcb;display:flex;align-items:center;justify-content:center;color:#7a8590;font-size:18px">&#8593;</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px 70px">
+      <div style="text-align:center">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;background:#e7c948;color:#1c3d59;font-size:8px;font-weight:800;border-radius:7px;margin-bottom:12px">LOGO</span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">Brand Kit</h4>
+        <p style="font-size:13px;color:#7a8590">Use VidyBack's branding features for a unified brand image in videos and posts.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;gap:2px;margin-bottom:12px"><span style="width:9px;height:22px;background:#2b5f86;border-radius:2px"></span><span style="width:9px;height:22px;background:#3f7fd0;border-radius:2px"></span><span style="width:9px;height:22px;background:#7fb0e6;border-radius:2px"></span></span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">Multiple Formats</h4>
+        <p style="font-size:13px;color:#7a8590">Easily create videos, stories, posts, ads, and carousel posts in one place.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;background:#eaf0f5;color:#2b5f86;font-size:16px;border-radius:7px;margin-bottom:12px">&#9998;</span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">AI Caption Generation</h4>
+        <p style="font-size:13px;color:#7a8590">Generate engaging captions instantly with AI. Create creative, brand-focused text for your social media posts in seconds.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;background:#eaf0f5;color:#2b5f86;font-size:16px;border-radius:7px;margin-bottom:12px">&#128340;</span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">Smart Scheduling</h4>
+        <p style="font-size:13px;color:#7a8590">Automatically schedule posts at optimal times for maximum engagement based on your audience's activity patterns.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;gap:3px;align-items:flex-end;margin-bottom:12px"><span style="width:8px;height:14px;background:#e07b2f;border-radius:2px"></span><span style="width:8px;height:22px;background:#7f54b3;border-radius:2px"></span><span style="width:8px;height:18px;background:#2ea3c9;border-radius:2px"></span></span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">Performance Analytics</h4>
+        <p style="font-size:13px;color:#7a8590">Track engagement, reach, and growth across all platforms with detailed reports.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;color:#e14a3b;font-size:24px;font-weight:800;margin-bottom:8px">#</span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">Hashtag Optimization</h4>
+        <p style="font-size:13px;color:#7a8590">Get AI-recommended hashtags that increase discoverability and reach for each of your posts.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;background:#eaf0f5;color:#2b5f86;font-size:15px;border-radius:7px;margin-bottom:12px">&#9788;</span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">Visual Content Suggestions</h4>
+        <p style="font-size:13px;color:#7a8590">Receive recommendations for images, colors, and layouts that resonate with your target audience.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;background:#eaf0f5;color:#2b5f86;font-size:15px;border-radius:7px;margin-bottom:12px">&#10022;</span>
+        <h4 style="font-weight:700;color:#1c3d59;font-size:16px;margin-bottom:7px">AI Edit &amp; Prompt</h4>
+        <p style="font-size:13px;color:#7a8590">Type your own prompts to get or modify the content.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section style="width:100%;background:#205377">
+    <div style="max-width:1140px;margin:0 auto;padding:44px 40px;display:flex;align-items:center;justify-content:space-between;gap:30px">
+      <a href="#" style="background:#6b3ec7;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;padding:14px 28px;border-radius:8px;white-space:nowrap">GET STARTED</a>
+      <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:28px;color:#eaa11f;text-align:right;line-height:1.2">Ready to Transform Your Social Media?</h2>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing" style="max-width:1040px;margin:0 auto;padding:60px 40px 40px">
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:40px">
+      <h2 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:32px;color:#1c3d59">Pricing</h2>
+      <span style="width:38px;height:38px;border-radius:50%;background:#e6ddcb;display:flex;align-items:center;justify-content:center;color:#7a8590;font-size:17px">&#8593;</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start">
+      <!-- FREE -->
+      <div style="border:1px solid #e3d9c5;border-radius:14px;padding:26px 24px;background:#fdf9f0">
+        <h3 style="font-family:'Roboto Slab',serif;font-weight:800;font-size:30px;color:#8f9aa4;margin-bottom:10px">Free</h3>
+        <div style="font-weight:800;color:#1c3d59;font-size:15px;margin-bottom:20px">$0.00/month</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;font-size:13px">
+          <li style="display:flex;gap:8px"><span style="color:#1c3d59">&bull;</span>Limited Templates</li>
+          <li style="display:flex;gap:8px"><span style="color:#1c3d59">&bull;</span>5 AI assisted Caption posts, Unlimited Non AI posts</li>
+          <li style="display:flex;gap:8px"><span style="color:#1c3d59">&bull;</span>50 AI Credits</li>
+          <li style="display:flex;gap:8px"><span style="color:#1c3d59">&bull;</span>480p export</li>
+          <li style="display:flex;gap:8px"><span style="color:#1c3d59">&bull;</span>Made w/ Watermark</li>
+          <li style="display:flex;gap:8px"><span style="color:#c9c0af">&bull;</span><span class="vb-strike">Brand Kit</span></li>
+          <li style="display:flex;gap:8px"><span style="color:#c9c0af">&bull;</span><span class="vb-strike">Schedule Post</span></li>
+        </ul>
+      </div>
+      <!-- PRO -->
+      <div style="border:2px solid #6b3ec7;border-radius:14px;padding:26px 24px;background:#fff;box-shadow:0 10px 30px rgba(107,62,199,.12)">
+        <h3 style="font-family:'Roboto Slab',serif;font-weight:800;font-size:30px;color:#6b3ec7;margin-bottom:10px">Pro</h3>
+        <div style="font-weight:800;color:#1c3d59;font-size:15px">$9.99/month</div>
+        <div style="font-size:12px;color:#9aa4ad;margin-bottom:18px"><span class="vb-strike">$29/month</span></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;font-size:13px">
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>Pro Templates</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>100 AI assisted Caption posts, Unlimited Non Caption AI posts</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>1000 AI Credits</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>Full HD export</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>No Watermark</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>Brand Kit</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>Schedule Post</li>
+        </ul>
+      </div>
+      <!-- YEARLY -->
+      <div style="position:relative;border:1px solid #e3d9c5;border-radius:14px;padding:26px 24px;background:#fdf9f0">
+        <span style="position:absolute;right:-10px;top:-14px;width:50px;height:50px;background:#eaa11f;border-radius:50%;color:#fff;font-family:'Roboto Slab',serif;font-weight:800;font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;box-shadow:0 4px 10px rgba(0,0,0,.15)">30%<span style="font-size:9px">OFF</span></span>
+        <h3 style="font-family:'Roboto Slab',serif;font-weight:800;font-size:30px;color:#e07b2f;margin-bottom:10px">Yearly</h3>
+        <div style="font-weight:800;color:#1c3d59;font-size:15px">$6.99/month</div>
+        <div style="font-size:12px;color:#6b7681">$83.92/year</div>
+        <div style="font-size:12px;color:#9aa4ad;margin-bottom:18px"><span class="vb-strike">$119.88/year</span></div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;font-size:13px;margin-bottom:16px">
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>All of Pro +</li>
+          <li style="display:flex;gap:8px"><span style="color:#eaa11f">&bull;</span>30% Discount</li>
+          <li style="font-size:12px;color:#7a8590">Hey, it's just a fraction of what you'd usually spend on digital agency services! &#127881;</li>
+        </ul>
+        <a href="#" style="display:inline-block;background:#6b3ec7;color:#fff;font-weight:700;font-size:11px;letter-spacing:.5px;padding:9px 18px;border-radius:7px">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:22px;margin-top:48px">
+      <a href="#" style="background:#6b3ec7;color:#fff;font-weight:700;font-size:12px;letter-spacing:.5px;padding:14px 34px;border-radius:8px">GET STARTED</a>
+      <a href="#" style="display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;padding:12px 22px;border-radius:12px">
+        <span style="width:20px;height:22px;background:conic-gradient(from -30deg,#00d2ff,#00c853,#ffd600,#ff3d00,#00d2ff);clip-path:polygon(0 0,100% 50%,0 100%,15% 50%);display:inline-block"></span>
+        <span style="text-align:left;line-height:1.1"><span style="font-size:9px;display:block;opacity:.85">GET IT ON</span><span style="font-size:16px;font-weight:700">Google Play</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="width:100%;background:#205377;margin-top:40px">
+    <div style="max-width:1140px;margin:0 auto;padding:50px 40px 20px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap">
+        <div>
+          <h3 style="font-family:'Roboto Slab',serif;font-weight:700;font-size:24px;color:#eaa11f;margin-bottom:6px">Connect With Us</h3>
+          <span style="display:block;width:60px;height:3px;background:#eaa11f;border-radius:2px;margin-bottom:16px"></span>
+          <p style="color:#dbe5ec;font-size:14px;max-width:280px">Please share your requirements with us, and we will get to work on them.</p>
+        </div>
+        <div style="text-align:right">
+          <div style="display:flex;gap:12px;justify-content:flex-end;margin-bottom:16px">
+            <span style="width:40px;height:40px;border-radius:9px;background:#eaf0f5;color:#1877f2;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px">f</span>
+            <span style="width:40px;height:40px;border-radius:9px;background:#eaf0f5;display:flex;align-items:center;justify-content:center"><span style="width:18px;height:18px;border:2.5px solid #d62976;border-radius:6px"></span></span>
+            <span style="width:40px;height:40px;border-radius:9px;background:#eaf0f5;color:#0a66c2;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px">in</span>
+          </div>
+          <a href="mailto:contact@vidyback.com" style="color:#dbe5ec;font-size:14px">contact@vidyback.com</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.15);margin-top:34px;padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <span style="color:#b7c6d1;font-size:12.5px">&copy; 2025 Copyright - All Rights Reserved</span>
+        <div style="display:flex;gap:22px;flex-wrap:wrap">
+          <a href="#" style="color:#dbe5ec;font-size:12.5px">Integrations</a>
+          <a href="#" style="color:#dbe5ec;font-size:12.5px">FAQ</a>
+          <a href="#" style="color:#dbe5ec;font-size:12.5px">Contact Us</a>
+          <a href="#" style="color:#dbe5ec;font-size:12.5px">Privacy Policy</a>
+          <a href="#" style="color:#dbe5ec;font-size:12.5px">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
