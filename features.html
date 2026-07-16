@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore VidyBack features: auto-scraping catalogs (Shopify, Wix, Etsy), bulk scheduler, AI content generation, website analyzer, and multi-channel publication.">
+    <title>VidyBack Features | AI Automation & Catalog Sync for Socials</title>
+    
+    <!-- Styles (Inlined as requested for code style) -->
+    <style>
+        /* ==========================================
+           VidyBack Redesign - Features Page Style
+           ========================================== */
+
+        /* --- Google Fonts Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+        /* --- Root Variables / Design System --- */
+        :root {
+            /* Color Palette from Website Screenshot */
+            --color-bg: #FAF6F0;           /* Primary Cream Background */
+            --color-bg-alt: #ffffff;       /* Pure White for Cards */
+            --color-bg-dark: #204a6b;      /* Muted Slate Blue Background */
+            
+            --color-text-main: #2b3945;     /* Slate Blue Dark text for body */
+            --color-text-muted: #5e6d7a;   /* Muted body text on light */
+            --color-text-dark: #121f2b;    /* Highlight heading text */
+            
+            --color-text-light: #ffffff;   /* Text on dark blue sections */
+            --color-text-light-muted: #cbd5e1;
+            
+            --color-gold: #f5a623;         /* Gold Accent for headings on dark */
+            --color-purple: #7a42f4;       /* Vibrant Purple Button/Accent */
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;  /* Blue Accent for text/icons (non-button) */
+            
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-border-light: rgba(255, 255, 255, 0.12);
+            
+            /* Typography */
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Layout & Shadows */
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+
+        /* --- Base Resets & Global Styles --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--color-text-dark);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+            transition: var(--transition-normal);
+        }
+
+        /* --- Container Utility --- */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Section Layouts --- */
+        section {
+            padding: 90px 0;
+            position: relative;
+        }
+
+        .section-header-features {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-header-features h2 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--color-text-dark);
+        }
+
+        .section-header-features h2 span {
+            color: var(--color-text-accent);
+        }
+
+        .section-header-features p {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+
+        /* --- Badges & Buttons --- */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            background: rgba(29, 81, 117, 0.07);
+            color: var(--color-text-accent);
+            border: 1px solid rgba(29, 81, 117, 0.15);
+            margin-bottom: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--color-purple);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(122, 66, 244, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-purple-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(122, 66, 244, 0.35);
+        }
+
+        .btn-primary span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: rgba(32, 74, 107, 0.04);
+            color: var(--color-text-dark);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(32, 74, 107, 0.08);
+            border-color: rgba(32, 74, 107, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* --- Navigation Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-normal);
+            padding: 20px 0;
+            background: rgba(250, 246, 240, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text { color: #1d5175; }
+
+.logo-text span { color: #1d5175; }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-text-dark);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
+        /* --- Features Hero --- */
+        .features-hero {
+            padding-top: 160px;
+            padding-bottom: 60px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(122, 66, 244, 0.05) 0%, rgba(250, 246, 240, 0) 60%);
+        }
+
+        .features-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            color: var(--color-text-dark);
+        }
+
+        .features-hero h1 span {
+            color: var(--color-text-accent);
+        }
+
+        .features-hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            max-width: 680px;
+            margin: 0 auto 32px auto;
+        }
+
+        /* --- Grid Split Layouts --- */
+        .feature-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-split-grid.reverse {
+            grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .feature-details h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--color-text-dark);
+        }
+
+        .feature-details h3 span {
+            color: var(--color-text-accent);
+        }
+
+        .features-bullet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .bullet-card {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+        }
+
+        .bullet-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: rgba(122, 66, 244, 0.2);
+            transform: translateX(4px);
+        }
+
+        .bullet-card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(29, 81, 117, 0.07);
+            border: 1px solid rgba(29, 81, 117, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-accent);
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .bullet-card-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--color-text-dark);
+        }
+
+        .bullet-card-text p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        /* --- Interactive CSS Visuals & Mockups --- */
+        .visual-wrapper {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 380px;
+            position: relative;
+        }
+
+        /* Visual 1: Scrape Catalog Console */
+        .scrape-console {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .scrape-input-bar {
+            display: flex;
+            background: #f1f5f9;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 6px 6px 6px 16px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scrape-input-bar i {
+            color: var(--color-text-muted);
+        }
+
+        .scrape-input-placeholder {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            flex: 1;
+        }
+
+        .scrape-btn-mini {
+            background: var(--color-purple);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .scraped-products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .scraped-item-box {
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scraped-thumb {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #e0f0ff 0%, #dceef8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-accent);
+            font-size: 1.5rem;
+            overflow: hidden;
+        }
+
+        .scraped-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .scraped-item-details {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .scraped-item-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .scraped-item-price {
+            font-size: 0.65rem;
+            color: var(--color-accent-green);
+            font-weight: 700;
+        }
+
+        /* Visual 2: Scheduler Calendar Mockup */
+        .calendar-mockup {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .calendar-header-mock {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .calendar-grid-mock {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .day-column-mock {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .day-label-mock {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+        }
+
+        .day-cell-mock {
+            width: 100%;
+            aspect-ratio: 1/1.2;
+            background: #f8fafc;
+            border: 1px dashed var(--color-border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .day-cell-mock.active-post {
+            background: rgba(122, 66, 244, 0.05);
+            border: 1px solid rgba(122, 66, 244, 0.2);
+        }
+
+        .day-cell-mock.active-post::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 6px;
+            height: 6px;
+            background: var(--color-purple);
+            border-radius: 50%;
+        }
+
+        .calendar-post-badge {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .badge-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .badge-fb { background: #1877f2; }
+        .badge-pin { background: #bd081c; }
+        .badge-tiktok { background: #000000; }
+
+        /* Visual 3: Network Node Diagram */
+        .node-diagram {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .node-center {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--color-purple);
+            color: #ffffff;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(122, 66, 244, 0.4);
+            z-index: 5;
+            animation: pulseNode 3s infinite;
+        }
+
+        @keyframes pulseNode {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(122, 66, 244, 0.4); }
+            50% { transform: scale(1.06); box-shadow: 0 0 35px rgba(122, 66, 244, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(122, 66, 244, 0.4); }
+        }
+
+        .node-leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-sm);
+            z-index: 4;
+        }
+
+        .node-1 { top: 0; left: 50%; transform: translateX(-50%); color: #1877f2; } /* FB */
+        .node-2 { top: 50px; right: 10px; color: #e1306c; } /* IG */
+        .node-3 { bottom: 50px; right: 10px; color: #ff0000; } /* YT */
+        .node-4 { bottom: 0; left: 50%; transform: translateX(-50%); color: #bd081c; } /* Pin */
+        .node-5 { bottom: 50px; left: 10px; color: #0a66c2; } /* LI */
+        .node-6 { top: 50px; left: 10px; color: #000000; } /* TikTok */
+
+        .node-connector-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 1px;
+            background: rgba(32, 74, 107, 0.08);
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        /* Visual 4: Brand Style assets */
+        .brand-assets-preview {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .brand-pallet-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+        }
+
+        .brand-color-swatches {
+            display: flex;
+            gap: 12px;
+        }
+
+        .swatch-box {
+            flex: 1;
+            height: 48px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: flex-end;
+            padding: 6px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .font-stack-mock {
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+        }
+
+        .font-line-mock {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 6px;
+        }
+
+        .font-h1-mock {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-text-dark);
+        }
+
+        /* Visual 5: AI Prompt Textarea UI */
+        .ai-prompt-ui {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .ai-prompt-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ai-prompt-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ai-prompt-label i {
+            color: var(--color-purple);
+            font-size: 0.9rem;
+        }
+
+        .ai-model-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(122, 66, 244, 0.08);
+            border: 1px solid rgba(122, 66, 244, 0.2);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-purple);
+        }
+
+        .ai-model-chip span {
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px #10b981;
+        }
+
+        .ai-textarea-box {
+            background: #ffffff;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .ai-textarea-box:focus-within {
+            border-color: rgba(122, 66, 244, 0.4);
+            box-shadow: 0 0 0 3px rgba(122, 66, 244, 0.08);
+        }
+
+        .ai-textarea-mock {
+            font-size: 0.92rem;
+            color: var(--color-text-dark);
+            line-height: 1.65;
+            min-height: 80px;
+            font-family: var(--font-body);
+        }
+
+        .ai-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: var(--color-purple);
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: blinkCursor 1s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .ai-textarea-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--color-border);
+            padding-top: 10px;
+        }
+
+        .ai-tone-chips {
+            display: flex;
+            gap: 6px;
+        }
+
+        .ai-tone-chip {
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            background: #f8fafc;
+            cursor: pointer;
+        }
+
+        .ai-tone-chip.selected {
+            background: var(--color-purple);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .ai-generate-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-purple);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            box-shadow: 0 4px 12px rgba(122, 66, 244, 0.25);
+        }
+
+        .ai-generate-btn:hover {
+            background: var(--color-purple-hover);
+            transform: translateY(-1px);
+        }
+
+        .ai-output-card {
+            background: linear-gradient(135deg, rgba(122, 66, 244, 0.04) 0%, rgba(29, 81, 117, 0.04) 100%);
+            border: 1px solid rgba(122, 66, 244, 0.12);
+            border-radius: var(--border-radius-md);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ai-output-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ai-output-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--color-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .ai-output-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ai-action-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--color-text-muted);
+            cursor: pointer;
+        }
+
+        .ai-output-text {
+            font-size: 0.88rem;
+            color: var(--color-text-main);
+            line-height: 1.6;
+        }
+
+        .ai-output-hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .ai-hashtag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--color-text-accent);
+            background: rgba(29, 81, 117, 0.07);
+            border: 1px solid rgba(29, 81, 117, 0.12);
+            border-radius: 50px;
+            padding: 3px 10px;
+        }
+
+        /* --- Comparison Table --- */
+        .comparison-table-wrapper {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: #fafafa;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-text-dark);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td i {
+            color: var(--color-accent-green);
+            font-size: 1.1rem;
+        }
+
+        td.feature-check {
+            text-align: center;
+        }
+
+        td.feature-title-cell {
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        /* --- Footer (Muted Slate Blue matching screenshot) --- */
+        footer {
+            background-color: var(--color-bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 80px 0 30px 0;
+            color: #e2e8f0;
+        }
+
+        footer h4, footer .logo {
+            color: #ffffff;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-brand p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .footer-app-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 8px 18px;
+            width: 170px;
+            color: #ffffff;
+            transition: var(--transition-fast);
+        }
+
+        .app-store-btn:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .app-store-btn i {
+            font-size: 1.5rem;
+        }
+
+        .app-store-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .app-store-label {
+            font-size: 0.6rem;
+            color: #cbd5e1;
+            text-transform: uppercase;
+        }
+
+        .app-store-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .footer-links-col h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        .footer-links-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-links-col a {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .footer-links-col a:hover {
+            color: #ffffff;
+            padding-left: 4px;
+        }
+
+        .footer-newsletter h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        .footer-newsletter p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--color-purple);
+            box-shadow: 0 0 10px rgba(122, 66, 244, 0.3);
+        }
+
+        .newsletter-form .btn {
+            padding: 12px 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            transition: var(--transition-fast);
+        }
+
+        .social-link:hover {
+            background: var(--color-purple);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        /* Legal Footer Copyright Bar (Cream) */
+        .legal-footer-bar {
+            background-color: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .legal-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 8px;
+        }
+
+        .legal-footer-links a {
+            color: var(--color-text-muted);
+        }
+
+        .legal-footer-links a:hover {
+            color: var(--color-text-dark);
+        }
+
+        /* --- Call To Action Section (Dark Slate Blue) --- */
+        .cta-section {
+            background: var(--color-bg-dark);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(122, 66, 244, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-box {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-box h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-box p {
+            font-size: 1.125rem;
+            color: var(--color-text-light-muted);
+            max-width: 560px;
+            margin: 0 auto 48px auto;
+            line-height: 1.7;
+        }
+
+        .cta-box .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-light-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            transition: var(--transition-normal);
+        }
+
+        .btn-light-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .btn-light-outline span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- Scroll Reveal Animations --- */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive Layout adjustments --- */
+        @media (max-width: 1024px) {
+            .features-hero h1 { font-size: 3rem; }
+            .feature-split-grid, .feature-split-grid.reverse {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .visual-wrapper {
+                order: -1; /* Display mockup on top for tablet/mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            .features-hero h1 { font-size: 2.3rem; }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 40px;
+                gap: 30px;
+                transition: var(--transition-normal);
+                border-left: 1px solid var(--color-border);
+                z-index: 999;
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .menu-toggle {
+                display: block;
+                z-index: 1000;
+            }
+            .nav-actions {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            th, td {
+                padding: 14px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="features.html" class="nav-link active">Features</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com" target="_blank" rel="noopener" class="btn btn-secondary">Login</a>
+                <a href="https://app.vidyback.com" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Features Hero --- -->
+    <section class="features-hero">
+        <div class="container">
+            <span class="badge">Autopilot Social Automation</span>
+            <h1>Post like you have a <span>marketing team</span></h1>
+            <p>From instantly fetching products from your storefront catalog to generating high-engagement visuals and text, here is everything VidyBack does.</p>
+            <a href="index.html#pricing" class="btn btn-primary"><span>Start Generating Free <i class="fa-solid fa-rocket"></i></span></a>
+        </div>
+    </section>
+
+    <!-- --- Feature Section 1: Store Scraping & Integrations --- -->
+    <section id="store-scraping" style="background: var(--color-bg);">
+        <div class="container">
+            <div class="feature-split-grid">
+                
+                <!-- Details Left -->
+                <div class="feature-details reveal">
+                    <span class="badge">Catalog Syncing</span>
+                    <h3>Make everything from your <span>store</span></h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 30px;">Directly pull content assets from your active online store. Scale and auto-update your social media posts with complete store catalog synchronizations.</p>
+                    
+                    <div class="features-bullet-list">
+                        <!-- Card 1 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Bulk Post Support</h4>
+                                <p>Autogenerate and publish social media content blocks for your entire retail collection in single, unified batch requests.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-box-open"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Single Product Post</h4>
+                                <p>Quickly spotlight specific new arrivals, bestsellers, or flash-sale products on social accounts instantly.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-link"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Direct Catalog Integrations</h4>
+                                <p>Supports storefront sync across major ecommerce architectures: Shopify, Wix, Etsy, Jumpseller, and Ecwid.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mockup Right (Interactive Scraper Preview) -->
+                <div class="visual-wrapper reveal">
+                    <div class="scrape-console">
+                        <div class="scrape-input-bar">
+                            <i class="fa-solid fa-globe"></i>
+                            <div class="scrape-input-placeholder">https://yourstore.com/products/summer-tshirt</div>
+                            <button class="scrape-btn-mini">Sync Store</button>
+                        </div>
+                        
+                        <div class="scraped-products-grid">
+                            <div class="scraped-item-box">
+                                <div class="scraped-thumb">
+                                    <img src="images/t-shirt.jpg" alt="Cotton T-Shirt">
+                                </div>
+                                <div class="scraped-item-details">
+                                    <span class="scraped-item-title">Cotton T-Shirt</span>
+                                    <span class="scraped-item-price">$29.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="scraped-item-box">
+                                <div class="scraped-thumb">
+                                    <img src="images/sneakers.jpg" alt="Casual Sneakers">
+                                </div>
+                                <div class="scraped-item-details">
+                                    <span class="scraped-item-title">Casual Sneakers</span>
+                                    <span class="scraped-item-price">$89.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="scraped-item-box">
+                                <div class="scraped-thumb">
+                                    <img src="images/sunglasses.jpg" alt="Sun Glasses">
+                                </div>
+                                <div class="scraped-item-details">
+                                    <span class="scraped-item-title">Sun Glasses</span>
+                                    <span class="scraped-item-price">$19.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Feature Section 2: Scheduling & Calendar --- -->
+    <section id="scheduling" style="background: var(--color-bg-alt);">
+        <div class="container">
+            <div class="feature-split-grid reverse">
+                
+                <!-- Mockup Left (Interactive Calendar) -->
+                <div class="visual-wrapper reveal">
+                    <div class="calendar-mockup">
+                        <div class="calendar-header-mock">
+                            <span>July 2026</span>
+                            <div style="display: flex; gap: 6px; color: var(--color-text-muted);">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-grid-mock">
+                            <!-- Mon -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Mon</span>
+                                <div class="day-cell-mock active-post">
+                                    <div class="calendar-post-badge badge-ig"><i class="fa-brands fa-instagram"></i></div>
+                                </div>
+                                <div class="day-cell-mock"></div>
+                            </div>
+                            
+                            <!-- Tue -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Tue</span>
+                                <div class="day-cell-mock"></div>
+                                <div class="day-cell-mock active-post">
+                                    <div class="calendar-post-badge badge-fb"><i class="fa-brands fa-facebook-f"></i></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Wed -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Wed</span>
+                                <div class="day-cell-mock active-post">
+                                    <div class="calendar-post-badge badge-pin"><i class="fa-brands fa-pinterest-p"></i></div>
+                                </div>
+                                <div class="day-cell-mock"></div>
+                            </div>
+                            
+                            <!-- Thu -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Thu</span>
+                                <div class="day-cell-mock"></div>
+                                <div class="day-cell-mock"></div>
+                            </div>
+                            
+                            <!-- Fri -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Fri</span>
+                                <div class="day-cell-mock active-post">
+                                    <div class="calendar-post-badge badge-tiktok"><i class="fa-brands fa-tiktok"></i></div>
+                                </div>
+                                <div class="day-cell-mock active-post">
+                                    <div class="calendar-post-badge badge-ig"><i class="fa-brands fa-instagram"></i></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sat -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Sat</span>
+                                <div class="day-cell-mock"></div>
+                                <div class="day-cell-mock"></div>
+                            </div>
+                            
+                            <!-- Sun -->
+                            <div class="day-column-mock">
+                                <span class="day-label-mock">Sun</span>
+                                <div class="day-cell-mock active-post">
+                                    <div class="calendar-post-badge badge-fb"><i class="fa-brands fa-facebook-f"></i></div>
+                                </div>
+                                <div class="day-cell-mock"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Details Right -->
+                <div class="feature-details reveal">
+                    <span class="badge">Post Scheduler</span>
+                    <h3>Post it once, <span>autopilot</span></h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 30px;">Coordinate scheduling structures inside clean calendar dashboards. Optimize timing metrics automatically for daily social campaigns.</p>
+                    
+                    <div class="features-bullet-list">
+                        <!-- Card 1 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-calendar-week"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>7-Day Content Scheduler</h4>
+                                <p>Queue up a whole week of rich media, custom designs, and videos in minutes to save hundreds of operational hours.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-business-time"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Smart Scheduling Algorithm</h4>
+                                <p>Automatically schedules postings at peak engagement times calculated from active reader patterns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Feature Section 3: Node Integrations & Multiplatform --- -->
+    <section id="integrations" style="background: var(--color-bg);">
+        <div class="container">
+            <div class="feature-split-grid">
+                
+                <!-- Details Left -->
+                <div class="feature-details reveal">
+                    <span class="badge">Multi-Channel Sync</span>
+                    <h3>Publish where your <span>audience is</span></h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 30px;">Sync and post product advertisements and organic posts simultaneously across every major social platform from one simple dashboard.</p>
+                    
+                    <div class="features-bullet-list">
+                        <!-- Card 1 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Multiple Platform Output</h4>
+                                <p>Post natively to Facebook, Instagram, LinkedIn, Pinterest, YouTube Shorts, and TikTok.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-photo-film"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Multiple Custom Formats</h4>
+                                <p>Create videos, vertical stories, landscape posts, paid advertisement creatives, and engaging carousel slides in one place.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mockup Right (Interactive Node Connection) -->
+                <div class="visual-wrapper reveal">
+                    <div class="node-diagram">
+                        <div class="node-center"><i class="fa-solid fa-play"></i></div>
+                        
+                        <!-- Connecting Leaf Nodes -->
+                        <div class="node-leaf node-1" title="Facebook"><i class="fa-brands fa-facebook-f"></i></div>
+                        <div class="node-leaf node-2" title="Instagram"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="node-leaf node-3" title="YouTube"><i class="fa-brands fa-youtube"></i></div>
+                        <div class="node-leaf node-4" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></div>
+                        <div class="node-leaf node-5" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <div class="node-leaf node-6" title="TikTok"><i class="fa-brands fa-tiktok"></i></div>
+                        
+                        <!-- Connection Lines CSS helper style -->
+                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(270deg);"></div>
+                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(330deg);"></div>
+                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(30deg);"></div>
+                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(90deg);"></div>
+                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(150deg);"></div>
+                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(210deg);"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Feature Section 4: Branding --- -->
+    <section id="branding" style="background: var(--color-bg-alt);">
+        <div class="container">
+            <div class="feature-split-grid reverse">
+                
+                <!-- Mockup Left (Interactive brand asset manager) -->
+                <div class="visual-wrapper reveal">
+                    <div class="brand-assets-preview">
+                        <div class="brand-pallet-header">Active Brand Guidelines</div>
+                        
+                        <div class="brand-color-swatches">
+                            <div class="swatch-box" style="background: #7a42f4;">#7A42F4</div>
+                            <div class="swatch-box" style="background: #204a6b;">#204A6B</div>
+                            <div class="swatch-box" style="background: #f5a623;">#F5A623</div>
+                            <div class="swatch-box" style="background: #10b981;">#10B981</div>
+                        </div>
+                        
+                        <div class="font-stack-mock">
+                            <div class="font-line-mock">Display Font (Outfit)</div>
+                            <div class="font-h1-mock">Every brand, kept on-brand.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Details Right -->
+                <div class="feature-details reveal">
+                    <span class="badge">Branding Engine</span>
+                    <h3>Every brand, <span>kept on-brand</span></h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 30px;">Maintain clean brand styles across hundreds of automatically generated files. Save asset guidelines once to govern visual styling rules.</p>
+                    
+                    <div class="features-bullet-list">
+                        <!-- Card 1 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-palette"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Unified Style Guidelines</h4>
+                                <p>Locks and applies fonts, logos, watermark placements, and color schemes directly onto active video frames.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-shapes"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Cohesive Design Assets</h4>
+                                <p>Templates adjust dynamically based on target shapes and colors, keeping marketing assets professional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Feature Section 5: AI Engine & Prompts --- -->
+    <section id="ai-engine" style="background: var(--color-bg);">
+        <div class="container">
+            <div class="feature-split-grid">
+                
+                <!-- Details Left -->
+                <div class="feature-details reveal">
+                    <span class="badge">AI Copilot</span>
+                    <h3>Give inputs <span>your own way</span></h3>
+                    <p style="color: var(--color-text-muted); margin-bottom: 30px;">Type customized text instructions, pull links, or let the core system suggest copy and hashtag sets automatically.</p>
+                    
+                    <div class="features-bullet-list">
+                        <!-- Card 1 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-brain"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>AI Content Generation</h4>
+                                <p>Instantly generate social text outlines, descriptions, and hashtags based on your brand's style guide and voice preferences.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-terminal"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>AI Edit & Prompt</h4>
+                                <p>Command modifications directly. Type prompts to alter visuals, customize colors, or refine captions on the fly.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3 -->
+                        <div class="bullet-card">
+                            <div class="bullet-card-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div class="bullet-card-text">
+                                <h4>Website Content Analysis</h4>
+                                <p>Analyzes your store website URL automatically to extract visual details, key benefits, headings, and post ideas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mockup Right (Modern AI Prompt Textarea UI) -->
+                <div class="visual-wrapper reveal">
+                    <div class="ai-prompt-ui">
+
+                        <!-- Top Label Row -->
+                        <div class="ai-prompt-topbar">
+                            <div class="ai-prompt-label">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                AI Prompt Studio
+                            </div>
+                            <div class="ai-model-chip">
+                                <span></span> VidyBack AI
+                            </div>
+                        </div>
+
+                        <!-- Textarea Input Box -->
+                        <div class="ai-textarea-box">
+                            <div class="ai-textarea-mock">
+                                Create a summer discount post for my Cotton T-Shirt collection. Highlight the 30% off deal, make it energetic and fun for Instagram.<ai-cursor class="ai-cursor"></ai-cursor>
+                            </div>
+                            <div class="ai-textarea-footer">
+                                <div class="ai-tone-chips">
+                                    <div class="ai-tone-chip selected">Energetic</div>
+                                    <div class="ai-tone-chip">Professional</div>
+                                    <div class="ai-tone-chip">Minimal</div>
+                                </div>
+                                <button class="ai-generate-btn">
+                                    <i class="fa-solid fa-bolt"></i> Generate
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- AI Output Result Card -->
+                        <div class="ai-output-card">
+                            <div class="ai-output-header">
+                                <div class="ai-output-tag">
+                                    <i class="fa-solid fa-circle-check"></i> AI Output
+                                </div>
+                                <div class="ai-output-actions">
+                                    <div class="ai-action-icon" title="Copy"><i class="fa-regular fa-copy"></i></div>
+                                    <div class="ai-action-icon" title="Regenerate"><i class="fa-solid fa-rotate"></i></div>
+                                </div>
+                            </div>
+                            <div class="ai-output-text">
+                                ☀️ Summer's here & so are the deals! Grab our bestselling Cotton T-Shirts at <strong>30% OFF</strong> — soft, breezy & made for the season. Don't miss out, limited stock only! 🛍️
+                            </div>
+                            <div class="ai-output-hashtags">
+                                <span class="ai-hashtag">#SummerSale</span>
+                                <span class="ai-hashtag">#CottonTee</span>
+                                <span class="ai-hashtag">#StyleDeals</span>
+                                <span class="ai-hashtag">#FashionDrop</span>
+                                <span class="ai-hashtag">#OOTD</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Summary Grid: AI Analytics & Hashtags --- -->
+    <section style="background: var(--color-bg-alt); border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <div class="section-header-features reveal">
+                <span class="badge">Optimization Suite</span>
+                <h2>Smarter features for <span>better reach</span></h2>
+                <p>Maximize your social media impact with built-in analytics, optimization, and reporting tools.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <!-- Card 1 -->
+                <div class="bullet-card reveal">
+                    <div class="bullet-card-icon" style="background: rgba(16, 185, 129, 0.08); color: #10b981; border-color: rgba(16, 185, 129, 0.15);"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="bullet-card-text">
+                        <h4 style="font-size: 1.25rem;">Performance Analytics</h4>
+                        <p style="font-size: 0.95rem; margin-top: 8px;">Track engagement, click-through rates, profile views, and audience growth across all platforms with clear, compiled reports in one place.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bullet-card reveal">
+                    <div class="bullet-card-icon" style="background: rgba(6, 182, 212, 0.08); color: #06b6d4; border-color: rgba(6, 182, 212, 0.15);"><i class="fa-solid fa-hashtag"></i></div>
+                    <div class="bullet-card-text">
+                        <h4 style="font-size: 1.25rem;">Hashtag Optimization</h4>
+                        <p style="font-size: 0.95rem; margin-top: 8px;">Get smart, AI-recommended hashtag groups based on product descriptions to increase discoverability and organic search reach for each post.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Features Comparison Table --- -->
+    <section style="background: var(--color-bg); border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <div class="section-header-features reveal">
+                <span class="badge">Compare Core Features</span>
+                <h2>Easily plan what you <span>create</span></h2>
+                <p>Pick the plans that cover your storefront size. Here is an overview of what each package offers.</p>
+            </div>
+            
+            <div class="comparison-table-wrapper reveal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Capability Feature</th>
+                            <th style="text-align: center;">Free Plan</th>
+                            <th style="text-align: center;">Pro Plan</th>
+                            <th style="text-align: center;">Growth Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-title-cell">7-Day Post Scheduler</td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title-cell">Single Post Generator</td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title-cell">Store Integration (Shopify, Wix, Etsy, etc.)</td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title-cell">AI Content Generation</td>
+                            <td class="feature-check" style="color: var(--color-text-muted); opacity: 0.5;"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title-cell">Bulk Post Creator</td>
+                            <td class="feature-check" style="color: var(--color-text-muted); opacity: 0.5;"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title-cell">Performance Analytics</td>
+                            <td class="feature-check" style="color: var(--color-text-muted); opacity: 0.5;"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title-cell">Website Content Analysis</td>
+                            <td class="feature-check" style="color: var(--color-text-muted); opacity: 0.5;"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="feature-check" style="color: var(--color-text-muted); opacity: 0.5;"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="feature-check"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Call to Action Section (Dark Slate Blue) --- -->
+    <section class="cta-section" id="get-app">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Your next social post is 5 minutes away</h2>
+                <p>Connect your storefront catalog, choose templates, and let AI post high-converting videos on schedule.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#pricing" class="btn btn-primary"><span>Get Started Free <i class="fa-solid fa-wand-magic-sparkles"></i></span></a>
+                    <a href="index.html#pricing" class="btn btn-light-outline"><span>Try Pro <i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Footer (Dark Slate Blue) --- -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+                    
+                    <div class="footer-app-links">
+                        <a href="#" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                        <a href="#" class="app-store-btn">
+                            <i class="fa-brands fa-apple"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Download on</span>
+                                <span class="app-store-name">App Store</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Col 2: Navigation Links -->
+                <div class="footer-links-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#content-ideas">Content Ideas</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3: Company / Legal -->
+                <div class="footer-links-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 4: Newsletter -->
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our marketing newsletter to get the latest strategies on ecommerce traffic scaling.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Newsletter email">
+                        <button type="submit" class="btn btn-primary" aria-label="Subscribe button"><span>Go</span></button>
+                    </form>
+                </div>
+                
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- --- Legal Copyright Bar (Cream) --- -->
+    <div class="legal-footer-bar">
+        <div class="container">
+            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
+            <div class="legal-footer-links">
+                <a href="#">Terms of Use</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Refunds</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const menuToggleIcon = menuToggle.querySelector('i');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    if (navMenu.classList.contains('active')) {
+                        menuToggleIcon.className = 'fas fa-times';
+                    } else {
+                        menuToggleIcon.className = 'fas fa-bars';
+                    }
+                });
+            }
+
+            // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window && revealElements.length > 0) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            } else {
+                revealElements.forEach(el => el.classList.add('active'));
+            }
+        });
+    </script>
+</body>
+</html>
