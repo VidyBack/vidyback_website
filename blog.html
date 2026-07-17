@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VidyBack Blog - Tips, strategies, and insights for ecommerce store owners who want to grow their social media presence without spending hours on content.">
+    <title>Blog | VidyBack – Ecommerce Social Media Tips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:title" content="Blog | VidyBack – Ecommerce Social Media Tips">
+    <meta property="og:description" content="Tips, strategies, and insights for ecommerce store owners who want to grow their social media presence without spending hours on content.">
+    <meta property="og:image" content="images/thumbnail.jpg">
+    <meta property="og:url" content="https://vidyback.com/blog.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | VidyBack – Ecommerce Social Media Tips">
+    <meta name="twitter:description" content="Tips, strategies, and insights for ecommerce store owners who want to grow their social media presence.">
+    <meta name="twitter:image" content="images/thumbnail.jpg">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+:root {
+    --color-bg: #FAF6F0;
+    --color-bg-alt: #ffffff;
+    --color-bg-dark: #204a6b;
+    --color-text-main: #2b3945;
+    --color-text-muted: #5e6d7a;
+    --color-text-dark: #121f2b;
+    --color-text-light: #ffffff;
+    --color-text-light-muted: #cbd5e1;
+    --color-gold: #f5a623;
+    --color-purple: #7a42f4;
+    --color-purple-hover: #5e28d9;
+    --color-text-accent: #1d5175;
+    --color-border: rgba(32, 74, 107, 0.08);
+    --grad-primary: linear-gradient(135deg, #7a42f4 0%, #a855f7 100%);
+    --color-accent-green: #10b981;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --shadow-sm: 0 1px 3px 0 rgba(32,74,107,0.03);
+    --shadow-md: 0 4px 6px -1px rgba(32,74,107,0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(32,74,107,0.08);
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background-color:var(--color-bg);color:var(--color-text-main);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:700;line-height:1.25;color:var(--color-text-dark);}
+a{color:inherit;text-decoration:none;transition:var(--transition-fast);}
+img{max-width:100%;height:auto;display:block;}
+ul{list-style:none;}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+/* Header */
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:var(--transition-normal);padding:20px 0;}
+header.scrolled{background:rgba(250,246,240,0.92);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border-bottom:1px solid var(--color-border);padding:14px 0;box-shadow:0 4px 30px rgba(0,0,0,0.02);}
+header .container{display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--color-text-dark);}
+.logo-icon{width:32px;height:32px;background:transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-text{color:#1d5175;}
+.logo-text span{color:#1d5175;}
+.nav-menu{display:flex;align-items:center;gap:36px;}
+.nav-link{font-size:0.95rem;font-weight:500;color:var(--color-text-muted);}
+.nav-link:hover,.nav-link.active{color:var(--color-text-dark);}
+.nav-actions{display:flex;align-items:center;gap:16px;}
+.menu-toggle{display:none;font-size:1.5rem;color:var(--color-text-dark);background:none;border:none;cursor:pointer;}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:var(--border-radius-md);font-weight:600;font-size:0.95rem;transition:var(--transition-normal);position:relative;overflow:hidden;cursor:pointer;border:none;font-family:inherit;}
+.btn-primary{background:var(--color-purple);color:#fff;box-shadow:0 4px 15px rgba(122,66,244,0.2);}
+.btn-primary:hover{background:var(--color-purple-hover);transform:translateY(-2px);box-shadow:0 8px 20px rgba(122,66,244,0.35);}
+.btn-primary span{display:inline-flex;align-items:center;gap:8px;}
+.btn-secondary{background:rgba(32,74,107,0.04);color:var(--color-text-dark);border:1px solid var(--color-border);}
+.btn-secondary:hover{background:rgba(32,74,107,0.08);transform:translateY(-2px);}
+.badge{display:inline-block;padding:6px 14px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;border-radius:50px;background:rgba(29,81,117,0.07);color:var(--color-text-accent);border:1px solid rgba(29,81,117,0.15);}
+
+/* Blog Hero */
+.blog-hero{padding:140px 0 70px;background:var(--color-bg);}
+.blog-hero-inner{max-width:700px;}
+.blog-hero h1{font-size:3rem;font-weight:800;letter-spacing:-0.02em;margin:16px 0 18px;color:var(--color-text-dark);}
+.blog-hero h1 span{color:var(--color-text-accent);}
+.blog-hero p{font-size:1.15rem;color:var(--color-text-muted);line-height:1.7;}
+
+/* Category Filter */
+.blog-categories{padding:32px 0 48px;background:var(--color-bg);}
+.cat-list{display:flex;gap:12px;flex-wrap:wrap;}
+.cat-btn{padding:8px 20px;border-radius:50px;font-size:0.85rem;font-weight:600;cursor:pointer;border:1px solid var(--color-border);background:var(--color-bg-alt);color:var(--color-text-muted);transition:var(--transition-fast);}
+.cat-btn:hover,.cat-btn.active{background:var(--color-purple);color:#fff;border-color:var(--color-purple);}
+
+/* Blog Grid */
+.blog-grid-section{padding:0 0 100px;background:var(--color-bg);}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+
+/* Blog Card */
+.blog-card{background:var(--color-bg-alt);border-radius:var(--border-radius-md);overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-sm);transition:var(--transition-normal);display:flex;flex-direction:column;}
+.blog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.blog-card-img{width:100%;height:220px;object-fit:cover;display:block;transition:transform 0.4s ease;}
+.blog-card:hover .blog-card-img{transform:scale(1.03);}
+.blog-card-img-wrap{overflow:hidden;position:relative;}
+.blog-card-cat-badge{position:absolute;top:16px;left:16px;padding:5px 12px;border-radius:50px;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#fff;}
+.cat-social{background:#7a42f4;}
+.cat-ecommerce{background:#1d5175;}
+.cat-automation{background:#10b981;}
+.blog-card-body{padding:24px;flex:1;display:flex;flex-direction:column;}
+.blog-card-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.blog-card-meta span{font-size:0.8rem;color:var(--color-text-muted);}
+.blog-card-meta i{font-size:0.75rem;color:var(--color-text-muted);}
+.blog-card h3{font-size:1.2rem;font-weight:700;color:var(--color-text-dark);margin-bottom:10px;line-height:1.35;}
+.blog-card p{font-size:0.9rem;color:var(--color-text-muted);line-height:1.65;flex:1;}
+.blog-card-footer{padding:0 24px 24px;display:flex;align-items:center;justify-content:space-between;}
+.read-more-btn{display:inline-flex;align-items:center;gap:8px;font-size:0.88rem;font-weight:600;color:var(--color-purple);transition:var(--transition-fast);}
+.read-more-btn i{transition:transform 0.2s ease;}
+.read-more-btn:hover{color:var(--color-purple-hover);}
+.read-more-btn:hover i{transform:translateX(4px);}
+.blog-read-time{font-size:0.8rem;color:var(--color-text-muted);}
+
+/* CTA Banner */
+.blog-cta{background:var(--color-bg-dark);padding:70px 0;}
+.blog-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.blog-cta h2{font-size:1.9rem;font-weight:800;color:var(--color-gold);margin-bottom:10px;}
+.blog-cta p{color:#cbd5e1;font-size:1rem;max-width:480px;}
+.blog-cta-actions{flex-shrink:0;}
+
+/* Footer */
+footer{background-color:var(--color-bg-dark);border-top:1px solid rgba(255,255,255,0.08);padding:80px 0 30px;color:#e2e8f0;}
+footer h4,footer .logo{color:#fff;}
+.footer-grid{display:grid;grid-template-columns:1.2fr 0.8fr 0.8fr 1.2fr;gap:60px;margin-bottom:60px;}
+.footer-brand{display:flex;flex-direction:column;gap:20px;}
+.footer-brand p{color:#cbd5e1;font-size:0.9rem;}
+.footer-app-links{display:flex;flex-direction:column;gap:12px;}
+.app-store-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 18px;width:170px;color:#fff;transition:var(--transition-fast);}
+.app-store-btn:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.15);transform:translateY(-2px);}
+.app-store-btn i{font-size:1.5rem;}
+.app-store-info{display:flex;flex-direction:column;line-height:1.2;}
+.app-store-label{font-size:0.6rem;color:#cbd5e1;text-transform:uppercase;}
+.app-store-name{font-size:0.85rem;font-weight:700;}
+.footer-links-col h4{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:24px;}
+.footer-links-col ul{display:flex;flex-direction:column;gap:14px;}
+.footer-links-col a{font-size:0.9rem;color:#cbd5e1;}
+.footer-links-col a:hover{color:#fff;padding-left:4px;}
+.footer-newsletter h4{font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:24px;}
+.footer-newsletter p{font-size:0.9rem;color:#cbd5e1;margin-bottom:20px;}
+.newsletter-form{display:flex;gap:10px;}
+.newsletter-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 16px;color:#fff;font-size:0.9rem;outline:none;transition:var(--transition-fast);}
+.newsletter-input:focus{border-color:var(--color-purple);}
+.newsletter-form .btn{padding:12px 20px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#cbd5e1;}
+.social-links{display:flex;gap:16px;}
+.social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
+.social-link:hover{background:var(--color-purple);color:#fff;border-color:transparent;transform:translateY(-3px);}
+.legal-footer-bar{background-color:var(--color-bg);border-top:1px solid var(--color-border);padding:24px 0;text-align:center;font-size:0.85rem;color:var(--color-text-muted);}
+
+/* Responsive */
+@media(max-width:1024px){.blog-grid{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:repeat(2,1fr);gap:40px;}}
+@media(max-width:768px){
+    .blog-hero{padding:120px 0 50px;}
+    .blog-hero h1{font-size:2.2rem;}
+    .blog-grid{grid-template-columns:1fr;}
+    .blog-cta-inner{flex-direction:column;text-align:center;}
+    .nav-menu{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:100px 40px;gap:30px;transition:var(--transition-normal);border-left:1px solid var(--color-border);z-index:999;}
+    .nav-menu.active{right:0;}
+    .menu-toggle{display:block;z-index:1000;}
+    .nav-actions{display:none;}
+    .footer-grid{grid-template-columns:1fr;gap:30px;}
+    .footer-bottom{flex-direction:column;gap:20px;text-align:center;}
+}
+    </style>
+    <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_sfaymNHRExbDmNBLptU7ghkk9UXTyWuk9YNAjxUExpnB', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only',
+    })
+    </script>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="platforms.html" class="nav-link">Platforms</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-secondary">Login</a>
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-inner">
+                <span class="badge">VidyBack Blog</span>
+                <h1>Grow Your Store with <span>Smarter Social</span></h1>
+                <p>Real tips for ecommerce store owners who want more visibility, more sales, and less time glued to their phone trying to create content.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="cat-list">
+                <button class="cat-btn active" data-cat="all">All Posts</button>
+                <button class="cat-btn" data-cat="social">Social Media</button>
+                <button class="cat-btn" data-cat="ecommerce">Ecommerce Growth</button>
+                <button class="cat-btn" data-cat="automation">Automation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid-section">
+        <div class="container">
+            <div class="blog-grid">
+
+                <!-- Card 1 -->
+                <article class="blog-card" data-cat="social">
+                    <div class="blog-card-img-wrap">
+                        <img class="blog-card-img" src="https://images.pexels.com/photos/7970817/pexels-photo-7970817.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Person reviewing social media strategy on laptop" loading="lazy">
+                        <span class="blog-card-cat-badge cat-social">Social Media</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> &nbsp;June 12, 2025</span>
+                            <span>·</span>
+                            <span>By VidyBack Team</span>
+                        </div>
+                        <h3>Why Your Shopify Store Isn't Getting Sales From Instagram (And What to Actually Do About It)</h3>
+                        <p>You set up the store. You made the products look great. You posted a few times on Instagram. And then... nothing. Sound familiar? The problem usually isn't your product.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="blog-post-1.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> &nbsp;6 min read</span>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="blog-card" data-cat="ecommerce">
+                    <div class="blog-card-img-wrap">
+                        <img class="blog-card-img" src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Small business owner packing orders" loading="lazy">
+                        <span class="blog-card-cat-badge cat-ecommerce">Ecommerce Growth</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> &nbsp;June 28, 2025</span>
+                            <span>·</span>
+                            <span>By VidyBack Team</span>
+                        </div>
+                        <h3>How Small Ecommerce Stores Can Compete With Big Brands on Social Media</h3>
+                        <p>Big brands have entire marketing teams. You have a laptop, a coffee, and about 45 minutes between packing orders. Here's how to close that gap.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="blog-post-2.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> &nbsp;7 min read</span>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="blog-card" data-cat="automation">
+                    <div class="blog-card-img-wrap">
+                        <img class="blog-card-img" src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Team planning content calendar" loading="lazy">
+                        <span class="blog-card-cat-badge cat-automation">Automation</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> &nbsp;July 10, 2025</span>
+                            <span>·</span>
+                            <span>By VidyBack Team</span>
+                        </div>
+                        <h3>Stop Spending 3 Hours a Week on Social Media Posts. There's a Better Way.</h3>
+                        <p>Most store owners spend more time making content than actually running their business. This post breaks down what content posting really costs you and what you can do differently.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="blog-post-3.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> &nbsp;5 min read</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="blog-cta">
+        <div class="container">
+            <div class="blog-cta-inner">
+                <div>
+                    <h2>Ready to Put Your Posting on Autopilot?</h2>
+                    <p>Connect your store, pick your templates, and let VidyBack handle the content. Your products deserve to be seen.</p>
+                </div>
+                <div class="blog-cta-actions">
+                    <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get Started Free <i class="fa-solid fa-rocket"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color:white;">Vidy<span style="color:white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter to get the latest ecommerce and social media tips straight to your inbox.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();alert('Subscribed!');">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Newsletter email">
+                        <button type="submit" class="btn btn-primary" aria-label="Subscribe"><span>Go</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color:var(--color-gold);font-size:1.5rem;margin-bottom:6px;">Connect With Us</h3>
+                    <p style="color:#cbd5e1;font-size:0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/vidyback-web-app-9791b2227/" target="_blank" rel="noopener" class="social-link" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="legal-footer-bar">
+        <div class="container">
+            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+    // Header scroll
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.querySelector('i').className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+    });
+    navMenu.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.querySelector('i').className = 'fas fa-bars';
+    }));
+    // Category filter
+    const catBtns = document.querySelectorAll('.cat-btn');
+    const cards = document.querySelectorAll('.blog-card');
+    catBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            catBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.cat;
+            cards.forEach(card => {
+                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+            });
+        });
+    });
+    </script>
+</body>
+</html>
