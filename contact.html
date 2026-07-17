@@ -293,7 +293,7 @@
     <meta property="og:site_name" content="VidyBack">
     <meta property="og:title" content="VidyBack Contact | Get In Touch With Us">
     <meta property="og:description" content="Contact VidyBack - Message us your queries and our team will get back to you as soon as possible.">
-    <meta property="og:image" content="images/favicon.png">
+    <meta property="og:image" content="images/thumbnail.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://vidyback.com/contact.html">
@@ -303,7 +303,7 @@
     <meta name="twitter:site" content="@vidyback">
     <meta name="twitter:title" content="VidyBack Contact | Get In Touch With Us">
     <meta name="twitter:description" content="Contact VidyBack - Message us your queries and our team will get back to you as soon as possible.">
-    <meta name="twitter:image" content="images/favicon.png">
+    <meta name="twitter:image" content="images/thumbnail.jpg">
     <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
     posthog.init('phc_sfaymNHRExbDmNBLptU7ghkk9UXTyWuk9YNAjxUExpnB', {
@@ -426,7 +426,11 @@
                     </div>
 
                     <!-- The Form -->
-                    <form id="contactForm">
+                    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - VidyBack">
+                        <!-- Spam protection -->
+                        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
                         <div class="form-row">
                             <div class="form-group">
@@ -554,7 +558,7 @@
                     </a>
                     <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
                     <div class="footer-app-links">
-                        <a href="#" class="app-store-btn">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
                             <i class="fa-brands fa-google-play"></i>
                             <div class="app-store-info"><span class="app-store-label">Get it on</span><span class="app-store-name">Google Play</span></div>
                         </a>
@@ -563,8 +567,8 @@
                 <div class="footer-links-col">
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="features.html">Features</a></li>
                         <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="features.html">Features</a></li>
                         <li><a href="index.html#content-ideas">Content Ideas</a></li>
                         <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="faq.html">FAQ</a></li>
@@ -619,57 +623,49 @@
                 menuIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
             });
 
-            // --- Contact Form Submission (sends via mailto to kapil@kuchnaya.com) ---
+            // --- Contact Form Submission via Netlify Forms → contact@vidyback.com ---
             const contactForm = document.getElementById('contactForm');
             const formSuccess = document.getElementById('formSuccess');
             const sendAnother = document.getElementById('sendAnother');
+            const submitBtn   = contactForm.querySelector('.btn-submit');
 
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                const firstName = document.getElementById('firstName').value.trim();
-                const lastName  = document.getElementById('lastName').value.trim();
-                const email     = document.getElementById('email').value.trim();
-                const phone     = document.getElementById('phone').value.trim();
-                const subject   = document.getElementById('subject').value;
-                const message   = document.getElementById('message').value.trim();
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
 
-                // Build the email body
-                const body = [
-                    'New Contact Form Submission - VidyBack',
-                    '='.repeat(40),
-                    '',
-                    'Name    : ' + firstName + ' ' + lastName,
-                    'Email   : ' + email,
-                    'Phone   : ' + (phone || 'Not provided'),
-                    'Subject : ' + subject,
-                    '',
-                    'Message:',
-                    message,
-                    '',
-                    '='.repeat(40),
-                    'Sent from VidyBack Contact Page'
-                ].join('\n');
+                const formData = new FormData(contactForm);
 
-                const mailtoLink = 'mailto:kapil@kuchnaya.com'
-                    + '?subject=' + encodeURIComponent('[VidyBack Contact] ' + subject + ' - ' + firstName + ' ' + lastName)
-                    + '&body=' + encodeURIComponent(body);
+                try {
+                    const response = await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
 
-                // Open mail client
-                window.location.href = mailtoLink;
-
-                // Show success state
-                contactForm.style.display = 'none';
-                formSuccess.classList.add('show');
-
-                // Scroll success into view
-                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    if (response.ok) {
+                        contactForm.style.display = 'none';
+                        formSuccess.classList.add('show');
+                        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert('Something went wrong. Please try again or email us at contact@vidyback.com');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                    }
+                } catch (err) {
+                    alert('Network error. Please check your connection and try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+                }
             });
 
             sendAnother.addEventListener('click', () => {
                 contactForm.reset();
                 contactForm.style.display = 'block';
                 formSuccess.classList.remove('show');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
             });
 
             // --- Scroll Reveal ---

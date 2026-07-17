@@ -352,8 +352,8 @@ header .container {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 40px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
     align-items: center;
 }
 
@@ -418,7 +418,6 @@ header .container {
     display: flex;
     justify-content: center;
     position: relative;
-    padding-right: 80px;
 }
 
 .phone-mockup-wrapper {
@@ -748,7 +747,6 @@ header .container {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
 }
 
 .laptop-mockup-wrapper {
@@ -1956,193 +1954,6 @@ footer h4, footer .logo {
     }
 }
 
-/* ── Dual Screens Wrapper ── */
-.dual-screens-wrapper {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* ── Browser wrap: holds desktop + overlaid phone ── */
-.browser-wrap {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 520px;
-    /* extra bottom space so phone shadow doesn't clip */
-    padding-bottom: 30px;
-}
-
-/* ── Landscape Desktop Browser ── */
-.browser-chrome {
-    width: 100%;
-    background: #1e293b;
-    border-radius: 10px 10px 0 0;
-    padding: 7px 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 5px solid #1e293b;
-    border-bottom: none;
-    box-sizing: border-box;
-}
-.browser-dots { display: flex; gap: 5px; flex-shrink: 0; }
-.browser-dots span { width: 8px; height: 8px; border-radius: 50%; display: block; }
-.browser-address {
-    flex: 1;
-    background: rgba(255,255,255,0.07);
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 0.6rem;
-    color: #94a3b8;
-    text-align: center;
-    font-family: var(--font-body);
-}
-.browser-body {
-    width: 100%;
-    height: 300px;
-    background: #070913;
-    border: 5px solid #1e293b;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    display: flex;
-    flex-direction: column;
-    padding: 14px 14px 12px;
-    overflow: hidden;
-    box-sizing: border-box;
-    box-shadow: 0 20px 50px -10px rgba(32,74,107,0.3), 0 8px 20px rgba(0,0,0,0.12);
-}
-.browser-app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.bah-title { font-size: 0.85rem; font-weight: 700; color: #fff; font-family: var(--font-heading); }
-.bah-status { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
-.browser-app-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-    overflow: hidden;
-}
-.browser-media {
-    flex: 1;
-    border-radius: 10px;
-    background: #0c0f1e;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.05);
-    min-height: 0;
-}
-.browser-play {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--color-purple);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 0.85rem;
-    box-shadow: 0 4px 15px rgba(122,66,244,0.4);
-    animation: pulseGlow 2s infinite;
-}
-.browser-media-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 8px 10px;
-}
-.browser-media-overlay span { font-size: 0.7rem; font-weight: 600; color: #fff; font-family: var(--font-body); }
-.browser-details { display: flex; flex-direction: column; gap: 5px; }
-.browser-progress-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-.browser-progress-fill { width: 65%; height: 100%; background: var(--color-purple); }
-.browser-meta { font-size: 0.68rem; color: #94a3b8; display: flex; justify-content: space-between; font-family: var(--font-body); }
-.browser-controls { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
-.browser-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); padding: 6px; border-radius: 8px; font-size: 0.6rem; text-align: center; font-weight: 600; color: #94a3b8; font-family: var(--font-body); }
-.browser-btn.active { background: var(--color-purple); border-color: transparent; color: #fff; }
-
-/* Monitor stand */
-.monitor-neck { width: 28px; height: 18px; background: #1e293b; }
-.monitor-base {
-    width: 90px; height: 7px;
-    background: #1e293b;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 24px rgba(32,74,107,0.25), 0 2px 8px rgba(0,0,0,0.12);
-}
-/* Ground shadow ellipse under desktop */
-.browser-wrap::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 65%;
-    height: 14px;
-    background: radial-gradient(ellipse, rgba(32,74,107,0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* ── Widget on desktop browser — top-left ── */
-.dw-catalog {
-    position: absolute;
-    top: 24px;
-    left: -20px;
-    animation: floatAnimation 6s ease-in-out infinite;
-    animation-delay: 0s;
-    z-index: 6;
-}
-
-/* ── Widgets on phone overlay ── */
-.pw-caption {
-    position: absolute;
-    top: 50px;
-    right: -20px;
-    animation: floatAnimation 6s ease-in-out infinite;
-    animation-delay: 1.5s;
-    z-index: 15;
-}
-.pw-engagement {
-    position: absolute;
-    bottom: 100px;
-    left: -20px;
-    animation: floatAnimation 6s ease-in-out infinite;
-    animation-delay: 3s;
-    z-index: 15;
-}
-
-/* ── Phone overlaid: absolute, bottom-right of browser-wrap ── */
-.phone-overlay {
-    position: absolute !important;
-    bottom: -60px;
-    right: -110px;
-    width: 220px !important;
-    height: 440px !important;
-    z-index: 10;
-    filter: drop-shadow(0 24px 20px rgba(32,74,107,0.28)) drop-shadow(-6px 10px 12px rgba(0,0,0,0.15));
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-    .browser-wrap { max-width: 440px; }
-    .browser-body { height: 260px; }
-    .phone-overlay { width: 180px !important; height: 360px !important; right: -80px; bottom: -40px; }
-}
-@media (max-width: 768px) {
-    .browser-wrap { max-width: 340px; }
-    .browser-body { height: 220px; }
-    .phone-overlay { width: 140px !important; height: 280px !important; right: -50px; bottom: -30px; }
-}
-
     </style>
     
     <!-- FontAwesome for Icons -->
@@ -2245,106 +2056,86 @@ footer h4, footer .logo {
                     </div>
                 </div>
                 
-                <!-- Hero Right Visual (Landscape Desktop + Phone overlay) -->
+                <!-- Hero Right Visual (CSS Phone Mockup) -->
                 <div class="hero-visual reveal active">
-                    <div class="dual-screens-wrapper">
-
-                        <!-- ── Landscape Desktop Browser ── -->
-                        <div class="browser-wrap">
-                            <div class="browser-chrome">
-                                <div class="browser-dots">
-                                    <span style="background:#ff5f57;"></span>
-                                    <span style="background:#febc2e;"></span>
-                                    <span style="background:#28c840;"></span>
+                    <div class="phone-mockup-wrapper">
+                        <div class="phone-glow"></div>
+                        <div class="phone-mockup">
+                            <div class="phone-speaker"></div>
+                            <div class="phone-camera"></div>
+                            
+                            <div class="phone-screen">
+                                <div class="app-header">
+                                    <div class="app-title">VidyBack Preview</div>
+                                    <div class="app-status" title="Active catalog sync"></div>
                                 </div>
-                                <div class="browser-address">app.vidyback.com</div>
-                            </div>
-                            <div class="browser-body">
-                                <div class="browser-app-header">
-                                    <div class="bah-title">VidyBack Preview</div>
-                                    <div class="bah-status"></div>
-                                </div>
-                                <div class="browser-app-card">
-                                    <div class="browser-media">
-                                        <img src="images/t-shirt.jpg" alt="Product" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-                                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 60%,transparent 100%);"></div>
-                                        <div class="browser-play"><i class="fa-solid fa-play"></i></div>
-                                        <div class="browser-media-overlay"><span>Minimalist Chronograph Series</span></div>
+                                
+                                <div class="app-content-card">
+                                    <div class="app-media-canvas">
+                                        <!-- Product Image Background -->
+                                        <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                                            <img src="images/t-shirt.jpg" alt="Cotton T-Shirt" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+                                            <!-- Dark overlay so play button stays visible -->
+                                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);"></div>
+                                            <div class="app-media-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                                <i class="fa-solid fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="app-media-overlay">
+                                            <div class="app-video-title">Minimalist Chronograph Series</div>
+                                        </div>
                                     </div>
-                                    <div class="browser-details">
-                                        <div class="browser-progress-bar"><div class="browser-progress-fill"></div></div>
-                                        <div class="browser-meta">
+                                    
+                                    <div class="app-card-details">
+                                        <div class="app-progress-bar">
+                                            <div class="app-progress-fill"></div>
+                                        </div>
+                                        <div class="app-meta-text">
                                             <span>Autogenerating Post...</span>
                                             <span>65% done</span>
                                         </div>
                                     </div>
-                                    <div class="browser-controls">
-                                        <div class="browser-btn active">Templates</div>
-                                        <div class="browser-btn">Captions</div>
-                                        <div class="browser-btn">Music</div>
+                                    
+                                    <div class="app-controls">
+                                        <div class="app-btn-mini active">Templates</div>
+                                        <div class="app-btn-mini">Captions</div>
+                                        <div class="app-btn-mini">Music</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="monitor-neck"></div>
-                            <div class="monitor-base"></div>
-
-                            <!-- Widget on desktop: Catalog Connected — top-left of browser -->
-                            <div class="floating-widget dw-catalog">
-                                <div class="widget-icon w-icon-green"><i class="fa-solid fa-arrows-spin"></i></div>
-                                <div class="widget-info">
-                                    <span class="widget-label">Catalog Connected</span>
-                                    <span class="widget-value">Shopify Sync Active</span>
-                                </div>
-                            </div>
-
-                            <!-- ── Phone overlaid on bottom-right of desktop ── -->
-                            <div class="phone-mockup-wrapper phone-overlay">
-                                <div class="phone-glow"></div>
-                                <div class="phone-mockup">
-                                    <div class="phone-speaker"></div>
-                                    <div class="phone-camera"></div>
-                                    <div class="phone-screen">
-                                        <div class="app-header">
-                                            <div class="app-title">VidyBack Preview</div>
-                                            <div class="app-status"></div>
-                                        </div>
-                                        <div class="app-content-card">
-                                            <div class="app-media-canvas" style="flex:1;">
-                                                <div style="width:100%;height:100%;position:relative;overflow:hidden;">
-                                                    <img src="images/t-shirt.jpg" alt="Cotton T-Shirt" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-                                                    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 60%,transparent 100%);"></div>
-                                                    <div class="app-media-play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-                                                        <i class="fa-solid fa-play"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="app-media-overlay">
-                                                    <div class="app-video-title">Minimalist Chronograph Series</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget on phone: Caption Generated top-right -->
-                                <div class="floating-widget pw-caption">
-                                    <div class="widget-icon w-icon-purple"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                                    <div class="widget-info">
-                                        <span class="widget-label">Caption Generated</span>
-                                        <span class="widget-value">"Level up your style..."</span>
-                                    </div>
-                                </div>
-                                <!-- Widget on phone: Engagement Lift bottom-left -->
-                                <div class="floating-widget pw-engagement">
-                                    <div class="widget-icon w-icon-cyan"><i class="fa-solid fa-chart-line"></i></div>
-                                    <div class="widget-info">
-                                        <span class="widget-label">Engagement Lift</span>
-                                        <span class="widget-value">+240% reach</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end phone overlay -->
-
                         </div>
-
+                        
+                        <!-- Floating Interactive Widgets -->
+                        <div class="floating-widget widget-1">
+                            <div class="widget-icon w-icon-purple">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div class="widget-info">
+                                <span class="widget-label">Caption Generated</span>
+                                <span class="widget-value">"Level up your style..."</span>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-widget widget-2">
+                            <div class="widget-icon w-icon-cyan">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div class="widget-info">
+                                <span class="widget-label">Engagement Lift</span>
+                                <span class="widget-value">+240% reach</span>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-widget widget-3">
+                            <div class="widget-icon w-icon-green">
+                                <i class="fa-solid fa-arrows-spin"></i>
+                            </div>
+                            <div class="widget-info">
+                                <span class="widget-label">Catalog Connected</span>
+                                <span class="widget-value">Shopify Sync Active</span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 
