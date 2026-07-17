@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Turn your Shopify store catalog into high-converting video ads, captions, and posts in seconds. Auto-publish directly to Instagram, Facebook, TikTok, and more.">
-    <title>Shopify Integration | Auto-Post Products to Social Media | VidyBack</title>
+    <meta name="description" content="VidyBack Platforms – Connect your ecommerce store and social media channels to auto-generate and schedule posts.">
+    <title>Platforms | VidyBack</title>
 
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -62,10 +61,10 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             border-radius: 50px;
-            background: rgba(16, 185, 129, 0.08);
-            color: #059669;
-            border: 1px solid rgba(16, 185, 129, 0.15);
-            margin-bottom: 18px;
+            background: rgba(29, 81, 117, 0.07);
+            color: var(--color-text-accent);
+            border: 1px solid rgba(29, 81, 117, 0.15);
+            margin-bottom: 14px;
         }
 
         /* ── BUTTONS ── */
@@ -90,7 +89,7 @@
         .btn-light-outline:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; transform: translateY(-2px); }
         .btn-light-outline span { display: inline-flex; align-items: center; gap: 8px; }
 
-        /* ── HEADER ── */
+        /* ── HEADER (exact from features.html) ── */
         header {
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             transition: var(--transition-normal);
@@ -100,7 +99,7 @@
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--color-border);
         }
-header .container { display: flex; align-items: center; justify-content: space-between; position: relative; }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
         .logo-icon { width: 32px; height: 32px; background: transparent; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
         .logo-text { color: #1d5175; }
@@ -110,271 +109,187 @@ header .container { display: flex; align-items: center; justify-content: space-b
         .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
         .nav-actions { display: flex; align-items: center; gap: 16px; }
         .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); }
-        /* Back Button */
-        .hero-back-btn { display: block; color: var(--color-text-accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 32px; transition: var(--transition-fast); width: fit-content; }
-        .hero-back-btn:hover { color: var(--color-text-dark); }
-        .hero-back-btn i { margin-right: 6px; }
-        
 
-
-
-
-
-        /* ── HERO SECTION ── */
-        .hero-section {
-            padding-top: 170px;
-            padding-bottom: 90px;
-            background: radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.04) 0%, rgba(250,246,240,0) 60%);
+        /* ── HERO ── */
+        .integrations-hero {
+            padding-top: 140px;
+            padding-bottom: 30px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(122,66,244,0.05) 0%, rgba(250,246,240,0) 60%);
         }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .hero-content h1 {
-            font-size: 3.3rem;
+        .integrations-hero h1 {
+            font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin-bottom: 22px;
-            line-height: 1.2;
+            margin-bottom: 20px;
             color: var(--color-text-dark);
         }
-        .hero-content h1 span {
-            color: var(--color-text-accent);
-        }
-        .hero-content p {
-            font-size: 1.15rem;
+        .integrations-hero h1 span { color: var(--color-text-accent); }
+        .integrations-hero p {
+            font-size: 1.25rem;
             color: var(--color-text-muted);
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 580px;
+            max-width: 680px;
+            margin: 0 auto 36px;
         }
-        .hero-bullets {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 36px;
+        .hero-stats {
+            display: flex; justify-content: center; gap: 60px;
+            flex-wrap: wrap; margin-top: 10px;
         }
-        .hero-bullet-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 500;
-            color: var(--color-text-dark);
-            font-size: 1.05rem;
-        }
-        .hero-bullet-item i {
-            color: var(--color-accent-green);
-            font-size: 1.15rem;
-        }
-
-        /* ── VIDEO PLAYER CONTAINER ── */
-        .hero-video-container {
-            position: relative;
-            width: 100%;
-            border-radius: var(--border-radius-lg);
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 12px;
-            box-shadow: 0 30px 60px -15px rgba(32, 74, 107, 0.1);
-            transition: var(--transition-normal);
-            z-index: 10;
-        }
-        .hero-video-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 40px 80px -15px rgba(122, 66, 244, 0.18);
-            background: rgba(255, 255, 255, 0.6);
-        }
-        .hero-video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-        .hero-video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        .hero-glow-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle at center, rgba(122, 66, 244, 0.06) 0%, transparent 60%);
-            z-index: -1;
-            pointer-events: none;
-        }
+        .hero-stat .num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--color-text-dark); }
+        .hero-stat .lbl { font-size: 0.8rem; color: var(--color-text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
 
         /* ── SECTION HEADER ── */
-        .section-header {
+        .section-header-integrations {
             text-align: center;
             max-width: 680px;
             margin: 0 auto 56px;
         }
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: var(--color-text-dark);
-        }
-        .section-header h2 span { color: var(--color-text-accent); }
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--color-text-muted);
-            line-height: 1.7;
-        }
+        .section-header-integrations h2 { font-size: 2.3rem; font-weight: 800; margin-bottom: 14px; color: var(--color-text-dark); }
+        .section-header-integrations h2 span { color: var(--color-text-accent); }
+        .section-header-integrations p { font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.7; }
 
-        /* ── FEATURES SECTION ── */
-        .features-section {
-            background-color: var(--color-bg);
-            border-top: 1px solid var(--color-border);
-        }
-        .features-grid {
+        /* ── ECOMMERCE INTEGRATION CARDS ── */
+        .integration-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
         }
-        .feature-card {
+
+        .integration-card {
             background: var(--color-bg-alt);
             border: 1px solid var(--color-border);
             border-radius: var(--border-radius-lg);
-            padding: 36px 28px;
+            padding: 32px 28px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
             transition: var(--transition-normal);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
         }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(122, 66, 244, 0.18);
-        }
-        .feature-img-wrap {
-            height: 180px;
-            border-radius: var(--border-radius-md);
-            background: linear-gradient(135deg, rgba(122, 66, 244, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%);
-            border: 1px solid rgba(32, 74, 107, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-        .feature-img-wrap img {
-            max-height: 230px;
-            max-width: 100%;
-            height: auto;
-            width: auto;
-            object-fit: contain;
-            transition: var(--transition-normal);
-        }
-        .feature-card:hover .feature-img-wrap img {
-            transform: scale(1.06) translateY(-2px);
-        }
-        .feature-body {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .feature-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--color-text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .feature-desc {
-            font-size: 0.92rem;
-            color: var(--color-text-muted);
-            line-height: 1.65;
-        }
-
-        /* ── TEMPLATES SECTION ── */
-        .templates-section {
-            background-color: var(--color-bg-alt);
-            border-top: 1px solid var(--color-border);
-            padding: 95px 0;
-        }
-        .templates-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-        }
-        .template-card {
-            border-radius: var(--border-radius-md);
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 9 / 16;
-            background: #f8fafc;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
-            transition: var(--transition-normal);
-        }
-        .template-card img, .template-card video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-slow);
-        }
-        .template-card:hover {
-            transform: scale(1.04) translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(122, 66, 244, 0.2);
-        }
-        .template-card:hover img {
-            transform: scale(1.06);
-        }
-        .template-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(32, 74, 107, 0) 40%, rgba(32, 74, 107, 0.9) 100%);
+        .integration-card::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--grad-primary);
             opacity: 0;
             transition: var(--transition-normal);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 20px 15px;
-            z-index: 2;
         }
-        .template-card:hover .template-overlay {
-            opacity: 1;
+        .integration-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(122,66,244,0.18);
         }
-        .use-template-btn {
-            background: var(--color-purple);
-            color: #ffffff;
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 12px rgba(122, 66, 244, 0.35);
-            transform: translateY(10px);
-            transition: var(--transition-normal);
+        .integration-card:hover::after { opacity: 1; }
+
+        .card-logo-wrap {
+            width: 68px; height: 68px;
+            border-radius: var(--border-radius-md);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.07);
+            flex-shrink: 0;
+            background: #f5f5f5;
         }
-        .template-card:hover .use-template-btn {
-            transform: translateY(0);
+        .card-logo-wrap img { width: 100%; height: 100%; object-fit: contain; }
+
+        .card-body { flex: 1; }
+        .card-name {
+            font-family: var(--font-heading);
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--color-text-dark);
+            margin-bottom: 8px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--color-accent-green);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+            flex-shrink: 0;
+        }
+        .card-desc { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.65; }
+
+        .card-footer-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border);
+        }
+        .card-tag {
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+            padding: 4px 10px; border-radius: 50px;
+            background: rgba(29,81,117,0.07); color: var(--color-text-accent);
+        }
+        .card-arrow {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(122,66,244,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--color-purple); font-size: 0.75rem;
+            transition: var(--transition-fast);
+        }
+        .integration-card:hover .card-arrow { background: var(--color-purple); color: #fff; }
+
+        /* ── SOCIAL CARDS ── */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
-        /* ── CTA SECTION ── */
+        .social-card {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: 28px 30px;
+            display: flex; align-items: center; gap: 22px;
+            transition: var(--transition-normal);
+            position: relative; overflow: hidden;
+        }
+        .social-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; bottom: 0;
+            width: 4px; opacity: 0;
+            transition: var(--transition-normal);
+        }
+        .social-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(122,66,244,0.12); }
+        .social-card:hover::before { opacity: 1; }
+
+        .sc-facebook::before  { background: #1877f2; }
+        .sc-instagram::before { background: linear-gradient(180deg,#f58529,#dd2a7b,#8134af); }
+        .sc-youtube::before   { background: #ff0000; }
+        .sc-tiktok::before    { background: #010101; }
+        .sc-pinterest::before { background: #e60023; }
+        .sc-linkedin::before  { background: #0a66c2; }
+
+        .social-icon-wrap {
+            width: 58px; height: 58px;
+            border-radius: var(--border-radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; flex-shrink: 0;
+            transition: var(--transition-normal);
+        }
+        .sc-facebook  .social-icon-wrap { background: rgba(24,119,242,0.1);  color: #1877f2; }
+        .sc-instagram .social-icon-wrap { background: rgba(221,42,123,0.1);  color: #dd2a7b; }
+        .sc-youtube   .social-icon-wrap { background: rgba(255,0,0,0.1);     color: #ff0000; }
+        .sc-tiktok    .social-icon-wrap { background: rgba(1,1,1,0.06);      color: #010101; }
+        .sc-pinterest .social-icon-wrap { background: rgba(230,0,35,0.1);    color: #e60023; }
+        .sc-linkedin  .social-icon-wrap { background: rgba(10,102,194,0.1);  color: #0a66c2; }
+        .social-card:hover .social-icon-wrap { transform: scale(1.1); }
+
+        .social-body { flex: 1; }
+        .social-name {
+            font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
+            color: var(--color-text-dark); margin-bottom: 6px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .social-desc { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.65; }
+        .social-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+        .social-tag {
+            font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+            padding: 3px 9px; border-radius: 50px;
+            background: rgba(29,81,117,0.06); color: var(--color-text-accent);
+        }
+
+        /* ── CTA (exact from features.html) ── */
         .cta-section {
             background: var(--color-bg-dark);
             padding: 100px 0;
@@ -394,7 +309,7 @@ header .container { display: flex; align-items: center; justify-content: space-b
         .cta-box p { font-size: 1.125rem; color: var(--color-text-light-muted); max-width: 560px; margin: 0 auto 48px; line-height: 1.7; }
         .cta-box .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-        /* ── FOOTER ── */
+        /* ── FOOTER (exact from features.html) ── */
         footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
         footer h4, footer .logo { color: #ffffff; }
         .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr; gap: 60px; margin-bottom: 60px; }
@@ -426,39 +341,22 @@ header .container { display: flex; align-items: center; justify-content: space-b
         .legal-footer-links a { color: var(--color-text-muted); }
         .legal-footer-links a:hover { color: var(--color-text-dark); }
 
-        /* ── REVEAL ANIMATION ── */
+        /* ── REVEAL ANIMATION (exact from features.html) ── */
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* ── RESPONSIVE DESIGN ── */
+        /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .features-grid { gap: 20px; }
-        }
-        @media (max-width: 991px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
-            .hero-bullets { align-items: center; }
-            .features-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
-            .templates-grid {
-                display: flex;
-                overflow-x: auto;
-                padding-bottom: 20px;
-                scroll-snap-type: x mandatory;
-                gap: 16px;
-                scroll-padding: 0 24px;
-            }
-            .template-card {
-                flex: 0 0 210px;
-                scroll-snap-align: start;
-            }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .integrations-hero h1 { font-size: 3rem; }
         }
         @media (max-width: 768px) {
             section { padding: 60px 0; }
-            .hero-section { padding-top: 140px; padding-bottom: 60px; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .section-header h2 { font-size: 2rem; }
+            .integrations-hero h1 { font-size: 2.3rem; }
+            .integrations-hero p { font-size: 1.05rem; }
+            .integration-grid { grid-template-columns: repeat(2, 1fr); }
+            .social-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
             .nav-menu {
                 position: fixed; top: 0; right: -100%;
                 width: 280px; height: 100vh;
@@ -472,12 +370,13 @@ header .container { display: flex; align-items: center; justify-content: space-b
             .nav-menu.active { right: 0; }
             .menu-toggle { display: block; z-index: 1000; }
             .cta-box h2 { font-size: 2.2rem; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .hero-stats { gap: 32px; }
         }
         @media (max-width: 520px) {
+            .integration-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
+            .social-card { flex-direction: column; align-items: flex-start; gap: 16px; }
             .legal-footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
-            .hero-content h1 { font-size: 1.9rem; }
         }
     </style>
     <!-- Google Analytics -->
@@ -496,18 +395,18 @@ header .container { display: flex; align-items: center; justify-content: space-b
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp, Slack, Teams, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="VidyBack">
-    <meta property="og:title" content="Shopify Integration | Auto-Post Products to Social Media | VidyBack">
-    <meta property="og:description" content="Turn your Shopify store catalog into high-converting video ads, captions, and posts in seconds. Auto-publish directly to Instagram, Facebook, TikTok, and more.">
+    <meta property="og:title" content="Platforms | VidyBack">
+    <meta property="og:description" content="VidyBack Platforms – Connect your ecommerce store and social media channels to auto-generate and schedule posts.">
     <meta property="og:image" content="images/favicon.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://vidyback.com/shopify.html">
+    <meta property="og:url" content="https://vidyback.com/platforms.html">
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@vidyback">
-    <meta name="twitter:title" content="Shopify Integration | Auto-Post Products to Social Media | VidyBack">
-    <meta name="twitter:description" content="Turn your Shopify store catalog into high-converting video ads, captions, and posts in seconds. Auto-publish directly to Instagram, Facebook, TikTok, and more.">
+    <meta name="twitter:title" content="Platforms | VidyBack">
+    <meta name="twitter:description" content="VidyBack Platforms – Connect your ecommerce store and social media channels to auto-generate and schedule posts.">
     <meta name="twitter:image" content="images/favicon.png">
     <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -520,10 +419,10 @@ header .container { display: flex; align-items: center; justify-content: space-b
 </head>
 <body>
 
-    <!-- ── HEADER ── -->
+    <!-- ── HEADER (exact from features.html) ── -->
     <header>
         <div class="container">
-<a href="index.html" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <img src="images/logo.png" alt="VidyBack Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
                 </div>
@@ -550,40 +449,226 @@ header .container { display: flex; align-items: center; justify-content: space-b
         </div>
     </header>
 
-    <!-- ── HERO SECTION ── -->
-    <section class="hero-section">
+    <!-- ── HERO ── -->
+    <section class="integrations-hero">
         <div class="container">
-            <div class="hero-grid">
-                
-                <!-- Left Content -->
-                <div class="hero-content">
-                    <a href="platforms.html" class="hero-back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Platforms</a>
-                    <span class="badge">Shopify Autopilot</span>
-                    <h1>Turn Your Shopify Products into Auto-Posting Social Media Content</h1>
-                    <p>Create videos, captions, and posts in seconds and automatically publish them to Instagram, Facebook, and more.</p>
-                    
-                    <div class="hero-bullets">
-                        <div class="hero-bullet-item">
-                            <i class="fa-solid fa-circle-check"></i> No design skills needed
+            <span class="badge">Platforms</span>
+            <h1>Connect Everything.<br><span>Post Everywhere.</span></h1>
+            <p>Easily integrate social media accounts and ecommerce shops within VidyBack and create ads, posts and schedule them simultaneously.</p>
+        </div>
+    </section>
+
+    <!-- ── ECOMMERCE STORES ── -->
+    <section style="background: var(--color-bg); padding-top: 40px;">
+        <div class="container">
+            <div class="section-header-integrations reveal">
+                <span class="badge">Ecommerce Platforms</span>
+                <h2>Connect Your <span>Store</span></h2>
+                <p>Sync your product catalog from any major ecommerce platform and turn products into scroll-stopping social posts — automatically.</p>
+            </div>
+
+            <div class="integration-grid">
+
+                <!-- Shopify -->
+                <a href="shopify.html" class="integration-card reveal" style="color: inherit; cursor: pointer;">
+                    <div class="card-logo-wrap" style="background:#96bf48;">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg" alt="Shopify" style="padding:14px;filter:brightness(0) invert(1);">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-name"><span class="status-dot"></span> Shopify</div>
+                        <p class="card-desc">Connect any Shopify store to select products you want to post about on social media.</p>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-tag">eCommerce</span>
+                        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Etsy -->
+                <a href="etsy.html" class="integration-card reveal" style="color: inherit; cursor: pointer;">
+                    <div class="card-logo-wrap" style="background:#f26522;">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/etsy.svg" alt="Etsy" style="padding:14px;filter:brightness(0) invert(1);">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-name"><span class="status-dot"></span> Etsy</div>
+                        <p class="card-desc">Connect your Etsy store to select products you want to post about on social media.</p>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-tag">eCommerce</span>
+                        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Jumpseller -->
+                <a href="jumpseller.html" class="integration-card reveal" style="color: inherit; cursor: pointer;">
+                    <div class="card-logo-wrap" style="background:#1a1a1a; padding: 10px;">
+                        <span style="color:#8dc63f;font-weight:900;font-size:0.72rem;line-height:1.2;text-align:center;">jump<br>seller</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-name"><span class="status-dot"></span> Jumpseller</div>
+                        <p class="card-desc">Connect your Jumpseller store and convert your products to video ads automatically.</p>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-tag">eCommerce</span>
+                        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Ecwid -->
+                <a href="ecwid.html" class="integration-card reveal" style="color: inherit; cursor: pointer;">
+                    <div class="card-logo-wrap" style="background:#0070f3;">
+                        <i class="fa-solid fa-cart-plus" style="font-size:1.9rem;color:#fff;"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-name"><span class="status-dot"></span> Ecwid</div>
+                        <p class="card-desc">Connect your Ecwid store to select products you want to post about on social media.</p>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-tag">eCommerce</span>
+                        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- WIX -->
+                <a href="wix.html" class="integration-card reveal" style="color: inherit; cursor: pointer;">
+                    <div class="card-logo-wrap" style="background:#fff;">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/wix.svg" alt="Wix" style="padding:10px;filter:invert(8%);">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-name"><span class="status-dot"></span> WIX</div>
+                        <p class="card-desc">Connect your Wix store to select products you want to post about on social media.</p>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-tag">eCommerce</span>
+                        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Squarespace -->
+                <a href="squarespace.html" class="integration-card reveal" style="color: inherit; cursor: pointer;">
+                    <div class="card-logo-wrap" style="background:#fff;">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/squarespace.svg" alt="Squarespace" style="padding:14px;filter:invert(8%);">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-name"><span class="status-dot"></span> Squarespace</div>
+                        <p class="card-desc">Connect your Squarespace store and convert your products to compelling video ads.</p>
+                    </div>
+                    <div class="card-footer-row">
+                        <span class="card-tag">eCommerce</span>
+                        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SOCIAL PLATFORMS ── -->
+    <section style="background: var(--color-bg-alt);">
+        <div class="container">
+            <div class="section-header-integrations reveal">
+                <span class="badge">Social Media Channels</span>
+                <h2>Publish <span>Everywhere</span></h2>
+                <p>Schedule and auto-publish your AI-generated content across all major social media platforms from a single dashboard — simultaneously.</p>
+            </div>
+
+            <div class="social-grid">
+
+                <!-- Facebook -->
+                <div class="social-card sc-facebook reveal">
+                    <div class="social-icon-wrap"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="social-body">
+                        <div class="social-name">
+                            <span class="status-dot" style="background:#1877f2;box-shadow:0 0 0 3px rgba(24,119,242,0.15);"></span>
+                            Facebook
                         </div>
-                        <div class="hero-bullet-item">
-                            <i class="fa-solid fa-circle-check"></i> Setup in minutes
-                        </div>
-                        <div class="hero-bullet-item">
-                            <i class="fa-solid fa-circle-check"></i> Built for Shopify merchants
+                        <p class="social-desc">Auto-schedule and publish product posts, reels, and video ads directly to your Facebook page and feed.</p>
+                        <div class="social-tags">
+                            <span class="social-tag">Posts</span>
+                            <span class="social-tag">Reels</span>
+                            <span class="social-tag">Video Ads</span>
                         </div>
                     </div>
-
-                    <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 36px; font-size: 1.02rem;">
-                        <span>Get Started <i class="fa-solid fa-wand-magic-sparkles"></i></span>
-                    </a>
                 </div>
 
-                <!-- Right Video Player -->
-                <div class="hero-video-container reveal">
-                    <div class="hero-glow-bg"></div>
-                    <div class="hero-video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/0cA-oxiMGVs?si=bC17smtBFcE4euUY" title="Shopify Store Owners Easily Create Short Video Ads" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- Instagram -->
+                <div class="social-card sc-instagram reveal">
+                    <div class="social-icon-wrap"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="social-body">
+                        <div class="social-name">
+                            <span class="status-dot" style="background:#dd2a7b;box-shadow:0 0 0 3px rgba(221,42,123,0.15);"></span>
+                            Instagram
+                        </div>
+                        <p class="social-desc">Publish stunning product images, carousel posts, and Reels to your Instagram audience on a set schedule.</p>
+                        <div class="social-tags">
+                            <span class="social-tag">Feed Posts</span>
+                            <span class="social-tag">Reels</span>
+                            <span class="social-tag">Carousels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YouTube -->
+                <div class="social-card sc-youtube reveal">
+                    <div class="social-icon-wrap"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="social-body">
+                        <div class="social-name">
+                            <span class="status-dot" style="background:#ff0000;box-shadow:0 0 0 3px rgba(255,0,0,0.15);"></span>
+                            YouTube
+                        </div>
+                        <p class="social-desc">Upload AI-generated product videos and Shorts directly to your YouTube channel to grow your audience.</p>
+                        <div class="social-tags">
+                            <span class="social-tag">Videos</span>
+                            <span class="social-tag">Shorts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TikTok -->
+                <div class="social-card sc-tiktok reveal">
+                    <div class="social-icon-wrap"><i class="fa-brands fa-tiktok"></i></div>
+                    <div class="social-body">
+                        <div class="social-name">
+                            <span class="status-dot" style="background:#010101;box-shadow:0 0 0 3px rgba(1,1,1,0.1);"></span>
+                            TikTok
+                        </div>
+                        <p class="social-desc">Schedule short-form product videos and trend-ready content directly to TikTok for maximum reach.</p>
+                        <div class="social-tags">
+                            <span class="social-tag">Short Videos</span>
+                            <span class="social-tag">Product Ads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pinterest -->
+                <div class="social-card sc-pinterest reveal">
+                    <div class="social-icon-wrap"><i class="fa-brands fa-pinterest-p"></i></div>
+                    <div class="social-body">
+                        <div class="social-name">
+                            <span class="status-dot" style="background:#e60023;box-shadow:0 0 0 3px rgba(230,0,35,0.15);"></span>
+                            Pinterest
+                        </div>
+                        <p class="social-desc">Create and schedule beautiful product pins that drive traffic back to your ecommerce store automatically.</p>
+                        <div class="social-tags">
+                            <span class="social-tag">Pins</span>
+                            <span class="social-tag">Product Boards</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="social-card sc-linkedin reveal">
+                    <div class="social-icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+                    <div class="social-body">
+                        <div class="social-name">
+                            <span class="status-dot" style="background:#0a66c2;box-shadow:0 0 0 3px rgba(10,102,194,0.15);"></span>
+                            LinkedIn
+                        </div>
+                        <p class="social-desc">Share professional product showcases and brand stories on LinkedIn to reach a B2B audience at scale.</p>
+                        <div class="social-tags">
+                            <span class="social-tag">Posts</span>
+                            <span class="social-tag">Brand Content</span>
+                        </div>
                     </div>
                 </div>
 
@@ -591,138 +676,27 @@ header .container { display: flex; align-items: center; justify-content: space-b
         </div>
     </section>
 
-    <!-- ── FEATURES SECTION ── -->
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Turn Products into Content <span>Automatically</span></h2>
-                <p>Create videos and auto-post them to social media in minutes. No manual work needed.</p>
-            </div>
-
-            <div class="features-grid">
-                
-                <!-- Auto-Post Products -->
-                <div class="feature-card reveal">
-                    <div class="feature-img-wrap">
-                        <img src="images/autopost.jpg" alt="Auto-Post Products graphic">
-                    </div>
-                    <div class="feature-body">
-                        <h3 class="feature-title">Auto-Post Products</h3>
-                        <p class="feature-desc">Automatically post your products to Instagram, Facebook, X (Twitter), Pinterest and more. Set your schedule once and stay active daily.</p>
-                    </div>
-                </div>
-
-                <!-- Create Videos Instantly -->
-                <div class="feature-card reveal">
-                    <div class="feature-img-wrap">
-                        <img src="images/videos-instantly.jpg" alt="Create Videos Instantly graphic">
-                    </div>
-                    <div class="feature-body">
-                        <h3 class="feature-title">Create Videos Instantly</h3>
-                        <p class="feature-desc">Turn product images into engaging videos in seconds. Perfect for reels, ads, and social media content.</p>
-                    </div>
-                </div>
-
-                <!-- Captions & Templates Ready -->
-                <div class="feature-card reveal">
-                    <div class="feature-img-wrap">
-                        <img src="images/captionsready.jpg" alt="Captions & Templates Ready graphic">
-                    </div>
-                    <div class="feature-body">
-                        <h3 class="feature-title">Captions & Templates Ready</h3>
-                        <p class="feature-desc">Get ready-to-use captions, hashtags and templates. No design or marketing skills required.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ── TEMPLATES SECTION ── -->
-    <section class="templates-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Templates That Turn Products into <span>Content</span></h2>
-                <p>Choose from our high-converting video templates designed specifically for Shopify stores.</p>
-            </div>
-
-            <div class="templates-grid reveal">
-                
-                <!-- Template 1 -->
-                <div class="template-card">
-                    <video src="videos/story-video.mp4" autoplay loop muted playsinline></video>
-                    <div class="template-overlay">
-                        <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="use-template-btn">
-                            <i class="fa-solid fa-play"></i> Use Template
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Template 2 -->
-                <div class="template-card">
-                    <video src="videos/reel.mp4" autoplay loop muted playsinline></video>
-                    <div class="template-overlay">
-                        <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="use-template-btn">
-                            <i class="fa-solid fa-play"></i> Use Template
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Template 3 -->
-                <div class="template-card">
-                    <video src="videos/portrait-video.mp4" autoplay loop muted playsinline></video>
-                    <div class="template-overlay">
-                        <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="use-template-btn">
-                            <i class="fa-solid fa-play"></i> Use Template
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Template 4 -->
-                <div class="template-card">
-                    <video src="videos/shorts.mp4" autoplay loop muted playsinline></video>
-                    <div class="template-overlay">
-                        <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="use-template-btn">
-                            <i class="fa-solid fa-play"></i> Use Template
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Template 5 -->
-                <div class="template-card">
-                    <video src="videos/promo.mp4" autoplay loop muted playsinline></video>
-                    <div class="template-overlay">
-                        <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="use-template-btn">
-                            <i class="fa-solid fa-play"></i> Use Template
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ── CTA SECTION ── -->
+    <!-- ── CTA (exact from features.html) ── -->
     <section class="cta-section" id="get-app">
         <div class="container">
             <div class="cta-box reveal">
                 <h2>Your next social post is 5 minutes away</h2>
                 <p>Connect your storefront catalog, choose templates, and let AI post high-converting videos on schedule.</p>
                 <div class="cta-buttons">
-                    <a href="https://app.vidyback.com/" target="_blank" class="btn btn-primary"><span>Get Started Free <i class="fa-solid fa-wand-magic-sparkles"></i></span></a>
+                    <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get Started Free <i class="fa-solid fa-wand-magic-sparkles"></i></span></a>
                     <a href="pricing.html" class="btn btn-light-outline"><span>Try Pro <i class="fa-solid fa-arrow-right"></i></span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── FOOTER ── -->
+    <!-- ── FOOTER (exact from features.html) ── -->
     <footer id="contact">
         <div class="container">
             <div class="footer-grid">
 
                 <div class="footer-brand">
-        <a href="index.html" class="logo">
+                    <a href="index.html" class="logo">
                         <div class="logo-icon">
                             <img src="images/logo.png" alt="VidyBack Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
                         </div>
@@ -785,18 +759,17 @@ header .container { display: flex; align-items: center; justify-content: space-b
         </div>
     </footer>
 
-    <!-- ── LEGAL BAR ── -->
+    <!-- ── LEGAL BAR (exact from features.html) ── -->
     <div class="legal-footer-bar">
         <div class="container">
             <p>&copy; 2026 VidyBack All Rights Reserved.</p>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+        // Mobile menu toggle (exact from features.html)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
         if (menuToggle && navMenu) {
             menuToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
@@ -804,7 +777,7 @@ header .container { display: flex; align-items: center; justify-content: space-b
             });
         }
 
-        // Scroll reveal
+        // Scroll reveal (exact from features.html)
         const revealElements = document.querySelectorAll('.reveal');
         if ('IntersectionObserver' in window && revealElements.length > 0) {
             const revealObserver = new IntersectionObserver((entries, observer) => {
