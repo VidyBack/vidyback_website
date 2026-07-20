@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+Sitemap: https://vidyback.netlify.app/sitemap.xml
