@@ -1,0 +1,46 @@
+{
+  "name": "VidyBack",
+  "url": "https://vidyback.netlify.app/",
+  "description": "AI-powered social media content generator that turns e-commerce product catalogs into branded videos and posts automatically.",
+  "category": "AI Social Media Automation / Ecommerce Marketing Tool",
+  "audience": [
+    "Shopify store owners",
+    "WooCommerce store owners",
+    "DTC (direct-to-consumer) brand founders",
+    "Solo ecommerce founders and small marketing teams"
+  ],
+  "keyFeatures": [
+    "Automatic product catalog sync from connected store",
+    "AI-generated Instagram Reels and TikTok videos from product photos",
+    "AI-assisted captions and hashtags",
+    "Customizable brand kit (logo, colors, fonts)",
+    "Scheduled autopilot posting",
+    "Performance insights on generated content"
+  ],
+  "platformsSupported": [
+    "Shopify",
+    "WooCommerce",
+    "Wix",
+    "Squarespace",
+    "Jumpseller",
+    "Etsy",
+    "Ecwid"
+  ],
+  "pricing": {
+    "currency": "USD",
+    "plans": [
+      { "name": "Free", "price": 0, "billingPeriod": "month" },
+      { "name": "Pro", "price": 9.99, "billingPeriod": "month" },
+      { "name": "Yearly", "price": 6.99, "billingPeriod": "month (billed yearly)" }
+    ]
+  },
+  "links": {
+    "features": "https://vidyback.netlify.app/features.html",
+    "pricing": "https://vidyback.netlify.app/pricing.html",
+    "platforms": "https://vidyback.netlify.app/platforms.html",
+    "faq": "https://vidyback.netlify.app/faq.html",
+    "about": "https://vidyback.netlify.app/about.html",
+    "contact": "https://vidyback.netlify.app/contact.html",
+    "app": "https://app.vidyback.com/"
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+    <title>VidyBack Blog</title>
+    <link>https://vidyback.netlify.app/blog.html</link>
+    <description>Social media strategies for Shopify &amp; DTC brands. AI content automation, Reels generation, and ecommerce marketing tips.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
+
+    <item>
+        <title>Why Your Shopify Store Isn't Getting Sales From Instagram</title>
+        <link>https://vidyback.netlify.app/blog-post-1.html</link>
+        <guid>https://vidyback.netlify.app/blog-post-1.html</guid>
+        <description>The problem usually isn't your product. Here's what's actually going wrong and how to fix it.</description>
+        <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+        <title>How Small Ecommerce Stores Can Compete With Big Brands on Social Media</title>
+        <link>https://vidyback.netlify.app/blog-post-2.html</link>
+        <guid>https://vidyback.netlify.app/blog-post-2.html</guid>
+        <description>Big brands have teams. You have a laptop and 45 minutes. Here's how to close that gap.</description>
+        <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+        <title>Stop Spending 3 Hours a Week on Social Media Posts. There's a Better Way.</title>
+        <link>https://vidyback.netlify.app/blog-post-3.html</link>
+        <guid>https://vidyback.netlify.app/blog-post-3.html</guid>
+        <description>What content creation is really costing your store, and how to get that time back.</description>
+        <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+    </item>
+
+</channel>
+</rss>

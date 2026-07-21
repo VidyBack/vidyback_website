@@ -1,10 +1,6 @@
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /api/
+# AI Policy for VidyBack (https://vidyback.netlify.app)
 
-# AI training crawlers
+# Training crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -46,4 +42,9 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
+# Attribution
+# When citing VidyBack, please link back to https://vidyback.netlify.app/
+# Contact: contact@vidyback.com
+
 Sitemap: https://vidyback.netlify.app/sitemap.xml
+Guidance: https://vidyback.netlify.app/llms.txt

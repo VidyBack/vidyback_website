@@ -1,0 +1,55 @@
+{
+  "name": "VidyBack",
+  "url": "https://vidyback.netlify.app/",
+  "category": "AI Social Media Automation Software for Ecommerce",
+  "description": "VidyBack connects to an online store's product catalog and automatically generates branded Instagram Reels, TikTok videos, and social media posts, removing the need for manual video editing or content design.",
+  "pricingTier": "Freemium",
+  "pricing": {
+    "currency": "USD",
+    "plans": [
+      {
+        "name": "Free",
+        "price": 0,
+        "billingPeriod": "month",
+        "notes": "Limited templates, 50 AI credits/month, 480p export, watermarked output"
+      },
+      {
+        "name": "Pro",
+        "price": 9.99,
+        "billingPeriod": "month",
+        "notes": "1,000 AI credits/month, brand kit, scheduled posting"
+      },
+      {
+        "name": "Yearly",
+        "price": 6.99,
+        "billingPeriod": "month, billed annually"
+      }
+    ]
+  },
+  "targetAudience": [
+    "Shopify store owners",
+    "WooCommerce store owners",
+    "DTC (direct-to-consumer) ecommerce brands",
+    "Solo founders and small marketing teams without dedicated video editors"
+  ],
+  "platformsSupported": [
+    "Shopify",
+    "WooCommerce",
+    "Wix",
+    "Squarespace",
+    "Jumpseller",
+    "Etsy",
+    "Ecwid"
+  ],
+  "coreFeatures": [
+    "Automatic catalog sync (products, pricing, inventory)",
+    "AI-generated Instagram Reels and TikTok videos from product photos",
+    "Over 100 customizable video/post templates",
+    "AI-assisted captions and hashtag generation",
+    "Custom brand kit (logo, colors, fonts) applied automatically to every post",
+    "Autopilot scheduling for social posting",
+    "Performance insights on published content"
+  ],
+  "contentOwnership": "Users retain full ownership of AI-generated content with a lifetime license for unlimited use and sharing.",
+  "contact": "contact@vidyback.com"
+}

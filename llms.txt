@@ -1,0 +1,38 @@
+# VidyBack
+
+> AI-powered social media content generator that turns e-commerce product catalogs into branded videos and posts automatically.
+
+VidyBack connects to your Shopify, WooCommerce, Wix, Squarespace, Jumpseller, Etsy, or Ecwid store and automatically generates Instagram Reels, TikTok videos, and social media posts from your existing product catalog — no video editing or design skills required.
+
+## Product
+
+- [Homepage](https://vidyback.netlify.app/)
+- [Features](https://vidyback.netlify.app/features.html) - Catalog sync, smart templates, AI copywriting, scheduling, and branding tools
+- [Pricing](https://vidyback.netlify.app/pricing.html) - Free plan available, paid plans for higher usage
+- [FAQ](https://vidyback.netlify.app/faq.html) - Answers about setup, credits, billing, and features
+- [About](https://vidyback.netlify.app/about.html) - VidyBack's mission and who it serves
+
+## Integrations
+
+- [Platforms Overview](https://vidyback.netlify.app/platforms.html)
+- [Shopify Integration](https://vidyback.netlify.app/shopify.html)
+- [Wix Integration](https://vidyback.netlify.app/wix.html)
+- [Squarespace Integration](https://vidyback.netlify.app/squarespace.html)
+- [Jumpseller Integration](https://vidyback.netlify.app/jumpseller.html)
+- [Etsy Integration](https://vidyback.netlify.app/etsy.html)
+- [Ecwid Integration](https://vidyback.netlify.app/ecwid.html)
+
+## Use Cases
+
+- Auto-generating Instagram Reels and TikTok videos from product photos for Shopify and WooCommerce store owners
+- Automating social media content creation for DTC brands and solo ecommerce founders without a dedicated marketing team
+- Keeping social posts synced with live product catalog changes (pricing, inventory, new arrivals)
+
+## Sign Up
+
+- [Get Started (Free Plan Available)](https://app.vidyback.com/)
+- [Contact](https://vidyback.netlify.app/contact.html)
+
+## Blog
+
+- [Blog Home](https://vidyback.netlify.app/blog.html)
