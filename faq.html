@@ -287,7 +287,7 @@
         .footer-brand { display: flex; flex-direction: column; gap: 20px; }
         .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
         .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
-        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 170px; color: #ffffff; transition: var(--transition-fast); }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #ffffff; transition: var(--transition-fast); }
         .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
         .app-store-btn i { font-size: 1.5rem; }
         .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
@@ -329,10 +329,10 @@
             .faq-category-list { flex-direction: row; flex-wrap: wrap; gap: 8px; }
             .faq-cat-btn { width: auto; padding: 8px 14px; }
             .nav-menu {
-                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh;
                 background: #ffffff; flex-direction: column; align-items: flex-start;
                 padding: 100px 40px; gap: 30px; transition: var(--transition-normal);
-                border-left: 1px solid var(--color-border); z-index: 999;
+                border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box;
             }
             .nav-menu.active { right: 0; }
             .menu-toggle { display: block; z-index: 1000; }
