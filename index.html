@@ -1728,7 +1728,8 @@ footer h4, footer .logo {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 8px 18px;
-    width: 170px;
+    width: 100%;
+    max-width: 170px;
     color: #ffffff;
     transition: var(--transition-fast);
 }
@@ -2009,7 +2010,9 @@ footer h4, footer .logo {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
+        width: 100%;
+        max-width: 280px;
+        box-sizing: border-box;
         height: 100vh;
         background: #ffffff;
         flex-direction: column;

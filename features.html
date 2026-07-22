@@ -575,8 +575,9 @@
         /* Visual 3: Network Node Diagram */
         .node-diagram {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -990,7 +991,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 8px 18px;
-            width: 170px;
+            width: 100%;
+            max-width: 170px;
             color: #ffffff;
             transition: var(--transition-fast);
         }
