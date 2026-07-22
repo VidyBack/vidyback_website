@@ -1,116 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://vidyback.netlify.app/</loc>
-        <lastmod>2026-07-20</lastmod>
+        <loc>https://www.vidyback.com/</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/about.html</loc>
-        <lastmod>2026-07-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://vidyback.netlify.app/features.html</loc>
-        <lastmod>2026-07-20</lastmod>
+        <loc>https://www.vidyback.com/features.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/platforms.html</loc>
-        <lastmod>2026-07-20</lastmod>
+        <loc>https://www.vidyback.com/platforms.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/pricing.html</loc>
-        <lastmod>2026-07-20</lastmod>
+        <loc>https://www.vidyback.com/pricing.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/faq.html</loc>
-        <lastmod>2026-07-20</lastmod>
+        <loc>https://www.vidyback.com/about.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/blog.html</loc>
-        <lastmod>2026-07-20</lastmod>
+        <loc>https://www.vidyback.com/faq.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.vidyback.com/contact.html</loc>
+        <lastmod>2026-07-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.vidyback.com/blog.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/blog-post-1.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/blog-post-1.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/blog-post-2.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/blog-post-2.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/blog-post-3.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/blog-post-3.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/contact.html</loc>
-        <lastmod>2026-07-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://vidyback.netlify.app/shopify.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/shopify.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/wix.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/wix.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/squarespace.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/etsy.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/jumpseller.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/ecwid.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/etsy.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/jumpseller.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/ecwid.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/squarespace.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/privacypolicy.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/privacypolicy.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://vidyback.netlify.app/disclaimer.html</loc>
-        <lastmod>2026-07-17</lastmod>
+        <loc>https://www.vidyback.com/disclaimer.html</loc>
+        <lastmod>2026-07-22</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
