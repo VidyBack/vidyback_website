@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VidyBack is an AI video & reel generator for ecommerce stores. Auto-post Reels to Instagram, TikTok & YouTube from Shopify, Wix & more. Get started free.">
+    <meta name="description" content="AI video generator for ecommerce: Turn your Shopify, WooCommerce, Wix, Etsy catalog into Reels, Stories & posts instantly. Auto-post to Instagram, TikTok & YouTube. Get started free.">
     <meta name="keywords" content="AI video creator, ecommerce social media, social media autopilot, automated product posts, Shopify video generator, WooCommerce video generator, Etsy video generator">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="VidyBack">
@@ -516,8 +516,10 @@ header .container {
 
 .phone-mockup-wrapper {
     position: relative;
-    width: 320px;
-    height: 640px;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1 / 2;
 }
 
 .phone-glow {
@@ -2029,6 +2031,11 @@ footer h4, footer .logo {
         display: none;
     }
     .hero-content h1 { font-size: 2.5rem; }
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
     .offer-banner {
         flex-direction: column;
         text-align: center;
@@ -2075,8 +2082,9 @@ footer h4, footer .logo {
     align-items: center;
     width: 100%;
     max-width: 520px;
-    /* extra bottom space so phone shadow doesn't clip */
+    padding: 0 20px;
     padding-bottom: 30px;
+    box-sizing: border-box;
 }
 
 /* ── Landscape Desktop Browser ── */
@@ -2244,6 +2252,25 @@ footer h4, footer .logo {
     .browser-wrap { max-width: 340px; }
     .browser-body { height: 220px; }
     .phone-overlay { width: 140px !important; height: 280px !important; right: -50px; bottom: -30px; }
+}
+@media (max-width: 480px) {
+    .browser-wrap { max-width: 100%; padding: 0 16px; }
+    .browser-body { height: 180px; }
+    .phone-overlay { width: 110px !important; height: 220px !important; right: -30px; bottom: -20px; }
+    .hero-grid { gap: 20px; }
+    .hero-content h1 { font-size: 2rem; margin-bottom: 16px; }
+    .hero-content p { font-size: 1rem; margin-bottom: 24px; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .hero-buttons .btn { width: 100%; }
+    .hero {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+    .hero-platforms {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
     </style>
@@ -2954,8 +2981,8 @@ footer h4, footer .logo {
     <section id="faq-preview">
         <div class="container">
             <div class="section-header reveal">
-                <span class="badge">Common Questions</span>
-                <h2>How Does VidyBack Work for Shopify & WooCommerce Stores?</h2>
+                <span class="badge">Frequently Asked Questions</span>
+                <h2>FAQ: How Does VidyBack Work for Shopify & WooCommerce Stores?</h2>
                 <p>Quick answers about connecting your store, owning your content and branding your posts.</p>
             </div>
             <div style="max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px;">

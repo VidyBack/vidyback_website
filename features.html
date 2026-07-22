@@ -1160,8 +1160,9 @@
             top: -80px;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(122, 66, 244, 0.18) 0%, transparent 70%);
             pointer-events: none;
@@ -1248,7 +1249,8 @@
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 280px;
+                width: 100%;
+                max-width: 280px;
                 height: 100vh;
                 background: #ffffff;
                 flex-direction: column;
@@ -1258,6 +1260,7 @@
                 transition: var(--transition-normal);
                 border-left: 1px solid var(--color-border);
                 z-index: 999;
+                box-sizing: border-box;
             }
             .nav-menu.active {
                 right: 0;
@@ -1403,7 +1406,7 @@
                         <div class="scraped-products-grid">
                             <div class="scraped-item-box">
                                 <div class="scraped-thumb">
-                                    <img src="images/t-shirt.jpg" alt="Cotton T-Shirt" width="300" height="375" loading="lazy">
+                                    <picture><source srcset="images/t-shirt.webp" type="image/webp"><img src="images/t-shirt.jpg" alt="Cotton T-Shirt" width="300" height="375" loading="lazy"></picture>
                                 </div>
                                 <div class="scraped-item-details">
                                     <span class="scraped-item-title">Cotton T-Shirt</span>
@@ -1596,12 +1599,12 @@
                         <div class="node-leaf node-6" title="TikTok"><i class="fa-brands fa-tiktok"></i></div>
                         
                         <!-- Connection Lines CSS helper style -->
-                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(270deg);"></div>
-                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(330deg);"></div>
-                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(30deg);"></div>
-                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(90deg);"></div>
-                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(150deg);"></div>
-                        <div class="node-connector-line" style="width: 140px; transform: translate(-50%, -50%) rotate(210deg);"></div>
+                        <div class="node-connector-line" style="width: 100%; max-width: 140px; transform: translate(-50%, -50%) rotate(270deg);"></div>
+                        <div class="node-connector-line" style="width: 100%; max-width: 140px; transform: translate(-50%, -50%) rotate(330deg);"></div>
+                        <div class="node-connector-line" style="width: 100%; max-width: 140px; transform: translate(-50%, -50%) rotate(30deg);"></div>
+                        <div class="node-connector-line" style="width: 100%; max-width: 140px; transform: translate(-50%, -50%) rotate(90deg);"></div>
+                        <div class="node-connector-line" style="width: 100%; max-width: 140px; transform: translate(-50%, -50%) rotate(150deg);"></div>
+                        <div class="node-connector-line" style="width: 100%; max-width: 140px; transform: translate(-50%, -50%) rotate(210deg);"></div>
                     </div>
                 </div>
                 
