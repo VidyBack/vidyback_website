@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | VidyBack</title>
-    <meta name="description" content="VidyBack Terms of Service. Read our complete terms and conditions for using VidyBack's services.">
-    <link rel="canonical" href="https://www.vidyback.com/terms">
+    <title>Cookies Policy | VidyBack</title>
+    <meta name="description" content="VidyBack Cookies Policy. Learn about how we use cookies and tracking technologies on our website.">
+    <link rel="canonical" href="https://www.vidyback.com/cookies-policy">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,19 +29,12 @@
             --color-purple-hover: #5e28d9;
             --color-text-accent: #1d5175;
             --color-border: rgba(32, 74, 107, 0.08);
-            --color-border-light: rgba(255, 255, 255, 0.12);
-            --grad-primary: linear-gradient(135deg, #7a42f4 0%, #a855f7 100%);
-            --grad-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            --color-accent-green: #10b981;
-            --color-accent-amber: #d97706;
             --font-heading: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
-            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
-            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
-            --transition-fast: 0.2s ease;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08);
             --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --border-radius-sm: 8px;
             --border-radius-md: 16px;
             --border-radius-lg: 24px;
         }
@@ -63,40 +56,18 @@
             font-family: var(--font-body);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3 {
             font-family: var(--font-heading);
             font-weight: 700;
-            line-height: 1.25;
             color: var(--color-text-dark);
         }
 
         a {
             color: inherit;
             text-decoration: none;
-            transition: var(--transition-fast);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        button {
-            font-family: inherit;
-            font-size: inherit;
-            cursor: pointer;
-            border: none;
-            background: none;
-            outline: none;
             transition: var(--transition-normal);
-        }
-
-        ul {
-            list-style: none;
         }
 
         .container {
@@ -144,7 +115,6 @@
         .logo-icon {
             width: 32px;
             height: 32px;
-            background: transparent;
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -152,10 +122,6 @@
         }
 
         .logo-text {
-            color: #1d5175;
-        }
-
-        .logo-text span {
             color: #1d5175;
         }
 
@@ -171,7 +137,7 @@
             color: var(--color-text-muted);
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover {
             color: var(--color-text-dark);
         }
 
@@ -179,12 +145,6 @@
             display: flex;
             align-items: center;
             gap: 16px;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--color-text-dark);
         }
 
         .btn {
@@ -227,28 +187,73 @@
             font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 12px;
-            color: var(--color-text-dark);
-        }
-
-        .last-updated {
-            color: var(--color-text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 48px;
+            margin-bottom: 24px;
         }
 
         h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text-dark);
+            font-size: 1.75rem;
+            font-weight: 800;
             margin-top: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 16px;
         }
 
         p {
             margin-bottom: 16px;
-            color: var(--color-text-main);
             line-height: 1.7;
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--color-bg-alt);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cookie-table th {
+            background: var(--color-bg-dark);
+            color: #ffffff;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .cookie-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .cookie-table tbody tr:hover {
+            background: rgba(122, 66, 244, 0.03);
+        }
+
+        .cookie-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cookie-category {
+            background: rgba(122, 66, 244, 0.08);
+            padding: 20px;
+            border-radius: var(--border-radius-md);
+            margin: 20px 0;
+            border-left: 4px solid var(--color-purple);
+        }
+
+        .cookie-category h4 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--color-text-dark);
         }
 
         ul {
@@ -258,20 +263,6 @@
 
         li {
             margin-bottom: 12px;
-            color: var(--color-text-main);
-        }
-
-        strong {
-            color: var(--color-text-dark);
-            font-weight: 600;
-        }
-
-        .highlight {
-            background: rgba(122, 66, 244, 0.08);
-            padding: 24px;
-            border-radius: 12px;
-            border-left: 4px solid var(--color-purple);
-            margin: 24px 0;
         }
 
         footer {
@@ -320,34 +311,13 @@
             width: 100%;
             max-width: 170px;
             color: #ffffff;
-            transition: var(--transition-fast);
+            transition: var(--transition-normal);
         }
 
         .app-store-btn:hover {
             border-color: rgba(255, 255, 255, 0.25);
             background: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
-        }
-
-        .app-store-btn i {
-            font-size: 1.5rem;
-        }
-
-        .app-store-info {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .app-store-label {
-            font-size: 0.6rem;
-            color: #cbd5e1;
-            text-transform: uppercase;
-        }
-
-        .app-store-name {
-            font-size: 0.85rem;
-            font-weight: 700;
         }
 
         .footer-links-col h3 {
@@ -377,47 +347,6 @@
             padding-left: 4px;
         }
 
-        .footer-newsletter h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 24px;
-            color: #ffffff;
-        }
-
-        .footer-newsletter p {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            margin-bottom: 20px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 12px 16px;
-            color: #ffffff;
-            font-size: 0.9rem;
-            outline: none;
-            transition: var(--transition-fast);
-        }
-
-        .newsletter-input:focus {
-            border-color: var(--color-purple);
-            box-shadow: 0 0 10px rgba(122, 66, 244, 0.3);
-        }
-
-        .newsletter-form .btn {
-            padding: 12px 20px;
-        }
-
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 30px;
@@ -443,7 +372,7 @@
             align-items: center;
             justify-content: center;
             color: #cbd5e1;
-            transition: var(--transition-fast);
+            transition: var(--transition-normal);
         }
 
         .social-link:hover {
@@ -462,63 +391,20 @@
             color: var(--color-text-muted);
         }
 
-        .legal-footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 8px;
-        }
-
-        .legal-footer-links a {
-            color: var(--color-text-muted);
-        }
-
-        .legal-footer-links a:hover {
-            color: var(--color-text-dark);
-        }
-
-        @media (max-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 100%;
-                max-width: 280px;
-                box-sizing: border-box;
-                height: 100vh;
-                background: #ffffff;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 100px 40px;
-                gap: 30px;
-                transition: var(--transition-normal);
-                border-left: 1px solid var(--color-border);
-                z-index: 999;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
             h1 { font-size: 2rem; }
-            h2 { font-size: 1.25rem; }
-            .footer-grid { grid-template-columns: 1fr; }
+            h2 { font-size: 1.5rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
             main { padding: 120px 0 60px 0; }
+            .cookie-table { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header>
         <div class="container">
-            <a href="index.html" class="logo" id="nav-logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
                 </div>
@@ -537,64 +423,183 @@
             <div class="nav-actions">
                 <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
             </div>
-
-            <button class="menu-toggle" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
     </header>
 
     <!-- Main Content -->
     <main>
         <div class="container">
-            <h1>Terms of Service</h1>
-            <p class="last-updated">Last updated: July 24, 2026</p>
+            <h1>Cookies Policy</h1>
+            <p style="font-size: 1.125rem; color: var(--color-text-muted);">Last updated: July 24, 2026</p>
 
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing and using VidyBack ("Service"), you agree to be bound by these Terms of Service. If you do not agree to abide by these terms, please do not use this service.</p>
+            <h2>What Are Cookies?</h2>
+            <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit our website. They help us recognize you when you return and improve your browsing experience. Cookies may be "persistent" (they remain on your device until you delete them) or "session" (they expire when you close your browser).</p>
 
-            <h2>2. Service Disclaimer</h2>
-            <p>VidyBack is provided on an "as is" basis without any warranties, express or implied. We make no representations regarding the accuracy, completeness, or reliability of any information provided through our service. Use of VidyBack is at your own risk.</p>
-
-            <h2>3. User Responsibility</h2>
-            <p>You are responsible for:</p>
+            <h2>How We Use Cookies</h2>
+            <p>VidyBack uses cookies and similar tracking technologies to:</p>
             <ul>
-                <li>Your use of VidyBack and any content you create or upload</li>
-                <li>Maintaining the confidentiality of your account information</li>
-                <li>Testing any work before deploying it to your live store</li>
-                <li>Backing up your data and work regularly</li>
-                <li>Ensuring your use complies with applicable laws and platform policies</li>
+                <li>Understand how visitors use our website</li>
+                <li>Remember your preferences and settings</li>
+                <li>Analyze website performance and user behavior</li>
+                <li>Improve our services based on user interactions</li>
+                <li>Provide personalized content recommendations</li>
+                <li>Track conversion events and campaign effectiveness</li>
             </ul>
 
-            <h2>4. Limitation of Liability</h2>
-            <p>In no event shall VidyBack be liable for any damages arising from your use of or inability to use the Service, including but not limited to indirect, incidental, special, or consequential damages. VidyBack's total liability shall not exceed the amount you paid for access to the Service.</p>
+            <h2>Types of Cookies We Use</h2>
 
-            <h2>5. Prohibited Conduct</h2>
-            <p>You agree not to use VidyBack to:</p>
-            <ul>
-                <li>Violate any applicable laws or regulations</li>
-                <li>Infringe on intellectual property rights of others</li>
-                <li>Engage in fraud, misrepresentation, or illegal activities</li>
-                <li>Harass, threaten, or abuse any individual</li>
-                <li>Attempt to gain unauthorized access to VidyBack's systems</li>
-                <li>Disrupt the normal operation of VidyBack's services</li>
-            </ul>
-
-            <h2>6. Modifications to Service</h2>
-            <p>VidyBack may modify, suspend, or discontinue any part of the Service at any time without notice. We are not liable for any consequences resulting from such modifications or discontinuance.</p>
-
-            <h2>7. Account Termination</h2>
-            <p>VidyBack reserves the right to terminate or suspend your account at any time for any reason, including violation of these terms or applicable laws.</p>
-
-            <h2>8. Third-Party Platforms</h2>
-            <p>VidyBack may integrate with third-party ecommerce platforms and services. Your use of these platforms is subject to their own terms and policies. VidyBack is not responsible for third-party services or their performance.</p>
-
-            <h2>9. Changes to Terms</h2>
-            <p>VidyBack may revise these Terms of Service at any time without notice. Your continued use of VidyBack constitutes acceptance of any modified terms.</p>
-
-            <div class="highlight">
-                <p><strong>Questions?</strong> If you have questions about these Terms of Service, please contact us at <a href="mailto:contact@vidyback.com" style="color: var(--color-purple);">contact@vidyback.com</a></p>
+            <h3>1. Essential Cookies</h3>
+            <div class="cookie-category">
+                <h4>Purpose</h4>
+                <p>These cookies are necessary for the website to function properly. They enable basic functionality such as navigation and access to secure areas.</p>
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Provider</th>
+                            <th>Duration</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Session ID</td>
+                            <td>VidyBack</td>
+                            <td>Session</td>
+                            <td>Maintains your session while browsing</td>
+                        </tr>
+                        <tr>
+                            <td>CSRF Token</td>
+                            <td>VidyBack</td>
+                            <td>Session</td>
+                            <td>Protects against cross-site request forgery</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <h3>2. Analytics Cookies</h3>
+            <div class="cookie-category">
+                <h4>Purpose</h4>
+                <p>These cookies help us understand how visitors interact with our website. They collect anonymous data about page views, user interactions, and navigation patterns.</p>
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Provider</th>
+                            <th>Duration</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>_ga</td>
+                            <td>Google Analytics</td>
+                            <td>2 years</td>
+                            <td>Tracks unique users and sessions</td>
+                        </tr>
+                        <tr>
+                            <td>_gid</td>
+                            <td>Google Analytics</td>
+                            <td>24 hours</td>
+                            <td>Tracks current session</td>
+                        </tr>
+                        <tr>
+                            <td>_gat</td>
+                            <td>Google Analytics</td>
+                            <td>1 minute</td>
+                            <td>Throttles request rate</td>
+                        </tr>
+                        <tr>
+                            <td>ph_posthog_*</td>
+                            <td>PostHog Analytics</td>
+                            <td>1 year</td>
+                            <td>Tracks product analytics and user behavior</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3. Functional Cookies</h3>
+            <div class="cookie-category">
+                <h4>Purpose</h4>
+                <p>These cookies enable enhanced functionality and personalization. They remember your preferences and improve your experience.</p>
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Provider</th>
+                            <th>Duration</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>theme_preference</td>
+                            <td>VidyBack</td>
+                            <td>1 year</td>
+                            <td>Remembers your light/dark mode preference</td>
+                        </tr>
+                        <tr>
+                            <td>language</td>
+                            <td>VidyBack</td>
+                            <td>1 year</td>
+                            <td>Stores your language preference</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>4. Marketing Cookies</h3>
+            <div class="cookie-category">
+                <h4>Purpose</h4>
+                <p>These cookies track your interactions with marketing campaigns and content. They help us understand campaign effectiveness and measure return on investment.</p>
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie Name</th>
+                            <th>Provider</th>
+                            <th>Duration</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>utm_source, utm_medium, utm_campaign</td>
+                            <td>VidyBack</td>
+                            <td>Session/Persistent</td>
+                            <td>Tracks marketing campaign source and effectiveness</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Third-Party Services</h2>
+            <p>We use the following third-party services that may set cookies:</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> Analyzes website traffic and user behavior. <a href="https://policies.google.com/privacy" style="color: var(--color-text-accent);">Google Privacy Policy</a></li>
+                <li><strong>PostHog Analytics:</strong> Tracks product usage and feature adoption. <a href="https://posthog.com/privacy" style="color: var(--color-text-accent);">PostHog Privacy Policy</a></li>
+                <li><strong>Google Fonts:</strong> Delivers custom fonts for our website. No tracking cookies.</li>
+            </ul>
+
+            <h2>Your Cookie Choices</h2>
+            <p>You have several options to control cookies:</p>
+            <ul>
+                <li><strong>Browser Settings:</strong> Most browsers allow you to refuse cookies or alert you when cookies are being sent. You can typically find cookie settings in your browser's "Options" or "Preferences" menu.</li>
+                <li><strong>Disable Cookies:</strong> You can disable cookies entirely, but this may limit functionality on our website.</li>
+                <li><strong>Delete Cookies:</strong> You can delete cookies that have already been set. Instructions vary by browser.</li>
+                <li><strong>Opt-Out Tools:</strong> You can opt out of Google Analytics tracking using the <a href="https://tools.google.com/dlpage/gaoptout" style="color: var(--color-text-accent);">Google Analytics Opt-Out Browser Add-on</a></li>
+            </ul>
+
+            <h2>Do Not Track (DNT)</h2>
+            <p>Some browsers include a "Do Not Track" feature. Currently, our website does not respond to DNT signals, but we respect your browser settings for cookie management.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Cookies Policy from time to time. We encourage you to review it regularly to stay informed about how we use cookies. Any changes will be posted on this page with an updated "Last updated" date.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have questions about our use of cookies or this policy, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:contact@vidyback.com" style="color: var(--color-text-accent);">contact@vidyback.com</a></p>
         </div>
     </main>
 
@@ -602,7 +607,6 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <!-- Col 1: Brand Info -->
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
                         <div class="logo-icon">
@@ -611,42 +615,20 @@
                         <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
                     </a>
                     <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
-
-                    <div class="footer-app-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
-                            <i class="fa-brands fa-google-play"></i>
-                            <div class="app-store-info">
-                                <span class="app-store-label">Get it on</span>
-                                <span class="app-store-name">Google Play</span>
-                            </div>
-                        </a>
-                    </div>
                 </div>
 
-                <!-- Col 2: Navigation Links -->
-                <nav class="footer-links-col" aria-label="Product navigation">
+                <nav class="footer-links-col">
                     <h3>Product</h3>
                     <ul>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="features.html">Features</a></li>
-                        <li><a href="#content-ideas">Content Ideas</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
 
-                <!-- Col 3: Compare Links -->
-                <nav class="footer-links-col" aria-label="Compare navigation">
-                    <h3>Compare</h3>
-                    <ul>
-                        <li><a href="minta-comparison.html">vs Minta</a></li>
-                        <li><a href="outify-comparison.html">vs Outify</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Col 4: Company / Legal -->
-                <nav class="footer-links-col" aria-label="Company navigation">
+                <nav class="footer-links-col">
                     <h3>Company</h3>
                     <ul>
                         <li><a href="privacypolicy.html">Privacy Policy</a></li>
@@ -655,25 +637,31 @@
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                     </ul>
                 </nav>
+
+                <nav class="footer-links-col">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="competitors.html">vs Freelancers</a></li>
+                        <li><a href="competitors.html">vs Agencies</a></li>
+                    </ul>
+                </nav>
             </div>
 
-            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div>
                     <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
                     <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Legal Copyright Bar -->
     <div class="legal-footer-bar">
         <div class="container">
             <p>&copy; 2026 VidyBack All Rights Reserved.</p>
@@ -681,7 +669,6 @@
     </div>
 
     <script>
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -690,18 +677,6 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-        }
     </script>
 </body>
 </html>
-
-
