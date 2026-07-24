@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | VidyBack</title>
+    <meta name="description" content="VidyBack Terms of Service. Read our complete terms and conditions for using VidyBack's services.">
+    <link rel="canonical" href="https://www.vidyback.com/terms">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-border-light: rgba(255, 255, 255, 0.12);
+            --grad-primary: linear-gradient(135deg, #7a42f4 0%, #a855f7 100%);
+            --grad-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --color-accent-green: #10b981;
+            --color-accent-amber: #d97706;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--color-text-dark);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+            transition: var(--transition-normal);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-normal);
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background: rgba(250, 246, 240, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 14px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            color: #1d5175;
+        }
+
+        .logo-text span {
+            color: #1d5175;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-text-dark);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--color-purple);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(122, 66, 244, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-purple-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(122, 66, 244, 0.35);
+        }
+
+        .btn-primary span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        main {
+            padding: 150px 0 80px 0;
+            min-height: 60vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: var(--color-text-dark);
+        }
+
+        .last-updated {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            margin-top: 48px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--color-text-main);
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 16px 0 16px 24px;
+            list-style: disc;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: var(--color-text-main);
+        }
+
+        strong {
+            color: var(--color-text-dark);
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(122, 66, 244, 0.08);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-purple);
+            margin: 24px 0;
+        }
+
+        footer {
+            background-color: var(--color-bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 80px 0 30px 0;
+            color: #e2e8f0;
+        }
+
+        footer h4, footer .logo {
+            color: #ffffff;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-brand p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .footer-app-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 8px 18px;
+            width: 100%;
+            max-width: 170px;
+            color: #ffffff;
+            transition: var(--transition-fast);
+        }
+
+        .app-store-btn:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .app-store-btn i {
+            font-size: 1.5rem;
+        }
+
+        .app-store-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .app-store-label {
+            font-size: 0.6rem;
+            color: #cbd5e1;
+            text-transform: uppercase;
+        }
+
+        .app-store-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .footer-links-col h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .footer-links-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            list-style: none;
+            margin: 0;
+        }
+
+        .footer-links-col a {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .footer-links-col a:hover {
+            color: #ffffff;
+            padding-left: 4px;
+        }
+
+        .footer-newsletter h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .footer-newsletter p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--color-purple);
+            box-shadow: 0 0 10px rgba(122, 66, 244, 0.3);
+        }
+
+        .newsletter-form .btn {
+            padding: 12px 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            transition: var(--transition-fast);
+        }
+
+        .social-link:hover {
+            background: var(--color-purple);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        .legal-footer-bar {
+            background-color: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+            padding: 24px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .legal-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 8px;
+        }
+
+        .legal-footer-links a {
+            color: var(--color-text-muted);
+        }
+
+        .legal-footer-links a:hover {
+            color: var(--color-text-dark);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                max-width: 280px;
+                box-sizing: border-box;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 40px;
+                gap: 30px;
+                transition: var(--transition-normal);
+                border-left: 1px solid var(--color-border);
+                z-index: 999;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.25rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            main { padding: 120px 0 60px 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="platforms.html" class="nav-link">Platforms</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last updated: July 24, 2026</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using VidyBack ("Service"), you agree to be bound by these Terms of Service. If you do not agree to abide by these terms, please do not use this service.</p>
+
+            <h2>2. Service Disclaimer</h2>
+            <p>VidyBack is provided on an "as is" basis without any warranties, express or implied. We make no representations regarding the accuracy, completeness, or reliability of any information provided through our service. Use of VidyBack is at your own risk.</p>
+
+            <h2>3. User Responsibility</h2>
+            <p>You are responsible for:</p>
+            <ul>
+                <li>Your use of VidyBack and any content you create or upload</li>
+                <li>Maintaining the confidentiality of your account information</li>
+                <li>Testing any work before deploying it to your live store</li>
+                <li>Backing up your data and work regularly</li>
+                <li>Ensuring your use complies with applicable laws and platform policies</li>
+            </ul>
+
+            <h2>4. Limitation of Liability</h2>
+            <p>In no event shall VidyBack be liable for any damages arising from your use of or inability to use the Service, including but not limited to indirect, incidental, special, or consequential damages. VidyBack's total liability shall not exceed the amount you paid for access to the Service.</p>
+
+            <h2>5. Prohibited Conduct</h2>
+            <p>You agree not to use VidyBack to:</p>
+            <ul>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Infringe on intellectual property rights of others</li>
+                <li>Engage in fraud, misrepresentation, or illegal activities</li>
+                <li>Harass, threaten, or abuse any individual</li>
+                <li>Attempt to gain unauthorized access to VidyBack's systems</li>
+                <li>Disrupt the normal operation of VidyBack's services</li>
+            </ul>
+
+            <h2>6. Modifications to Service</h2>
+            <p>VidyBack may modify, suspend, or discontinue any part of the Service at any time without notice. We are not liable for any consequences resulting from such modifications or discontinuance.</p>
+
+            <h2>7. Account Termination</h2>
+            <p>VidyBack reserves the right to terminate or suspend your account at any time for any reason, including violation of these terms or applicable laws.</p>
+
+            <h2>8. Third-Party Platforms</h2>
+            <p>VidyBack may integrate with third-party ecommerce platforms and services. Your use of these platforms is subject to their own terms and policies. VidyBack is not responsible for third-party services or their performance.</p>
+
+            <h2>9. Changes to Terms</h2>
+            <p>VidyBack may revise these Terms of Service at any time without notice. Your continued use of VidyBack constitutes acceptance of any modified terms.</p>
+
+            <div class="highlight">
+                <p><strong>Questions?</strong> If you have questions about these Terms of Service, please contact us at <a href="mailto:contact@vidyback.com" style="color: var(--color-purple);">contact@vidyback.com</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="#content-ideas">Content Ideas</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Newsletter -->
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our marketing newsletter to get the latest strategies on ecommerce traffic scaling.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Newsletter email">
+                        <button type="submit" class="btn btn-primary" aria-label="Subscribe button"><span>Go</span></button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Legal Copyright Bar -->
+    <div class="legal-footer-bar">
+        <div class="container">
+            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -372,9 +372,9 @@
     <!-- --- Header Navigation --- -->
     <header>
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" id="nav-logo">
                 <div class="logo-icon">
-                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
                 </div>
                 <div class="logo-text">Vidy<span>Back</span></div>
             </a>
@@ -384,7 +384,7 @@
                 <a href="features.html" class="nav-link">Features</a>
                 <a href="platforms.html" class="nav-link">Platforms</a>
                 <a href="pricing.html" class="nav-link">Pricing</a>
-                <a href="faq.html" class="nav-link active">FAQ</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="blog.html" class="nav-link">Blog</a>
             </nav>
 
@@ -744,51 +744,65 @@
         </div>
     </section>
 
-    <!-- --- Footer --- -->
-    <footer id="contact">
+<footer>
         <div class="container">
             <div class="footer-grid">
+                <!-- Col 1: Brand Info -->
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <div class="logo-icon"><img src="images/logo.png" alt="VidyBack Logo" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
                         <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
                     </a>
                     <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
                     <div class="footer-app-links">
                         <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
                             <i class="fa-brands fa-google-play"></i>
-                            <div class="app-store-info"><span class="app-store-label">Get it on</span><span class="app-store-name">Google Play</span></div>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
                         </a>
                     </div>
                 </div>
+
+                <!-- Col 2: Navigation Links -->
                 <nav class="footer-links-col" aria-label="Product navigation">
                     <h3>Product</h3>
                     <ul>
-                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="features.html">Features</a></li>
-                        <li><a href="index.html#content-ideas">Content Ideas</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#content-ideas">Content Ideas</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
+
+                <!-- Col 3: Company / Legal -->
                 <nav class="footer-links-col" aria-label="Company navigation">
                     <h3>Company</h3>
                     <ul>
                         <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                     </ul>
                 </nav>
+
+                <!-- Col 4: Newsletter -->
                 <div class="footer-newsletter">
                     <h3>Stay Updated</h3>
                     <p>Subscribe to our marketing newsletter to get the latest strategies on ecommerce traffic scaling.</p>
                     <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
                         <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Newsletter email">
-                        <button type="submit" class="btn btn-primary"><span>Go</span></button>
+                        <button type="submit" class="btn btn-primary" aria-label="Subscribe button"><span>Go</span></button>
                     </form>
                 </div>
             </div>
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div>
                     <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
@@ -804,6 +818,7 @@
         </div>
     </footer>
 
+    <!-- Legal Copyright Bar -->
     <div class="legal-footer-bar">
         <div class="container">
             <p>&copy; 2026 VidyBack All Rights Reserved.</p>

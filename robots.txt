@@ -46,4 +46,4 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
-Sitemap: https://vidyback.netlify.app/sitemap.xml
+Sitemap: https://vidyback.com/sitemap.xml
