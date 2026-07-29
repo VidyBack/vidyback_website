@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -178,6 +178,12 @@
             gap: 8px;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
         main {
             padding: 150px 0 80px 0;
             min-height: 60vh;
@@ -254,7 +260,7 @@
         }
 
         .feature-list li:before {
-            content: "✓";
+            content: "âœ“";
             position: absolute;
             left: 0;
             color: var(--color-accent-green);
@@ -294,7 +300,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
             gap: 60px;
             margin-bottom: 60px;
         }
@@ -437,6 +443,10 @@
             .comparison-table th, .comparison-table td { padding: 12px; }
             .cta-box { padding: 40px; }
         }
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#cbd5e1;}
+.social-links{display:flex;gap:16px;}
+.social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
+.social-link:hover{background:var(--color-purple);color:#fff;border-color:transparent;transform:translateY(-3px);}
     </style>
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -475,107 +485,42 @@
     <main>
         <div class="container">
             <h1>VidyBack vs Minta</h1>
-            <p style="font-size: 1.125rem; color: var(--color-text-muted);">Compare the leading AI video marketing platforms for ecommerce automation</p>
+            <p style="font-size: 1.125rem; color: var(--color-text-muted);">Why Ecommerce Stores Choose VidyBack: A Detailed Comparison</p>
 
-            <h2>Head-to-Head Comparison</h2>
-            <p>Both VidyBack and Minta offer AI-powered video generation and social media automation. Here's how they stack up across key features:</p>
+            <h2>Quick Comparison</h2>
+            <p>Both VidyBack and Minta help with video creation, but they're built for different purposes:</p>
 
             <table class="comparison-table">
                 <thead>
                     <tr>
-                        <th>Feature</th>
+                        <th>Category</th>
                         <th>VidyBack</th>
                         <th>Minta</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Product Video Generation</strong></td>
-                        <td>Specialized for ecommerce products with auto-sync from store catalogs</td>
-                        <td>General video creation, manual product input</td>
+                        <td><strong>Built For</strong></td>
+                        <td>Ecommerce automation - AI videos for product social media</td>
+                        <td>General video marketing - ecommerce, ads, brand content, and more</td>
                     </tr>
                     <tr>
-                        <td><strong>Catalog Integration</strong></td>
-                        <td>Direct Shopify, WooCommerce, Etsy sync - auto-generates for all products</td>
-                        <td>Limited catalog support, mostly manual uploads</td>
+                        <td><strong>Pricing</strong></td>
+                        <td>$49/month - $99/month</td>
+                        <td>Free - $55/month</td>
                     </tr>
                     <tr>
-                        <td><strong>AI Personalization</strong></td>
-                        <td>Videos auto-generated with product details, pricing, images</td>
-                        <td>Basic AI customization, more template-based</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Branding</strong></td>
-                        <td>Store logo, colors, brand guidelines built-in</td>
-                        <td>Manual branding setup required</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Scheduling & Auto-Posting</strong></td>
-                        <td>Smart scheduling based on engagement times</td>
-                        <td>Basic scheduling capabilities</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Platform Support</strong></td>
-                        <td>Instagram, TikTok, YouTube, Facebook, Pinterest auto-posting</td>
-                        <td>TikTok, Instagram, Facebook, Pinterest ads</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Analytics & Performance</strong></td>
-                        <td>Detailed engagement tracking, A/B testing, conversion metrics</td>
-                        <td>Basic performance tracking</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Setup Time</strong></td>
-                        <td>Under 5 minutes - connect store once, auto-everything</td>
-                        <td>15-30 minutes - manual setup for each campaign</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Content Volume</strong></td>
-                        <td>Unlimited - one video per product, auto-synced</td>
-                        <td>Limited by AI credits - Free (50), Pro (1000/month)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pricing Model</strong></td>
-                        <td>Free to $9.99/month (or $5/month annual)</td>
-                        <td>Freemium model - Free to $9.99/month (or $5/month annual)</td>
+                        <td><strong>Free Trial</strong></td>
+                        <td>14 days</td>
+                        <td>7 days</td>
                     </tr>
                     <tr>
                         <td><strong>Best For</strong></td>
-                        <td>Ecommerce stores wanting full automation at scale</td>
-                        <td>Small teams making occasional marketing videos</td>
+                        <td>Ecommerce stores prioritizing automated social media content</td>
+                        <td>Budget-conscious users creating various types of videos</td>
                     </tr>
                 </tbody>
             </table>
-
-            <h2>VidyBack Advantages</h2>
-            <ul class="feature-list">
-                <li><strong>Catalog Automation:</strong> Connect your store once and videos auto-generate for every new product</li>
-                <li><strong>Scalability:</strong> Generate unlimited content - perfect for stores with 100+ products</li>
-                <li><strong>Smart Scheduling:</strong> AI decides optimal posting times for maximum engagement</li>
-                <li><strong>Ecommerce Focus:</strong> Built specifically for online sellers, not general marketing</li>
-                <li><strong>Faster Setup:</strong> 5 minutes vs 15-30 minutes for competitors</li>
-                <li><strong>Lower Cost at Scale:</strong> Flat pricing makes unlimited content affordable</li>
-                <li><strong>Multi-Platform:</strong> Post everywhere - Instagram, TikTok, YouTube, Facebook, Pinterest</li>
-            </ul>
-
-            <h2>Minta Advantages</h2>
-            <ul class="feature-list">
-                <li><strong>Completely Free Tier:</strong> Create unlimited non-AI posts with 480p quality, no watermark removal</li>
-                <li><strong>Budget-Friendly:</strong> Only $9.99/month for Pro tier with AI assistance</li>
-                <li><strong>General Purpose:</strong> Good for non-product video marketing (testimonials, brand videos, ads)</li>
-                <li><strong>Large Template Library:</strong> Thousands of pre-designed templates for various platforms</li>
-                <li><strong>Established Platform:</strong> 45,000+ users with high Shopify app ratings</li>
-            </ul>
-
-            <h2>Why Stores Choose VidyBack</h2>
-            <ul class="feature-list">
-                <li><strong>Same Price, Better Features:</strong> VidyBack and Minta have similar pricing, but VidyBack auto-syncs with your entire product catalog</li>
-                <li><strong>Time Savings:</strong> Generate 100s of videos in minutes, not days</li>
-                <li><strong>Consistency:</strong> Every product gets branded, professional content automatically</li>
-                <li><strong>No Manual Work:</strong> New products auto-generate videos without intervention</li>
-                <li><strong>Ecommerce Built-In:</strong> Specialized for selling online, not general marketing</li>
-                <li><strong>Competitive Advantage:</strong> Scale content production faster than manual competitors</li>
-            </ul>
 
             <div class="cta-box">
                 <h2>Switch to VidyBack Today</h2>
@@ -623,6 +568,13 @@
                     </ul>
                 </nav>
 
+                <nav class="footer-links-col">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison.html">vs Minta</a></li>
+                        <li><a href="outify-comparison.html">vs Outify</a></li>
+                    </ul>
+                </nav>
 
                 <!-- Col 4: Legal Links -->
                 <nav class="footer-links-col">
@@ -682,3 +634,5 @@
     </script>
 </body>
 </html>
+
+

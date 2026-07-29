@@ -417,7 +417,7 @@ header .container { display: flex; align-items: center; justify-content: space-b
         /* ── FOOTER ── */
         footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
         footer h4, footer .logo { color: #ffffff; }
-        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr; gap: 60px; margin-bottom: 60px; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; gap: 60px; margin-bottom: 60px; }
         .footer-brand { display: flex; flex-direction: column; gap: 20px; }
         .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
         .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
@@ -428,7 +428,7 @@ header .container { display: flex; align-items: center; justify-content: space-b
         .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
         .app-store-name { font-size: 0.85rem; font-weight: 700; }
         .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px;
-    color: #ffffff; }
+    color: #ffffff !important; }
         .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; padding: 0; }
         .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
         .footer-links-col a:hover { color: #ffffff; padding-left: 4px; }
@@ -501,27 +501,13 @@ header .container { display: flex; align-items: center; justify-content: space-b
             .legal-footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
             .hero-content h1 { font-size: 1.9rem; }
         }
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#cbd5e1;}
+.social-links{display:flex;gap:16px;}
+.social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
+.social-link:hover{background:var(--color-purple);color:#fff;border-color:transparent;transform:translateY(-3px);}
     </style>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-P738P31V8L');
-    </script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
-    <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ji Yi init fn mn Ur pn bn cn capture calculateEventProperties Sn register register_once register_for_session unregister unregister_for_session Tn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Mn identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Cn xn createPersonProfile setInternalOrTestUser In hn Pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug Vr Rt getPageViewId captureTraceFeedback captureTraceMetric an".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_sfaymNHRExbDmNBLptU7ghkk9UXTyWuk9YNAjxUExpnB', {
-        api_host: 'https://us.i.posthog.com',
-        defaults: '2026-05-30',
-        person_profiles: 'identified_only',
-    })
-    </script>
 </head>
 <body>
 
@@ -757,6 +743,14 @@ header .container { display: flex; align-items: center; justify-content: space-b
                     </ul>
                 </nav>
 
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison.html">vs Minta</a></li>
+                        <li><a href="outify-comparison.html">vs Outify</a></li>
+                    </ul>
+                </nav>
+
 
                 <!-- Col 4: Company / Legal -->
                 <nav class="footer-links-col" aria-label="Company navigation">
@@ -824,6 +818,12 @@ header .container { display: flex; align-items: center; justify-content: space-b
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

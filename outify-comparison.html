@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -178,6 +178,12 @@
             gap: 8px;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+
         main {
             padding: 150px 0 80px 0;
             min-height: 60vh;
@@ -254,7 +260,7 @@
         }
 
         .feature-list li:before {
-            content: "✓";
+            content: "âœ“";
             position: absolute;
             left: 0;
             color: var(--color-accent-green);
@@ -294,7 +300,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
             gap: 60px;
             margin-bottom: 60px;
         }
@@ -437,6 +443,10 @@
             .comparison-table th, .comparison-table td { padding: 12px; }
             .cta-box { padding: 40px; }
         }
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#cbd5e1;}
+.social-links{display:flex;gap:16px;}
+.social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
+.social-link:hover{background:var(--color-purple);color:#fff;border-color:transparent;transform:translateY(-3px);}
     </style>
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -475,10 +485,10 @@
     <main>
         <div class="container">
             <h1>VidyBack vs Outify</h1>
-            <p style="font-size: 1.125rem; color: var(--color-text-muted);">Different tools for different goals: Social media content automation vs B2B sales outreach</p>
+            <p style="font-size: 1.125rem; color: var(--color-text-muted);">Why VidyBack Is Built for Ecommerce Social Media Automation</p>
 
-            <h2>Understanding the Difference</h2>
-            <p>VidyBack and Outify serve completely different purposes. VidyBack automates social media content creation and posting for ecommerce stores, while Outify automates B2B sales outreach and deal management. These are complementary tools that solve different business challenges.</p>
+            <h2>Quick Comparison</h2>
+            <p>VidyBack and Outify serve completely different purposes. Here's the main difference:</p>
 
             <table class="comparison-table">
                 <thead>
@@ -490,74 +500,38 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Primary Purpose</strong></td>
-                        <td>Social media content creation & automation for ecommerce</td>
-                        <td>B2B sales outreach and deal pursuit</td>
+                        <td><strong>Built For</strong></td>
+                        <td>Ecommerce stores automating social media for product marketing</td>
+                        <td>B2B companies managing enterprise sales outreach</td>
                     </tr>
                     <tr>
-                        <td><strong>Target User</strong></td>
-                        <td>Ecommerce store owners, social media managers</td>
-                        <td>B2B sales teams, revenue operations</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Main Feature</strong></td>
-                        <td>AI video generation from product catalogs</td>
-                        <td>Deal Chaser (AI-powered prospect pursuit)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Output Type</strong></td>
-                        <td>Marketing videos for social media</td>
-                        <td>Personalized outbound emails & sequences</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Integrations</strong></td>
-                        <td>Shopify, WooCommerce, Etsy, Wix, TikTok, Instagram, YouTube</td>
-                        <td>CRM, email, Slack, sales tools</td>
+                        <td><strong>Primary Use</strong></td>
+                        <td>Social media automation and content creation for products</td>
+                        <td>AI-driven B2B sales outreach and deal management</td>
                     </tr>
                     <tr>
                         <td><strong>Pricing</strong></td>
-                        <td>Free - $9.99/month (or $5/month annual)</td>
-                        <td>$59 - $999/month</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Setup Time</strong></td>
-                        <td>Under 5 minutes</td>
-                        <td>2-4 weeks (business context learning)</td>
+                        <td>$49/month - $99/month</td>
+                        <td>$59/month - $999/month</td>
                     </tr>
                     <tr>
                         <td><strong>Best For</strong></td>
-                        <td>Growing social media presence & driving product sales</td>
-                        <td>Building B2B sales pipelines & closing enterprise deals</td>
+                        <td>Ecommerce business owners wanting to grow on social media</td>
+                        <td>B2B sales teams selling to enterprises</td>
                     </tr>
                 </tbody>
             </table>
 
-            <h2>When to Use VidyBack</h2>
-            <ul class="feature-list">
-                <li><strong>Running an ecommerce store:</strong> Shopify, WooCommerce, Etsy, or any online marketplace</li>
-                <li><strong>Need social media content:</strong> Want to post regularly on Instagram, TikTok, YouTube, Facebook</li>
-                <li><strong>Don't have a content team:</strong> Looking for automated, AI-powered content creation</li>
-                <li><strong>Want to showcase products:</strong> Need marketing videos that highlight your catalog</li>
-                <li><strong>Need fast turnaround:</strong> Generate hundreds of videos in minutes, not weeks</li>
-            </ul>
+            <h2>Why VidyBack for Ecommerce</h2>
+            <p>If you're running an ecommerce store, VidyBack is built for your business. It handles social media automation for product sales. Outify is designed for B2B enterprise sales - a different business model entirely.</p>
 
-            <h2>When to Use Outify</h2>
+            <p>Choose VidyBack if you need:</p>
             <ul class="feature-list">
-                <li><strong>B2B sales team:</strong> Running outbound sales campaigns to enterprise/mid-market buyers</li>
-                <li><strong>Need lead research:</strong> Want AI to identify and research qualified prospects</li>
-                <li><strong>Complex sales cycles:</strong> Dealing with longer deal timelines that need active pursuit</li>
-                <li><strong>Multiple decision makers:</strong> Managing complex stakeholder environments</li>
-                <li><strong>Revenue operations:</strong> Need full pipeline visibility and outbound automation</li>
+                <li>Automated social media content for your product catalog</li>
+                <li>Quick setup (under 5 minutes to connect your store)</li>
+                <li>Posts across Instagram, TikTok, YouTube, Facebook, and Pinterest</li>
+                <li>Consistent pricing regardless of product count</li>
             </ul>
-
-            <h2>Can You Use Both?</h2>
-            <p>Yes! If you run a B2B SaaS company with an ecommerce component, you could use both:</p>
-            <ul class="feature-list">
-                <li><strong>VidyBack:</strong> Create marketing content about your product features for social media</li>
-                <li><strong>Outify:</strong> Run outbound campaigns to B2B prospects and manage deal pursuit</li>
-            </ul>
-
-            <p>However, if your primary focus is ecommerce (selling physical products online), you only need VidyBack. If you're a B2B software company focused on sales, you only need Outify.</p>
 
             <div class="cta-box">
                 <h2>Ready to Automate Your Social Media Content?</h2>
@@ -605,6 +579,13 @@
                     </ul>
                 </nav>
 
+                <nav class="footer-links-col">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison.html">vs Minta</a></li>
+                        <li><a href="outify-comparison.html">vs Outify</a></li>
+                    </ul>
+                </nav>
 
                 <!-- Col 4: Legal Links -->
                 <nav class="footer-links-col">
@@ -664,3 +645,5 @@
     </script>
 </body>
 </html>
+
+
