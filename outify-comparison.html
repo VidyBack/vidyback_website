@@ -184,6 +184,16 @@
             color: var(--color-text-dark);
         }
 
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            outline: none;
+            transition: var(--transition-normal);
+        }
+
         main {
             padding: 150px 0 80px 0;
             min-height: 60vh;
@@ -248,23 +258,166 @@
             background: rgba(122, 66, 244, 0.03);
         }
 
-        .feature-list {
-            list-style: none;
-            margin: 20px 0;
+        .comparison-table th:nth-child(2),
+        .comparison-table td:nth-child(2) {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.45) 0%, rgba(255, 200, 0, 0.3) 100%);
         }
 
-        .feature-list li {
-            padding: 12px 0;
-            padding-left: 30px;
+        .comparison-table thead th:nth-child(2) {
+            background-color: #1abc9c;
+            color: #ffffff;
+        }
+
+        .comparison-container {
+            margin: 40px 0;
+            background: var(--color-bg-alt);
+            border-radius: var(--border-radius-md);
+            overflow: visible;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 0.9fr 1.3fr 1fr;
+            gap: 0;
+            width: 100%;
+        }
+
+        .comparison-header {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 0;
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .comparison-header .vidyback-col {
+            background: #1abc9c;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
 
-        .feature-list li:before {
-            content: “→”;
+        .badge {
+            background: #1abc9c;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            display: inline-block;
             position: absolute;
-            left: 0;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .comparison-row {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 0;
+            border-bottom: 1px solid var(--color-border);
+            transition: var(--transition-normal);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row:hover .vidyback-col {
+            background: rgba(26, 188, 156, 0.05);
+        }
+
+        .category-col {
+            padding: 24px;
+            background: var(--color-bg-alt);
+            border-right: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+        }
+
+        .category-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        .category-label i {
+            color: #1abc9c;
+            font-size: 1.2rem;
+        }
+
+        .vidyback-col {
+            padding: 24px;
+            background: rgba(26, 188, 156, 0.08);
+            border-right: 1px solid rgba(26, 188, 156, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .minta-col,
+        .outify-col {
+            padding: 24px;
+            background: var(--color-bg-alt);
+            display: flex;
+            align-items: center;
+        }
+
+        .cell-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: rgba(26, 188, 156, 0.15);
+            color: #1abc9c;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: fit-content;
+        }
+
+        .price-badge.minta-badge,
+        .price-badge.outify-badge {
+            background: rgba(94, 109, 122, 0.08);
+            color: var(--color-text-muted);
+        }
+
+        .trial-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 188, 156, 0.15);
+            color: #1abc9c;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: fit-content;
+        }
+
+        .trial-badge.minta-badge {
+            background: rgba(94, 109, 122, 0.08);
+            color: var(--color-text-muted);
+        }
+
+        .feature-list {
+            list-style: disc;
+            margin: 20px 0 20px 24px;
             color: var(--color-accent-green);
-            font-weight: 700;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: var(--color-text-main);
         }
 
         .cta-box {
@@ -425,20 +578,82 @@
             transform: translateY(-3px);
         }
 
-        .legal-footer-bar {
-            background-color: var(--color-bg);
-            border-top: 1px solid var(--color-border);
-            padding: 24px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
+        .apps-section {
+            background-color: var(--color-bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .apps-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .app-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .app-item:last-child {
+            flex: none;
+            margin-left: auto;
+        }
+
+        .app-item a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .apps-container {
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .app-item {
+                flex: none;
+            }
+
+            .app-item:last-child {
+                margin-left: 0;
+                margin-top: 20px;
+            }
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             h2 { font-size: 1.5rem; }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                max-width: 280px;
+                box-sizing: border-box;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 40px;
+                gap: 30px;
+                transition: var(--transition-normal);
+                border-left: 1px solid var(--color-border);
+                z-index: 999;
+            }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
             main { padding: 120px 0 60px 0; }
+            .comparison-container { overflow-x: auto; }
             .comparison-table { font-size: 0.9rem; }
             .comparison-table th, .comparison-table td { padding: 12px; }
             .cta-box { padding: 40px; }
@@ -490,37 +705,118 @@
             <h2>Quick Comparison</h2>
             <p>VidyBack and Outify serve completely different purposes. Here's the main difference:</p>
 
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>VidyBack</th>
-                        <th>Outify</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Built For</strong></td>
-                        <td>Ecommerce stores automating social media for product marketing</td>
-                        <td>B2B companies managing enterprise sales outreach</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Primary Use</strong></td>
-                        <td>Social media automation and content creation for products</td>
-                        <td>AI-driven B2B sales outreach and deal management</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pricing</strong></td>
-                        <td>$49/month - $99/month</td>
-                        <td>$59/month - $999/month</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Best For</strong></td>
-                        <td>Ecommerce business owners wanting to grow on social media</td>
-                        <td>B2B sales teams selling to enterprises</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <div class="category-col">
+                        <strong>Category</strong>
+                    </div>
+                    <div class="vidyback-col">
+                        <span class="badge">Ecommerce Focused</span>
+                        <div style="margin-top: 16px; font-size: 1.25rem; font-weight: 700; color: #ffffff; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-check"></i> VidyBack
+                        </div>
+                    </div>
+                    <div class="outify-col">
+                        <div style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-dark);">Outify</div>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="category-col">
+                        <div class="category-label">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Built For</span>
+                        </div>
+                    </div>
+                    <div class="vidyback-col">
+                        <div class="cell-content">
+                            <i class="fa-solid fa-shopping-cart" style="color: #1abc9c; margin-right: 8px;"></i>
+                            <div>
+                                <strong style="color: #1abc9c;">Ecommerce stores</strong>
+                                <p style="color: var(--color-text-muted); margin-top: 4px; font-size: 0.9rem;">automating social media for product marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outify-col">
+                        <div class="cell-content">
+                            <i class="fa-solid fa-handshake" style="color: #5e6d7a; margin-right: 8px;"></i>
+                            <div>
+                                <strong style="color: #2b3945;">B2B companies</strong>
+                                <p style="color: var(--color-text-muted); margin-top: 4px; font-size: 0.9rem;">managing enterprise sales outreach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="category-col">
+                        <div class="category-label">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Primary Use</span>
+                        </div>
+                    </div>
+                    <div class="vidyback-col">
+                        <div class="cell-content">
+                            <strong style="color: #1abc9c;">Social media automation</strong>
+                            <p style="color: var(--color-text-muted); margin-top: 4px; font-size: 0.9rem;">content creation for products</p>
+                        </div>
+                    </div>
+                    <div class="outify-col">
+                        <div class="cell-content">
+                            <strong style="color: #2b3945;">AI-driven B2B sales outreach</strong>
+                            <p style="color: var(--color-text-muted); margin-top: 4px; font-size: 0.9rem;">deal management</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="category-col">
+                        <div class="category-label">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Pricing</span>
+                        </div>
+                    </div>
+                    <div class="vidyback-col">
+                        <div class="cell-content">
+                            <span class="price-badge">$9.99/month or $59.99/year</span>
+                        </div>
+                    </div>
+                    <div class="outify-col">
+                        <div class="cell-content">
+                            <span class="price-badge outify-badge">$59/month - $999/month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="category-col">
+                        <div class="category-label">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Best For</span>
+                        </div>
+                    </div>
+                    <div class="vidyback-col">
+                        <div class="cell-content">
+                            <div style="display: flex; gap: 12px;">
+                                <i class="fa-solid fa-users" style="color: #1abc9c; flex-shrink: 0; margin-top: 2px;"></i>
+                                <div>
+                                    <strong style="color: #2b3945;">Ecommerce business owners wanting to grow on social media</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outify-col">
+                        <div class="cell-content">
+                            <div style="display: flex; gap: 12px;">
+                                <i class="fa-solid fa-building" style="color: #5e6d7a; flex-shrink: 0; margin-top: 2px;"></i>
+                                <div>
+                                    <strong style="color: #2b3945;">B2B sales teams selling to enterprises</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <h2>Why VidyBack for Ecommerce</h2>
             <p>If you're running an ecommerce store, VidyBack is built for your business. It handles social media automation for product sales. Outify is designed for B2B enterprise sales - a different business model entirely.</p>
@@ -542,9 +838,10 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+        <footer id="contact">
         <div class="container">
             <div class="footer-grid">
+                
                 <!-- Col 1: Brand Info -->
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
@@ -554,7 +851,7 @@
                         <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
                     </a>
                     <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
-
+                    
                     <div class="footer-app-links">
                         <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
                             <i class="fa-brands fa-google-play"></i>
@@ -565,9 +862,9 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Col 2: Product Links -->
-                <nav class="footer-links-col">
+                
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
                     <h3>Product</h3>
                     <ul>
                         <li><a href="#how-it-works">How It Works</a></li>
@@ -579,7 +876,8 @@
                     </ul>
                 </nav>
 
-                <nav class="footer-links-col">
+                <!-- Col 3: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
                     <h3>Compare</h3>
                     <ul>
                         <li><a href="minta-comparison.html">vs Minta</a></li>
@@ -587,8 +885,8 @@
                     </ul>
                 </nav>
 
-                <!-- Col 4: Legal Links -->
-                <nav class="footer-links-col">
+                <!-- Col 4: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
                     <h3>Company</h3>
                     <ul>
                         <li><a href="privacypolicy.html">Privacy Policy</a></li>
@@ -597,8 +895,9 @@
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                     </ul>
                 </nav>
+                
             </div>
-
+            
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div>
@@ -612,15 +911,38 @@
                     <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Legal Footer -->
-    <div class="legal-footer-bar">
-        <div class="container">
-            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
-        </div>
-    </div>
 
     <script>
         // Header scroll effect
@@ -645,5 +967,8 @@
     </script>
 </body>
 </html>
+
+
+
 
 

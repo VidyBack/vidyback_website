@@ -453,30 +453,6 @@
             transform: translateY(-3px);
         }
 
-        .legal-footer-bar {
-            background-color: var(--color-bg);
-            border-top: 1px solid var(--color-border);
-            padding: 24px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
-        }
-
-        .legal-footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 8px;
-        }
-
-        .legal-footer-links a {
-            color: var(--color-text-muted);
-        }
-
-        .legal-footer-links a:hover {
-            color: var(--color-text-dark);
-        }
-
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -503,20 +479,35 @@
                 z-index: 999;
             }
 
+            .nav-menu.active {
+                right: 0;
+            }
+
             .menu-toggle {
                 display: block;
+                position: relative;
+                z-index: 1001;
             }
 
             h1 { font-size: 2rem; }
             h2 { font-size: 1.25rem; }
             .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
             main { padding: 120px 0 60px 0; }
         }
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#cbd5e1;}
 .social-links{display:flex;gap:16px;}
 .social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
 .social-link:hover{background:var(--color-purple);color:#fff;border-color:transparent;transform:translateY(-3px);}
-    </style>
+    
+/* Apps Section */
+.apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+.apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+.app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+.app-item:last-child { flex: none; margin-left: auto; }
+.app-item a:hover { opacity: 0.8; }
+@media (max-width: 768px) { .apps-container { justify-content: center; flex-direction: column; text-align: center; } .app-item { flex: none; } .app-item:last-child { margin-left: 0; margin-top: 20px; } }
+</style>
 </head>
 <body>
     <!-- Header Navigation -->
@@ -603,9 +594,10 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+        <footer id="contact">
         <div class="container">
             <div class="footer-grid">
+                
                 <!-- Col 1: Brand Info -->
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
@@ -615,7 +607,7 @@
                         <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
                     </a>
                     <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
-
+                    
                     <div class="footer-app-links">
                         <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
                             <i class="fa-brands fa-google-play"></i>
@@ -626,7 +618,7 @@
                         </a>
                     </div>
                 </div>
-
+                
                 <!-- Col 2: Navigation Links -->
                 <nav class="footer-links-col" aria-label="Product navigation">
                     <h3>Product</h3>
@@ -640,6 +632,7 @@
                     </ul>
                 </nav>
 
+                <!-- Col 3: Compare -->
                 <nav class="footer-links-col" aria-label="Compare navigation">
                     <h3>Compare</h3>
                     <ul>
@@ -647,7 +640,6 @@
                         <li><a href="outify-comparison.html">vs Outify</a></li>
                     </ul>
                 </nav>
-
 
                 <!-- Col 4: Company / Legal -->
                 <nav class="footer-links-col" aria-label="Company navigation">
@@ -659,8 +651,9 @@
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                     </ul>
                 </nav>
+                
             </div>
-
+            
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div>
@@ -674,14 +667,39 @@
                     <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <!-- Legal Copyright Bar -->
-    <div class="legal-footer-bar">
-        <div class="container">
-            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
-        </div>
     </div>
 
     <script>
@@ -707,6 +725,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

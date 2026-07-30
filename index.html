@@ -1867,30 +1867,57 @@ footer h4, footer .logo {
     transform: translateY(-3px);
 }
 
-/* Legal Footer (Beige / Warm background matching original) */
-.legal-footer-bar {
-    background-color: var(--color-bg);
-    border-top: 1px solid var(--color-border);
-    padding: 24px 0;
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
+/* Apps Section */
+.apps-section {
+    background-color: var(--color-bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 0;
+    margin-top: 40px;
 }
 
-.legal-footer-links {
+.apps-container {
     display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.legal-footer-links a {
-    color: var(--color-text-muted);
+.app-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 200px;
 }
 
-.legal-footer-links a:hover {
-    color: var(--color-text-dark);
+.app-item:last-child {
+    flex: none;
+    margin-left: auto;
 }
+
+.app-item a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .apps-container {
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-item {
+        flex: none;
+    }
+
+    .app-item:last-child {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+
 
 /* --- Video Modal Popup --- */
 .video-modal {
@@ -3062,16 +3089,37 @@ footer h4, footer .logo {
                     <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-            
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <!-- --- Legal Copyright Bar (Cream) --- -->
-    <div class="legal-footer-bar">
-        <div class="container">
-            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
-        </div>
-    </div>
 
     <!-- --- Video Modal --- -->
     <div class="video-modal">
@@ -3281,6 +3329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
 </body>
 </html>
+
 
 
 

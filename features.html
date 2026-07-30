@@ -1125,30 +1125,7 @@
             transform: translateY(-3px);
         }
 
-        /* Legal Footer Copyright Bar (Cream) */
-        .legal-footer-bar {
-            background-color: var(--color-bg);
-            border-top: 1px solid var(--color-border);
-            padding: 24px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
-        }
-
-        .legal-footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 8px;
-        }
-
-        .legal-footer-links a {
-            color: var(--color-text-muted);
-        }
-
-        .legal-footer-links a:hover {
-            color: var(--color-text-dark);
-        }
+        
 
         /* --- Call To Action Section (Dark Slate Blue) --- */
         .cta-section {
@@ -1285,6 +1262,7 @@
                 gap: 20px;
                 text-align: center;
             }
+            table { overflow-x: auto; }
             th, td {
                 padding: 14px 10px;
                 font-size: 0.8rem;
@@ -1294,7 +1272,15 @@
 .social-links{display:flex;gap:16px;}
 .social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
 .social-link:hover{background:var(--color-purple);color:#fff;border-color:transparent;transform:translateY(-3px);}
-    </style>
+    
+/* Apps Section */
+.apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+.apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+.app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+.app-item:last-child { flex: none; margin-left: auto; }
+.app-item a:hover { opacity: 0.8; }
+@media (max-width: 768px) { .apps-container { justify-content: center; flex-direction: column; text-align: center; } .app-item { flex: none; } .app-item:last-child { margin-left: 0; margin-top: 20px; } }
+</style>
     
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -1859,7 +1845,7 @@
     </section>
 
     <!-- --- Footer (Dark Slate Blue) --- -->
-    <footer id="contact">
+        <footer id="contact">
         <div class="container">
             <div class="footer-grid">
                 
@@ -1888,10 +1874,10 @@
                 <nav class="footer-links-col" aria-label="Product navigation">
                     <h3>Product</h3>
                     <ul>
-                        <li><a href="index.html#features">Features</a></li>
-                        <li><a href="index.html#how-it-works">How It Works</a></li>
-                        <li><a href="index.html#content-ideas">Content Ideas</a></li>
-                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="#content-ideas">Content Ideas</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -1932,16 +1918,39 @@
                     <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-            
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- --- Legal Copyright Bar (Cream) --- -->
-    <div class="legal-footer-bar">
-        <div class="container">
-            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
-        </div>
-    </div>
+</div>
 
     <!-- Interactive Scripts -->
     <script>
@@ -1985,6 +1994,10 @@
     </script>
 </body>
 </html>
+
+
+
+
 
 
 

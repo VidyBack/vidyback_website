@@ -82,7 +82,7 @@ header .container{display:flex;align-items:center;justify-content:space-between;
 .nav-link{font-size:0.95rem;font-weight:500;color:var(--color-text-muted);}
 .nav-link:hover,.nav-link.active{color:var(--color-text-dark);}
 .nav-actions{display:flex;align-items:center;gap:16px;}
-.menu-toggle{display:none;font-size:1.5rem;color:var(--color-text-dark);background:none;border:none;cursor:pointer;}
+.menu-toggle{display:none;font-size:1.5rem;color:var(--color-text-dark);background:none;border:none;cursor:pointer;}button{font-family:inherit;font-size:inherit;cursor:pointer;border:none;background:none;outline:none;transition:var(--transition-normal);}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:var(--border-radius-md);font-weight:600;font-size:0.95rem;transition:var(--transition-normal);cursor:pointer;border:none;font-family:inherit;}
 .btn-primary{background:var(--color-purple);color:#fff;box-shadow:0 4px 15px rgba(122,66,244,0.2);}
 .btn-primary:hover{background:var(--color-purple-hover);transform:translateY(-2px);}
@@ -124,7 +124,6 @@ footer h4,footer .logo{color:#fff;}
 .footer-links-col ul{display:flex;flex-direction:column;gap:14px;list-style:none;}
 .footer-links-col a{font-size:0.9rem;color:#cbd5e1;}
 .footer-links-col a:hover{color:#fff;padding-left:4px;}
-.legal-footer-bar{background-color:var(--color-bg);border-top:1px solid var(--color-border);padding:24px 0;text-align:center;font-size:0.85rem;color:var(--color-text-muted);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#cbd5e1;}
 .social-links{display:flex;gap:16px;}
 .social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
@@ -133,9 +132,64 @@ footer h4,footer .logo{color:#fff;}
     .post-hero h1{font-size:1.9rem;}
     .post-cover{height:260px;}
     .post-cta{padding:32px 20px;}
+    .nav-menu{position:fixed;top:0;right:-100%;width:100%;max-width:280px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:100px 40px;gap:30px;transition:var(--transition-normal);border-left:1px solid var(--color-border);}
+    .nav-menu.active{right:0;z-index:999;box-sizing:border-box;}
+    .menu-toggle{display:block;z-index:1000;}
+    .nav-actions{display:none;}
     .footer-grid{grid-template-columns:1fr;gap:30px;}
+    .footer-bottom{flex-direction:column;gap:20px;text-align:center;}
 }
-    </style>
+    
+/* Apps Section */
+.apps-section {
+    background-color: var(--color-bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.apps-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.app-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.app-item:last-child {
+    flex: none;
+    margin-left: auto;
+}
+
+.app-item a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .apps-container {
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-item {
+        flex: none;
+    }
+
+    .app-item:last-child {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+</style>
 </head>
 <body>
     <!-- --- Header Navigation --- -->
@@ -270,9 +324,21 @@ footer h4,footer .logo{color:#fff;}
         </article>
     </div>
 
-<footer>
+    
+
+    <!-- Legal Copyright Bar -->
+    </div>
+    <script>
+    const header=document.getElementById('mainHeader');
+    window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>50));
+    const menuToggle=document.getElementById('menuToggle'),navMenu=document.getElementById('navMenu');
+    menuToggle.addEventListener('click',()=>{navMenu.classList.toggle('active');menuToggle.querySelector('i').className=navMenu.classList.contains('active')?'fas fa-times':'fas fa-bars';});
+    </script>
+
+<footer id="contact">
         <div class="container">
             <div class="footer-grid">
+                
                 <!-- Col 1: Brand Info -->
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
@@ -282,7 +348,7 @@ footer h4,footer .logo{color:#fff;}
                         <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
                     </a>
                     <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
-
+                    
                     <div class="footer-app-links">
                         <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
                             <i class="fa-brands fa-google-play"></i>
@@ -293,7 +359,7 @@ footer h4,footer .logo{color:#fff;}
                         </a>
                     </div>
                 </div>
-
+                
                 <!-- Col 2: Navigation Links -->
                 <nav class="footer-links-col" aria-label="Product navigation">
                     <h3>Product</h3>
@@ -307,6 +373,7 @@ footer h4,footer .logo{color:#fff;}
                     </ul>
                 </nav>
 
+                <!-- Col 3: Compare -->
                 <nav class="footer-links-col" aria-label="Compare navigation">
                     <h3>Compare</h3>
                     <ul>
@@ -314,7 +381,6 @@ footer h4,footer .logo{color:#fff;}
                         <li><a href="outify-comparison.html">vs Outify</a></li>
                     </ul>
                 </nav>
-
 
                 <!-- Col 4: Company / Legal -->
                 <nav class="footer-links-col" aria-label="Company navigation">
@@ -326,8 +392,9 @@ footer h4,footer .logo{color:#fff;}
                         <li><a href="disclaimer.html">Disclaimer</a></li>
                     </ul>
                 </nav>
+                
             </div>
-
+            
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div>
@@ -341,23 +408,49 @@ footer h4,footer .logo{color:#fff;}
                     <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <!-- Legal Copyright Bar -->
-    <div class="legal-footer-bar">
-        <div class="container">
-            <p>&copy; 2026 VidyBack All Rights Reserved.</p>
-        </div>
-    </div>
-    <script>
-    const header=document.getElementById('mainHeader');
-    window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>50));
-    const menuToggle=document.getElementById('menuToggle'),navMenu=document.getElementById('navMenu');
-    menuToggle.addEventListener('click',()=>{navMenu.classList.toggle('active');menuToggle.querySelector('i').className=navMenu.classList.contains('active')?'fas fa-times':'fas fa-bars';});
-    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
