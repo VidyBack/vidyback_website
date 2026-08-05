@@ -1,5 +1,57 @@
 # Netlify Configuration File
 
+# Blog post URLs renamed from /blog-post-N.html to keyword slugs.
+# 301 redirects so old links (search indexing, backlinks, bookmarks) keep working.
+[[redirects]]
+from = "/blog-post-1.html"
+to = "/why-your-shopify-store-isnt-getting-instagram-sales.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-2.html"
+to = "/how-small-ecommerce-stores-compete-with-big-brands.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-3.html"
+to = "/how-to-save-time-on-ecommerce-social-media-posts.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-4.html"
+to = "/how-to-create-product-videos-for-tiktok-instagram-reels.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-5.html"
+to = "/how-to-build-a-social-media-content-calendar-for-ecommerce.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-6.html"
+to = "/best-ai-tools-for-social-media-automation.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-7.html"
+to = "/how-to-automate-instagram-posting-for-a-shopify-store.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-8.html"
+to = "/how-much-time-does-automation-actually-save.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-9.html"
+to = "/why-posting-5-7-times-a-week-beats-posting-once.html"
+status = 301
+
+[[redirects]]
+from = "/blog-post-10.html"
+to = "/how-to-automate-tiktok-posting-for-your-shopify-store.html"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
