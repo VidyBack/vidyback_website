@@ -4,52 +4,220 @@
 # 301 redirects so old links (search indexing, backlinks, bookmarks) keep working.
 [[redirects]]
 from = "/blog-post-1.html"
-to = "/why-your-shopify-store-isnt-getting-instagram-sales.html"
+to = "/why-your-shopify-store-isnt-getting-instagram-sales"
 status = 301
 
 [[redirects]]
 from = "/blog-post-2.html"
-to = "/how-small-ecommerce-stores-compete-with-big-brands.html"
+to = "/how-small-ecommerce-stores-compete-with-big-brands"
 status = 301
 
 [[redirects]]
 from = "/blog-post-3.html"
-to = "/how-to-save-time-on-ecommerce-social-media-posts.html"
+to = "/how-to-save-time-on-ecommerce-social-media-posts"
 status = 301
 
 [[redirects]]
 from = "/blog-post-4.html"
-to = "/how-to-create-product-videos-for-tiktok-instagram-reels.html"
+to = "/how-to-create-product-videos-for-tiktok-instagram-reels"
 status = 301
 
 [[redirects]]
 from = "/blog-post-5.html"
-to = "/how-to-build-a-social-media-content-calendar-for-ecommerce.html"
+to = "/how-to-build-a-social-media-content-calendar-for-ecommerce"
 status = 301
 
 [[redirects]]
 from = "/blog-post-6.html"
-to = "/best-ai-tools-for-social-media-automation.html"
+to = "/best-ai-tools-for-social-media-automation"
 status = 301
 
 [[redirects]]
 from = "/blog-post-7.html"
-to = "/how-to-automate-instagram-posting-for-a-shopify-store.html"
+to = "/how-to-automate-instagram-posting-for-a-shopify-store"
 status = 301
 
 [[redirects]]
 from = "/blog-post-8.html"
-to = "/how-much-time-does-automation-actually-save.html"
+to = "/how-much-time-does-automation-actually-save"
 status = 301
 
 [[redirects]]
 from = "/blog-post-9.html"
-to = "/why-posting-5-7-times-a-week-beats-posting-once.html"
+to = "/why-posting-5-7-times-a-week-beats-posting-once"
 status = 301
 
 [[redirects]]
 from = "/blog-post-10.html"
-to = "/how-to-automate-tiktok-posting-for-your-shopify-store.html"
+to = "/how-to-automate-tiktok-posting-for-your-shopify-store"
+status = 301
+
+# Every page: redirect the .html version to the clean URL so only
+# one canonical URL is ever live (matches the canonical/og:url tags).
+
+[[redirects]]
+from = "/about.html"
+to = "/about"
+status = 301
+
+[[redirects]]
+from = "/best-ai-tools-for-social-media-automation.html"
+to = "/best-ai-tools-for-social-media-automation"
+status = 301
+
+[[redirects]]
+from = "/blog.html"
+to = "/blog"
+status = 301
+
+[[redirects]]
+from = "/competitors.html"
+to = "/competitors"
+status = 301
+
+[[redirects]]
+from = "/contact.html"
+to = "/contact"
+status = 301
+
+[[redirects]]
+from = "/cookies-policy.html"
+to = "/cookies-policy"
+status = 301
+
+[[redirects]]
+from = "/disclaimer.html"
+to = "/disclaimer"
+status = 301
+
+[[redirects]]
+from = "/ecwid.html"
+to = "/ecwid"
+status = 301
+
+[[redirects]]
+from = "/etsy.html"
+to = "/etsy"
+status = 301
+
+[[redirects]]
+from = "/faq.html"
+to = "/faq"
+status = 301
+
+[[redirects]]
+from = "/features.html"
+to = "/features"
+status = 301
+
+[[redirects]]
+from = "/how-much-time-does-automation-actually-save.html"
+to = "/how-much-time-does-automation-actually-save"
+status = 301
+
+[[redirects]]
+from = "/how-small-ecommerce-stores-compete-with-big-brands.html"
+to = "/how-small-ecommerce-stores-compete-with-big-brands"
+status = 301
+
+[[redirects]]
+from = "/how-to-automate-instagram-posting-for-a-shopify-store.html"
+to = "/how-to-automate-instagram-posting-for-a-shopify-store"
+status = 301
+
+[[redirects]]
+from = "/how-to-automate-tiktok-posting-for-your-shopify-store.html"
+to = "/how-to-automate-tiktok-posting-for-your-shopify-store"
+status = 301
+
+[[redirects]]
+from = "/how-to-build-a-social-media-content-calendar-for-ecommerce.html"
+to = "/how-to-build-a-social-media-content-calendar-for-ecommerce"
+status = 301
+
+[[redirects]]
+from = "/how-to-create-product-videos-for-tiktok-instagram-reels.html"
+to = "/how-to-create-product-videos-for-tiktok-instagram-reels"
+status = 301
+
+[[redirects]]
+from = "/how-to-save-time-on-ecommerce-social-media-posts.html"
+to = "/how-to-save-time-on-ecommerce-social-media-posts"
+status = 301
+
+[[redirects]]
+from = "/index.html"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/integrations.html"
+to = "/integrations"
+status = 301
+
+[[redirects]]
+from = "/jumpseller.html"
+to = "/jumpseller"
+status = 301
+
+[[redirects]]
+from = "/minta-comparison.html"
+to = "/minta-comparison"
+status = 301
+
+[[redirects]]
+from = "/outify-comparison.html"
+to = "/outify-comparison"
+status = 301
+
+[[redirects]]
+from = "/platforms.html"
+to = "/platforms"
+status = 301
+
+[[redirects]]
+from = "/pricing.html"
+to = "/pricing"
+status = 301
+
+[[redirects]]
+from = "/privacypolicy.html"
+to = "/privacypolicy"
+status = 301
+
+[[redirects]]
+from = "/scale.html"
+to = "/scale"
+status = 301
+
+[[redirects]]
+from = "/shopify.html"
+to = "/shopify"
+status = 301
+
+[[redirects]]
+from = "/squarespace.html"
+to = "/squarespace"
+status = 301
+
+[[redirects]]
+from = "/terms.html"
+to = "/terms"
+status = 301
+
+[[redirects]]
+from = "/why-posting-5-7-times-a-week-beats-posting-once.html"
+to = "/why-posting-5-7-times-a-week-beats-posting-once"
+status = 301
+
+[[redirects]]
+from = "/why-your-shopify-store-isnt-getting-instagram-sales.html"
+to = "/why-your-shopify-store-isnt-getting-instagram-sales"
+status = 301
+
+[[redirects]]
+from = "/wix.html"
+to = "/wix"
 status = 301
 
 [[headers]]
