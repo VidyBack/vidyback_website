@@ -220,6 +220,11 @@ from = "/wix.html"
 to = "/wix"
 status = 301
 
+[[redirects]]
+from = "/instagram-tiktok-algorithm-2026-small-ecommerce.html"
+to = "/instagram-tiktok-algorithm-2026-small-ecommerce"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
