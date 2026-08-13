@@ -608,6 +608,20 @@ footer h4,footer .logo{color:#fff;}
             });
         });
     }
+
+    // Category filter
+    const catButtons = document.querySelectorAll('.cat-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    catButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            catButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.cat;
+            blogCards.forEach(card => {
+                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+            });
+        });
+    });
     </script>
 
 <footer id="contact">
