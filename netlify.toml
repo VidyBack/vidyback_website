@@ -230,6 +230,11 @@ from = "/one-product-video-five-platforms.html"
 to = "/one-product-video-five-platforms"
 status = 301
 
+[[redirects]]
+from = "/real-cost-of-ecommerce-social-content-2026.html"
+to = "/real-cost-of-ecommerce-social-content-2026"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
