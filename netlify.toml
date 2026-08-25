@@ -235,6 +235,11 @@ from = "/real-cost-of-ecommerce-social-content-2026.html"
 to = "/real-cost-of-ecommerce-social-content-2026"
 status = 301
 
+[[redirects]]
+from = "/turning-reviews-into-video-ads.html"
+to = "/turning-reviews-into-video-ads"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
