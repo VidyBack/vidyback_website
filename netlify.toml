@@ -240,6 +240,11 @@ from = "/turning-reviews-into-video-ads.html"
 to = "/turning-reviews-into-video-ads"
 status = 301
 
+[[redirects]]
+from = "/pinterest-for-ecommerce.html"
+to = "/pinterest-for-ecommerce"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
