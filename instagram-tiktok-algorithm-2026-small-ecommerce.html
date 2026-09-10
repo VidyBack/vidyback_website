@@ -444,5 +444,33 @@ footer h4,footer .logo{color:#fff;}
             </div>
         </div>
     </footer>
+    <script>
+    // Capture UTM params and carry them forward to app.vidyback.com signup links
+    (function() {
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            if (stored) {
+                var qs = new URLSearchParams(stored).toString();
+                if (qs) {
+                    document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                        var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                        a.href = a.href + sep + qs;
+                    });
+                }
+            }
+        } catch (e) {}
+    })();
+    </script>
 </body>
 </html>
