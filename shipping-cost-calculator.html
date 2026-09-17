@@ -7,11 +7,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
-    <meta name="description" content="Free profit margin calculator for ecommerce sellers. Enter any 2 of cost, price or margin to solve the third, plus markup, fees and true margin.">
-    <title>Free Profit Margin Calculator for Ecommerce Sellers | VidyBack</title>
+    <meta name="description" content="Free dimensional weight & shipping cost calculator for ecommerce. Compare actual vs. DIM weight by carrier divisor and estimate courier charges instantly.">
+    <title>Free Shipping Cost & Dimensional Weight Calculator for Ecommerce</title>
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.vidyback.com/profit-margin-calculator">
+    <link rel="canonical" href="https://www.vidyback.com/shipping-cost-calculator">
 
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -24,13 +24,13 @@
     <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
     <meta property="og:image:width" content="640">
     <meta property="og:image:height" content="360">
-    <meta property="og:title" content="Free Profit Margin Calculator for Ecommerce Sellers">
-    <meta property="og:description" content="Enter any 2 of cost, price or margin to solve the third, plus markup, fees and true margin, right in your browser.">
-    <meta property="og:url" content="https://www.vidyback.com/profit-margin-calculator">
+    <meta property="og:title" content="Free Shipping Cost & Dimensional Weight Calculator for Ecommerce">
+    <meta property="og:description" content="Compare actual vs. dimensional weight by carrier divisor and estimate courier charges instantly, right in your browser.">
+    <meta property="og:url" content="https://www.vidyback.com/shipping-cost-calculator">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@vidyback">
-    <meta name="twitter:title" content="Free Profit Margin Calculator for Ecommerce Sellers">
-    <meta name="twitter:description" content="Enter any 2 of cost, price or margin to solve the third, plus markup, fees and true margin, right in your browser.">
+    <meta name="twitter:title" content="Free Shipping Cost & Dimensional Weight Calculator for Ecommerce">
+    <meta name="twitter:description" content="Compare actual vs. dimensional weight by carrier divisor and estimate courier charges instantly, right in your browser.">
     <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
 
     <!-- FAQPage Schema Markup -->
@@ -41,34 +41,34 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "What is a good profit margin for ecommerce?",
+                "name": "What is dimensional weight?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Most ecommerce categories aim for a gross margin between 20% and 50%. Fashion and beauty products often run 40-60%, general merchandise and electronics tend to run 10-30%, and digital or print-on-demand products can exceed 70-90% since there's little to no physical cost of goods."
+                    "text": "Dimensional (volumetric) weight is an estimate of how much space a package takes up relative to its actual weight, calculated as length x width x height divided by a carrier-specific DIM divisor. Couriers bill you for whichever is higher, actual weight or dimensional weight."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What's the difference between margin and markup?",
+                "name": "How do I reduce my dimensional weight charges?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Margin is profit divided by selling price. Markup is profit divided by cost price. They describe the same dollar amount of profit from two different starting points, so markup is always a higher percentage than margin on the same sale."
+                    "text": "Use the smallest box that safely fits your product, avoid excess void fill and packaging, and consider poly mailers or slim boxes for lightweight items. Reducing any one dimension lowers the volumetric weight calculation directly."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How do I calculate profit margin?",
+                "name": "What DIM divisor should I use?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Subtract your cost price from your selling price to get profit, then divide that profit by the selling price and multiply by 100. For example, a product that costs $20 and sells for $50 has a $30 profit and a 60% profit margin."
+                    "text": "It depends on your carrier and service. Most international couriers use 5000 for centimeters and kilograms, some air freight services use 6000, and US domestic carriers typically use 139 or 166 for inches and pounds. Check your carrier's rate documentation to confirm."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What's the difference between gross margin and true margin?",
+                "name": "Why did my courier charge more than my package's actual weight suggested?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Gross margin only accounts for the cost price of the product. True margin also subtracts payment processing fees and per-unit shipping costs, giving a more realistic picture of what you actually keep from each sale."
+                    "text": "Your package was likely billed on dimensional weight rather than actual weight. Bulky, lightweight items like pillows, lampshades or packaging-heavy products often have a dimensional weight well above their actual weight, and carriers always charge the higher of the two."
                 }
             }
         ]
@@ -148,38 +148,52 @@
         .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
         .tool-hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
         .tool-hero h1 span { color: var(--color-text-accent); }
-        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 620px; margin: 0 auto; line-height: 1.6; }
 
         /* --- Calculator --- */
         .calc-section { padding: 40px 0 80px; }
-        .calc-wrapper { max-width: 900px; margin: 0 auto; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+        .calc-wrapper { max-width: 980px; margin: 0 auto; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
         .calc-top-bar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 18px 28px; border-bottom: 1px solid var(--color-border); background: rgba(29,81,117,0.02); }
         .currency-label { font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted); }
         .currency-select { padding: 8px 14px; border-radius: 10px; border: 1px solid var(--color-border); background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark); cursor: pointer; font-family: var(--font-body); }
 
         .calc-body { padding: 32px 28px 8px; display: grid; grid-template-columns: 1fr; gap: 0; }
         @media (min-width: 760px) {
-            .calc-body { grid-template-columns: 1.1fr 1fr; gap: 40px; padding: 40px; }
+            .calc-body { grid-template-columns: 1.15fr 1fr; gap: 40px; padding: 40px; }
         }
 
         .field-group { margin-bottom: 22px; }
-        .field-label-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+        .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+        .field-label-main { display: flex; align-items: center; gap: 6px; }
         .field-label { font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark); }
 
         .info-btn { width: 16px; height: 16px; border-radius: 50%; background: rgba(29,81,117,0.1); color: var(--color-text-accent); font-size: 0.68rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: none; cursor: help; position: relative; flex-shrink: 0; }
-        .info-btn .tooltip-bubble { visibility: hidden; opacity: 0; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%) translateY(4px); background: var(--color-text-dark); color: #fff; font-size: 0.78rem; font-weight: 500; line-height: 1.4; padding: 10px 12px; border-radius: 8px; width: max-content; max-width: 220px; text-align: left; box-shadow: var(--shadow-md); transition: opacity 0.15s ease, transform 0.15s ease; z-index: 20; }
+        .info-btn .tooltip-bubble { visibility: hidden; opacity: 0; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%) translateY(4px); background: var(--color-text-dark); color: #fff; font-size: 0.78rem; font-weight: 500; line-height: 1.4; padding: 10px 12px; border-radius: 8px; width: max-content; max-width: 240px; text-align: left; box-shadow: var(--shadow-md); transition: opacity 0.15s ease, transform 0.15s ease; z-index: 20; }
         .info-btn .tooltip-bubble::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--color-text-dark); }
         .info-btn:hover .tooltip-bubble, .info-btn:focus .tooltip-bubble, .info-btn:focus-visible .tooltip-bubble { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Unit toggle segmented control */
+        .unit-toggle { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); flex-shrink: 0; }
+        .unit-toggle button { padding: 5px 12px; font-size: 0.76rem; font-weight: 700; background: #fff; color: var(--color-text-muted); border: none; cursor: pointer; transition: var(--transition-fast); }
+        .unit-toggle button:not(:last-child) { border-right: 1px solid var(--color-border); }
+        .unit-toggle button.active { background: var(--color-purple); color: #fff; }
 
         .input-wrap { position: relative; display: flex; align-items: center; }
         .input-prefix, .input-suffix { position: absolute; font-size: 1rem; font-weight: 600; color: var(--color-text-muted); pointer-events: none; }
         .input-prefix { left: 16px; }
         .input-suffix { right: 16px; }
-        .num-input { width: 100%; padding: 14px 16px; padding-left: 34px; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border); font-size: 1.05rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); transition: var(--transition-fast); background: #fff; }
-        .num-input.suffix-percent { padding-left: 16px; padding-right: 34px; }
+        .num-input { width: 100%; padding: 14px 16px; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border); font-size: 1.05rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); transition: var(--transition-fast); background: #fff; }
+        .num-input.has-prefix { padding-left: 34px; }
+        .num-input.suffix-percent { padding-right: 34px; }
         .num-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
-        .num-input.active-field { border-color: var(--color-accent-green); }
         .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px; }
+
+        .dim-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .dim-row .input-wrap input { text-align: center; }
+        .dim-mini-label { font-size: 0.7rem; color: var(--color-text-muted); text-align: center; margin-top: 4px; }
+
+        .select-input { width: 100%; padding: 14px 16px; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border); font-size: 0.98rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); background: #fff; cursor: pointer; }
+        .select-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
 
         .advanced-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 600; color: var(--color-text-accent); background: none; border: none; cursor: pointer; padding: 6px 0; margin-bottom: 4px; }
         .advanced-toggle i { transition: transform 0.2s ease; font-size: 0.75rem; }
@@ -188,24 +202,36 @@
         .advanced-panel.open { max-height: 500px; }
         .advanced-panel-inner { padding-top: 8px; border-top: 1px dashed var(--color-border); margin-top: 8px; }
 
+        .error-msg { background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.25); color: var(--color-accent-red); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--border-radius-sm); margin-top: 4px; margin-bottom: 16px; display: none; }
+        .error-msg.show { display: block; }
+
         /* --- Results panel --- */
         .results-panel { background: var(--color-bg-dark); border-radius: var(--border-radius-lg); padding: 28px 24px; color: #fff; display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 8px; height: fit-content; }
         @media (min-width: 760px) { .results-panel { margin-top: 0; } }
+
+        .weight-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; margin-bottom: 6px; }
+        .weight-card { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: var(--border-radius-sm); padding: 16px 10px; text-align: center; transition: var(--transition-fast); }
+        .weight-card.winning { border-color: var(--color-gold); background: rgba(245,166,35,0.12); }
+        .weight-card-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-light-muted); margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+        .weight-card-value { font-family: var(--font-heading); font-size: 1.45rem; font-weight: 800; color: #fff; }
+        .weight-card.winning .weight-card-value { color: var(--color-gold); }
+        .weight-card-badge { display: none; font-size: 0.62rem; font-weight: 700; color: var(--color-gold); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.03em; }
+        .weight-card.winning .weight-card-badge { display: block; }
+
+        .winner-note { font-size: 0.82rem; color: var(--color-text-light-muted); line-height: 1.5; padding: 10px 4px 16px; }
+
+        .result-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 10px 0 20px; }
+
         .result-hero-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-light-muted); margin-bottom: 6px; }
-        .result-hero-value { font-family: var(--font-heading); font-size: 3.2rem; font-weight: 800; color: var(--color-gold); line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
-        .result-hero-sub { font-size: 0.85rem; color: var(--color-text-light-muted); margin-bottom: 24px; }
-        .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; }
-        .result-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius-sm); padding: 14px 10px; }
-        .result-card-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-light-muted); margin-bottom: 6px; }
-        .result-card-value { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: #fff; }
-        .result-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0; }
-        .true-margin-block { width: 100%; }
-        .true-margin-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 0.9rem; }
-        .true-margin-row .label { color: var(--color-text-light-muted); }
-        .true-margin-row .value { font-weight: 700; font-family: var(--font-heading); }
-        .true-margin-row.highlight .value { color: var(--color-accent-green); font-size: 1.1rem; }
-        .error-msg { background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); color: #fca5a5; font-size: 0.82rem; padding: 10px 14px; border-radius: var(--border-radius-sm); margin-top: 8px; display: none; }
-        .error-msg.show { display: block; }
+        .result-hero-value { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; color: var(--color-gold); line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+        .result-hero-sub { font-size: 0.85rem; color: var(--color-text-light-muted); }
+
+        .cost-block { width: 100%; }
+        .cost-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; font-size: 0.88rem; }
+        .cost-row .label { color: var(--color-text-light-muted); }
+        .cost-row .value { font-weight: 700; font-family: var(--font-heading); }
+        .cost-row.highlight { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 6px; padding-top: 14px; }
+        .cost-row.highlight .value { color: var(--color-accent-green); font-size: 1.25rem; }
 
         /* --- Content Section --- */
         .content-section { padding: 20px 0 80px; }
@@ -265,7 +291,7 @@
             .tool-hero { padding: 120px 0 10px; }
             .tool-hero h1 { font-size: 1.9rem; }
             .calc-body { padding: 24px 18px 4px; }
-            .result-hero-value { font-size: 2.5rem; }
+            .result-hero-value { font-size: 2.3rem; }
             .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
             .nav-menu.active { right: 0; }
             .menu-toggle { display: block; z-index: 1000; }
@@ -277,8 +303,8 @@
             .app-item:last-child { margin-left: 0; margin-top: 20px; }
         }
         @media (max-width: 480px) {
-            .result-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
             .calc-top-bar { padding: 14px 18px; }
+            .dim-row { gap: 6px; }
         }
     </style>
 </head>
@@ -317,8 +343,8 @@
     <section class="tool-hero">
         <div class="container">
             <span class="badge">Free Tool</span>
-            <h1>Profit Margin <span>Calculator</span></h1>
-            <p>Enter any two values, cost, selling price or margin, and the third solves itself as you type. No signup, no email wall, just the numbers.</p>
+            <h1>Shipping Cost & <span>Dimensional Weight Calculator</span></h1>
+            <p>Enter a package's weight and dimensions to see whether your courier bills you by actual weight or dimensional weight, and estimate the shipping cost either way.</p>
         </div>
     </section>
 
@@ -342,68 +368,111 @@
                     <div>
                         <div class="field-group">
                             <div class="field-label-row">
-                                <span class="field-label">Cost Price (per unit)</span>
-                                <button type="button" class="info-btn" aria-label="Formula help for cost price">i<span class="tooltip-bubble">What you pay to make or source one unit, before any markup.</span></button>
+                                <div class="field-label-main">
+                                    <span class="field-label">Package Weight (actual)</span>
+                                    <button type="button" class="info-btn" aria-label="Formula help for actual weight">i<span class="tooltip-bubble">What the package weighs on a scale, before considering its size.</span></button>
+                                </div>
+                                <div class="unit-toggle" role="group" aria-label="Weight unit">
+                                    <button type="button" id="weightUnitKg" class="active" aria-pressed="true">kg</button>
+                                    <button type="button" id="weightUnitLb" aria-pressed="false">lb</button>
+                                </div>
                             </div>
                             <div class="input-wrap">
-                                <span class="input-prefix" id="prefixCost">$</span>
-                                <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="costInput" placeholder="0.00" aria-describedby="costHint">
+                                <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="weightInput" placeholder="0.00">
                             </div>
                         </div>
 
                         <div class="field-group">
                             <div class="field-label-row">
-                                <span class="field-label">Selling Price (per unit)</span>
-                                <button type="button" class="info-btn" aria-label="Formula help for selling price">i<span class="tooltip-bubble">The price the customer actually pays for one unit.</span></button>
+                                <div class="field-label-main">
+                                    <span class="field-label">Dimensions (L × W × H)</span>
+                                    <button type="button" class="info-btn" aria-label="Formula help for dimensions">i<span class="tooltip-bubble">Outer box dimensions, not the product itself.</span></button>
+                                </div>
+                                <div class="unit-toggle" role="group" aria-label="Dimension unit">
+                                    <button type="button" id="dimUnitCm" class="active" aria-pressed="true">cm</button>
+                                    <button type="button" id="dimUnitIn" aria-pressed="false">in</button>
+                                </div>
                             </div>
-                            <div class="input-wrap">
-                                <span class="input-prefix" id="prefixSelling">$</span>
-                                <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="sellingInput" placeholder="0.00" aria-describedby="sellingHint">
+                            <div class="dim-row">
+                                <div>
+                                    <div class="input-wrap"><input type="number" inputmode="decimal" min="0" step="0.1" class="num-input" id="lengthInput" placeholder="0" aria-label="Length"></div>
+                                    <div class="dim-mini-label">Length</div>
+                                </div>
+                                <div>
+                                    <div class="input-wrap"><input type="number" inputmode="decimal" min="0" step="0.1" class="num-input" id="widthInput" placeholder="0" aria-label="Width"></div>
+                                    <div class="dim-mini-label">Width</div>
+                                </div>
+                                <div>
+                                    <div class="input-wrap"><input type="number" inputmode="decimal" min="0" step="0.1" class="num-input" id="heightInput" placeholder="0" aria-label="Height"></div>
+                                    <div class="dim-mini-label">Height</div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="field-group">
                             <div class="field-label-row">
-                                <span class="field-label">Profit Margin</span>
-                                <button type="button" class="info-btn" aria-label="Formula help for profit margin">i<span class="tooltip-bubble">Margin % = (Profit ÷ Selling Price) × 100</span></button>
+                                <div class="field-label-main">
+                                    <span class="field-label">Carrier / DIM Divisor</span>
+                                    <button type="button" class="info-btn" aria-label="Formula help for DIM divisor">i<span class="tooltip-bubble">Set by your carrier. It converts a box's volume into an equivalent weight for billing.</span></button>
+                                </div>
                             </div>
-                            <div class="input-wrap">
-                                <input type="number" inputmode="decimal" min="0" max="99.99" step="0.1" class="num-input suffix-percent" id="marginInput" placeholder="0.0">
-                                <span class="input-suffix">%</span>
+                            <select class="select-input" id="divisorSelect" aria-label="DIM divisor preset">
+                                <option value="5000" selected>5000 — International couriers (cm/kg)</option>
+                                <option value="6000">6000 — Air freight (cm/kg)</option>
+                                <option value="139">139 — US domestic (in/lb)</option>
+                                <option value="166">166 — US domestic air (in/lb)</option>
+                                <option value="custom">Custom divisor</option>
+                            </select>
+                            <div class="field-group" id="customDivisorWrap" style="display:none; margin-top:10px; margin-bottom:0;">
+                                <div class="input-wrap"><input type="number" inputmode="decimal" min="0" step="1" class="num-input" id="customDivisorInput" placeholder="e.g. 4000"></div>
+                                <div class="field-hint">Applies directly to your selected dimension unit above (currently <span id="customDivisorUnitHint">cm</span>).</div>
                             </div>
-                            <div class="field-hint">Fill in any two fields above, this one solves itself.</div>
                         </div>
+
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <div class="field-label-main">
+                                    <span class="field-label">Number of Packages</span>
+                                </div>
+                            </div>
+                            <div class="input-wrap"><input type="number" inputmode="numeric" min="1" step="1" class="num-input" id="packagesInput" placeholder="1"></div>
+                        </div>
+
+                        <div class="error-msg" id="errorMsg" role="alert"></div>
 
                         <button type="button" class="advanced-toggle" id="advancedToggle" aria-expanded="false" aria-controls="advancedPanel">
-                            <i class="fa-solid fa-chevron-down"></i> Advanced: fees, shipping & quantity
+                            <i class="fa-solid fa-chevron-down"></i> Advanced: estimate shipping cost
                         </button>
                         <div class="advanced-panel" id="advancedPanel">
                             <div class="advanced-panel-inner">
                                 <div class="field-group">
                                     <div class="field-label-row">
-                                        <span class="field-label">Quantity / Units</span>
-                                        <button type="button" class="info-btn" aria-label="Formula help for quantity">i<span class="tooltip-bubble">Number of units sold. Used to calculate total profit.</span></button>
+                                        <span class="field-label">Rate per <span id="rateUnitLabel">kg</span></span>
+                                        <button type="button" class="info-btn" aria-label="Formula help for rate">i<span class="tooltip-bubble">Your courier's price per unit of chargeable weight.</span></button>
                                     </div>
-                                    <input type="number" inputmode="numeric" min="0" step="1" class="num-input" id="qtyInput" placeholder="1">
+                                    <div class="input-wrap">
+                                        <span class="input-prefix" id="prefixRate">$</span>
+                                        <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input has-prefix" id="rateInput" placeholder="0.00">
+                                    </div>
                                 </div>
                                 <div class="field-group">
                                     <div class="field-label-row">
-                                        <span class="field-label">Payment Processing Fee</span>
-                                        <button type="button" class="info-btn" aria-label="Formula help for payment fee">i<span class="tooltip-bubble">Card processor cut, taken as a % of the selling price. Defaults to 2.9%, a typical rate.</span></button>
+                                        <span class="field-label">Fuel Surcharge</span>
+                                        <button type="button" class="info-btn" aria-label="Formula help for fuel surcharge">i<span class="tooltip-bubble">A % added on top of the base freight cost. Defaults to 0.</span></button>
                                     </div>
                                     <div class="input-wrap">
-                                        <input type="number" inputmode="decimal" min="0" max="100" step="0.1" class="num-input suffix-percent" id="feeInput" placeholder="2.9">
+                                        <input type="number" inputmode="decimal" min="0" max="100" step="0.1" class="num-input suffix-percent" id="fuelInput" placeholder="0">
                                         <span class="input-suffix">%</span>
                                     </div>
                                 </div>
                                 <div class="field-group">
                                     <div class="field-label-row">
-                                        <span class="field-label">Shipping Cost (per unit)</span>
-                                        <button type="button" class="info-btn" aria-label="Formula help for shipping cost">i<span class="tooltip-bubble">What it costs you to ship one unit, not what you charge the customer.</span></button>
+                                        <span class="field-label">Fixed Handling Fee</span>
+                                        <button type="button" class="info-btn" aria-label="Formula help for handling fee">i<span class="tooltip-bubble">A flat per-shipment fee, added once regardless of weight.</span></button>
                                     </div>
                                     <div class="input-wrap">
-                                        <span class="input-prefix" id="prefixShipping">$</span>
-                                        <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="shippingInput" placeholder="0.00">
+                                        <span class="input-prefix" id="prefixHandling">$</span>
+                                        <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input has-prefix" id="handlingInput" placeholder="0.00">
                                     </div>
                                 </div>
                             </div>
@@ -412,36 +481,43 @@
 
                     <!-- Results column -->
                     <div class="results-panel">
-                        <div class="result-hero-label">Profit Margin</div>
-                        <div class="result-hero-value" id="resultMargin">0%</div>
-                        <div class="result-hero-sub" id="resultProfitSub">$0.00 profit per unit</div>
-
-                        <div class="result-grid">
-                            <div class="result-card">
-                                <div class="result-card-label">Markup</div>
-                                <div class="result-card-value" id="resultMarkup">0%</div>
+                        <div class="weight-compare-grid">
+                            <div class="weight-card" id="actualCard">
+                                <div class="weight-card-label">Actual Weight</div>
+                                <div class="weight-card-value" id="actualWeightDisplay">0.00 kg</div>
+                                <div class="weight-card-badge">You'll be billed for this</div>
                             </div>
-                            <div class="result-card">
-                                <div class="result-card-label">Profit / Unit</div>
-                                <div class="result-card-value" id="resultProfit">$0.00</div>
+                            <div class="weight-card" id="dimCard">
+                                <div class="weight-card-label">Dimensional Weight <button type="button" class="info-btn" aria-label="What is dimensional weight" style="background:rgba(255,255,255,0.15); color:#fff;">i<span class="tooltip-bubble">Estimates the space your package takes up on a truck or plane. Couriers bill by whichever is higher: this, or actual weight.</span></button></div>
+                                <div class="weight-card-value" id="dimWeightDisplay">0.00 kg</div>
+                                <div class="weight-card-badge">You'll be billed for this</div>
                             </div>
                         </div>
+                        <div class="winner-note" id="winnerNote">Enter weight and dimensions to see which one determines your shipping cost.</div>
 
-                        <div class="error-msg" id="errorMsg" role="alert"></div>
+                        <div class="result-divider"></div>
 
-                        <div class="true-margin-block" id="trueMarginBlock" style="display:none;">
+                        <div class="result-hero-label">Total Chargeable Weight</div>
+                        <div class="result-hero-value" id="totalChargeableValue">0.00 kg</div>
+                        <div class="result-hero-sub" id="totalChargeableSub">per package</div>
+
+                        <div class="cost-block" id="costBreakdown" style="display:none;">
                             <div class="result-divider"></div>
-                            <div class="true-margin-row">
-                                <span class="label">Gross Margin (cost only)</span>
-                                <span class="value" id="grossMarginValue">0%</span>
+                            <div class="cost-row">
+                                <span class="label">Base Freight Cost</span>
+                                <span class="value" id="baseCostValue">$0.00</span>
                             </div>
-                            <div class="true-margin-row highlight">
-                                <span class="label">True Margin (after fees & shipping)</span>
-                                <span class="value" id="trueMarginValue">0%</span>
+                            <div class="cost-row">
+                                <span class="label">Fuel Surcharge</span>
+                                <span class="value" id="fuelCostValue">$0.00</span>
                             </div>
-                            <div class="true-margin-row" id="totalProfitRow" style="display:none;">
-                                <span class="label">Total Profit</span>
-                                <span class="value" id="totalProfitValue">$0.00</span>
+                            <div class="cost-row">
+                                <span class="label">Handling Fee</span>
+                                <span class="value" id="handlingCostValue">$0.00</span>
+                            </div>
+                            <div class="cost-row highlight">
+                                <span class="label">Estimated Shipping Cost</span>
+                                <span class="value" id="totalCostValue">$0.00</span>
                             </div>
                         </div>
                     </div>
@@ -454,8 +530,8 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2>Now Turn That Margin Into Content</h2>
-                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so the products with the best margins actually get seen.</p>
+                <h2>Now Spend Less Time on the Rest of Your Catalog</h2>
+                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so every SKU gets seen, not just the bestsellers.</p>
                 <a href="/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
             </div>
         </div>
@@ -465,54 +541,50 @@
     <section class="content-section">
         <div class="container">
             <div class="content-wrapper">
-                <h2>What Is Profit Margin, and Why Does It Matter?</h2>
-                <p>Profit margin is the percentage of your selling price that's actually profit, after covering what the product cost you to make or source. It's the single number that tells you whether a sale is genuinely worth making, not just whether it happened. Two stores can have the same revenue and completely different outcomes depending on their margins: one is building a real business, the other is running on fumes.</p>
+                <h2>What Is Dimensional Weight, and Why Do Couriers Charge By It?</h2>
+                <p>Dimensional (or volumetric) weight is a courier's way of billing for the space a package takes up, not just how heavy it is. A truck or cargo plane has limited volume, not just a limited weight capacity, so carriers calculate an "equivalent weight" from a box's dimensions and charge whichever number is higher: the actual weight on a scale, or the dimensional weight from its size. This is why a large, lightweight box can cost as much to ship as a small, dense one.</p>
 
-                <h2>Margin vs. Markup: They're Not the Same Thing</h2>
-                <p><strong>Margin</strong> is profit divided by <strong>selling price</strong>. <strong>Markup</strong> is profit divided by <strong>cost price</strong>. Both describe the exact same dollar amount of profit, just measured against a different starting point, which is why markup always looks like a bigger number than margin on the same sale.</p>
+                <h2>Why "Cheap-Looking" Bulky Items Often Cost More Than Expected</h2>
+                <p>Sellers are frequently caught off guard by this. A product that feels light in your hands, like a lampshade, a pillow, or anything packed with a lot of void fill, can rack up a dimensional weight several times its actual weight, and that's the number your courier bills against.</p>
                 <div class="example-box">
-                    <p><strong>Worked example:</strong> A product costs $20 to make and sells for $50.</p>
-                    <p>Profit = $50 − $20 = <strong>$30</strong></p>
-                    <p>Margin = $30 ÷ $50 × 100 = <strong>60%</strong></p>
-                    <p>Markup = $30 ÷ $20 × 100 = <strong>150%</strong></p>
+                    <p><strong>Worked example:</strong> A box measuring 40 × 30 × 20 cm weighs 2 kg on a scale.</p>
+                    <p>Dimensional weight = (40 × 30 × 20) ÷ 5000 = <strong>4.8 kg</strong></p>
+                    <p>Since 4.8 kg &gt; 2 kg, the courier bills you for <strong>4.8 kg</strong>, not the 2 kg the package actually weighs.</p>
                 </div>
-                <p>Mixing these two up is one of the most common pricing mistakes in ecommerce. Pricing something at a "50% markup" thinking you're hitting a 50% margin actually leaves you at a 33% margin, a gap that quietly eats into profitability at scale.</p>
+                <p>That gap, 2.8 kg of "invisible" weight, is pure packaging inefficiency. Sizing boxes tighter to the product is often the single cheapest lever a store has to cut shipping costs.</p>
 
-                <h2>What's a "Good" Margin? Rough Benchmarks by Category</h2>
-                <p>There's no universal number, since cost structures vary wildly by product type. As a general reference point:</p>
+                <h2>Common DIM Divisors by Carrier Type</h2>
+                <p>The divisor your carrier uses depends on their service and unit system. Always confirm the exact figure in your own rate card, but as a general reference:</p>
                 <table class="benchmark-table">
                     <thead>
-                        <tr><th>Category</th><th>Typical Margin Range</th></tr>
+                        <tr><th>Divisor</th><th>Typically Used By</th><th>Units</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Apparel & Fashion</td><td>40% – 60%</td></tr>
-                        <tr><td>Beauty & Cosmetics</td><td>50% – 70%</td></tr>
-                        <tr><td>Jewelry & Accessories</td><td>50% – 70%</td></tr>
-                        <tr><td>Electronics & Gadgets</td><td>10% – 30%</td></tr>
-                        <tr><td>Food & Beverage (CPG)</td><td>5% – 20%</td></tr>
-                        <tr><td>Home & General Merchandise</td><td>20% – 40%</td></tr>
-                        <tr><td>Print-on-Demand & Digital</td><td>60% – 90%+</td></tr>
+                        <tr><td>5000</td><td>Most international couriers (DHL, FedEx Intl, UPS Intl)</td><td>cm / kg</td></tr>
+                        <tr><td>6000</td><td>Some air freight and express air services</td><td>cm / kg</td></tr>
+                        <tr><td>139</td><td>US domestic ground services</td><td>in / lb</td></tr>
+                        <tr><td>166</td><td>US domestic air services</td><td>in / lb</td></tr>
                     </tbody>
                 </table>
-                <p>These are gross margins, before ad spend, salaries and other operating costs. The "true margin" fields in the calculator above go a layer deeper, factoring in payment processing fees and per-unit shipping, which is a more honest picture of what actually lands in your pocket per sale.</p>
+                <p>A lower divisor means a higher dimensional weight for the same box, so a service using 5000 will always calculate a heavier "equivalent weight" than one using 6000 for identical dimensions.</p>
 
                 <div class="faq-block">
                     <h2>Frequently Asked Questions</h2>
                     <div class="faq-item">
-                        <h3>What is a good profit margin for ecommerce?</h3>
-                        <p>Most ecommerce categories aim for a gross margin between 20% and 50%. Fashion and beauty products often run 40-60%, general merchandise and electronics tend to run 10-30%, and digital or print-on-demand products can exceed 70-90% since there's little to no physical cost of goods.</p>
+                        <h3>What is dimensional weight?</h3>
+                        <p>Dimensional (volumetric) weight is an estimate of how much space a package takes up relative to its actual weight, calculated as length x width x height divided by a carrier-specific DIM divisor. Couriers bill you for whichever is higher, actual weight or dimensional weight.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>What's the difference between margin and markup?</h3>
-                        <p>Margin is profit divided by selling price. Markup is profit divided by cost price. They describe the same dollar amount of profit from two different starting points, so markup is always a higher percentage than margin on the same sale.</p>
+                        <h3>How do I reduce my dimensional weight charges?</h3>
+                        <p>Use the smallest box that safely fits your product, avoid excess void fill and packaging, and consider poly mailers or slim boxes for lightweight items. Reducing any one dimension lowers the volumetric weight calculation directly.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>How do I calculate profit margin?</h3>
-                        <p>Subtract your cost price from your selling price to get profit, then divide that profit by the selling price and multiply by 100. For example, a product that costs $20 and sells for $50 has a $30 profit and a 60% profit margin.</p>
+                        <h3>What DIM divisor should I use?</h3>
+                        <p>It depends on your carrier and service. Most international couriers use 5000 for centimeters and kilograms, some air freight services use 6000, and US domestic carriers typically use 139 or 166 for inches and pounds. Check your carrier's rate documentation to confirm.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>What's the difference between gross margin and true margin?</h3>
-                        <p>Gross margin only accounts for the cost price of the product. True margin also subtracts payment processing fees and per-unit shipping costs, giving a more realistic picture of what you actually keep from each sale.</p>
+                        <h3>Why did my courier charge more than my package's actual weight suggested?</h3>
+                        <p>Your package was likely billed on dimensional weight rather than actual weight. Bulky, lightweight items like pillows, lampshades or packaging-heavy products often have a dimensional weight well above their actual weight, and carriers always charge the higher of the two.</p>
                     </div>
                 </div>
             </div>
@@ -539,57 +611,68 @@
     }
     </script>
 
-    <!-- --- Profit Margin Calculator Logic --- -->
+    <!-- --- Shipping Cost Calculator Logic --- -->
     <script>
     (function () {
-        const costInput = document.getElementById('costInput');
-        const sellingInput = document.getElementById('sellingInput');
-        const marginInput = document.getElementById('marginInput');
-        const qtyInput = document.getElementById('qtyInput');
-        const feeInput = document.getElementById('feeInput');
-        const shippingInput = document.getElementById('shippingInput');
+        const CM_PER_IN = 2.54;
+        const KG_PER_LB = 0.453592;
+
+        const weightInput = document.getElementById('weightInput');
+        const lengthInput = document.getElementById('lengthInput');
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const packagesInput = document.getElementById('packagesInput');
+        const divisorSelect = document.getElementById('divisorSelect');
+        const customDivisorWrap = document.getElementById('customDivisorWrap');
+        const customDivisorInput = document.getElementById('customDivisorInput');
+        const customDivisorUnitHint = document.getElementById('customDivisorUnitHint');
+
+        const weightUnitKgBtn = document.getElementById('weightUnitKg');
+        const weightUnitLbBtn = document.getElementById('weightUnitLb');
+        const dimUnitCmBtn = document.getElementById('dimUnitCm');
+        const dimUnitInBtn = document.getElementById('dimUnitIn');
+
+        const rateInput = document.getElementById('rateInput');
+        const fuelInput = document.getElementById('fuelInput');
+        const handlingInput = document.getElementById('handlingInput');
+        const rateUnitLabel = document.getElementById('rateUnitLabel');
         const currencySelect = document.getElementById('currencySelect');
 
-        const resultMargin = document.getElementById('resultMargin');
-        const resultProfitSub = document.getElementById('resultProfitSub');
-        const resultMarkup = document.getElementById('resultMarkup');
-        const resultProfit = document.getElementById('resultProfit');
         const errorMsg = document.getElementById('errorMsg');
-        const trueMarginBlock = document.getElementById('trueMarginBlock');
-        const grossMarginValue = document.getElementById('grossMarginValue');
-        const trueMarginValue = document.getElementById('trueMarginValue');
-        const totalProfitRow = document.getElementById('totalProfitRow');
-        const totalProfitValue = document.getElementById('totalProfitValue');
+        const actualCard = document.getElementById('actualCard');
+        const dimCard = document.getElementById('dimCard');
+        const actualWeightDisplay = document.getElementById('actualWeightDisplay');
+        const dimWeightDisplay = document.getElementById('dimWeightDisplay');
+        const winnerNote = document.getElementById('winnerNote');
+        const totalChargeableValue = document.getElementById('totalChargeableValue');
+        const totalChargeableSub = document.getElementById('totalChargeableSub');
+
+        const costBreakdown = document.getElementById('costBreakdown');
+        const baseCostValue = document.getElementById('baseCostValue');
+        const fuelCostValue = document.getElementById('fuelCostValue');
+        const handlingCostValue = document.getElementById('handlingCostValue');
+        const totalCostValue = document.getElementById('totalCostValue');
 
         const advancedToggle = document.getElementById('advancedToggle');
         const advancedPanel = document.getElementById('advancedPanel');
 
-        // "least-recently-edited" gets recomputed
-        let editOrder = ['cost', 'selling', 'margin'];
+        let weightUnit = 'kg';
+        let dimUnit = 'cm';
 
         function currentSymbol() {
             return currencySelect.value || '$';
         }
-
         function fmtMoney(n) {
             if (!isFinite(n)) return '—';
             return currentSymbol() + n.toFixed(2);
         }
-
-        function fmtPct(n) {
+        function fmtWeight(n) {
             if (!isFinite(n)) return '—';
-            return n.toFixed(1).replace(/\.0$/, '') + '%';
+            return n.toFixed(2) + ' ' + weightUnit;
         }
-
-        function getNum(el) {
-            const v = parseFloat(el.value);
-            return isNaN(v) || v < 0 ? null : v;
+        function round3(n) {
+            return Math.round(n * 1000) / 1000;
         }
-
-        function markActive(fieldKey) {
-            [costInput, sellingInput, marginInput].forEach(el => el.classList.remove('active-field'));
-        }
-
         function showError(msg) {
             errorMsg.textContent = msg;
             errorMsg.classList.add('show');
@@ -598,122 +681,176 @@
             errorMsg.classList.remove('show');
             errorMsg.textContent = '';
         }
-
-        function computeFromCostSelling(cost, selling) {
-            const profit = selling - cost;
-            const margin = selling > 0 ? (profit / selling) * 100 : null;
-            return margin;
+        function getNonNegNum(el) {
+            if (el.value.trim() === '') return null;
+            const v = parseFloat(el.value);
+            return isNaN(v) || v < 0 ? null : v;
         }
-        function sellingFromCostMargin(cost, marginPct) {
-            const m = marginPct / 100;
-            if (m >= 1) return null; // impossible: margin can't reach/exceed 100%
-            return cost / (1 - m);
-        }
-        function costFromSellingMargin(selling, marginPct) {
-            const m = marginPct / 100;
-            return selling * (1 - m);
+        function checkPositive(el, label, errors) {
+            const raw = el.value.trim();
+            if (raw === '') return null;
+            const v = parseFloat(raw);
+            if (isNaN(v) || v <= 0) { errors.push(label + ' must be greater than 0.'); return null; }
+            return v;
         }
 
-        function recalc(editedField) {
+        function setWeightUnit(newUnit) {
+            if (newUnit === weightUnit) return;
+            const v = parseFloat(weightInput.value);
+            if (!isNaN(v)) {
+                weightInput.value = round3(newUnit === 'kg' ? v * KG_PER_LB : v / KG_PER_LB);
+            }
+            weightUnit = newUnit;
+            weightUnitKgBtn.classList.toggle('active', weightUnit === 'kg');
+            weightUnitKgBtn.setAttribute('aria-pressed', weightUnit === 'kg');
+            weightUnitLbBtn.classList.toggle('active', weightUnit === 'lb');
+            weightUnitLbBtn.setAttribute('aria-pressed', weightUnit === 'lb');
+            rateUnitLabel.textContent = weightUnit;
+            recalc();
+        }
+
+        function setDimUnit(newUnit) {
+            if (newUnit === dimUnit) return;
+            [lengthInput, widthInput, heightInput].forEach(el => {
+                const v = parseFloat(el.value);
+                if (!isNaN(v)) {
+                    el.value = round3(newUnit === 'cm' ? v * CM_PER_IN : v / CM_PER_IN);
+                }
+            });
+            dimUnit = newUnit;
+            dimUnitCmBtn.classList.toggle('active', dimUnit === 'cm');
+            dimUnitCmBtn.setAttribute('aria-pressed', dimUnit === 'cm');
+            dimUnitInBtn.classList.toggle('active', dimUnit === 'in');
+            dimUnitInBtn.setAttribute('aria-pressed', dimUnit === 'in');
+            customDivisorUnitHint.textContent = dimUnit;
+            recalc();
+        }
+
+        weightUnitKgBtn.addEventListener('click', () => setWeightUnit('kg'));
+        weightUnitLbBtn.addEventListener('click', () => setWeightUnit('lb'));
+        dimUnitCmBtn.addEventListener('click', () => setDimUnit('cm'));
+        dimUnitInBtn.addEventListener('click', () => setDimUnit('in'));
+
+        divisorSelect.addEventListener('change', () => {
+            customDivisorWrap.style.display = divisorSelect.value === 'custom' ? 'block' : 'none';
+            recalc();
+        });
+
+        function recalc() {
             clearError();
+            const errors = [];
 
-            const hasNegative = [costInput, sellingInput, marginInput, qtyInput, feeInput, shippingInput]
-                .some(el => el.value.trim() !== '' && parseFloat(el.value) < 0);
-            if (hasNegative) {
-                showError('Values can\'t be negative.');
+            const weight = checkPositive(weightInput, 'Weight', errors);
+            const length = checkPositive(lengthInput, 'Length', errors);
+            const width = checkPositive(widthInput, 'Width', errors);
+            const height = checkPositive(heightInput, 'Height', errors);
+
+            let packages = packagesInput.value.trim() === '' ? 1 : parseInt(packagesInput.value, 10);
+            if (isNaN(packages) || packages < 1) { errors.push('Number of packages must be at least 1.'); packages = 1; }
+
+            let divisorValue = null;
+            let divisorMode;
+            const divisorSel = divisorSelect.value;
+            if (divisorSel === 'custom') {
+                const raw = customDivisorInput.value.trim();
+                if (raw !== '') {
+                    const d = parseFloat(raw);
+                    if (isNaN(d) || d <= 0) { errors.push('Custom divisor must be greater than 0.'); }
+                    else { divisorValue = d; }
+                }
+                divisorMode = 'custom';
+            } else {
+                divisorValue = parseFloat(divisorSel);
+                divisorMode = (divisorSel === '5000' || divisorSel === '6000') ? 'cm-kg' : 'in-lb';
             }
 
-            if (editedField) {
-                editOrder = editOrder.filter(f => f !== editedField);
-                editOrder.unshift(editedField);
-            }
-            const solveFor = editOrder[2];
+            if (errors.length) showError(errors[0]);
 
-            let cost = getNum(costInput);
-            let selling = getNum(sellingInput);
-            let margin = getNum(marginInput);
+            const actualKg = weight !== null ? (weightUnit === 'kg' ? weight : weight * KG_PER_LB) : 0;
 
-            // Solve the stale field from the two freshest ones, when possible
-            if (solveFor === 'margin' && cost !== null && selling !== null) {
-                const m = computeFromCostSelling(cost, selling);
-                if (m === null) { showError('Selling price must be greater than $0.'); }
-                else { margin = Math.max(0, m); marginInput.value = round(margin); }
-            } else if (solveFor === 'selling' && cost !== null && margin !== null) {
-                const s = sellingFromCostMargin(cost, margin);
-                if (s === null) { showError('Margin must be less than 100%.'); }
-                else { selling = s; sellingInput.value = round(selling); }
-            } else if (solveFor === 'cost' && selling !== null && margin !== null) {
-                const c = costFromSellingMargin(selling, margin);
-                cost = Math.max(0, c);
-                costInput.value = round(cost);
+            let volKg = 0;
+            if (length !== null && width !== null && height !== null && divisorValue) {
+                if (divisorMode === 'cm-kg') {
+                    const Lc = dimUnit === 'cm' ? length : length * CM_PER_IN;
+                    const Wc = dimUnit === 'cm' ? width : width * CM_PER_IN;
+                    const Hc = dimUnit === 'cm' ? height : height * CM_PER_IN;
+                    volKg = (Lc * Wc * Hc) / divisorValue;
+                } else if (divisorMode === 'in-lb') {
+                    const Li = dimUnit === 'in' ? length : length / CM_PER_IN;
+                    const Wi = dimUnit === 'in' ? width : width / CM_PER_IN;
+                    const Hi = dimUnit === 'in' ? height : height / CM_PER_IN;
+                    volKg = ((Li * Wi * Hi) / divisorValue) * KG_PER_LB;
+                } else {
+                    const raw = (length * width * height) / divisorValue;
+                    volKg = dimUnit === 'cm' ? raw : raw * KG_PER_LB;
+                }
             }
 
-            // Final display values (fall back to whatever is available)
-            if (cost === null) cost = 0;
-            if (selling === null) selling = 0;
-            const profit = selling - cost;
-            const marginPctDisplay = selling > 0 ? (profit / selling) * 100 : 0;
-            const markupPctDisplay = cost > 0 ? (profit / cost) * 100 : (profit > 0 ? Infinity : 0);
+            const toDisplay = (kg) => weightUnit === 'kg' ? kg : kg / KG_PER_LB;
+            const actualDisplay = toDisplay(actualKg);
+            const volDisplay = toDisplay(volKg);
+            const chargeableKgPerPkg = Math.max(actualKg, volKg);
+            const chargeableDisplayPerPkg = toDisplay(chargeableKgPerPkg);
+            const totalChargeableKg = chargeableKgPerPkg * packages;
+            const totalChargeableDisplay = toDisplay(totalChargeableKg);
 
-            resultMargin.textContent = fmtPct(Math.max(0, marginPctDisplay));
-            resultMarkup.textContent = markupPctDisplay === Infinity ? '∞' : fmtPct(Math.max(0, markupPctDisplay));
-            resultProfit.textContent = fmtMoney(profit);
-            resultProfitSub.textContent = fmtMoney(profit) + ' profit per unit';
+            actualWeightDisplay.textContent = fmtWeight(actualDisplay);
+            dimWeightDisplay.textContent = fmtWeight(volDisplay);
 
-            updateAdvanced(cost, selling, profit);
+            const hasAnyInput = actualKg > 0 || volKg > 0;
+            const volWins = volKg > actualKg;
+            actualCard.classList.toggle('winning', hasAnyInput && !volWins);
+            dimCard.classList.toggle('winning', hasAnyInput && volWins);
+
+            if (!hasAnyInput) {
+                winnerNote.textContent = 'Enter weight and dimensions to see which one determines your shipping cost.';
+            } else if (volWins) {
+                winnerNote.textContent = "Dimensional weight wins. Couriers bill by whichever is higher, so this package's size costs you more than its actual weight suggests.";
+            } else {
+                winnerNote.textContent = "Actual weight wins. This package is dense enough that its real weight, not its size, sets the price.";
+            }
+
+            totalChargeableValue.textContent = fmtWeight(totalChargeableDisplay);
+            totalChargeableSub.textContent = packages > 1
+                ? (packages + ' packages × ' + fmtWeight(chargeableDisplayPerPkg) + ' each')
+                : 'per package';
+
+            updateCostBreakdown(totalChargeableDisplay);
         }
 
-        function round(n) {
-            return Math.round(n * 100) / 100;
-        }
+        function updateCostBreakdown(totalChargeableDisplay) {
+            const rate = getNonNegNum(rateInput);
+            const fuel = getNonNegNum(fuelInput);
+            const handling = getNonNegNum(handlingInput);
+            const anyAdvanced = rateInput.value.trim() !== '' || fuelInput.value.trim() !== '' || handlingInput.value.trim() !== '';
 
-        function updateAdvanced(cost, selling, grossProfit) {
-            const fee = getNum(feeInput);
-            const shipping = getNum(shippingInput);
-            const qty = getNum(qtyInput);
-            const anyAdvanced = (feeInput.value.trim() !== '') || (shippingInput.value.trim() !== '') || (qtyInput.value.trim() !== '');
-
-            if (!anyAdvanced || selling <= 0) {
-                trueMarginBlock.style.display = 'none';
+            if (!anyAdvanced || rate === null) {
+                costBreakdown.style.display = 'none';
                 return;
             }
 
-            const feePct = fee !== null ? fee : 0;
-            const shipAmt = shipping !== null ? shipping : 0;
-            const feeAmt = selling * (feePct / 100);
-            const trueCost = cost + shipAmt + feeAmt;
-            const trueProfit = selling - trueCost;
-            const grossMarginPct = selling > 0 ? (grossProfit / selling) * 100 : 0;
-            const trueMarginPct = selling > 0 ? (trueProfit / selling) * 100 : 0;
+            const fuelPct = fuel !== null ? fuel : 0;
+            const handlingAmt = handling !== null ? handling : 0;
+            const base = totalChargeableDisplay * rate;
+            const fuelAmt = base * (fuelPct / 100);
+            const total = base + fuelAmt + handlingAmt;
 
-            trueMarginBlock.style.display = 'block';
-            grossMarginValue.textContent = fmtPct(grossMarginPct);
-            trueMarginValue.textContent = fmtPct(trueMarginPct);
-
-            if (qty !== null && qty > 0) {
-                totalProfitRow.style.display = 'flex';
-                totalProfitValue.textContent = fmtMoney(trueProfit * qty);
-            } else {
-                totalProfitRow.style.display = 'none';
-            }
+            costBreakdown.style.display = 'block';
+            baseCostValue.textContent = fmtMoney(base);
+            fuelCostValue.textContent = fmtMoney(fuelAmt);
+            handlingCostValue.textContent = fmtMoney(handlingAmt);
+            totalCostValue.textContent = fmtMoney(total);
         }
 
-        [costInput, sellingInput, marginInput].forEach(el => {
-            el.addEventListener('input', () => {
-                const key = el === costInput ? 'cost' : el === sellingInput ? 'selling' : 'margin';
-                recalc(key);
-            });
-        });
-        [qtyInput, feeInput, shippingInput].forEach(el => {
-            el.addEventListener('input', () => recalc(null));
+        [weightInput, lengthInput, widthInput, heightInput, packagesInput, customDivisorInput, rateInput, fuelInput, handlingInput].forEach(el => {
+            el.addEventListener('input', recalc);
         });
 
         currencySelect.addEventListener('change', () => {
             const sym = currentSymbol();
-            document.getElementById('prefixCost').textContent = sym;
-            document.getElementById('prefixSelling').textContent = sym;
-            document.getElementById('prefixShipping').textContent = sym;
-            recalc(null);
+            document.getElementById('prefixRate').textContent = sym;
+            document.getElementById('prefixHandling').textContent = sym;
+            recalc();
         });
 
         advancedToggle.addEventListener('click', () => {
@@ -721,10 +858,13 @@
             advancedToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
-        // Seed with a sensible starting example
-        costInput.value = '20.00';
-        sellingInput.value = '50.00';
-        recalc(null);
+        // Seed with a sensible example: a bulky-but-light box where dimensional weight wins
+        weightInput.value = '2';
+        lengthInput.value = '40';
+        widthInput.value = '30';
+        heightInput.value = '20';
+        packagesInput.value = '1';
+        recalc();
     })();
     </script>
 

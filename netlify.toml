@@ -191,6 +191,11 @@ to = "/profit-margin-calculator"
 status = 301
 
 [[redirects]]
+from = "/shipping-cost-calculator.html"
+to = "/shipping-cost-calculator"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
