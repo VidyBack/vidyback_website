@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap"></noscript>
+    <meta name="description" content="Free privacy policy generator for Shopify & ecommerce stores. Build a GDPR/CCPA-aware template instantly — no signup, nothing stored.">
+    <title>Free Privacy Policy Generator for Shopify & Ecommerce Stores</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vidyback.com/privacy-policy-generator">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+    <meta property="og:title" content="Free Privacy Policy Generator for Shopify & Ecommerce Stores">
+    <meta property="og:description" content="Build a GDPR/CCPA-aware privacy policy template instantly, right in your browser. No signup, nothing stored.">
+    <meta property="og:url" content="https://www.vidyback.com/privacy-policy-generator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free Privacy Policy Generator for Shopify & Ecommerce Stores">
+    <meta name="twitter:description" content="Build a GDPR/CCPA-aware privacy policy template instantly, right in your browser. No signup, nothing stored.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <!-- FAQPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Do I need a privacy policy for my Shopify store?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Shopify's own terms require a privacy policy on every store, and most jurisdictions that regulate personal data, including the EU, UK, California and India, legally require one if you collect names, emails, addresses or payment details from visitors."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a generated privacy policy legally valid?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A generated template can be a solid starting point, but it is not a substitute for legal advice. Validity depends on accurately describing your actual data practices and meeting the specific requirements of the laws that apply to your business. Always have a qualified lawyer review your policy before publishing it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does this tool store or transmit any of my data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The entire policy is assembled in your browser using plain JavaScript. Nothing you type into this form is saved, transmitted to a server, or sent to any AI model — closing the tab clears everything."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between GDPR and CCPA?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "GDPR is the European Union's data protection law and applies broadly to anyone processing the personal data of EU residents, with strong consent and user-rights requirements. CCPA is a California law focused on the right to know, delete and opt out of the sale of personal information for California residents. They overlap in spirit but differ in scope and specific obligations."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-accent-green: #10b981;
+            --color-accent-red: #dc2626;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-doc: 'Lora', Georgia, serif;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+        .btn-secondary { background: rgba(32,74,107,0.04); color: var(--color-text-dark); border: 1px solid var(--color-border); }
+        .btn-secondary:hover { background: rgba(32,74,107,0.08); }
+        .btn-sm { padding: 9px 16px; font-size: 0.85rem; border-radius: 10px; }
+
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition-normal); padding: 20px 0; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; }
+        .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+
+        /* --- Tool Hero --- */
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+        /* --- Disclaimer callout --- */
+        .disclaimer-box { max-width: 1100px; margin: 28px auto 0; background: rgba(245,166,35,0.09); border: 1.5px solid rgba(245,166,35,0.4); border-radius: var(--border-radius-md); padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
+        .disclaimer-box i { color: var(--color-gold); font-size: 1.3rem; margin-top: 2px; flex-shrink: 0; }
+        .disclaimer-box strong { display: block; color: var(--color-text-dark); font-size: 0.95rem; margin-bottom: 4px; }
+        .disclaimer-box p { font-size: 0.88rem; color: var(--color-text-main); line-height: 1.55; }
+        .disclaimer-box.compact { margin: 0 0 18px; padding: 14px 18px; }
+
+        .privacy-note { max-width: 1100px; margin: 14px auto 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .privacy-note i { color: var(--color-accent-green); }
+
+        /* --- Tool layout --- */
+        .tool-section { padding: 36px 0 80px; }
+        .pp-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1300px; margin: 0 auto; align-items: start; }
+        @media (min-width: 960px) {
+            .pp-grid { grid-template-columns: 1fr 1.15fr; gap: 28px; }
+        }
+
+        .form-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 26px 24px; margin-bottom: 20px; }
+        .form-card h3 { font-size: 1.05rem; margin-bottom: 16px; }
+        .field-group { margin-bottom: 18px; }
+        .field-group:last-child { margin-bottom: 0; }
+        .field-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: 7px; }
+        .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px; }
+        .text-input, .textarea-input, .select-input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--color-border); font-size: 0.95rem; font-weight: 500; color: var(--color-text-dark); font-family: var(--font-body); background: #fff; transition: var(--transition-fast); }
+        .text-input:focus, .textarea-input:focus, .select-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+        .textarea-input { resize: vertical; min-height: 64px; }
+        .select-input { cursor: pointer; }
+
+        .checkbox-list { display: flex; flex-direction: column; gap: 10px; }
+        .checkbox-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; transition: var(--transition-fast); cursor: pointer; }
+        .checkbox-row:hover { background: rgba(29,81,117,0.04); }
+        .checkbox-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--color-purple); cursor: pointer; flex-shrink: 0; }
+        .checkbox-row label { font-size: 0.9rem; color: var(--color-text-main); cursor: pointer; }
+        .checkbox-row.disabled { opacity: 0.65; cursor: default; }
+        .checkbox-row.disabled label { cursor: default; }
+        .checkbox-row .locked-tag { margin-left: auto; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--color-text-accent); background: rgba(29,81,117,0.08); padding: 3px 8px; border-radius: 20px; }
+
+        .yesno-field { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 4px 0; }
+        .yesno-group { display: inline-flex; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--color-border); flex-shrink: 0; }
+        .yesno-group label { padding: 9px 20px; font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted); cursor: pointer; background: #fff; transition: var(--transition-fast); }
+        .yesno-group label:not(:last-child) { border-right: 1.5px solid var(--color-border); }
+        .yesno-group input:checked + label { background: var(--color-purple); color: #fff; }
+        .yesno-group input:focus-visible + label { outline: 2px solid var(--color-purple); outline-offset: -2px; }
+
+        /* --- Preview / output column --- */
+        .preview-col { position: relative; }
+        @media (min-width: 960px) {
+            .preview-col { position: sticky; top: 100px; }
+        }
+        .preview-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+        .preview-toolbar h3 { font-size: 1.05rem; }
+        .preview-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .copy-status { font-size: 0.78rem; color: var(--color-accent-green); font-weight: 600; margin-left: 6px; }
+
+        .doc-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+        .doc-scroll { max-height: 600px; overflow-y: auto; padding: 28px 26px; }
+        .doc-preview { font-family: var(--font-doc); font-size: 0.92rem; line-height: 1.7; color: var(--color-text-main); white-space: pre-wrap; word-wrap: break-word; }
+
+        /* --- Content Section --- */
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .content-wrapper ul.styled-list { list-style: disc; padding-left: 22px; margin-bottom: 18px; }
+        .content-wrapper ul.styled-list li { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 8px; }
+
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        footer h4, footer .logo { color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        .app-item a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; }
+            .tool-hero h1 { font-size: 1.8rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; }
+            .app-item:last-child { margin-left: 0; margin-top: 20px; }
+        }
+        @media (max-width: 480px) {
+            .form-card { padding: 20px 16px; }
+            .doc-scroll { padding: 20px 16px; }
+            .yesno-field { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Tool Hero --- -->
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Privacy Policy <span>Generator</span></h1>
+            <p>Answer a few questions about your store and get a formatted privacy policy template, updating live as you type. Nothing you enter ever leaves your browser.</p>
+
+            <div class="disclaimer-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Not Legal Advice</strong>
+                    <p>This tool generates a general-purpose template for informational purposes only. It is not legal advice and does not guarantee compliance with GDPR, CCPA, or any other law. Consult a qualified lawyer before publishing your privacy policy.</p>
+                </div>
+            </div>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Everything runs client-side in your browser — nothing you type is saved, transmitted, or sent to any server or AI model.</div>
+        </div>
+    </section>
+
+    <!-- --- Tool --- -->
+    <section class="tool-section">
+        <div class="container">
+            <div class="pp-grid" id="ppForm">
+
+                <!-- Form column -->
+                <div class="form-col">
+
+                    <div class="form-card">
+                        <h3>Business Details</h3>
+                        <div class="field-group">
+                            <label class="field-label" for="storeNameInput">Business / Store Name</label>
+                            <input type="text" id="storeNameInput" class="text-input" placeholder="e.g. Northwind Goods" autocomplete="organization">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="websiteUrlInput">Website URL</label>
+                            <input type="text" id="websiteUrlInput" class="text-input" placeholder="e.g. northwindgoods.com" autocomplete="url">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="contactEmailInput">Contact Email</label>
+                            <input type="email" id="contactEmailInput" class="text-input" placeholder="e.g. privacy@northwindgoods.com" autocomplete="email">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="businessAddressInput">Business Address <span style="font-weight:400; color: var(--color-text-muted);">(optional)</span></label>
+                            <textarea id="businessAddressInput" class="textarea-input" placeholder="Street, city, state/province, postal code, country"></textarea>
+                            <div class="field-hint">Recommended for GDPR/CCPA compliance, though not strictly required for every store.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Data You Collect</h3>
+                        <div class="checkbox-list">
+                            <div class="checkbox-row"><input type="checkbox" id="cbNameContact" checked><label for="cbNameContact">Name &amp; contact info</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbShipping" checked><label for="cbShipping">Shipping address</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbPayment" checked><label for="cbPayment">Payment info (processed by third party)</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbBrowsing"><label for="cbBrowsing">Browsing / cookies data</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbOrderHistory" checked><label for="cbOrderHistory">Order history</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbMarketing"><label for="cbMarketing">Marketing preferences</label></div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Third-Party Tools In Use</h3>
+                        <div class="checkbox-list">
+                            <div class="checkbox-row disabled"><input type="checkbox" id="cbShopify" checked disabled><label for="cbShopify">Shopify</label><span class="locked-tag">Always included</span></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbGA"><label for="cbGA">Google Analytics</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbPixel"><label for="cbPixel">Meta / Facebook Pixel</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbEmailTool"><label for="cbEmailTool">Email marketing tool (Klaviyo / Mailchimp)</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbPaymentProcessor"><label for="cbPaymentProcessor">Payment processor (Stripe / PayPal / Razorpay)</label></div>
+                            <div class="checkbox-row"><input type="checkbox" id="cbLiveChat"><label for="cbLiveChat">Live chat tool</label></div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Cookies &amp; Data Sharing</h3>
+                        <div class="field-group">
+                            <div class="yesno-field">
+                                <label class="field-label" style="margin-bottom:0;" id="cookiesAdLabel">Use cookies for advertising / retargeting?</label>
+                                <div class="yesno-group" role="radiogroup" aria-labelledby="cookiesAdLabel">
+                                    <input type="radio" name="cookiesAd" id="cookiesAdYes" value="yes" class="sr-only">
+                                    <label for="cookiesAdYes">Yes</label>
+                                    <input type="radio" name="cookiesAd" id="cookiesAdNo" value="no" class="sr-only" checked>
+                                    <label for="cookiesAdNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <div class="yesno-field">
+                                <label class="field-label" style="margin-bottom:0;" id="sellsDataLabel">Sell/share data with 3rd parties for their marketing?</label>
+                                <div class="yesno-group" role="radiogroup" aria-labelledby="sellsDataLabel">
+                                    <input type="radio" name="sellsData" id="sellsDataYes" value="yes" class="sr-only">
+                                    <label for="sellsDataYes">Yes</label>
+                                    <input type="radio" name="sellsData" id="sellsDataNo" value="no" class="sr-only" checked>
+                                    <label for="sellsDataNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card" style="margin-bottom:0;">
+                        <h3>Governing Jurisdiction</h3>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <select id="jurisdictionSelect" class="select-input" aria-label="Governing jurisdiction">
+                                <option value="us" selected>United States (CCPA)</option>
+                                <option value="eu">European Union (GDPR)</option>
+                                <option value="uk">United Kingdom (UK GDPR)</option>
+                                <option value="india">India (DPDP Act)</option>
+                                <option value="canada">Canada (PIPEDA)</option>
+                                <option value="general">Other / General</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Preview column -->
+                <div class="preview-col">
+                    <div class="disclaimer-box compact">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <strong>Not Legal Advice</strong>
+                            <p>General-purpose template only — not a guarantee of GDPR/CCPA compliance. Have a lawyer review before publishing.</p>
+                        </div>
+                    </div>
+
+                    <div class="preview-toolbar">
+                        <h3>Live Preview</h3>
+                        <div class="preview-actions">
+                            <button type="button" class="btn btn-secondary btn-sm" id="copyBtn"><i class="fa-regular fa-copy"></i>&nbsp; Copy</button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="downloadTxtBtn"><i class="fa-solid fa-file-lines"></i>&nbsp; .txt</button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="downloadDocBtn"><i class="fa-solid fa-file-word"></i>&nbsp; .doc</button>
+                        </div>
+                    </div>
+                    <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+
+                    <div class="doc-card">
+                        <div class="doc-scroll">
+                            <div class="doc-preview" id="docPreview" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Now Get Back to Selling</h2>
+                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so you can focus on the parts of the business only you can do.</p>
+                <a href="/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEO Content --- -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>Why Every Ecommerce Store Needs a Privacy Policy</h2>
+                <p>If your store collects a customer's name, email, address, or payment details, which nearly every store does simply to fulfill an order, you're processing personal data, and most jurisdictions that regulate personal data require you to disclose how. Shopify's own terms of service also require every store on the platform to have a privacy policy in place, regardless of where you're based. Beyond the legal requirement, a clear policy builds trust: shoppers are more likely to complete checkout when they can see exactly how their information will be used.</p>
+
+                <h2>What GDPR and CCPA Require, at a High Level</h2>
+                <p>The <strong>GDPR</strong> (General Data Protection Regulation) applies if you process the personal data of anyone in the EU, regardless of where your business is registered. It requires a lawful basis for collecting data, clear disclosure of what you collect and why, and specific user rights like access, correction, and erasure. The <strong>CCPA</strong> (California Consumer Privacy Act) applies to qualifying businesses serving California residents and centers on the right to know what's collected, the right to delete it, and the right to opt out of having it sold. Both require you to actually describe your real practices, not a generic template that doesn't match what your store does.</p>
+
+                <h2>Common Mistakes Sellers Make</h2>
+                <ul class="styled-list">
+                    <li><strong>Forgetting to disclose tracking tools.</strong> If you run Google Analytics or the Meta Pixel, your policy needs to say so. Both technically qualify as data processing that many laws require you to disclose.</li>
+                    <li><strong>Copy-pasting a policy from another store.</strong> A policy that describes tools or practices you don't actually use is arguably worse than having none, since it's inaccurate on its face.</li>
+                    <li><strong>Never updating it.</strong> Adding a new marketing tool or payment processor after publishing your policy, without updating the policy to match, quietly creates a compliance gap.</li>
+                    <li><strong>Treating it as a one-time task.</strong> Privacy laws and the tools stores rely on both change. A policy is worth revisiting at least once a year.</li>
+                </ul>
+                <p>This generator handles the structure and the conditional logic, assembling only the clauses relevant to the boxes you checked, but it can't know your business better than you do. Read the output carefully, correct anything that doesn't match your actual practices, and have it reviewed by a lawyer before you publish it.</p>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>Do I need a privacy policy for my Shopify store?</h3>
+                        <p>Yes. Shopify's own terms require a privacy policy on every store, and most jurisdictions that regulate personal data, including the EU, UK, California and India, legally require one if you collect names, emails, addresses or payment details from visitors.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is a generated privacy policy legally valid?</h3>
+                        <p>A generated template can be a solid starting point, but it is not a substitute for legal advice. Validity depends on accurately describing your actual data practices and meeting the specific requirements of the laws that apply to your business. Always have a qualified lawyer review your policy before publishing it.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does this tool store or transmit any of my data?</h3>
+                        <p>No. The entire policy is assembled in your browser using plain JavaScript. Nothing you type into this form is saved, transmitted to a server, or sent to any AI model, closing the tab clears everything.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between GDPR and CCPA?</h3>
+                        <p>GDPR is the European Union's data protection law and applies broadly to anyone processing the personal data of EU residents, with strong consent and user-rights requirements. CCPA is a California law focused on the right to know, delete and opt out of the sale of personal information for California residents. They overlap in spirit but differ in scope and specific obligations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggleIcon = menuToggle.querySelector('i');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggleIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggleIcon.className = 'fas fa-bars';
+            });
+        });
+    }
+    </script>
+
+    <!-- --- Privacy Policy Generator Logic --- -->
+    <script>
+    (function () {
+        const storeNameInput = document.getElementById('storeNameInput');
+        const websiteUrlInput = document.getElementById('websiteUrlInput');
+        const contactEmailInput = document.getElementById('contactEmailInput');
+        const businessAddressInput = document.getElementById('businessAddressInput');
+
+        const cbNameContact = document.getElementById('cbNameContact');
+        const cbShipping = document.getElementById('cbShipping');
+        const cbPayment = document.getElementById('cbPayment');
+        const cbBrowsing = document.getElementById('cbBrowsing');
+        const cbOrderHistory = document.getElementById('cbOrderHistory');
+        const cbMarketing = document.getElementById('cbMarketing');
+
+        const cbGA = document.getElementById('cbGA');
+        const cbPixel = document.getElementById('cbPixel');
+        const cbEmailTool = document.getElementById('cbEmailTool');
+        const cbPaymentProcessor = document.getElementById('cbPaymentProcessor');
+        const cbLiveChat = document.getElementById('cbLiveChat');
+
+        const cookiesAdYes = document.getElementById('cookiesAdYes');
+        const sellsDataYes = document.getElementById('sellsDataYes');
+        const jurisdictionSelect = document.getElementById('jurisdictionSelect');
+
+        const docPreview = document.getElementById('docPreview');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadTxtBtn = document.getElementById('downloadTxtBtn');
+        const downloadDocBtn = document.getElementById('downloadDocBtn');
+        const copyStatus = document.getElementById('copyStatus');
+        const ppForm = document.getElementById('ppForm');
+
+        let currentPolicyText = '';
+
+        function fmtToday() {
+            const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            const d = new Date();
+            return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+        }
+
+        function slugify(str) {
+            return (str || 'privacy-policy').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'privacy-policy';
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function generatePolicy() {
+            const storeName = storeNameInput.value.trim() || '[Your Store Name]';
+            const websiteUrl = websiteUrlInput.value.trim() || '[yourstore.com]';
+            const contactEmail = contactEmailInput.value.trim() || '[privacy@yourstore.com]';
+            const address = businessAddressInput.value.trim();
+
+            const dataItems = [];
+            if (cbNameContact.checked) dataItems.push('Name and contact information (such as your name, email address, and phone number)');
+            if (cbShipping.checked) dataItems.push('Shipping address');
+            if (cbPayment.checked) dataItems.push('Payment information (processed by a third-party payment processor; we do not store your full card details)');
+            if (cbBrowsing.checked) dataItems.push('Browsing behavior and cookie data');
+            if (cbOrderHistory.checked) dataItems.push('Order history');
+            if (cbMarketing.checked) dataItems.push('Marketing preferences');
+            const dataSection = dataItems.length
+                ? dataItems.map(i => '  - ' + i).join('\n')
+                : '  - Basic information necessary to operate the Site and fulfill orders';
+
+            const toolItems = ['Shopify — our ecommerce platform, which processes and stores order and customer data to operate the Site. (Shopify Privacy Policy: https://www.shopify.com/legal/privacy)'];
+            if (cbGA.checked) toolItems.push('Google Analytics — used to understand how visitors use our Site. (Google Privacy Policy: https://policies.google.com/privacy)');
+            if (cbPixel.checked) toolItems.push('Meta (Facebook) Pixel — used to measure and improve the effectiveness of our advertising on Meta platforms. (Meta Privacy Policy: https://www.facebook.com/privacy/policy/)');
+            if (cbEmailTool.checked) toolItems.push('Email marketing platform (such as Klaviyo or Mailchimp) — used to send order updates and, where you have opted in, marketing communications.');
+            if (cbPaymentProcessor.checked) toolItems.push('Payment processor (such as Stripe, PayPal, or Razorpay) — used to securely process your payment. We do not store your full payment card information on our servers.');
+            if (cbLiveChat.checked) toolItems.push('Live chat tool — used to provide customer support directly on our Site.');
+            const toolsSection = toolItems.map(i => '  - ' + i).join('\n');
+
+            const cookiesSection = cookiesAdYes.checked
+                ? 'We use cookies and similar tracking technologies, including for advertising and retargeting purposes, to show you relevant ads on other websites and platforms based on your activity on our Site. You can control cookies through your browser settings, though disabling them may affect your experience on the Site.'
+                : 'We use cookies and similar tracking technologies to operate and improve our Site. We do not currently use cookies for advertising or retargeting purposes.';
+
+            const sharingSection = sellsDataYes.checked
+                ? 'You have indicated that ' + storeName + ' may share personal information with third parties for their own marketing purposes. This is a significant disclosure: laws such as the CCPA and GDPR typically require specific opt-in or opt-out mechanisms and identification of exactly which third parties receive this data. Replace this paragraph with specific, accurate wording drafted or reviewed by a qualified lawyer before publishing.'
+                : 'We do not sell or share your personal information with third parties for their own marketing purposes. We only share your information with the service providers listed in Section 4, as necessary to operate the Site and fulfill your orders.';
+
+            const rightsMap = {
+                us: 'If you are a California resident, you have certain rights under the California Consumer Privacy Act (CCPA), including the right to: know what personal information we collect, use, and disclose about you; request deletion of your personal information; opt out of the sale or sharing of your personal information (we do not sell personal information, as noted in Section 6); and not be discriminated against for exercising your privacy rights. Residents of other US states with similar privacy laws may have comparable rights. To exercise these rights, contact us at ' + contactEmail + '.',
+                eu: 'If you are located in the European Economic Area (EEA), you have certain rights under the General Data Protection Regulation (GDPR), including the right to: access the personal data we hold about you; request correction of inaccurate data; request erasure of your data; restrict or object to our processing of your data; receive a copy of your data in a portable format; and withdraw consent at any time where we rely on consent. To exercise these rights, contact us at ' + contactEmail + '. You also have the right to lodge a complaint with your local data protection authority.',
+                uk: 'If you are located in the United Kingdom, you have rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018, including the right to access, correct, erase, restrict, or object to the processing of your personal data, and the right to data portability. To exercise these rights, contact us at ' + contactEmail + '. You also have the right to lodge a complaint with the UK Information Commissioner’s Office (ICO).',
+                india: 'If you are located in India, your personal data is handled in accordance with the Digital Personal Data Protection Act, 2023 (DPDP Act), where applicable. You have the right to access, correct, and request erasure of your personal data, and to withdraw consent at any time. To exercise these rights, contact us at ' + contactEmail + '.',
+                canada: 'If you are located in Canada, your personal information is handled in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA), where applicable. You have the right to access your personal information, request corrections, and withdraw consent to its collection, use, or disclosure, subject to legal or contractual restrictions. To exercise these rights, contact us at ' + contactEmail + '.',
+                general: 'Depending on your location, you may have rights regarding your personal information, including the right to access, correct, or delete the data we hold about you, and to object to or restrict certain processing. To exercise these rights, or if you have any questions about this policy, contact us at ' + contactEmail + '.'
+            };
+            const rightsSection = rightsMap[jurisdictionSelect.value] || rightsMap.general;
+
+            const addressLine = address ? '\n' + address : '';
+
+            return 'DISCLAIMER: This is a general-purpose template generated for informational purposes only. It is not legal advice and does not guarantee compliance with GDPR, CCPA, or any other law. Consult a qualified lawyer before publishing.\n\n' +
+'PRIVACY POLICY\n\n' +
+'Last Updated: ' + fmtToday() + '\n\n' +
+'1. Introduction\n' +
+storeName + ' ("we," "our," or "us") operates the website ' + websiteUrl + ' (the "Site"). This Privacy Policy explains how we collect, use, and protect your personal information when you visit the Site or make a purchase from us.\n\n' +
+'By using the Site, you agree to the collection and use of your information in accordance with this Privacy Policy.\n\n' +
+'2. Information We Collect\n' +
+'We may collect the following types of information when you interact with our Site:\n' +
+dataSection + '\n\n' +
+'3. How We Use Your Information\n' +
+'We use the information we collect to:\n' +
+'  - Process and fulfill your orders\n' +
+'  - Communicate with you about your orders, your account, and, where you have opted in, marketing offers\n' +
+'  - Maintain and improve our Site, products, and customer experience\n' +
+'  - Detect and prevent fraud\n' +
+'  - Comply with our legal obligations\n\n' +
+'4. Third-Party Services\n' +
+'We use the following third-party services to operate our Site. Each provider may collect and process information about you subject to its own privacy policy:\n' +
+toolsSection + '\n\n' +
+'5. Cookies and Tracking Technologies\n' +
+cookiesSection + '\n\n' +
+'6. Sharing Your Information\n' +
+sharingSection + '\n\n' +
+'7. Data Retention\n' +
+'We retain your personal information for as long as necessary to fulfill the purposes described in this policy, comply with our legal obligations, resolve disputes, and enforce our agreements.\n\n' +
+'8. Your Rights\n' +
+rightsSection + '\n\n' +
+'9. Contact Us\n' +
+'If you have questions about this Privacy Policy or how we handle your personal information, contact us at:\n\n' +
+storeName + addressLine + '\n' +
+'Email: ' + contactEmail + '\n' +
+'Website: ' + websiteUrl + '\n\n' +
+'10. Changes to This Policy\n' +
+'We may update this Privacy Policy from time to time to reflect changes in our practices or for legal reasons. We will post any changes on this page and update the "Last Updated" date above.';
+        }
+
+        function render() {
+            currentPolicyText = generatePolicy();
+            docPreview.textContent = currentPolicyText;
+        }
+
+        ppForm.addEventListener('input', render);
+        ppForm.addEventListener('change', render);
+
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(currentPolicyText);
+                copyStatus.textContent = 'Copied to clipboard!';
+            } catch (e) {
+                copyStatus.textContent = 'Could not copy automatically — select the text and copy manually.';
+            }
+            setTimeout(() => { copyStatus.textContent = ''; }, 2500);
+        });
+
+        downloadTxtBtn.addEventListener('click', () => {
+            const blob = new Blob([currentPolicyText], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = slugify(storeNameInput.value.trim()) + '-privacy-policy.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        downloadDocBtn.addEventListener('click', () => {
+            const escaped = escapeHtml(currentPolicyText).replace(/\n/g, '<br>');
+            const htmlDoc = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
+                '<head><meta charset="utf-8"><title>Privacy Policy</title></head>' +
+                '<body style="font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.5;">' + escaped + '</body></html>';
+            const blob = new Blob(['﻿', htmlDoc], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = slugify(storeNameInput.value.trim()) + '-privacy-policy.doc';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        render();
+    })();
+    </script>
+
+    <!-- --- UTM Capture + Forward Script --- -->
+    <script>
+    // Capture UTM params and carry them forward to app.vidyback.com signup links
+    (function() {
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+            document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                var extra = {};
+                if (stored) { for (var k in stored) { extra[k] = stored[k]; } }
+                var label = (a.textContent || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40);
+                if (label) { extra.cta_id = label; }
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) {
+                    var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                    a.href = a.href + sep + qs;
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+<footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Tools -->
+                <nav class="footer-links-col" aria-label="Tools navigation">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="shipping-cost-calculator">Shipping Cost Calculator</a></li>
+                        <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 5: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

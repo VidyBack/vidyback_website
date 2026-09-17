@@ -196,6 +196,11 @@ to = "/shipping-cost-calculator"
 status = 301
 
 [[redirects]]
+from = "/privacy-policy-generator.html"
+to = "/privacy-policy-generator"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
