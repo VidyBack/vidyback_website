@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <meta name="description" content="Free profit margin calculator for ecommerce sellers. Enter any 2 of cost, price or margin to solve the third, plus markup, fees and true margin.">
+    <title>Free Profit Margin Calculator for Ecommerce Sellers | VidyBack</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vidyback.com/profit-margin-calculator">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+    <meta property="og:title" content="Free Profit Margin Calculator for Ecommerce Sellers">
+    <meta property="og:description" content="Enter any 2 of cost, price or margin to solve the third, plus markup, fees and true margin, right in your browser.">
+    <meta property="og:url" content="https://www.vidyback.com/profit-margin-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free Profit Margin Calculator for Ecommerce Sellers">
+    <meta name="twitter:description" content="Enter any 2 of cost, price or margin to solve the third, plus markup, fees and true margin, right in your browser.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <!-- FAQPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a good profit margin for ecommerce?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most ecommerce categories aim for a gross margin between 20% and 50%. Fashion and beauty products often run 40-60%, general merchandise and electronics tend to run 10-30%, and digital or print-on-demand products can exceed 70-90% since there's little to no physical cost of goods."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between margin and markup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Margin is profit divided by selling price. Markup is profit divided by cost price. They describe the same dollar amount of profit from two different starting points, so markup is always a higher percentage than margin on the same sale."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate profit margin?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Subtract your cost price from your selling price to get profit, then divide that profit by the selling price and multiply by 100. For example, a product that costs $20 and sells for $50 has a $30 profit and a 60% profit margin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between gross margin and true margin?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Gross margin only accounts for the cost price of the product. True margin also subtracts payment processing fees and per-unit shipping costs, giving a more realistic picture of what you actually keep from each sale."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-accent-green: #10b981;
+            --color-accent-red: #dc2626;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+        .btn-secondary { background: rgba(32,74,107,0.04); color: var(--color-text-dark); border: 1px solid var(--color-border); }
+        .btn-secondary:hover { background: rgba(32,74,107,0.08); }
+
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition-normal); padding: 20px 0; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; }
+        .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+
+        /* --- Tool Hero --- */
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        /* --- Calculator --- */
+        .calc-section { padding: 40px 0 80px; }
+        .calc-wrapper { max-width: 900px; margin: 0 auto; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+        .calc-top-bar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 18px 28px; border-bottom: 1px solid var(--color-border); background: rgba(29,81,117,0.02); }
+        .currency-label { font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted); }
+        .currency-select { padding: 8px 14px; border-radius: 10px; border: 1px solid var(--color-border); background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark); cursor: pointer; font-family: var(--font-body); }
+
+        .calc-body { padding: 32px 28px 8px; display: grid; grid-template-columns: 1fr; gap: 0; }
+        @media (min-width: 760px) {
+            .calc-body { grid-template-columns: 1.1fr 1fr; gap: 40px; padding: 40px; }
+        }
+
+        .field-group { margin-bottom: 22px; }
+        .field-label-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+        .field-label { font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark); }
+
+        .info-btn { width: 16px; height: 16px; border-radius: 50%; background: rgba(29,81,117,0.1); color: var(--color-text-accent); font-size: 0.68rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: none; cursor: help; position: relative; flex-shrink: 0; }
+        .info-btn .tooltip-bubble { visibility: hidden; opacity: 0; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%) translateY(4px); background: var(--color-text-dark); color: #fff; font-size: 0.78rem; font-weight: 500; line-height: 1.4; padding: 10px 12px; border-radius: 8px; width: max-content; max-width: 220px; text-align: left; box-shadow: var(--shadow-md); transition: opacity 0.15s ease, transform 0.15s ease; z-index: 20; }
+        .info-btn .tooltip-bubble::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--color-text-dark); }
+        .info-btn:hover .tooltip-bubble, .info-btn:focus .tooltip-bubble, .info-btn:focus-visible .tooltip-bubble { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .input-wrap { position: relative; display: flex; align-items: center; }
+        .input-prefix, .input-suffix { position: absolute; font-size: 1rem; font-weight: 600; color: var(--color-text-muted); pointer-events: none; }
+        .input-prefix { left: 16px; }
+        .input-suffix { right: 16px; }
+        .num-input { width: 100%; padding: 14px 16px; padding-left: 34px; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border); font-size: 1.05rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); transition: var(--transition-fast); background: #fff; }
+        .num-input.suffix-percent { padding-left: 16px; padding-right: 34px; }
+        .num-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+        .num-input.active-field { border-color: var(--color-accent-green); }
+        .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px; }
+
+        .advanced-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 600; color: var(--color-text-accent); background: none; border: none; cursor: pointer; padding: 6px 0; margin-bottom: 4px; }
+        .advanced-toggle i { transition: transform 0.2s ease; font-size: 0.75rem; }
+        .advanced-toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+        .advanced-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .advanced-panel.open { max-height: 500px; }
+        .advanced-panel-inner { padding-top: 8px; border-top: 1px dashed var(--color-border); margin-top: 8px; }
+
+        /* --- Results panel --- */
+        .results-panel { background: var(--color-bg-dark); border-radius: var(--border-radius-lg); padding: 28px 24px; color: #fff; display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 8px; height: fit-content; }
+        @media (min-width: 760px) { .results-panel { margin-top: 0; } }
+        .result-hero-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-light-muted); margin-bottom: 6px; }
+        .result-hero-value { font-family: var(--font-heading); font-size: 3.2rem; font-weight: 800; color: var(--color-gold); line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+        .result-hero-sub { font-size: 0.85rem; color: var(--color-text-light-muted); margin-bottom: 24px; }
+        .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; }
+        .result-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius-sm); padding: 14px 10px; }
+        .result-card-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-light-muted); margin-bottom: 6px; }
+        .result-card-value { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: #fff; }
+        .result-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0; }
+        .true-margin-block { width: 100%; }
+        .true-margin-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 0.9rem; }
+        .true-margin-row .label { color: var(--color-text-light-muted); }
+        .true-margin-row .value { font-weight: 700; font-family: var(--font-heading); }
+        .true-margin-row.highlight .value { color: var(--color-accent-green); font-size: 1.1rem; }
+        .error-msg { background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); color: #fca5a5; font-size: 0.82rem; padding: 10px 14px; border-radius: var(--border-radius-sm); margin-top: 8px; display: none; }
+        .error-msg.show { display: block; }
+
+        /* --- Content Section --- */
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .example-box { background: rgba(122,66,244,0.05); border-left: 4px solid var(--color-purple); border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0; padding: 18px 20px; margin: 20px 0; font-size: 0.95rem; }
+        .example-box p { margin-bottom: 8px; }
+        .example-box p:last-child { margin-bottom: 0; }
+        .benchmark-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.92rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); overflow: hidden; }
+        .benchmark-table th, .benchmark-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--color-border); }
+        .benchmark-table th { background: rgba(29,81,117,0.04); font-weight: 700; color: var(--color-text-dark); font-family: var(--font-heading); }
+        .benchmark-table tr:last-child td { border-bottom: none; }
+
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        footer h4, footer .logo { color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        .app-item a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; }
+            .tool-hero h1 { font-size: 1.9rem; }
+            .calc-body { padding: 24px 18px 4px; }
+            .result-hero-value { font-size: 2.5rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; }
+            .app-item:last-child { margin-left: 0; margin-top: 20px; }
+        }
+        @media (max-width: 480px) {
+            .result-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .calc-top-bar { padding: 14px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Tool Hero --- -->
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Profit Margin <span>Calculator</span></h1>
+            <p>Enter any two values, cost, selling price or margin, and the third solves itself as you type. No signup, no email wall, just the numbers.</p>
+        </div>
+    </section>
+
+    <!-- --- Calculator --- -->
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-wrapper">
+
+                <div class="calc-top-bar">
+                    <label class="currency-label" for="currencySelect">Currency</label>
+                    <select class="currency-select" id="currencySelect" aria-label="Select currency">
+                        <option value="$" data-code="USD" selected>$ USD</option>
+                        <option value="₹" data-code="INR">₹ INR</option>
+                        <option value="€" data-code="EUR">€ EUR</option>
+                        <option value="£" data-code="GBP">£ GBP</option>
+                    </select>
+                </div>
+
+                <div class="calc-body">
+                    <!-- Inputs column -->
+                    <div>
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <span class="field-label">Cost Price (per unit)</span>
+                                <button type="button" class="info-btn" aria-label="Formula help for cost price">i<span class="tooltip-bubble">What you pay to make or source one unit, before any markup.</span></button>
+                            </div>
+                            <div class="input-wrap">
+                                <span class="input-prefix" id="prefixCost">$</span>
+                                <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="costInput" placeholder="0.00" aria-describedby="costHint">
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <span class="field-label">Selling Price (per unit)</span>
+                                <button type="button" class="info-btn" aria-label="Formula help for selling price">i<span class="tooltip-bubble">The price the customer actually pays for one unit.</span></button>
+                            </div>
+                            <div class="input-wrap">
+                                <span class="input-prefix" id="prefixSelling">$</span>
+                                <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="sellingInput" placeholder="0.00" aria-describedby="sellingHint">
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <span class="field-label">Profit Margin</span>
+                                <button type="button" class="info-btn" aria-label="Formula help for profit margin">i<span class="tooltip-bubble">Margin % = (Profit ÷ Selling Price) × 100</span></button>
+                            </div>
+                            <div class="input-wrap">
+                                <input type="number" inputmode="decimal" min="0" max="99.99" step="0.1" class="num-input suffix-percent" id="marginInput" placeholder="0.0">
+                                <span class="input-suffix">%</span>
+                            </div>
+                            <div class="field-hint">Fill in any two fields above, this one solves itself.</div>
+                        </div>
+
+                        <button type="button" class="advanced-toggle" id="advancedToggle" aria-expanded="false" aria-controls="advancedPanel">
+                            <i class="fa-solid fa-chevron-down"></i> Advanced: fees, shipping & quantity
+                        </button>
+                        <div class="advanced-panel" id="advancedPanel">
+                            <div class="advanced-panel-inner">
+                                <div class="field-group">
+                                    <div class="field-label-row">
+                                        <span class="field-label">Quantity / Units</span>
+                                        <button type="button" class="info-btn" aria-label="Formula help for quantity">i<span class="tooltip-bubble">Number of units sold. Used to calculate total profit.</span></button>
+                                    </div>
+                                    <input type="number" inputmode="numeric" min="0" step="1" class="num-input" id="qtyInput" placeholder="1">
+                                </div>
+                                <div class="field-group">
+                                    <div class="field-label-row">
+                                        <span class="field-label">Payment Processing Fee</span>
+                                        <button type="button" class="info-btn" aria-label="Formula help for payment fee">i<span class="tooltip-bubble">Card processor cut, taken as a % of the selling price. Defaults to 2.9%, a typical rate.</span></button>
+                                    </div>
+                                    <div class="input-wrap">
+                                        <input type="number" inputmode="decimal" min="0" max="100" step="0.1" class="num-input suffix-percent" id="feeInput" placeholder="2.9">
+                                        <span class="input-suffix">%</span>
+                                    </div>
+                                </div>
+                                <div class="field-group">
+                                    <div class="field-label-row">
+                                        <span class="field-label">Shipping Cost (per unit)</span>
+                                        <button type="button" class="info-btn" aria-label="Formula help for shipping cost">i<span class="tooltip-bubble">What it costs you to ship one unit, not what you charge the customer.</span></button>
+                                    </div>
+                                    <div class="input-wrap">
+                                        <span class="input-prefix" id="prefixShipping">$</span>
+                                        <input type="number" inputmode="decimal" min="0" step="0.01" class="num-input" id="shippingInput" placeholder="0.00">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results column -->
+                    <div class="results-panel">
+                        <div class="result-hero-label">Profit Margin</div>
+                        <div class="result-hero-value" id="resultMargin">0%</div>
+                        <div class="result-hero-sub" id="resultProfitSub">$0.00 profit per unit</div>
+
+                        <div class="result-grid">
+                            <div class="result-card">
+                                <div class="result-card-label">Markup</div>
+                                <div class="result-card-value" id="resultMarkup">0%</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-card-label">Profit / Unit</div>
+                                <div class="result-card-value" id="resultProfit">$0.00</div>
+                            </div>
+                        </div>
+
+                        <div class="error-msg" id="errorMsg" role="alert"></div>
+
+                        <div class="true-margin-block" id="trueMarginBlock" style="display:none;">
+                            <div class="result-divider"></div>
+                            <div class="true-margin-row">
+                                <span class="label">Gross Margin (cost only)</span>
+                                <span class="value" id="grossMarginValue">0%</span>
+                            </div>
+                            <div class="true-margin-row highlight">
+                                <span class="label">True Margin (after fees & shipping)</span>
+                                <span class="value" id="trueMarginValue">0%</span>
+                            </div>
+                            <div class="true-margin-row" id="totalProfitRow" style="display:none;">
+                                <span class="label">Total Profit</span>
+                                <span class="value" id="totalProfitValue">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Now Turn That Margin Into Content</h2>
+                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so the products with the best margins actually get seen.</p>
+                <a href="/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEO Content --- -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>What Is Profit Margin, and Why Does It Matter?</h2>
+                <p>Profit margin is the percentage of your selling price that's actually profit, after covering what the product cost you to make or source. It's the single number that tells you whether a sale is genuinely worth making, not just whether it happened. Two stores can have the same revenue and completely different outcomes depending on their margins: one is building a real business, the other is running on fumes.</p>
+
+                <h2>Margin vs. Markup: They're Not the Same Thing</h2>
+                <p><strong>Margin</strong> is profit divided by <strong>selling price</strong>. <strong>Markup</strong> is profit divided by <strong>cost price</strong>. Both describe the exact same dollar amount of profit, just measured against a different starting point, which is why markup always looks like a bigger number than margin on the same sale.</p>
+                <div class="example-box">
+                    <p><strong>Worked example:</strong> A product costs $20 to make and sells for $50.</p>
+                    <p>Profit = $50 − $20 = <strong>$30</strong></p>
+                    <p>Margin = $30 ÷ $50 × 100 = <strong>60%</strong></p>
+                    <p>Markup = $30 ÷ $20 × 100 = <strong>150%</strong></p>
+                </div>
+                <p>Mixing these two up is one of the most common pricing mistakes in ecommerce. Pricing something at a "50% markup" thinking you're hitting a 50% margin actually leaves you at a 33% margin, a gap that quietly eats into profitability at scale.</p>
+
+                <h2>What's a "Good" Margin? Rough Benchmarks by Category</h2>
+                <p>There's no universal number, since cost structures vary wildly by product type. As a general reference point:</p>
+                <table class="benchmark-table">
+                    <thead>
+                        <tr><th>Category</th><th>Typical Margin Range</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Apparel & Fashion</td><td>40% – 60%</td></tr>
+                        <tr><td>Beauty & Cosmetics</td><td>50% – 70%</td></tr>
+                        <tr><td>Jewelry & Accessories</td><td>50% – 70%</td></tr>
+                        <tr><td>Electronics & Gadgets</td><td>10% – 30%</td></tr>
+                        <tr><td>Food & Beverage (CPG)</td><td>5% – 20%</td></tr>
+                        <tr><td>Home & General Merchandise</td><td>20% – 40%</td></tr>
+                        <tr><td>Print-on-Demand & Digital</td><td>60% – 90%+</td></tr>
+                    </tbody>
+                </table>
+                <p>These are gross margins, before ad spend, salaries and other operating costs. The "true margin" fields in the calculator above go a layer deeper, factoring in payment processing fees and per-unit shipping, which is a more honest picture of what actually lands in your pocket per sale.</p>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>What is a good profit margin for ecommerce?</h3>
+                        <p>Most ecommerce categories aim for a gross margin between 20% and 50%. Fashion and beauty products often run 40-60%, general merchandise and electronics tend to run 10-30%, and digital or print-on-demand products can exceed 70-90% since there's little to no physical cost of goods.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between margin and markup?</h3>
+                        <p>Margin is profit divided by selling price. Markup is profit divided by cost price. They describe the same dollar amount of profit from two different starting points, so markup is always a higher percentage than margin on the same sale.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I calculate profit margin?</h3>
+                        <p>Subtract your cost price from your selling price to get profit, then divide that profit by the selling price and multiply by 100. For example, a product that costs $20 and sells for $50 has a $30 profit and a 60% profit margin.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between gross margin and true margin?</h3>
+                        <p>Gross margin only accounts for the cost price of the product. True margin also subtracts payment processing fees and per-unit shipping costs, giving a more realistic picture of what you actually keep from each sale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggleIcon = menuToggle.querySelector('i');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggleIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggleIcon.className = 'fas fa-bars';
+            });
+        });
+    }
+    </script>
+
+    <!-- --- Profit Margin Calculator Logic --- -->
+    <script>
+    (function () {
+        const costInput = document.getElementById('costInput');
+        const sellingInput = document.getElementById('sellingInput');
+        const marginInput = document.getElementById('marginInput');
+        const qtyInput = document.getElementById('qtyInput');
+        const feeInput = document.getElementById('feeInput');
+        const shippingInput = document.getElementById('shippingInput');
+        const currencySelect = document.getElementById('currencySelect');
+
+        const resultMargin = document.getElementById('resultMargin');
+        const resultProfitSub = document.getElementById('resultProfitSub');
+        const resultMarkup = document.getElementById('resultMarkup');
+        const resultProfit = document.getElementById('resultProfit');
+        const errorMsg = document.getElementById('errorMsg');
+        const trueMarginBlock = document.getElementById('trueMarginBlock');
+        const grossMarginValue = document.getElementById('grossMarginValue');
+        const trueMarginValue = document.getElementById('trueMarginValue');
+        const totalProfitRow = document.getElementById('totalProfitRow');
+        const totalProfitValue = document.getElementById('totalProfitValue');
+
+        const advancedToggle = document.getElementById('advancedToggle');
+        const advancedPanel = document.getElementById('advancedPanel');
+
+        // "least-recently-edited" gets recomputed
+        let editOrder = ['cost', 'selling', 'margin'];
+
+        function currentSymbol() {
+            return currencySelect.value || '$';
+        }
+
+        function fmtMoney(n) {
+            if (!isFinite(n)) return '—';
+            return currentSymbol() + n.toFixed(2);
+        }
+
+        function fmtPct(n) {
+            if (!isFinite(n)) return '—';
+            return n.toFixed(1).replace(/\.0$/, '') + '%';
+        }
+
+        function getNum(el) {
+            const v = parseFloat(el.value);
+            return isNaN(v) || v < 0 ? null : v;
+        }
+
+        function markActive(fieldKey) {
+            [costInput, sellingInput, marginInput].forEach(el => el.classList.remove('active-field'));
+        }
+
+        function showError(msg) {
+            errorMsg.textContent = msg;
+            errorMsg.classList.add('show');
+        }
+        function clearError() {
+            errorMsg.classList.remove('show');
+            errorMsg.textContent = '';
+        }
+
+        function computeFromCostSelling(cost, selling) {
+            const profit = selling - cost;
+            const margin = selling > 0 ? (profit / selling) * 100 : null;
+            return margin;
+        }
+        function sellingFromCostMargin(cost, marginPct) {
+            const m = marginPct / 100;
+            if (m >= 1) return null; // impossible: margin can't reach/exceed 100%
+            return cost / (1 - m);
+        }
+        function costFromSellingMargin(selling, marginPct) {
+            const m = marginPct / 100;
+            return selling * (1 - m);
+        }
+
+        function recalc(editedField) {
+            clearError();
+
+            const hasNegative = [costInput, sellingInput, marginInput, qtyInput, feeInput, shippingInput]
+                .some(el => el.value.trim() !== '' && parseFloat(el.value) < 0);
+            if (hasNegative) {
+                showError('Values can\'t be negative.');
+            }
+
+            if (editedField) {
+                editOrder = editOrder.filter(f => f !== editedField);
+                editOrder.unshift(editedField);
+            }
+            const solveFor = editOrder[2];
+
+            let cost = getNum(costInput);
+            let selling = getNum(sellingInput);
+            let margin = getNum(marginInput);
+
+            // Solve the stale field from the two freshest ones, when possible
+            if (solveFor === 'margin' && cost !== null && selling !== null) {
+                const m = computeFromCostSelling(cost, selling);
+                if (m === null) { showError('Selling price must be greater than $0.'); }
+                else { margin = Math.max(0, m); marginInput.value = round(margin); }
+            } else if (solveFor === 'selling' && cost !== null && margin !== null) {
+                const s = sellingFromCostMargin(cost, margin);
+                if (s === null) { showError('Margin must be less than 100%.'); }
+                else { selling = s; sellingInput.value = round(selling); }
+            } else if (solveFor === 'cost' && selling !== null && margin !== null) {
+                const c = costFromSellingMargin(selling, margin);
+                cost = Math.max(0, c);
+                costInput.value = round(cost);
+            }
+
+            // Final display values (fall back to whatever is available)
+            if (cost === null) cost = 0;
+            if (selling === null) selling = 0;
+            const profit = selling - cost;
+            const marginPctDisplay = selling > 0 ? (profit / selling) * 100 : 0;
+            const markupPctDisplay = cost > 0 ? (profit / cost) * 100 : (profit > 0 ? Infinity : 0);
+
+            resultMargin.textContent = fmtPct(Math.max(0, marginPctDisplay));
+            resultMarkup.textContent = markupPctDisplay === Infinity ? '∞' : fmtPct(Math.max(0, markupPctDisplay));
+            resultProfit.textContent = fmtMoney(profit);
+            resultProfitSub.textContent = fmtMoney(profit) + ' profit per unit';
+
+            updateAdvanced(cost, selling, profit);
+        }
+
+        function round(n) {
+            return Math.round(n * 100) / 100;
+        }
+
+        function updateAdvanced(cost, selling, grossProfit) {
+            const fee = getNum(feeInput);
+            const shipping = getNum(shippingInput);
+            const qty = getNum(qtyInput);
+            const anyAdvanced = (feeInput.value.trim() !== '') || (shippingInput.value.trim() !== '') || (qtyInput.value.trim() !== '');
+
+            if (!anyAdvanced || selling <= 0) {
+                trueMarginBlock.style.display = 'none';
+                return;
+            }
+
+            const feePct = fee !== null ? fee : 0;
+            const shipAmt = shipping !== null ? shipping : 0;
+            const feeAmt = selling * (feePct / 100);
+            const trueCost = cost + shipAmt + feeAmt;
+            const trueProfit = selling - trueCost;
+            const grossMarginPct = selling > 0 ? (grossProfit / selling) * 100 : 0;
+            const trueMarginPct = selling > 0 ? (trueProfit / selling) * 100 : 0;
+
+            trueMarginBlock.style.display = 'block';
+            grossMarginValue.textContent = fmtPct(grossMarginPct);
+            trueMarginValue.textContent = fmtPct(trueMarginPct);
+
+            if (qty !== null && qty > 0) {
+                totalProfitRow.style.display = 'flex';
+                totalProfitValue.textContent = fmtMoney(trueProfit * qty);
+            } else {
+                totalProfitRow.style.display = 'none';
+            }
+        }
+
+        [costInput, sellingInput, marginInput].forEach(el => {
+            el.addEventListener('input', () => {
+                const key = el === costInput ? 'cost' : el === sellingInput ? 'selling' : 'margin';
+                recalc(key);
+            });
+        });
+        [qtyInput, feeInput, shippingInput].forEach(el => {
+            el.addEventListener('input', () => recalc(null));
+        });
+
+        currencySelect.addEventListener('change', () => {
+            const sym = currentSymbol();
+            document.getElementById('prefixCost').textContent = sym;
+            document.getElementById('prefixSelling').textContent = sym;
+            document.getElementById('prefixShipping').textContent = sym;
+            recalc(null);
+        });
+
+        advancedToggle.addEventListener('click', () => {
+            const isOpen = advancedPanel.classList.toggle('open');
+            advancedToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Seed with a sensible starting example
+        costInput.value = '20.00';
+        sellingInput.value = '50.00';
+        recalc(null);
+    })();
+    </script>
+
+    <!-- --- UTM Capture + Forward Script --- -->
+    <script>
+    // Capture UTM params and carry them forward to app.vidyback.com signup links
+    (function() {
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+            document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                var extra = {};
+                if (stored) { for (var k in stored) { extra[k] = stored[k]; } }
+                var label = (a.textContent || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40);
+                if (label) { extra.cta_id = label; }
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) {
+                    var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                    a.href = a.href + sep + qs;
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+<footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

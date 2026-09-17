@@ -186,6 +186,11 @@ to = "/privacypolicy"
 status = 301
 
 [[redirects]]
+from = "/profit-margin-calculator.html"
+to = "/profit-margin-calculator"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
