@@ -206,6 +206,11 @@ to = "/qr-code-generator"
 status = 301
 
 [[redirects]]
+from = "/serp-preview-tool.html"
+to = "/serp-preview-tool"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
