@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <meta name="description" content="Free GST calculator for Indian ecommerce &amp; Shopify sellers. Add or remove GST, split CGST/SGST or IGST, and see a full live tax breakdown.">
+    <title>Free GST Calculator for Indian Ecommerce &amp; Shopify Sellers | VidyBack</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vidyback.com/gst-calculator">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+    <meta property="og:title" content="Free GST Calculator for Indian Ecommerce &amp; Shopify Sellers">
+    <meta property="og:description" content="Add or remove GST, split CGST/SGST or IGST, see a full live breakdown. No signup needed.">
+    <meta property="og:url" content="https://www.vidyback.com/gst-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free GST Calculator for Indian Ecommerce &amp; Shopify Sellers">
+    <meta name="twitter:description" content="Add or remove GST, split CGST/SGST or IGST, see a full live breakdown. No signup needed.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <!-- FAQPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the difference between CGST and IGST?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "CGST (Central GST) and SGST (State GST) together apply to intra-state transactions — sales within the same state — each at half the applicable GST rate. IGST (Integrated GST) applies to inter-state transactions at the full applicable rate. The total tax burden is identical; only which government collects it changes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is GST calculated on MRP or selling price?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "GST is calculated on the transaction value — the actual price charged to the buyer, not the MRP. If you sell below MRP, GST applies to the discounted selling price. If you sell at MRP, GST applies to MRP."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I remove GST from a GST-inclusive price?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Divide the inclusive amount by (1 + GST rate divided by 100). For an 18% rate: Base = Inclusive amount divided by 1.18. The GST component is the inclusive amount minus the base amount. This calculator handles it automatically in Remove GST mode."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do Shopify sellers in India need to charge GST?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "If your aggregate annual turnover exceeds Rs. 40 lakh (goods) or Rs. 20 lakh (services, or Rs. 10 lakh for special category states), GST registration is mandatory. Below the threshold, registration is voluntary. Once registered, you must charge GST on all taxable supplies and file regular returns."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-accent-green: #10b981;
+            --color-accent-red: #dc2626;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition-normal); padding: 20px 0; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; }
+        .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+
+        /* --- Tool Hero --- */
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 620px; margin: 0 auto; line-height: 1.6; }
+
+        /* --- Calculator --- */
+        .calc-section { padding: 40px 0 60px; }
+        .calc-wrapper { max-width: 900px; margin: 0 auto; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+
+        /* Mode tabs */
+        .mode-tabs { display: flex; border-bottom: 1px solid var(--color-border); }
+        .mode-tab { flex: 1; padding: 18px 24px; font-size: 0.95rem; font-weight: 700; color: var(--color-text-muted); background: rgba(29,81,117,0.02); border: none; cursor: pointer; transition: var(--transition-fast); position: relative; }
+        .mode-tab:first-child { border-right: 1px solid var(--color-border); }
+        .mode-tab.active { color: var(--color-text-accent); background: #fff; }
+        .mode-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--color-purple); }
+        .mode-tab:hover:not(.active) { color: var(--color-text-dark); background: rgba(29,81,117,0.04); }
+
+        .calc-body { padding: 32px 28px 28px; display: grid; grid-template-columns: 1fr; gap: 0; }
+        @media (min-width: 760px) {
+            .calc-body { grid-template-columns: 1.1fr 1fr; gap: 40px; padding: 40px; }
+        }
+
+        .field-group { margin-bottom: 22px; }
+        .field-label-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+        .field-label { font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark); }
+
+        .info-btn { width: 16px; height: 16px; border-radius: 50%; background: rgba(29,81,117,0.1); color: var(--color-text-accent); font-size: 0.68rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: none; cursor: help; position: relative; flex-shrink: 0; }
+        .info-btn .tooltip-bubble { visibility: hidden; opacity: 0; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%) translateY(4px); background: var(--color-text-dark); color: #fff; font-size: 0.78rem; font-weight: 500; line-height: 1.4; padding: 10px 12px; border-radius: 8px; width: max-content; max-width: 240px; text-align: left; box-shadow: var(--shadow-md); transition: opacity 0.15s ease, transform 0.15s ease; z-index: 20; }
+        .info-btn .tooltip-bubble::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--color-text-dark); }
+        .info-btn:hover .tooltip-bubble, .info-btn:focus .tooltip-bubble, .info-btn:focus-visible .tooltip-bubble { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Segmented toggle */
+        .seg-toggle { display: flex; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--color-border); background: rgba(29,81,117,0.02); }
+        .seg-btn { flex: 1; padding: 10px 12px; font-size: 0.82rem; font-weight: 700; color: var(--color-text-muted); background: transparent; border: none; cursor: pointer; transition: var(--transition-fast); line-height: 1.3; }
+        .seg-btn:not(:last-child) { border-right: 1.5px solid var(--color-border); }
+        .seg-btn.active { background: var(--color-purple); color: #fff; }
+        .seg-btn:hover:not(.active) { color: var(--color-text-dark); background: rgba(29,81,117,0.05); }
+
+        .input-wrap { position: relative; display: flex; align-items: center; }
+        .input-prefix { position: absolute; left: 16px; font-size: 1rem; font-weight: 600; color: var(--color-text-muted); pointer-events: none; }
+        .num-input { width: 100%; padding: 14px 16px 14px 34px; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border); font-size: 1.05rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); transition: var(--transition-fast); background: #fff; }
+        .num-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+
+        .select-input { width: 100%; padding: 14px 16px; border-radius: var(--border-radius-md); border: 1.5px solid var(--color-border); font-size: 0.98rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); background: #fff; cursor: pointer; }
+        .select-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+
+        .custom-rate-wrap { margin-top: 10px; display: none; }
+        .custom-rate-wrap.show { display: block; }
+        .input-wrap-suffix { position: relative; display: flex; align-items: center; }
+        .input-suffix { position: absolute; right: 16px; font-size: 1rem; font-weight: 600; color: var(--color-text-muted); pointer-events: none; }
+        .num-input-plain { width: 100%; padding: 12px 40px 12px 16px; border-radius: var(--border-radius-sm); border: 1.5px solid var(--color-border); font-size: 0.98rem; font-weight: 600; color: var(--color-text-dark); font-family: var(--font-body); transition: var(--transition-fast); background: #fff; }
+        .num-input-plain:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+
+        .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px; }
+
+        .error-msg { background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.25); color: var(--color-accent-red); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--border-radius-sm); margin-top: 6px; display: none; }
+        .error-msg.show { display: block; }
+
+        /* --- Results panel --- */
+        .results-panel { background: var(--color-bg-dark); border-radius: var(--border-radius-lg); padding: 24px 20px; color: #fff; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; height: fit-content; }
+        @media (min-width: 760px) { .results-panel { margin-top: 0; } }
+
+        .result-block { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius-sm); padding: 16px 18px; }
+        .result-block.highlight { background: rgba(245,166,35,0.12); border-color: rgba(245,166,35,0.4); }
+        .result-block-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--color-text-light-muted); margin-bottom: 6px; }
+        .result-block-value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+        .result-block.highlight .result-block-value { color: var(--color-gold); font-size: 1.9rem; }
+
+        .gst-sub { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 12px; padding-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+        .gst-sub-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.86rem; }
+        .gst-sub-row .sub-label { color: var(--color-text-light-muted); }
+        .gst-sub-row .sub-value { font-weight: 700; color: #fff; font-family: var(--font-heading); }
+
+        .zero-note { font-size: 0.76rem; color: var(--color-text-light-muted); margin-top: 6px; font-style: italic; display: none; }
+
+        .result-formula { font-size: 0.74rem; color: rgba(255,255,255,0.45); padding-top: 2px; font-family: 'Courier New', monospace; line-height: 1.65; }
+        .result-formula strong { color: rgba(255,255,255,0.7); font-family: var(--font-body); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+        /* --- Reference table collapsible --- */
+        .ref-section { padding: 0 0 50px; }
+        .ref-wrapper { max-width: 900px; margin: 0 auto; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+        .ref-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; cursor: pointer; user-select: none; gap: 12px; }
+        .ref-header-title { font-size: 1.0rem; font-weight: 700; color: var(--color-text-dark); font-family: var(--font-heading); display: flex; align-items: center; gap: 8px; }
+        .ref-toggle-icon { width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: rgba(29,81,117,0.07); display: flex; align-items: center; justify-content: center; color: var(--color-text-accent); font-size: 0.75rem; transition: transform 0.25s ease; }
+        .ref-header[aria-expanded="true"] .ref-toggle-icon { transform: rotate(180deg); }
+        .ref-panel { max-height: 0; overflow: hidden; transition: max-height 0.38s ease; }
+        .ref-panel.open { max-height: 1200px; }
+        .ref-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        .ref-table th, .ref-table td { padding: 11px 20px; text-align: left; border-bottom: 1px solid var(--color-border); }
+        .ref-table th { background: rgba(29,81,117,0.04); font-weight: 700; color: var(--color-text-dark); font-family: var(--font-heading); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .ref-table tr:last-child td { border-bottom: none; }
+        .ref-table tbody tr:hover { background: rgba(29,81,117,0.02); }
+        .rate-badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+        .rate-0   { background: rgba(16,185,129,0.1);  color: #059669; }
+        .rate-025 { background: rgba(16,185,129,0.1);  color: #059669; }
+        .rate-3   { background: rgba(29,81,117,0.1);   color: var(--color-text-accent); }
+        .rate-5   { background: rgba(29,81,117,0.1);   color: var(--color-text-accent); }
+        .rate-12  { background: rgba(245,166,35,0.12); color: #b45309; }
+        .rate-18  { background: rgba(122,66,244,0.1);  color: var(--color-purple); }
+        .rate-28  { background: rgba(220,38,38,0.1);   color: var(--color-accent-red); }
+        .ref-disclaimer { padding: 14px 20px; border-top: 1px solid var(--color-border); background: rgba(245,166,35,0.04); font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.55; }
+        .ref-disclaimer i { color: var(--color-gold); margin-right: 4px; }
+        .ref-disclaimer a { color: var(--color-text-accent); text-decoration: underline; }
+
+        /* --- Content Section --- */
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .example-box { background: rgba(122,66,244,0.05); border-left: 4px solid var(--color-purple); border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0; padding: 18px 20px; margin: 20px 0; font-size: 0.95rem; }
+        .example-box p { margin-bottom: 8px; }
+        .example-box p:last-child { margin-bottom: 0; }
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        footer h4, footer .logo { color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        .app-item a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; }
+            .tool-hero h1 { font-size: 1.9rem; }
+            .calc-body { padding: 24px 18px 24px; }
+            .result-block-value { font-size: 1.35rem; }
+            .result-block.highlight .result-block-value { font-size: 1.6rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; }
+            .app-item:last-child { margin-left: 0; margin-top: 20px; }
+        }
+        @media (max-width: 480px) {
+            .tool-hero h1 { font-size: 1.6rem; }
+            .mode-tab { padding: 14px 10px; font-size: 0.85rem; }
+            .ref-header { padding: 16px 18px; }
+            .ref-table th, .ref-table td { padding: 10px 12px; font-size: 0.82rem; }
+            .seg-btn { font-size: 0.76rem; padding: 9px 8px; }
+        }
+        @media (max-width: 320px) {
+            .container { padding: 0 14px; }
+            .calc-body { padding: 16px 12px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Tool Hero --- -->
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Free GST <span>Calculator</span></h1>
+            <p>Add GST to a base price or back-calculate the base from a GST-inclusive amount. Automatically splits CGST&nbsp;+&nbsp;SGST for intra-state and IGST for inter-state transactions.</p>
+        </div>
+    </section>
+
+    <!-- --- Calculator --- -->
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-wrapper">
+
+                <!-- Mode tabs -->
+                <div class="mode-tabs" role="tablist" aria-label="GST calculation mode">
+                    <button class="mode-tab active" id="tabAdd" role="tab" aria-selected="true" aria-controls="calcBody">
+                        <i class="fa-solid fa-plus" style="margin-right:6px;font-size:0.75rem;"></i>Add GST
+                    </button>
+                    <button class="mode-tab" id="tabRemove" role="tab" aria-selected="false" aria-controls="calcBody">
+                        <i class="fa-solid fa-minus" style="margin-right:6px;font-size:0.75rem;"></i>Remove GST
+                    </button>
+                </div>
+
+                <div class="calc-body" id="calcBody">
+
+                    <!-- ── Inputs column ── -->
+                    <div>
+
+                        <!-- Amount -->
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <label class="field-label" for="amountInput" id="amountLabel">Base Amount (&#8377;)</label>
+                                <button type="button" class="info-btn" aria-label="About this field">i
+                                    <span class="tooltip-bubble" id="amountTooltip">Enter the GST-exclusive (base) amount. GST will be added on top of this figure.</span>
+                                </button>
+                            </div>
+                            <div class="input-wrap">
+                                <span class="input-prefix" aria-hidden="true">&#8377;</span>
+                                <input type="number" inputmode="decimal" min="0" step="0.01"
+                                       class="num-input" id="amountInput"
+                                       placeholder="0.00"
+                                       aria-labelledby="amountLabel"
+                                       autocomplete="off">
+                            </div>
+                            <div class="error-msg" id="amountError" role="alert"></div>
+                        </div>
+
+                        <!-- GST Rate -->
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <label class="field-label" for="gstRateSelect">GST Rate</label>
+                                <button type="button" class="info-btn" aria-label="About GST rates">i
+                                    <span class="tooltip-bubble">Standard Indian GST slabs: 0%, 0.25%, 3%, 5%, 12%, 18%, 28%. Choose Custom to enter any rate.</span>
+                                </button>
+                            </div>
+                            <select class="select-input" id="gstRateSelect" aria-label="Select GST rate">
+                                <option value="0">0% &mdash; Exempt / Nil Rated</option>
+                                <option value="0.25">0.25%</option>
+                                <option value="3">3%</option>
+                                <option value="5">5%</option>
+                                <option value="12" selected>12%</option>
+                                <option value="18">18%</option>
+                                <option value="28">28%</option>
+                                <option value="custom">Custom %</option>
+                            </select>
+                            <div class="custom-rate-wrap" id="customRateWrap">
+                                <div class="input-wrap-suffix" style="margin-top:8px;">
+                                    <input type="number" inputmode="decimal" min="0" max="100" step="0.01"
+                                           class="num-input-plain" id="customRateInput"
+                                           placeholder="Enter rate (0&#8211;100)"
+                                           aria-label="Custom GST rate percentage"
+                                           autocomplete="off">
+                                    <span class="input-suffix" aria-hidden="true">%</span>
+                                </div>
+                                <div class="error-msg" id="customRateError" role="alert"></div>
+                            </div>
+                        </div>
+
+                        <!-- Transaction type -->
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <span class="field-label" id="txLabel">Transaction Type</span>
+                                <button type="button" class="info-btn" aria-label="About transaction types">i
+                                    <span class="tooltip-bubble">Intra-state: buyer and seller in the same state &rarr; GST split into CGST + SGST. Inter-state: different states &rarr; full GST as IGST.</span>
+                                </button>
+                            </div>
+                            <div class="seg-toggle" role="group" aria-labelledby="txLabel">
+                                <button type="button" class="seg-btn active" id="btnIntra" aria-pressed="true">Intra-state (CGST + SGST)</button>
+                                <button type="button" class="seg-btn" id="btnInter" aria-pressed="false">Inter-state (IGST)</button>
+                            </div>
+                            <div class="field-hint" id="txHint">Same-state transaction &mdash; GST is split equally into CGST and SGST.</div>
+                        </div>
+
+                    </div>
+
+                    <!-- ── Results column ── -->
+                    <div class="results-panel" aria-live="polite" aria-label="GST calculation results" aria-atomic="true">
+
+                        <!-- Block 1: Base Amount -->
+                        <div class="result-block" id="blockBase">
+                            <div class="result-block-label">Base Amount (Excl. GST)</div>
+                            <div class="result-block-value" id="resBase">&#8377;1,000.00</div>
+                        </div>
+
+                        <!-- Block 2: GST Amount with sub-breakdown -->
+                        <div class="result-block" id="blockGst">
+                            <div class="result-block-label">GST Amount</div>
+                            <div class="result-block-value" id="resGst">&#8377;120.00</div>
+                            <div class="zero-note" id="zeroNote">0% rate &mdash; this item is exempt or nil-rated. No GST is payable.</div>
+                            <div class="gst-sub" id="gstSub"></div>
+                        </div>
+
+                        <!-- Block 3: Final Amount (highlighted) -->
+                        <div class="result-block highlight" id="blockFinal">
+                            <div class="result-block-label" id="finalLabel">Final Amount (Incl. GST)</div>
+                            <div class="result-block-value" id="resFinal">&#8377;1,120.00</div>
+                        </div>
+
+                        <!-- Inline formula -->
+                        <div class="result-formula" id="resFormula">
+                            <strong>Formula used</strong><br>
+                            GST = Base &times; (Rate &divide; 100)<br>
+                            Final = Base + GST
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- GST Rate Reference Table (collapsible) --- -->
+    <section class="ref-section">
+        <div class="container">
+            <div class="ref-wrapper">
+                <div class="ref-header" id="refHeader"
+                     role="button" aria-expanded="false" aria-controls="refPanel" tabindex="0">
+                    <div class="ref-header-title">
+                        <i class="fa-solid fa-table-list" style="color:var(--color-text-accent);font-size:0.95rem;" aria-hidden="true"></i>
+                        Common GST Rates by Product Category
+                    </div>
+                    <div class="ref-toggle-icon" aria-hidden="true">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="ref-panel" id="refPanel" role="region" aria-labelledby="refHeader">
+                    <table class="ref-table" aria-label="GST rates by product category">
+                        <thead>
+                            <tr>
+                                <th scope="col">Category / Product</th>
+                                <th scope="col">GST Rate</th>
+                                <th scope="col">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Fresh fruits, vegetables, milk, eggs</td><td><span class="rate-badge rate-0">0%</span></td><td>Nil rated / exempt</td></tr>
+                            <tr><td>Diamonds &amp; precious stones (cut &amp; polished)</td><td><span class="rate-badge rate-025">0.25%</span></td><td>Rough diamonds: 0%</td></tr>
+                            <tr><td>Gold, silver &amp; other precious metals</td><td><span class="rate-badge rate-3">3%</span></td><td>Jewellery making charges: 5%</td></tr>
+                            <tr><td>Apparel (MRP under &#8377;1,000)</td><td><span class="rate-badge rate-5">5%</span></td><td>Ready-made garments</td></tr>
+                            <tr><td>Footwear (MRP under &#8377;1,000)</td><td><span class="rate-badge rate-5">5%</span></td><td>Rubber/leather chappals included</td></tr>
+                            <tr><td>Packed &amp; branded food items</td><td><span class="rate-badge rate-5">5%</span></td><td>Branded cereals, pulses, flour</td></tr>
+                            <tr><td>Apparel (MRP &#8377;1,000 and above)</td><td><span class="rate-badge rate-12">12%</span></td><td>Ready-made garments</td></tr>
+                            <tr><td>Footwear (MRP &#8377;1,000 and above)</td><td><span class="rate-badge rate-12">12%</span></td><td>Sports shoes, leather footwear</td></tr>
+                            <tr><td>Smartphones &amp; mobile handsets</td><td><span class="rate-badge rate-18">18%</span></td><td>All mobile phones</td></tr>
+                            <tr><td>Cosmetics &amp; beauty products</td><td><span class="rate-badge rate-18">18%</span></td><td>Skincare, haircare, perfumes</td></tr>
+                            <tr><td>Electronics (TVs, laptops, cameras)</td><td><span class="rate-badge rate-18">18%</span></td><td>Most consumer electronics</td></tr>
+                            <tr><td>Home appliances (fridges, washing machines)</td><td><span class="rate-badge rate-18">18%</span></td><td>White goods</td></tr>
+                            <tr><td>Furniture &amp; home d&eacute;cor</td><td><span class="rate-badge rate-18">18%</span></td><td>Wooden furniture, mirrors</td></tr>
+                            <tr><td>Air conditioners &amp; dishwashers</td><td><span class="rate-badge rate-28">28%</span></td><td>Premium appliances</td></tr>
+                            <tr><td>Cement (all grades)</td><td><span class="rate-badge rate-28">28%</span></td><td>&nbsp;</td></tr>
+                            <tr><td>Aerated drinks &amp; carbonated beverages</td><td><span class="rate-badge rate-28">28%</span></td><td>Plus compensation cess may apply</td></tr>
+                            <tr><td>Tobacco products</td><td><span class="rate-badge rate-28">28%</span></td><td>Cigarettes, chewing tobacco</td></tr>
+                            <tr><td>Luxury &amp; premium cars</td><td><span class="rate-badge rate-28">28%</span></td><td>Plus compensation cess</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="ref-disclaimer">
+                        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                        <strong>Disclaimer:</strong> GST rates shown are indicative and may vary by product specification, HSN/SAC code, or government notification. Confirm exact applicable rates with a qualified tax professional or the official <a href="https://www.gst.gov.in/" target="_blank" rel="noopener">GST portal</a> before filing returns.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Spend Less Time on Manual Content Creation</h2>
+                <p>VidyBack auto-generates and schedules product videos straight from your Shopify catalog &mdash; so you can focus on running your store, not making posts.</p>
+                <a href="https://www.vidyback.com/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEO Content --- -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <h2>CGST + SGST vs. IGST: What&rsquo;s the Difference?</h2>
+                <p>When goods or services are sold <strong>within the same state</strong> (an intra-state transaction), GST is collected as two separate taxes: <strong>CGST</strong> (Central Goods and Services Tax) and <strong>SGST</strong> (State Goods and Services Tax). Each is exactly half the applicable GST rate. On an 18% intra-state sale, you collect 9% CGST and 9% SGST &mdash; both appear as separate line items on the tax invoice and are deposited to separate government accounts.</p>
+
+                <p>When goods or services cross a state boundary (an inter-state transaction), the entire GST is levied as a single tax: <strong>IGST</strong> (Integrated Goods and Services Tax). The total rate stays the same &mdash; an 18% inter-state sale still attracts 18% GST &mdash; but it is all collected as IGST and deposited to the central government, which then apportions the state&rsquo;s share. For Indian Shopify sellers, this distinction affects your invoice format, your GSTR filing (GSTR-1 separates intra-state and inter-state supplies), and how input tax credit (ITC) is claimed.</p>
+
+                <h2>GST-Inclusive vs. GST-Exclusive Pricing on Shopify</h2>
+                <p>A common confusion for Indian Shopify store owners: <strong>should the prices you display include GST or exclude it?</strong> Shopify lets you toggle this in <em>Settings &rarr; Taxes and Duties &rarr; &ldquo;Include tax in prices&rdquo;</em>. When enabled, the price the customer sees on the product page is the final GST-inclusive amount. When disabled, GST is calculated and added at checkout.</p>
+
+                <p>For <strong>B2C (direct-to-consumer) sellers</strong>, displaying GST-inclusive prices is generally cleaner &mdash; customers see the real final price upfront, which matches the experience they have on Indian marketplaces like Amazon.in or Flipkart. For <strong>B2B sellers</strong> dealing with GST-registered buyers who will claim input tax credit, showing prices exclusive of GST makes the tax component transparent and simplifies your buyers&rsquo; bookkeeping. Whichever approach you choose, be consistent across product pages, checkout, and invoices to avoid confusion and compliance issues.</p>
+
+                <h2>Worked Examples</h2>
+
+                <div class="example-box">
+                    <p><strong>Add GST &mdash; Example:</strong> You sell a pair of shoes (MRP above &#8377;1,000, so 12% GST applies) at a base price of &#8377;2,500. The buyer is in the same state as your business (intra-state).</p>
+                    <p>GST Amount = &#8377;2,500 &times; 12 &divide; 100 = <strong>&#8377;300</strong></p>
+                    <p>CGST (6%) = <strong>&#8377;150</strong> &nbsp;&nbsp;|&nbsp;&nbsp; SGST (6%) = <strong>&#8377;150</strong></p>
+                    <p>Final GST-Inclusive Price = &#8377;2,500 + &#8377;300 = <strong>&#8377;2,800</strong></p>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Remove GST &mdash; Example:</strong> A marketplace transferred &#8377;1,180 to your account for a product (18% GST included). You need to record the actual base amount and tax component in your books.</p>
+                    <p>Base Amount = &#8377;1,180 &divide; (1 + 18/100) = &#8377;1,180 &divide; 1.18 = <strong>&#8377;1,000.00</strong></p>
+                    <p>GST Component = &#8377;1,180 &minus; &#8377;1,000 = <strong>&#8377;180</strong></p>
+                    <p>If the transaction was inter-state: IGST = <strong>&#8377;180</strong> (single line item on the invoice)</p>
+                </div>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>What is the difference between CGST and IGST?</h3>
+                        <p>CGST and SGST together apply to intra-state (same-state) transactions, each at half the applicable GST rate. IGST applies to inter-state transactions at the full applicable rate. The total tax burden on the buyer is identical either way &mdash; only which government collects it changes.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is GST calculated on MRP or selling price?</h3>
+                        <p>GST is calculated on the transaction value &mdash; the actual price you charge the buyer &mdash; not on the MRP. If you sell a product at a discount below MRP, GST applies to your discounted selling price. If you sell at MRP, GST applies to MRP.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I remove GST from a GST-inclusive price?</h3>
+                        <p>Divide the inclusive amount by (1 + GST rate &divide; 100). For an 18% rate: Base = Inclusive &divide; 1.18. The GST component is the inclusive amount minus the base. This calculator handles it automatically in &ldquo;Remove GST&rdquo; mode &mdash; just enter the inclusive amount and select the rate.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do Shopify sellers in India need to charge GST?</h3>
+                        <p>If your aggregate annual turnover exceeds &#8377;40 lakh (for goods in most states), &#8377;20 lakh (for services or special category states), or &#8377;10 lakh (for certain North-Eastern and hill states), GST registration is mandatory. Below the threshold, registration is voluntary. Once registered, you must charge GST on all taxable supplies and file regular GSTR returns.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Nav / Mobile Menu Script --- -->
+    <script>
+    (function () {
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', function () {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', function () {
+                const isOpen = navMenu.classList.toggle('active');
+                menuToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            });
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navMenu.classList.remove('active');
+                    menuToggle.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+        }
+    })();
+    </script>
+
+    <!-- --- GST Calculator Logic --- -->
+    <script>
+    (function () {
+        /* ── Element refs ── */
+        var tabAdd          = document.getElementById('tabAdd');
+        var tabRemove       = document.getElementById('tabRemove');
+        var amountInput     = document.getElementById('amountInput');
+        var amountLabel     = document.getElementById('amountLabel');
+        var amountTooltip   = document.getElementById('amountTooltip');
+        var amountError     = document.getElementById('amountError');
+        var gstRateSelect   = document.getElementById('gstRateSelect');
+        var customRateWrap  = document.getElementById('customRateWrap');
+        var customRateInput = document.getElementById('customRateInput');
+        var customRateError = document.getElementById('customRateError');
+        var btnIntra        = document.getElementById('btnIntra');
+        var btnInter        = document.getElementById('btnInter');
+        var txHint          = document.getElementById('txHint');
+        var resBase         = document.getElementById('resBase');
+        var resGst          = document.getElementById('resGst');
+        var gstSub          = document.getElementById('gstSub');
+        var zeroNote        = document.getElementById('zeroNote');
+        var resFinal        = document.getElementById('resFinal');
+        var finalLabel      = document.getElementById('finalLabel');
+        var resFormula      = document.getElementById('resFormula');
+        var refHeader       = document.getElementById('refHeader');
+        var refPanel        = document.getElementById('refPanel');
+
+        /* ── State ── */
+        var mode   = 'add';   // 'add' | 'remove'
+        var txType = 'intra'; // 'intra' | 'inter'
+
+        /* ── Collapsible reference table ── */
+        refHeader.addEventListener('click', toggleRef);
+        refHeader.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleRef(); }
+        });
+        function toggleRef() {
+            var open = refPanel.classList.toggle('open');
+            refHeader.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        /* ── Mode switch ── */
+        tabAdd.addEventListener('click', function () { setMode('add'); });
+        tabRemove.addEventListener('click', function () { setMode('remove'); });
+
+        function setMode(m) {
+            mode = m;
+            tabAdd.classList.toggle('active', m === 'add');
+            tabAdd.setAttribute('aria-selected', m === 'add' ? 'true' : 'false');
+            tabRemove.classList.toggle('active', m === 'remove');
+            tabRemove.setAttribute('aria-selected', m === 'remove' ? 'true' : 'false');
+            if (m === 'add') {
+                amountLabel.textContent = 'Base Amount (\u20B9)';
+                amountTooltip.textContent = 'Enter the GST-exclusive (base) amount. GST will be added on top of this figure.';
+                finalLabel.textContent = 'Final Amount (Incl. GST)';
+                amountInput.placeholder = '0.00';
+            } else {
+                amountLabel.textContent = 'GST-Inclusive Amount (\u20B9)';
+                amountTooltip.textContent = 'Enter the total amount already including GST. The tool will back-calculate the base price and tax component.';
+                finalLabel.textContent = 'GST-Inclusive Amount';
+                amountInput.placeholder = '0.00';
+            }
+            recalc();
+        }
+
+        /* ── Transaction type switch ── */
+        btnIntra.addEventListener('click', function () { setTx('intra'); });
+        btnInter.addEventListener('click', function () { setTx('inter'); });
+
+        function setTx(t) {
+            txType = t;
+            btnIntra.classList.toggle('active', t === 'intra');
+            btnIntra.setAttribute('aria-pressed', t === 'intra' ? 'true' : 'false');
+            btnInter.classList.toggle('active', t === 'inter');
+            btnInter.setAttribute('aria-pressed', t === 'inter' ? 'true' : 'false');
+            txHint.textContent = t === 'intra'
+                ? 'Same-state transaction \u2014 GST is split equally into CGST and SGST.'
+                : 'Different-state transaction \u2014 GST is levied as a single IGST.';
+            recalc();
+        }
+
+        /* ── Rate select ── */
+        gstRateSelect.addEventListener('change', function () {
+            customRateWrap.classList.toggle('show', gstRateSelect.value === 'custom');
+            recalc();
+        });
+        customRateInput.addEventListener('input', recalc);
+        amountInput.addEventListener('input', recalc);
+
+        /* ── Helpers ── */
+        function getRate() {
+            if (gstRateSelect.value === 'custom') {
+                var v = parseFloat(customRateInput.value);
+                return isNaN(v) ? null : v;
+            }
+            return parseFloat(gstRateSelect.value);
+        }
+
+        function fmtINR(n) {
+            if (!isFinite(n)) return '\u20B9\u2014';
+            return '\u20B9' + n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function fmtRate(r) {
+            // Return clean rate string e.g. "9", "0.25", not "9.0000"
+            return parseFloat(r.toFixed(6)).toString();
+        }
+
+        function showErr(el, msg) { el.textContent = msg; el.classList.add('show'); }
+        function clearErr(el)     { el.textContent = '';   el.classList.remove('show'); }
+
+        /* ── Main calculation ── */
+        function recalc() {
+            clearErr(amountError);
+            clearErr(customRateError);
+
+            var rawVal = amountInput.value.trim();
+
+            /* Validate amount */
+            if (rawVal !== '') {
+                var parsed = parseFloat(rawVal);
+                if (isNaN(parsed) || parsed < 0) {
+                    showErr(amountError, 'Please enter a valid positive amount.');
+                    resetDisplay();
+                    return;
+                }
+            }
+
+            /* Validate custom rate */
+            if (gstRateSelect.value === 'custom') {
+                var crv = customRateInput.value.trim();
+                if (crv !== '') {
+                    var crf = parseFloat(crv);
+                    if (isNaN(crf) || crf < 0 || crf > 100) {
+                        showErr(customRateError, 'Custom rate must be between 0 and 100.');
+                        resetDisplay();
+                        return;
+                    }
+                } else {
+                    resetDisplay();
+                    return;
+                }
+            }
+
+            if (rawVal === '') { resetDisplay(); return; }
+
+            var amount = parseFloat(rawVal);
+            var rate   = getRate();
+            if (rate === null || isNaN(amount)) { resetDisplay(); return; }
+
+            /* Core maths */
+            var baseAmount, gstAmount, finalAmount;
+            if (mode === 'add') {
+                baseAmount  = amount;
+                gstAmount   = baseAmount * rate / 100;
+                finalAmount = baseAmount + gstAmount;
+            } else {
+                finalAmount = amount;
+                baseAmount  = amount / (1 + rate / 100);
+                gstAmount   = amount - baseAmount;
+            }
+
+            /* Render main values */
+            resBase.textContent  = fmtINR(baseAmount);
+            resGst.textContent   = fmtINR(gstAmount);
+            resFinal.textContent = fmtINR(finalAmount);
+
+            /* Zero-rate note */
+            zeroNote.style.display = (rate === 0) ? 'block' : 'none';
+
+            /* Sub-breakdown */
+            gstSub.innerHTML = '';
+            if (rate > 0) {
+                if (txType === 'intra') {
+                    var half      = gstAmount / 2;
+                    var halfRate  = rate / 2;
+                    gstSub.innerHTML =
+                        '<div class="gst-sub-row">' +
+                            '<span class="sub-label">CGST (' + fmtRate(halfRate) + '%)</span>' +
+                            '<span class="sub-value">' + fmtINR(half) + '</span>' +
+                        '</div>' +
+                        '<div class="gst-sub-row">' +
+                            '<span class="sub-label">SGST (' + fmtRate(halfRate) + '%)</span>' +
+                            '<span class="sub-value">' + fmtINR(half) + '</span>' +
+                        '</div>';
+                } else {
+                    gstSub.innerHTML =
+                        '<div class="gst-sub-row">' +
+                            '<span class="sub-label">IGST (' + fmtRate(rate) + '%)</span>' +
+                            '<span class="sub-value">' + fmtINR(gstAmount) + '</span>' +
+                        '</div>';
+                }
+            }
+
+            /* Formula */
+            var divisor = parseFloat((1 + rate / 100).toFixed(6)).toString();
+            if (mode === 'add') {
+                resFormula.innerHTML =
+                    '<strong>Formula used</strong><br>' +
+                    'GST = Base &times; (Rate &divide; 100) &nbsp;&rarr;&nbsp; ' +
+                        fmtINR(baseAmount) + ' &times; (' + fmtRate(rate) + ' &divide; 100) = ' + fmtINR(gstAmount) + '<br>' +
+                    'Final = Base + GST &nbsp;&rarr;&nbsp; ' +
+                        fmtINR(baseAmount) + ' + ' + fmtINR(gstAmount) + ' = ' + fmtINR(finalAmount);
+            } else {
+                resFormula.innerHTML =
+                    '<strong>Formula used</strong><br>' +
+                    'Base = Inclusive &divide; (1 + Rate&divide;100) &nbsp;&rarr;&nbsp; ' +
+                        fmtINR(finalAmount) + ' &divide; ' + divisor + ' = ' + fmtINR(baseAmount) + '<br>' +
+                    'GST = Inclusive &minus; Base &nbsp;&rarr;&nbsp; ' +
+                        fmtINR(finalAmount) + ' &minus; ' + fmtINR(baseAmount) + ' = ' + fmtINR(gstAmount);
+            }
+        }
+
+        function resetDisplay() {
+            resBase.textContent  = '\u20B9\u2014';
+            resGst.textContent   = '\u20B9\u2014';
+            resFinal.textContent = '\u20B9\u2014';
+            gstSub.innerHTML     = '';
+            zeroNote.style.display = 'none';
+            resFormula.innerHTML = mode === 'add'
+                ? '<strong>Formula</strong><br>GST = Base &times; (Rate &divide; 100)<br>Final = Base + GST'
+                : '<strong>Formula</strong><br>Base = Inclusive &divide; (1 + Rate&divide;100)<br>GST = Inclusive &minus; Base';
+        }
+
+        /* Seed with a working example on load */
+        amountInput.value = '1000';
+        recalc();
+    })();
+    </script>
+
+    <!-- --- UTM Capture + Forward Script --- -->
+    <script>
+    (function () {
+        var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function (k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) { localStorage.setItem('vb_utm', JSON.stringify(found)); }
+            var stored   = JSON.parse(localStorage.getItem('vb_utm') || 'null');
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, '') || 'home';
+            document.querySelectorAll('a[href^="https://app.vidyback.com"]').forEach(function (a) {
+                var extra = {};
+                if (stored) { for (var k in stored) { extra[k] = stored[k]; } }
+                var label = (a.textContent || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 40);
+                if (label) { extra.cta_id = label; }
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) {
+                    var sep = a.href.indexOf('?') === -1 ? '?' : '&';
+                    a.href = a.href + sep + qs;
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Product -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Tools -->
+                <nav class="footer-links-col" aria-label="Tools navigation">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="shipping-cost-calculator">Shipping Cost Calculator</a></li>
+                        <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                        <li><a href="refund-return-policy-generator">Refund &amp; Return Policy</a></li>
+                        <li><a href="terms-conditions-generator">Terms &amp; Conditions</a></li>
+                        <li><a href="shipping-policy-generator">Shipping Policy</a></li>
+                        <li><a href="discount-code-generator">Discount Code Generator</a></li>
+                        <li><a href="qr-code-generator">QR Code Generator</a></li>
+                        <li><a href="serp-preview-tool">Google SERP Preview Tool</a></li>
+                        <li><a href="gst-calculator">GST Calculator</a></li>
+                        <li><a href="hashtag-counter">Hashtag Counter</a></li>
+                        <li><a href="gst-calculator">GST Calculator</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 5: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size:2rem;color:#96bf48;margin-right:12px;" aria-hidden="true"></i>
+                        <div>
+                            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color:#ffffff;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size:2rem;color:#f39c12;margin-right:12px;" aria-hidden="true"></i>
+                        <div>
+                            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color:#fff;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

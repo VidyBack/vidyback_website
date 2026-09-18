@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap"></noscript>
+    <meta name="description" content="Free shipping policy generator for Shopify &amp; ecommerce stores. Build a complete shipping policy template with processing times, rates, and customs clauses — no signup.">
+    <title>Free Shipping Policy Generator for Shopify &amp; Ecommerce Stores</title>
+    <link rel="canonical" href="https://www.vidyback.com/shipping-policy-generator">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:title" content="Free Shipping Policy Generator for Shopify &amp; Ecommerce Stores">
+    <meta property="og:description" content="Build a complete shipping policy template with processing times, rates, and customs clauses. No signup, nothing stored.">
+    <meta property="og:url" content="https://www.vidyback.com/shipping-policy-generator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free Shipping Policy Generator for Shopify &amp; Ecommerce Stores">
+    <meta name="twitter:description" content="Build a complete shipping policy template with processing times, rates, and customs clauses. No signup, nothing stored.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What should a shipping policy include?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A complete shipping policy should cover: processing time (how long before an order ships), available shipping methods and estimated delivery times, shipping zones (domestic, international), free shipping thresholds if applicable, order tracking information, how delayed or lost packages are handled, and any restrictions on PO boxes or remote addresses."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who pays customs duties on international orders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In almost all cases, the customer (importer) is responsible for customs duties, import taxes, and brokerage fees. These charges are determined by the destination country's customs authority, not the seller. Stores that fail to disclose this upfront face a high rate of refused deliveries and chargebacks from international customers who were surprised by unexpected fees."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between processing time and shipping time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Processing time is how long it takes the store to prepare and dispatch an order after payment — typically 1–3 business days. Shipping (transit) time is how long the carrier takes to deliver once the package has been dispatched. Total delivery time = processing time + transit time. Confusing these two is one of the most common causes of customer service complaints."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does this tool store any of my information?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The policy is assembled in your browser using JavaScript. Nothing you enter is saved, transmitted to a server, or sent to any AI model."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0; --color-bg-alt: #ffffff; --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945; --color-text-muted: #5e6d7a; --color-text-dark: #121f2b;
+            --color-text-light-muted: #cbd5e1; --color-gold: #f5a623; --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9; --color-text-accent: #1d5175;
+            --color-border: rgba(32,74,107,0.08); --color-accent-green: #10b981;
+            --font-heading: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; --font-doc: 'Lora', Georgia, serif;
+            --shadow-md: 0 4px 6px -1px rgba(32,74,107,0.05), 0 2px 4px -2px rgba(32,74,107,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32,74,107,0.08), 0 8px 10px -6px rgba(32,74,107,0.08);
+            --transition-fast: 0.2s ease; --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
+            --border-radius-md: 16px; --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+        .btn-secondary { background: rgba(32,74,107,0.04); color: var(--color-text-dark); border: 1px solid var(--color-border); }
+        .btn-secondary:hover { background: rgba(32,74,107,0.08); }
+        .btn-sm { padding: 9px 16px; font-size: 0.85rem; border-radius: 10px; }
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background: rgba(250,246,240,0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); transition: var(--transition-normal); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; } .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; }
+        .disclaimer-box { max-width: 1100px; margin: 28px auto 0; background: rgba(245,166,35,0.09); border: 1.5px solid rgba(245,166,35,0.4); border-radius: var(--border-radius-md); padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
+        .disclaimer-box i { color: var(--color-gold); font-size: 1.3rem; margin-top: 2px; flex-shrink: 0; }
+        .disclaimer-box strong { display: block; color: var(--color-text-dark); font-size: 0.95rem; margin-bottom: 4px; }
+        .disclaimer-box p { font-size: 0.88rem; color: var(--color-text-main); line-height: 1.55; }
+        .disclaimer-box.compact { margin: 0 0 18px; padding: 14px 18px; }
+        .privacy-note { max-width: 1100px; margin: 14px auto 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .privacy-note i { color: var(--color-accent-green); }
+        .tool-section { padding: 36px 0 80px; }
+        .pp-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1300px; margin: 0 auto; align-items: start; }
+        @media (min-width: 960px) { .pp-grid { grid-template-columns: 1fr 1.15fr; gap: 28px; } }
+        .form-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 26px 24px; margin-bottom: 20px; }
+        .form-card h3 { font-size: 1.05rem; margin-bottom: 16px; }
+        .field-group { margin-bottom: 18px; }
+        .field-group:last-child { margin-bottom: 0; }
+        .field-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: 7px; }
+        .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px; }
+        .text-input, .textarea-input, .select-input, .number-input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--color-border); font-size: 0.95rem; font-weight: 500; color: var(--color-text-dark); font-family: var(--font-body); background: #fff; transition: var(--transition-fast); }
+        .text-input:focus, .textarea-input:focus, .select-input:focus, .number-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+        .textarea-input { resize: vertical; min-height: 64px; }
+        .select-input { cursor: pointer; }
+        .input-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .input-row .number-input { max-width: 100px; }
+        .checkbox-list { display: flex; flex-direction: column; gap: 10px; }
+        .checkbox-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; transition: var(--transition-fast); cursor: pointer; }
+        .checkbox-row:hover { background: rgba(29,81,117,0.04); }
+        .checkbox-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--color-purple); cursor: pointer; flex-shrink: 0; }
+        .checkbox-row label { font-size: 0.9rem; color: var(--color-text-main); cursor: pointer; }
+        .yesno-field { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 4px 0; }
+        .yesno-group { display: inline-flex; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--color-border); flex-shrink: 0; }
+        .yesno-group label { padding: 9px 20px; font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted); cursor: pointer; background: #fff; transition: var(--transition-fast); }
+        .yesno-group label:not(:last-child) { border-right: 1.5px solid var(--color-border); }
+        .yesno-group input:checked + label { background: var(--color-purple); color: #fff; }
+
+        /* Shipping methods repeatable rows */
+        .methods-list { display: flex; flex-direction: column; gap: 10px; }
+        .method-row { display: grid; grid-template-columns: 1fr 90px 1fr 32px; gap: 8px; align-items: center; background: var(--color-bg); border-radius: 10px; padding: 10px 12px; }
+        .method-row input { padding: 8px 10px; border-radius: 8px; border: 1.5px solid var(--color-border); font-size: 0.88rem; color: var(--color-text-dark); font-family: var(--font-body); background: #fff; transition: var(--transition-fast); width: 100%; }
+        .method-row input:focus { outline: none; border-color: var(--color-purple); }
+        .method-row .remove-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: 1.5px solid var(--color-border); color: var(--color-text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: var(--transition-fast); flex-shrink: 0; }
+        .method-row .remove-btn:hover { background: rgba(220,38,38,0.06); border-color: rgba(220,38,38,0.3); color: #dc2626; }
+        .method-headers { display: grid; grid-template-columns: 1fr 90px 1fr 32px; gap: 8px; padding: 0 12px 4px; }
+        .method-headers span { font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+        .add-method-btn { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; border: 1.5px dashed var(--color-border); background: transparent; color: var(--color-text-accent); cursor: pointer; transition: var(--transition-fast); }
+        .add-method-btn:hover { border-color: var(--color-purple); color: var(--color-purple); background: rgba(122,66,244,0.04); }
+
+        .sub-field { margin-top: 10px; }
+        .hidden { display: none; }
+        .preview-col { position: relative; }
+        @media (min-width: 960px) { .preview-col { position: sticky; top: 100px; } }
+        .preview-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+        .preview-toolbar h3 { font-size: 1.05rem; }
+        .preview-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .copy-status { font-size: 0.78rem; color: var(--color-accent-green); font-weight: 600; }
+        .doc-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+        .doc-scroll { max-height: 600px; overflow-y: auto; padding: 28px 26px; }
+        .doc-preview { font-family: var(--font-doc); font-size: 0.92rem; line-height: 1.7; color: var(--color-text-main); white-space: pre-wrap; word-wrap: break-word; }
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .content-wrapper ul.styled-list { list-style: disc; padding-left: 22px; margin-bottom: 18px; }
+        .content-wrapper ul.styled-list li { font-size: 1.02rem; line-height: 1.8; margin-bottom: 8px; }
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; }
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; } .tool-hero h1 { font-size: 1.8rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; }
+            .nav-menu.active { right: 0; } .menu-toggle { display: block; z-index: 1000; } .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; } .app-item:last-child { margin-left: 0; margin-top: 20px; }
+            .yesno-field { flex-direction: column; align-items: flex-start; }
+            .method-row { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+            .method-row .remove-btn { grid-column: 2; grid-row: 2; margin-left: auto; }
+            .method-headers { display: none; }
+        }
+        @media (max-width: 480px) { .form-card { padding: 20px 16px; } .doc-scroll { padding: 20px 16px; } }
+    </style>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon"><img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Shipping Policy <span>Generator</span></h1>
+            <p>Fill in your shipping details and get a complete, formatted shipping policy — including a methods table, processing times, and customs disclosure. Nothing you enter ever leaves your browser.</p>
+            <div class="disclaimer-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Informational Template Only</strong>
+                    <p>This tool generates a general-purpose template. It is not legal advice. Confirm carrier-specific terms, customs regulations, and consumer protection requirements in your jurisdiction before publishing.</p>
+                </div>
+            </div>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Everything runs client-side in your browser — nothing you type is saved, transmitted, or sent to any server or AI model.</div>
+        </div>
+    </section>
+
+    <section class="tool-section">
+        <div class="container">
+            <div class="pp-grid">
+
+                <!-- Form column -->
+                <div class="form-col">
+
+                    <div class="form-card">
+                        <h3>Business Details</h3>
+                        <div class="field-group">
+                            <label class="field-label" for="storeName">Business / Store Name</label>
+                            <input type="text" id="storeName" class="text-input" placeholder="e.g. Northwind Goods" autocomplete="organization">
+                        </div>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <label class="field-label" for="contactEmail">Contact Email</label>
+                            <input type="email" id="contactEmail" class="text-input" placeholder="e.g. shipping@northwindgoods.com" autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Processing Time</h3>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <label class="field-label" for="processDays">How long before an order ships after payment?</label>
+                            <div class="input-row">
+                                <input type="number" id="processDays" class="number-input" value="2" min="1" max="30" style="max-width:80px;">
+                                <span style="font-size:0.9rem;color:var(--color-text-muted);">business days</span>
+                            </div>
+                            <div class="field-hint">This is separate from transit/delivery time — a common point of customer confusion. Your policy will explain the difference clearly.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Shipping Zones</h3>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <div class="checkbox-list">
+                                <div class="checkbox-row"><input type="checkbox" id="zoneDomestic" checked><label for="zoneDomestic">Domestic (within your country)</label></div>
+                                <div class="checkbox-row"><input type="checkbox" id="zoneSelected"><label for="zoneSelected">Selected countries (specify below)</label></div>
+                                <div class="checkbox-row"><input type="checkbox" id="zoneWorldwide"><label for="zoneWorldwide">Worldwide</label></div>
+                            </div>
+                            <div class="sub-field hidden" id="selectedCountriesField">
+                                <label class="field-label" for="selectedCountries" style="margin-top:12px;">Countries you ship to</label>
+                                <input type="text" id="selectedCountries" class="text-input" placeholder="e.g. United States, Canada, United Kingdom, Australia">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Shipping Methods</h3>
+                        <p style="font-size:0.88rem;color:var(--color-text-muted);margin-bottom:14px;">Add each shipping method you offer. These will be rendered as a table in your policy.</p>
+                        <div class="method-headers">
+                            <span>Method Name</span>
+                            <span>Est. Days</span>
+                            <span>Cost</span>
+                            <span></span>
+                        </div>
+                        <div class="methods-list" id="methodsList"></div>
+                        <button type="button" class="add-method-btn" id="addMethodBtn"><i class="fa-solid fa-plus"></i> Add shipping method</button>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Free Shipping</h3>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <div class="yesno-field">
+                                <label class="field-label" style="margin-bottom:0;" id="freeShipLabel">Offer free shipping above a threshold?</label>
+                                <div class="yesno-group" role="radiogroup" aria-labelledby="freeShipLabel">
+                                    <input type="radio" name="freeShip" id="fsYes" value="yes" class="sr-only">
+                                    <label for="fsYes">Yes</label>
+                                    <input type="radio" name="freeShip" id="fsNo" value="no" class="sr-only" checked>
+                                    <label for="fsNo">No</label>
+                                </div>
+                            </div>
+                            <div class="sub-field hidden" id="freeShipAmountField">
+                                <label class="field-label" for="freeShipAmount" style="margin-top:12px;">Free shipping on orders over</label>
+                                <div class="input-row">
+                                    <input type="text" id="freeShipAmount" class="text-input" placeholder="e.g. $50, £40, ₹999" style="max-width:200px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>International Shipping</h3>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <div class="yesno-field">
+                                <label class="field-label" style="margin-bottom:0;" id="intlLabel">Do you ship internationally?</label>
+                                <div class="yesno-group" role="radiogroup" aria-labelledby="intlLabel">
+                                    <input type="radio" name="intl" id="intlYes" value="yes" class="sr-only">
+                                    <label for="intlYes">Yes</label>
+                                    <input type="radio" name="intl" id="intlNo" value="no" class="sr-only" checked>
+                                    <label for="intlNo">No</label>
+                                </div>
+                            </div>
+                            <div class="field-hint">Selecting "Yes" adds a customs/duties disclosure clause — important for preventing international order disputes.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3>Order Tracking &amp; Lost Packages</h3>
+                        <div class="field-group">
+                            <div class="yesno-field">
+                                <label class="field-label" style="margin-bottom:0;" id="trackingLabel">Provide order tracking?</label>
+                                <div class="yesno-group" role="radiogroup" aria-labelledby="trackingLabel">
+                                    <input type="radio" name="tracking" id="trackYes" value="yes" class="sr-only" checked>
+                                    <label for="trackYes">Yes</label>
+                                    <input type="radio" name="tracking" id="trackNo" value="no" class="sr-only">
+                                    <label for="trackNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <label class="field-label" for="lostPackageProcess">How should customers report a delayed or lost package?</label>
+                            <textarea id="lostPackageProcess" class="textarea-input" placeholder="e.g. If your order has not arrived within 10 business days of the estimated delivery date, please contact us at [email]. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-card" style="margin-bottom:0;">
+                        <h3>PO Boxes &amp; Restricted Addresses</h3>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <label class="field-label" for="poBoxPolicy">PO Box / restricted address handling</label>
+                            <select id="poBoxPolicy" class="select-input">
+                                <option value="accepted">PO boxes accepted</option>
+                                <option value="notaccepted">PO boxes not accepted — physical address required</option>
+                                <option value="casebased">Case-by-case — contact us before ordering to a PO box</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Preview column -->
+                <div class="preview-col">
+                    <div class="disclaimer-box compact">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <strong>Informational Template Only</strong>
+                            <p>Confirm carrier terms, customs regulations, and consumer protection requirements in your jurisdiction before publishing.</p>
+                        </div>
+                    </div>
+                    <div class="preview-toolbar">
+                        <h3>Live Preview</h3>
+                        <div class="preview-actions">
+                            <button type="button" class="btn btn-secondary btn-sm" id="copyBtn"><i class="fa-regular fa-copy"></i>&nbsp; Copy</button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="downloadTxtBtn"><i class="fa-solid fa-file-lines"></i>&nbsp; .txt</button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="downloadDocBtn"><i class="fa-solid fa-file-word"></i>&nbsp; .doc</button>
+                        </div>
+                    </div>
+                    <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+                    <div class="doc-card">
+                        <div class="doc-scroll">
+                            <div class="doc-preview" id="docPreview" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>Why Processing Time vs. Transit Time Confusion Drives Support Tickets</h2>
+                <p>The most common complaint in ecommerce customer service is "where is my order?" — and a large proportion of these tickets come from customers who misread delivery times. They see "3–5 business days" and expect their package in 3–5 days. What they don't realise is that your store takes 2 business days to process and dispatch, and the carrier then takes 3–5 days on top of that.</p>
+                <p>A clear shipping policy that explicitly states <strong>processing time</strong> (how long before it ships) separately from <strong>transit time</strong> (how long the carrier takes once dispatched) removes this ambiguity entirely. Done well, it can cut inbound "where's my order?" contacts by 30–50% for stores that previously had vague shipping information.</p>
+
+                <h2>What to Disclose About International Customs and Duties</h2>
+                <p>International shipping disputes almost always stem from the same source: a customer in Germany or Australia receives a package and is presented with an unexpected customs bill before they can collect it. They didn't know this was coming, and they hold the store responsible.</p>
+                <p>The legal reality is that <strong>import duties and taxes are the buyer's responsibility</strong> in almost every jurisdiction. But the practical reality is that if your shipping policy doesn't disclose this clearly, you will issue refunds and absorb chargebacks for charges you have no legal obligation to cover. Adding a simple customs disclosure clause to your policy — and ideally a note at checkout — prevents this entirely.</p>
+
+                <h2>How a Clear Shipping Policy Reduces Pre-Purchase Questions</h2>
+                <p>Customers want to know three things before placing an order: how much will shipping cost, how long will it take, and what happens if something goes wrong. A shipping policy that answers all three questions clearly reduces pre-sale queries, increases checkout conversion, and builds trust with first-time buyers.</p>
+                <p>For stores that ship to multiple regions with different rates and times, a well-formatted shipping methods table — like the one this generator produces — does more conversion work than any single piece of marketing copy.</p>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>What should a shipping policy include?</h3>
+                        <p>Processing time, available shipping methods and estimated transit times, shipping zones, free shipping thresholds, order tracking, how delayed or lost packages are handled, and any restrictions on PO boxes or remote addresses.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Who pays customs duties on international orders?</h3>
+                        <p>The customer (importer) is responsible in almost all cases. These charges are set by the destination country's customs authority, not the seller. Failing to disclose this upfront is one of the most common causes of international order disputes and chargebacks.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between processing time and shipping time?</h3>
+                        <p>Processing time is how long the store takes to prepare and dispatch an order. Transit time is how long the carrier takes once dispatched. Total delivery time = processing + transit. Confusing these two is the most common source of "where's my order?" complaints.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does this tool store any of my information?</h3>
+                        <p>No. The policy is assembled in your browser using JavaScript. Nothing you enter is saved or transmitted anywhere.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Stop Creating Product Content Manually</h2>
+                <p>Spend less time on manual content creation — VidyBack auto-generates and schedules product videos from your Shopify catalog.</p>
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Try VidyBack Free <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon"><img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+                        <div class="logo-text" style="color:white;">Vidy<span style="color:white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info"><span class="app-store-label">Get it on</span><span class="app-store-name">Google Play</span></div>
+                        </a>
+                    </div>
+                </div>
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="/#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-links-col" aria-label="Tools navigation">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="shipping-cost-calculator">Shipping Cost Calculator</a></li>
+                        <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                        <li><a href="refund-return-policy-generator">Refund &amp; Return Policy</a></li>
+                        <li><a href="terms-conditions-generator">Terms &amp; Conditions</a></li>
+                        <li><a href="shipping-policy-generator">Shipping Policy</a></li>
+                        <li><a href="discount-code-generator">Discount Code Generator</a></li>
+                        <li><a href="qr-code-generator">QR Code Generator</a></li>
+                        <li><a href="serp-preview-tool">SERP Preview Tool</a></li>
+                        <li><a href="gst-calculator">GST Calculator</a></li>
+                        <li><a href="hashtag-counter">Hashtag Counter</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color:var(--color-gold);font-size:1.5rem;margin-bottom:6px;">Connect With Us</h3>
+                    <p style="color:#cbd5e1;font-size:0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size:2rem;color:#96bf48;margin-right:12px;"></i>
+                        <div>
+                            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color:#fff;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i></a>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size:2rem;color:#f39c12;margin-right:12px;"></i>
+                        <div>
+                            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color:#fff;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size:0.75rem;"></i></a>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Nav toggle
+        var toggle = document.getElementById('menuToggle');
+        var nav = document.getElementById('navMenu');
+        if (toggle && nav) {
+            toggle.addEventListener('click', function() { nav.classList.toggle('active'); });
+            document.addEventListener('click', function(e) { if (!nav.contains(e.target) && !toggle.contains(e.target)) nav.classList.remove('active'); });
+        }
+
+        function today() {
+            return new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function v(id) { return (document.getElementById(id) || {}).value || ''; }
+        function checked(id) { var el = document.getElementById(id); return el && el.checked; }
+        function radio(name) { var el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; }
+
+        // --- Shipping methods rows ---
+        var methodsList = document.getElementById('methodsList');
+        var methodCount = 0;
+
+        function addMethod(name, days, cost) {
+            methodCount++;
+            var id = 'method_' + methodCount;
+            var row = document.createElement('div');
+            row.className = 'method-row';
+            row.dataset.id = id;
+            row.innerHTML =
+                '<input type="text" placeholder="e.g. Standard" class="m-name" value="' + (name||'') + '" aria-label="Method name">' +
+                '<input type="text" placeholder="e.g. 5–7" class="m-days" value="' + (days||'') + '" aria-label="Estimated days">' +
+                '<input type="text" placeholder="e.g. Free, $5.99" class="m-cost" value="' + (cost||'') + '" aria-label="Cost">' +
+                '<button type="button" class="remove-btn" aria-label="Remove method"><i class="fa-solid fa-xmark"></i></button>';
+            row.querySelector('.remove-btn').addEventListener('click', function() {
+                row.remove();
+                render();
+            });
+            row.querySelectorAll('input').forEach(function(inp) { inp.addEventListener('input', render); });
+            methodsList.appendChild(row);
+            render();
+        }
+
+        document.getElementById('addMethodBtn').addEventListener('click', function() { addMethod('','',''); });
+
+        function getMethods() {
+            var methods = [];
+            methodsList.querySelectorAll('.method-row').forEach(function(row) {
+                var name = row.querySelector('.m-name').value.trim();
+                var days = row.querySelector('.m-days').value.trim();
+                var cost = row.querySelector('.m-cost').value.trim();
+                if (name || days || cost) methods.push({ name: name||'—', days: days||'—', cost: cost||'—' });
+            });
+            return methods;
+        }
+
+        function buildMethodsTable(methods) {
+            if (!methods.length) return '';
+            // Text-based table for the document output
+            var col1 = Math.max(16, ...methods.map(function(m) { return m.name.length; }));
+            var col2 = Math.max(14, ...methods.map(function(m) { return m.days.length; }));
+            var col3 = Math.max(16, ...methods.map(function(m) { return m.cost.length; }));
+
+            function pad(str, len) { return str + ' '.repeat(Math.max(0, len - str.length)); }
+            function line() { return '+' + '-'.repeat(col1+2) + '+' + '-'.repeat(col2+2) + '+' + '-'.repeat(col3+2) + '+'; }
+
+            var out = line() + '\n';
+            out += '| ' + pad('Shipping Method', col1) + ' | ' + pad('Est. Delivery', col2) + ' | ' + pad('Cost', col3) + ' |\n';
+            out += line() + '\n';
+            methods.forEach(function(m) {
+                out += '| ' + pad(m.name, col1) + ' | ' + pad(m.days + ' days', col2) + ' | ' + pad(m.cost, col3) + ' |\n';
+            });
+            out += line();
+            return out;
+        }
+
+        function getZones() {
+            var zones = [];
+            if (checked('zoneDomestic')) zones.push('Domestic');
+            if (checked('zoneSelected')) {
+                var countries = v('selectedCountries').trim();
+                zones.push(countries ? 'Selected countries: ' + countries : 'Selected countries');
+            }
+            if (checked('zoneWorldwide')) zones.push('Worldwide');
+            return zones;
+        }
+
+        function poBoxText() {
+            var val = v('poBoxPolicy');
+            if (val === 'accepted') return 'We accept shipments to PO Boxes.';
+            if (val === 'notaccepted') return 'We are unable to ship to PO Boxes. Please provide a physical street address at checkout.';
+            return 'Shipping to PO Boxes is handled on a case-by-case basis. Please contact us before placing an order to a PO Box to confirm availability.';
+        }
+
+        function render() {
+            var store = v('storeName') || '[Your Store Name]';
+            var email = v('contactEmail') || '[your-email@example.com]';
+            var processDays = v('processDays') || '2';
+            var zones = getZones();
+            var methods = getMethods();
+            var hasFreeShip = radio('freeShip') === 'yes';
+            var freeShipAmount = v('freeShipAmount') || '[amount]';
+            var hasIntl = radio('intl') === 'yes';
+            var hasTracking = radio('tracking') === 'yes';
+            var lostProcess = v('lostPackageProcess') || 'Please contact us at ' + email + ' if your order has not arrived within the estimated delivery window. We will investigate with the carrier and arrange a resolution.';
+
+            var out = '';
+            out += '[TEMPLATE ONLY — NOT LEGAL ADVICE]\n\n';
+            out += 'SHIPPING POLICY\n';
+            out += store + '\n';
+            out += 'Last Updated: ' + today() + '\n\n';
+            out += '─────────────────────────────────\n\n';
+
+            out += 'PROCESSING TIME\n\n';
+            out += 'Orders are processed and dispatched within ' + processDays + ' business day' + (parseInt(processDays)===1?'':'s') + ' of payment confirmation. Processing time does not include transit/delivery time.\n\n';
+            out += 'Note: Processing time and shipping time are separate. Your total delivery estimate = processing time + transit time for your selected shipping method.\n\n';
+
+            if (zones.length) {
+                out += 'SHIPPING ZONES\n\n';
+                out += 'We currently ship to:\n\n';
+                zones.forEach(function(z) { out += '  • ' + z + '\n'; });
+                out += '\n';
+            }
+
+            if (methods.length) {
+                out += 'SHIPPING METHODS\n\n';
+                out += 'All delivery estimates are business days from the date of dispatch and are not guaranteed.\n\n';
+                out += buildMethodsTable(methods) + '\n\n';
+            }
+
+            if (hasFreeShip) {
+                out += 'FREE SHIPPING\n\n';
+                out += 'Free standard shipping is available on qualifying orders over ' + freeShipAmount + '. The free shipping threshold applies to the order subtotal after discounts, before taxes and fees.\n\n';
+            }
+
+            if (hasIntl) {
+                out += 'INTERNATIONAL SHIPPING & CUSTOMS\n\n';
+                out += 'We ship internationally to eligible destinations. International orders may be subject to customs duties, import taxes, VAT, and brokerage fees upon arrival in the destination country.\n\n';
+                out += 'These charges are levied by the destination country\'s customs authority and are the sole responsibility of the recipient. ' + store + ' has no control over these fees and cannot predict their amount. Customers are responsible for understanding and complying with the import regulations of their country.\n\n';
+                out += 'If an international order is refused or abandoned due to unpaid customs fees, the package may be destroyed or returned to us. We are not responsible for losses in such cases.\n\n';
+            }
+
+            if (hasTracking) {
+                out += 'ORDER TRACKING\n\n';
+                out += 'A tracking number will be emailed to you once your order has been dispatched. Please allow up to 24 hours for tracking information to update in the carrier\'s system after dispatch.\n\n';
+            }
+
+            out += 'DELAYED OR LOST PACKAGES\n\n';
+            out += lostProcess + '\n\n';
+
+            out += 'PO BOXES & RESTRICTED ADDRESSES\n\n';
+            out += poBoxText() + '\n\n';
+
+            out += 'CONTACT US\n\n';
+            out += 'For shipping enquiries, please contact:\n' + email + '\n';
+
+            document.getElementById('docPreview').textContent = out;
+        }
+
+        // --- Event listeners ---
+        ['storeName','contactEmail','processDays','selectedCountries','freeShipAmount','lostPackageProcess','poBoxPolicy'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.addEventListener('input', render);
+            if (el && el.tagName === 'SELECT') el.addEventListener('change', render);
+        });
+        ['zoneDomestic','zoneSelected','zoneWorldwide'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.addEventListener('change', function() {
+                document.getElementById('selectedCountriesField').classList.toggle('hidden', !checked('zoneSelected'));
+                render();
+            });
+        });
+        document.querySelectorAll('input[name="freeShip"]').forEach(function(r) {
+            r.addEventListener('change', function() {
+                document.getElementById('freeShipAmountField').classList.toggle('hidden', this.value !== 'yes');
+                render();
+            });
+        });
+        document.querySelectorAll('input[name="intl"], input[name="tracking"]').forEach(function(r) {
+            r.addEventListener('change', render);
+        });
+
+        // Copy / Download
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            navigator.clipboard.writeText(document.getElementById('docPreview').textContent).then(function() {
+                var s = document.getElementById('copyStatus');
+                s.textContent = 'Copied!';
+                setTimeout(function() { s.textContent = ''; }, 2000);
+            });
+        });
+        document.getElementById('downloadTxtBtn').addEventListener('click', function() {
+            var text = document.getElementById('docPreview').textContent;
+            var blob = new Blob([text], { type: 'text/plain' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a'); a.href = url; a.download = 'shipping-policy.txt';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        });
+        document.getElementById('downloadDocBtn').addEventListener('click', function() {
+            var text = document.getElementById('docPreview').textContent;
+            var html = '<html><body><pre style="font-family:Georgia,serif;font-size:12pt;line-height:1.7;">' + text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</pre></body></html>';
+            var blob = new Blob([html], { type: 'application/msword' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a'); a.href = url; a.download = 'shipping-policy.doc';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        });
+
+        // Init with two default methods
+        addMethod('Standard Shipping', '5–7', 'Free');
+        addMethod('Express Shipping', '2–3', '$9.99');
+        render();
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var UTM_KEYS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {}, hasAny = false;
+            UTM_KEYS.forEach(function(k) { var v = params.get(k); if (v) { found[k]=v; hasAny=true; } });
+            if (hasAny) localStorage.setItem("vb_utm", JSON.stringify(found));
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g,"") || "home";
+            document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                var extra = {};
+                if (stored) { for (var k in stored) extra[k]=stored[k]; }
+                var label = (a.textContent||"").trim().toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"").slice(0,40);
+                if (label) extra.cta_id = label;
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) { var sep = a.href.indexOf("?")===-1?"?":"&"; a.href = a.href+sep+qs; }
+            });
+        } catch(e) {}
+    })();
+    </script>
+
+</body>
+</html>

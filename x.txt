@@ -1,0 +1,642 @@
+Build a "Discount Code Generator" as a single, self-contained, embeddable 
+
+web tool for an ecommerce marketing site (VidyBack — a Shopify app that 
+
+auto-generates and schedules product videos).
+ 
+FUNCTIONALITY
+
+- Generation mode toggle: "Single Code" vs "Bulk Codes"
+
+- Code Style — dropdown with common ecommerce patterns:
+
+    1. Percentage-based: {PREFIX}{PERCENT} — e.g. "SAVE20", "WELCOME15"
+
+    2. Seasonal/Campaign: {WORD}{YEAR} — e.g. "SUMMER2026", "BFCM2026"
+
+    3. Influencer/Affiliate: {NAME}{NUMBER} — e.g. "SARAH10", "JOHN20" — 
+
+       for tracking which creator/partner drove which sales
+
+    4. Random alphanumeric: fully random string, adjustable length — for 
+
+       one-time-use or giveaway codes where guessability is a security 
+
+       concern
+
+- Core inputs (fields shown/hidden based on selected style):
+
+    1. Prefix/Brand text (optional, e.g. store initials or campaign name)
+
+    2. Discount value (number — used to auto-populate percentage-style 
+
+       codes)
+
+    3. Code length (for random style): 6-12 characters, slider or number 
+
+       input
+
+    4. Character set (for random style): Letters only, Numbers only, 
+
+       Letters + Numbers, with an "Exclude ambiguous characters" toggle 
+
+       (removes 0/O, 1/I/l, since these get manually mistyped by customers 
+
+       at checkout — on by default)
+
+    5. Casing: UPPERCASE (default — most Shopify stores use this), 
+
+       Title Case, lowercase
+
+- For Bulk mode, add:
+
+    6. Quantity to generate (1-500, capped to keep the tool fast and the 
+
+       file size reasonable)
+
+    7. Ensure uniqueness — dedupe against previously generated codes in 
+
+       the same batch (use crypto.getRandomValues for actual randomness, 
+
+       not Math.random, since collision-avoidance matters here)
+
+- Live preview updating as options change: single mode shows the code 
+
+  directly; bulk mode shows the first 10 codes in a scrollable list with 
+
+  a running total count
+
+- Bulk mode export: "Download CSV" formatted to match Shopify's bulk 
+
+  discount code import format (a simple one-column CSV of codes, since 
+
+  Shopify's own discount UI lets sellers paste/upload a code list when 
+
+  creating a discount) — add a short inline note that the CSV lists codes 
+
+  only, and the discount type/value/rules still need to be set inside 
+
+  Shopify's discount screen
+
+- "Copy" button for single codes, "Copy All" for the bulk list
+
+- Handle edge cases: prevent code length below 4 or above 20, warn if 
+
+  requested bulk quantity with a short length/limited character set risks 
+
+  duplicates (e.g. "4-digit numeric codes for 500 requested — collisions 
+
+  are likely, consider a longer code")
+ 
+DESIGN
+
+- Clean, modern, mobile-first, fully responsive down to 320px
+
+- Generated code(s) shown in a large, monospace, easily-copyable format — 
+
+  this is the visual focal point
+
+- Brand palette: [insert VidyBack hex codes here — default to a modern 
+
+  teal/indigo palette if none given]
+
+- Bulk mode list styled as a clean scrollable table with a sticky 
+
+  "Download CSV" button
+ 
+TECH
+
+- Single self-contained HTML file, inline CSS, vanilla JavaScript
+
+- Use crypto.getRandomValues() for randomness (not Math.random()) to 
+
+  avoid predictable/guessable codes, especially relevant for the 
+
+  giveaway/one-time-use case
+
+- CSV generation and file download handled natively via a Blob and a 
+
+  temporary anchor element — no backend, no external dependencies
+
+- Semantic HTML, labeled inputs, basic ARIA for accessibility
+ 
+SEO / ON-PAGE CONTENT
+
+- Title: "Free Discount Code Generator for Shopify & Ecommerce Stores"
+
+- Meta description (<155 chars) targeting "discount code generator", 
+
+  "promo code generator shopify", "bulk discount code generator"
+
+- Below the tool, add ~250-400 words covering:
+
+    - Why unique codes per channel/influencer matter for attribution 
+
+      (which source actually drove the sale)
+
+    - Security note: predictable codes (like "SAVE10") can be guessed and 
+
+      abused at scale if a store doesn't cap usage per code — recommend 
+
+      pairing generated codes with Shopify's usage limits
+
+    - How to bulk-import generated codes into a Shopify discount
+
+- Add FAQ schema (JSON-LD) for 3-4 questions like "How do I create 
+
+  multiple discount codes at once in Shopify?" and "Should discount codes 
+
+  be random or memorable?"
+ 
+CONVERSION
+
+- After the tool, add one subtle CTA block: "Spend less time on manual 
+
+  content creation — VidyBack auto-generates and schedules product videos 
+
+  from your Shopify catalog." linking to vidyback.com
+
+- Do NOT gate the tool behind an email wall — fully usable with zero 
+
+  signup to maximize shares and backlinks
+ 
+Output: the complete, ready-to-publish HTML file.
+ 
+Add content also here like the other pages for SEO
+ 
+Build a "Refund/Return Policy Generator" as a single, self-contained, 
+
+embeddable web tool for an ecommerce marketing site (VidyBack — a Shopify 
+
+app that auto-generates and schedules product videos).
+ 
+FUNCTIONALITY
+
+- A form collecting the inputs needed to populate a standard ecommerce 
+
+  refund/return policy template:
+
+    1. Business/store name
+
+    2. Contact email (for return requests)
+
+    3. Return window — number input + unit dropdown (days), common presets 
+
+       as quick-select buttons: 7, 14, 30, 60 days
+
+    4. Do you accept returns at all? — Yes / No (No generates a clear 
+
+       "All Sales Final" policy instead of a return policy — still a 
+
+       legitimate legal need, don't force a return flow if they don't 
+
+       offer one)
+
+    5. Condition requirements — checkboxes: Unused/unworn, Original tags 
+
+       attached, Original packaging included, Proof of purchase required
+
+    6. Non-returnable categories — checkboxes with common exclusions: 
+
+       Final sale/clearance items, Personalized/custom items, Perishable 
+
+       goods, Intimate/hygiene items (underwear, swimwear, earrings, 
+
+       cosmetics), Gift cards, Digital products
+
+    7. Who pays return shipping? — dropdown: Customer pays, Store pays, 
+
+       Store pays only for defective/wrong items, Free returns via 
+
+       prepaid label
+
+    8. Refund method — checkboxes: Original payment method, Store credit, 
+
+       Exchange only (no refunds)
+
+    9. Refund processing time — number input (business days) after the 
+
+       return is received
+
+    10. Do you charge a restocking fee? — Yes (enter %) / No
+
+    11. Damaged/defective item process — short free-text field describing 
+
+        how customers should report it (e.g. "email photos within 48 
+
+        hours of delivery") — inserted verbatim into a dedicated clause
+
+- Generate a complete, formatted policy by inserting answers into a 
+
+  pre-written legal template using conditional logic (not an AI call):
+
+    - Skip/adapt entire sections based on Yes/No answers (e.g. no 
+
+      restocking fee clause at all if "No" is selected)
+
+    - Auto-insert today's "Last Updated" date
+
+- Output panel: rendered formatted policy + "Copy to Clipboard" + 
+
+  "Download as .txt/.docx" buttons
+
+- Live preview updates as fields are filled in, not just after final 
+
+  submit — same two-column pattern as the Privacy Policy tool
+ 
+DESIGN
+
+- Clean, modern, mobile-first, fully responsive down to 320px
+
+- Two-column desktop layout: form on the left, live generated policy 
+
+  preview on the right (stacks vertically on mobile) — reuse the same 
+
+  layout pattern as the Privacy Policy Generator for visual consistency 
+
+  across your tool suite
+
+- Brand palette: [insert VidyBack hex codes here — default to a modern 
+
+  teal/indigo palette if none given]
+
+- Visually distinct disclaimer callout box above the generated output
+ 
+TECH
+
+- Single self-contained HTML file, inline CSS, vanilla JavaScript
+
+- Template assembly and conditional logic run entirely client-side — 
+
+  no backend, no AI/API call, no data transmitted or stored
+
+- Semantic HTML, labeled form fields, basic ARIA for accessibility
+ 
+LEGAL DISCLAIMER (required, non-negotiable)
+
+- Prominently display, both above the form and above the generated output: 
+
+  "This tool generates a general-purpose template for informational 
+
+  purposes only. It is not legal advice and does not guarantee compliance 
+
+  with consumer protection laws in your jurisdiction. Consult a qualified 
+
+  lawyer before publishing your return policy."
+
+- Repeat a shorter version inside the generated document itself, at the 
+
+  top, so it travels with the output if copied/downloaded
+ 
+SEO / ON-PAGE CONTENT
+
+- Title: "Free Refund & Return Policy Generator for Shopify Stores"
+
+- Meta description (<155 chars) targeting "return policy generator", 
+
+  "refund policy generator ecommerce", "shopify return policy template"
+
+- Below the tool, add ~250-400 words covering:
+
+    - Why a clear return policy reduces chargebacks and support tickets
+
+    - Common return policy mistakes (vague timelines, no exclusions 
+
+      listed, unclear who pays shipping)
+
+    - How return policy length/generosity affects conversion rate 
+
+      (briefly — generous policies can increase trust and purchase 
+
+      confidence)
+
+- Add FAQ schema (JSON-LD) for 3-4 questions like "How long should a 
+
+  return window be?" and "Can I refuse returns on sale items?"
+ 
+CONVERSION
+
+- After the tool, add one subtle CTA block: "Spend less time on manual 
+
+  content creation — VidyBack auto-generates and schedules product videos 
+
+  from your Shopify catalog." linking to vidyback.com
+
+- Do NOT gate the tool behind an email wall — fully usable with zero 
+
+  signup to maximize shares and backlinks
+ 
+Output: the complete, ready-to-publish HTML file.
+ 
+Build a "Terms & Conditions Generator" as a single, self-contained, 
+
+embeddable web tool for an ecommerce marketing site (VidyBack — a Shopify 
+
+app that auto-generates and schedules product videos).
+ 
+FUNCTIONALITY
+
+- A form collecting the inputs needed to populate a standard ecommerce 
+
+  terms & conditions template:
+
+    1. Business/store name
+
+    2. Website URL
+
+    3. Contact email
+
+    4. Business address (optional, note it's recommended for legal 
+
+       enforceability)
+
+    5. Governing jurisdiction/country — dropdown: US, UK, EU, India, 
+
+       Canada, Australia, Other/General — determines which boilerplate 
+
+       clauses and legal terminology get used
+
+    6. Do you sell physical products, digital products, or both? — 
+
+       checkbox — toggles product-specific clauses (e.g. digital delivery/
+
+       licensing language vs. physical shipping/title-transfer language)
+
+    7. Minimum age to purchase — dropdown: No restriction, 13+, 16+, 18+
+
+    8. Do you allow user accounts/registration? — Yes/No — toggles an 
+
+       account responsibilities clause (password security, accurate 
+
+       info, one account per person)
+
+    9. Do you accept user-generated content (reviews, comments, photos)? 
+
+       — Yes/No — toggles a UGC licensing clause
+
+    10. Do you use affiliate links or run an affiliate program? — Yes/No 
+
+        — toggles an affiliate disclosure clause
+
+    11. Limitation of liability preference — dropdown: Standard 
+
+        (liability capped at amount paid), Broad (maximum legal 
+
+        exclusion), Custom text field
+
+- Generate a complete, formatted document via conditional template logic 
+
+  (not an AI call), covering standard sections: Acceptance of Terms, 
+
+  Use of Website, Products/Pricing, Intellectual Property, [User Accounts 
+
+  — conditional], [User-Generated Content — conditional], [Affiliate 
+
+  Disclosure — conditional], Limitation of Liability, Governing Law, 
+
+  Changes to Terms, Contact Information
+
+    - Auto-insert today's "Last Updated" date
+
+- Output panel: rendered formatted document + "Copy to Clipboard" + 
+
+  "Download as .txt/.docx" buttons
+
+- Live preview updates as fields are filled in — same two-column pattern 
+
+  as the other legal generators in this tool suite, for visual consistency
+ 
+DESIGN
+
+- Clean, modern, mobile-first, fully responsive down to 320px
+
+- Two-column desktop layout: form left, live preview right (stacks on 
+
+  mobile) — match the Privacy Policy / Refund Policy tools' layout exactly
+
+- Brand palette: [insert VidyBack hex codes here — default to a modern 
+
+  teal/indigo palette if none given]
+
+- Visually distinct disclaimer callout box above the generated output
+ 
+TECH
+
+- Single self-contained HTML file, inline CSS, vanilla JavaScript
+
+- Template assembly and conditional logic run entirely client-side — 
+
+  no backend, no AI/API call, no data transmitted or stored
+
+- Semantic HTML, labeled form fields, basic ARIA for accessibility
+ 
+LEGAL DISCLAIMER (required, non-negotiable)
+
+- Prominently display, both above the form and above the generated output: 
+
+  "This tool generates a general-purpose template for informational 
+
+  purposes only. It is not legal advice and does not guarantee legal 
+
+  enforceability or compliance in your jurisdiction. Consult a qualified 
+
+  lawyer before publishing your terms & conditions."
+
+- Repeat a shorter version inside the generated document itself, at the top
+ 
+SEO / ON-PAGE CONTENT
+
+- Title: "Free Terms & Conditions Generator for Shopify & Ecommerce Stores"
+
+- Meta description (<155 chars) targeting "terms and conditions 
+
+  generator", "terms of service generator ecommerce"
+
+- Below the tool, add ~250-400 words covering:
+
+    - Why every store needs T&Cs even if they feel "boilerplate" 
+
+      (limits liability, sets dispute resolution terms, protects IP)
+
+    - Difference between Terms & Conditions and a Privacy Policy (a 
+
+      common point of confusion — good internal link opportunity to the 
+
+      Privacy Policy Generator tool)
+
+    - What happens legally if a store has no terms published
+
+- Add FAQ schema (JSON-LD) for 3-4 questions like "Do I legally need 
+
+  Terms and Conditions for my online store?" and "What's the difference 
+
+  between Terms of Service and a Privacy Policy?"
+ 
+CONVERSION
+
+- After the tool, add one subtle CTA block: "Spend less time on manual 
+
+  content creation — VidyBack auto-generates and schedules product videos 
+
+  from your Shopify catalog." linking to vidyback.com
+
+- Do NOT gate the tool behind an email wall — fully usable with zero 
+
+  signup to maximize shares and backlinks
+ 
+Output: the complete, ready-to-publish HTML file.
+ 
+Build a "Shipping Policy Generator" as a single, self-contained, 
+
+embeddable web tool for an ecommerce marketing site (VidyBack — a Shopify 
+
+app that auto-generates and schedules product videos).
+ 
+FUNCTIONALITY
+
+- A form collecting the inputs needed to populate a standard ecommerce 
+
+  shipping policy template:
+
+    1. Business/store name
+
+    2. Contact email
+
+    3. Processing time — number input + unit (business days) for how 
+
+       long before an order ships (separate from transit time — a common 
+
+       point of customer confusion worth clarifying in the output)
+
+    4. Shipping zones offered — checkboxes: Domestic only, Selected 
+
+       countries (free-text list), Worldwide
+
+    5. Shipping methods & estimated transit time — repeatable rows: 
+
+       Method name (e.g. "Standard", "Express"), Estimated days, Cost 
+
+       (flat rate, free-over-threshold, or calculated-at-checkout)
+
+    6. Free shipping threshold — Yes (enter amount) / No
+
+    7. Do you ship internationally? — Yes/No — if Yes, toggle a clause 
+
+       about customs, duties, and import taxes being the customer's 
+
+       responsibility (a major source of international order disputes 
+
+       if not disclosed upfront)
+
+    8. Order tracking — Yes (tracking provided via email) / No
+
+    9. Delayed/lost package process — short free-text field describing 
+
+       how customers should report it — inserted into a dedicated clause
+
+    10. PO Box / restricted address handling — Accepted / Not accepted / 
+
+        Case-by-case
+
+- Generate a complete, formatted policy via conditional template logic 
+
+  (not an AI call), auto-inserting a formatted shipping methods table 
+
+  from the repeatable rows and today's "Last Updated" date
+
+- Output panel: rendered formatted policy + "Copy to Clipboard" + 
+
+  "Download as .txt/.docx" buttons
+
+- Live preview updates as fields are filled in — same two-column pattern 
+
+  as the other legal generators in this tool suite
+ 
+DESIGN
+
+- Clean, modern, mobile-first, fully responsive down to 320px
+
+- Two-column desktop layout: form left, live preview right (stacks on 
+
+  mobile) — match the Privacy Policy / Refund Policy / T&C tools' layout
+
+- Shipping methods should render as a clean table in the generated 
+
+  document, not a run-on paragraph
+
+- Brand palette: [insert VidyBack hex codes here — default to a modern 
+
+  teal/indigo palette if none given]
+
+- Visually distinct disclaimer callout box above the generated output
+ 
+TECH
+
+- Single self-contained HTML file, inline CSS, vanilla JavaScript
+
+- Template assembly and conditional logic run entirely client-side — 
+
+  no backend, no AI/API call, no data transmitted or stored
+
+- Semantic HTML, labeled form fields (including the repeatable row 
+
+  add/remove controls), basic ARIA for accessibility
+ 
+LEGAL DISCLAIMER
+
+- Prominently display, both above the form and above the generated output: 
+
+  "This tool generates a general-purpose template for informational 
+
+  purposes only. It is not legal advice. Confirm carrier-specific terms, 
+
+  customs regulations, and consumer protection requirements in your 
+
+  jurisdiction before publishing."
+
+- Repeat a shorter version inside the generated document itself, at the top
+ 
+SEO / ON-PAGE CONTENT
+
+- Title: "Free Shipping Policy Generator for Shopify & Ecommerce Stores"
+
+- Meta description (<155 chars) targeting "shipping policy generator", 
+
+  "shipping policy template ecommerce"
+
+- Below the tool, add ~250-400 words covering:
+
+    - Why processing time vs. transit time confusion drives support 
+
+      tickets and negative reviews
+
+    - What to disclose about international customs/duties to avoid 
+
+      disputes
+
+    - How a clear shipping policy reduces pre-purchase "where's my 
+
+      order" questions
+
+- Add FAQ schema (JSON-LD) for 3-4 questions like "What should a 
+
+  shipping policy include?" and "Who pays customs duties on international 
+
+  orders?"
+ 
+CONVERSION
+
+- After the tool, add one subtle CTA block: "Spend less time on manual 
+
+  content creation — VidyBack auto-generates and schedules product videos 
+
+  from your Shopify catalog." linking to vidyback.com
+
+- Do NOT gate the tool behind an email wall — fully usable with zero 
+
+  signup to maximize shares and backlinks
+ 
+Output: the complete, ready-to-publish HTML file.
+ 
+3 tools to add 
+ 
