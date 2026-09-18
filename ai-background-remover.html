@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI Background Remover for Product Photos &mdash; Any Background</title>
+    <meta name="description" content="Remove any background from product photos using AI — busy scenes, gradients, complex backdrops. Runs entirely in your browser. Free, no signup, nothing uploaded.">
+    <link rel="canonical" href="https://www.vidyback.com/ai-background-remover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:title" content="Free AI Background Remover for Product Photos — Any Background">
+    <meta property="og:description" content="AI-powered background removal that works on any backdrop — not just solid colors. Runs entirely in your browser. Free, no signup.">
+    <meta property="og:url" content="https://www.vidyback.com/ai-background-remover">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free AI Background Remover for Product Photos — Any Background">
+    <meta name="twitter:description" content="AI background removal that works on any backdrop. Runs entirely in your browser — nothing uploaded, no signup.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is my image uploaded to a server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The AI model is downloaded to your browser on first use, then all processing happens locally using WebAssembly and WebGL. Your image data never leaves your device — nothing is sent to any server, and no AI API is called. You can even use this tool offline after the model is cached."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does it take a few seconds to process?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The first time you use the tool, the AI model (~40 MB) needs to download from a CDN. After that it is cached in your browser and loads instantly. Once loaded, inference typically takes 2–10 seconds depending on your device — desktop with a GPU will be fastest, older mobile devices will be slowest. The tool shows a progress indicator during both the model download and the inference step."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is this different from the solid-background remover?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The solid-background remover uses a simple flood-fill algorithm that only works on plain, uniform backdrops (white, grey, etc.). This AI tool uses a deep learning segmentation model that identifies the subject of the photo regardless of what is behind it — busy scenes, other products, gradients, outdoor settings, all work. The tradeoff is that AI inference is slower than the instant flood-fill, and requires downloading the model the first time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if the AI makes a mistake on part of my product?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "After the AI pass, the tool shows Restore and Erase brush tools. Use Restore to paint back areas the AI incorrectly removed (thin chains, clear packaging, fine details), and Erase to remove leftover background fragments the AI missed. These brushes edit the alpha mask directly in your browser — no re-running the AI."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-P738P31V8L');</script>
+
+    <style>
+        :root {
+            --color-purple:#7a42f4; --color-purple-light:#9b6ff7;
+            --color-bg:#FAF6F0; --color-bg-dark:#1a2535;
+            --color-text:#1e293b; --color-text-light:#475569;
+            --color-text-accent:#1d5175; --color-gold:#f5a623;
+            --color-border:#e2e8f0; --color-success:#10b981;
+            --color-erase:#ef4444; --color-restore:#10b981;
+            --transition-fast:all 0.2s ease; --transition-normal:all 0.3s ease;
+            --radius:12px; --radius-lg:20px;
+            --shadow-sm:0 1px 3px rgba(0,0,0,.1); --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{font-size:16px;scroll-behavior:smooth;}
+        body{font-family:'Inter',sans-serif;background:var(--color-bg);color:var(--color-text);line-height:1.6;}
+        h1,h2,h3,h4{font-family:'Outfit',sans-serif;line-height:1.2;}
+        .container{max-width:1280px;margin:0 auto;padding:0 24px;}
+        a{color:inherit;text-decoration:none;transition:var(--transition-fast);}
+
+        /* NAV */
+        header{background:#fff;border-bottom:1px solid var(--color-border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow-sm);}
+        header .container{display:flex;align-items:center;justify-content:space-between;height:68px;}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:var(--color-text);}
+        .logo-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+        .logo-text span{color:var(--color-purple);}
+        .nav-menu{display:flex;align-items:center;gap:32px;}
+        .nav-link{font-size:.9rem;font-weight:500;color:var(--color-text-light);padding:4px 0;border-bottom:2px solid transparent;}
+        .nav-link:hover{color:var(--color-purple);border-color:var(--color-purple);}
+        .nav-actions{display:flex;gap:12px;}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;border:none;transition:var(--transition-fast);}
+        .btn span{display:flex;align-items:center;gap:8px;}
+        .btn-primary{background:var(--color-purple);color:#fff;}
+        .btn-primary:hover{background:var(--color-purple-light);transform:translateY(-1px);}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.2rem;color:var(--color-text);}
+        .badge{display:inline-block;background:rgba(122,66,244,.1);color:var(--color-purple);font-size:.8rem;font-weight:600;padding:4px 14px;border-radius:50px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px;}
+
+        /* HERO */
+        .tool-hero{background:linear-gradient(135deg,#1d5175 0%,#7a42f4 100%);padding:52px 0 44px;color:#fff;text-align:center;}
+        .tool-hero h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;margin-bottom:12px;}
+        .tool-hero p{font-size:1rem;opacity:.88;max-width:640px;margin:0 auto 20px;}
+        .hero-badges{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:16px;}
+        .hero-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:50px;padding:5px 14px;font-size:.8rem;font-weight:500;}
+        .vs-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);border-radius:8px;padding:8px 16px;font-size:.85rem;margin-top:16px;}
+        .vs-badge a{color:var(--color-gold);font-weight:600;text-decoration:underline;}
+
+        /* TOOL */
+        .tool-section{padding:48px 0 64px;}
+        .tool-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:32px;margin-bottom:24px;}
+
+        /* UPLOAD */
+        .upload-zone{border:2px dashed var(--color-border);border-radius:var(--radius);padding:56px 24px;text-align:center;cursor:pointer;transition:var(--transition-fast);background:#f8fafc;}
+        .upload-zone:hover,.upload-zone.drag-over{border-color:var(--color-purple);background:rgba(122,66,244,.04);}
+        .upload-zone i.big{font-size:2.5rem;color:var(--color-purple);margin-bottom:16px;display:block;}
+        .upload-zone h3{font-size:1.1rem;font-weight:600;margin-bottom:8px;}
+        .upload-zone p{font-size:.88rem;color:var(--color-text-light);}
+        .ai-note{margin-top:14px;background:rgba(122,66,244,.06);border:1px solid rgba(122,66,244,.2);border-radius:8px;padding:8px 14px;font-size:.82rem;color:var(--color-text-light);display:inline-block;}
+        #fileInput{display:none;}
+
+        /* STATES */
+        .state{display:none;}
+        .state.active{display:block;}
+
+        /* LOADING STATE */
+        .loading-card{text-align:center;padding:48px 24px;}
+        .loading-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+        .loading-card p{font-size:.88rem;color:var(--color-text-light);margin-bottom:24px;}
+        .progress-bar-wrap{background:#e2e8f0;border-radius:50px;height:10px;overflow:hidden;max-width:400px;margin:0 auto 10px;}
+        .progress-bar-fill{background:linear-gradient(90deg,var(--color-purple),var(--color-purple-light));height:100%;width:0%;transition:width .3s ease;border-radius:50px;}
+        .progress-pct{font-family:monospace;font-size:.85rem;color:var(--color-purple);font-weight:700;}
+        .progress-key{font-size:.76rem;color:var(--color-text-light);margin-top:4px;}
+        .spinner-lg{width:56px;height:56px;border:5px solid rgba(122,66,244,.15);border-top-color:var(--color-purple);border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 16px;}
+        @keyframes spin{to{transform:rotate(360deg);}}
+
+        /* FALLBACK STATE */
+        .fallback-card{text-align:center;padding:48px 24px;background:#fff5f5;border:1px solid #fed7d7;border-radius:var(--radius);}
+        .fallback-card i{font-size:2rem;color:#e53e3e;margin-bottom:12px;display:block;}
+        .fallback-card h3{font-size:1.1rem;font-weight:700;color:#c53030;margin-bottom:8px;}
+        .fallback-card p{font-size:.9rem;color:#742a2a;}
+        .fallback-card a{color:var(--color-purple);text-decoration:underline;}
+
+        /* RESULT STATE */
+        .result-layout{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start;}
+
+        /* REFINE PANEL */
+        .refine-panel{background:#f8fafc;border:1px solid var(--color-border);border-radius:var(--radius);padding:20px;}
+        .panel-heading{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--color-text-light);margin-bottom:14px;}
+        .ctrl-group{margin-bottom:18px;}
+        .ctrl-label{font-size:.85rem;font-weight:600;color:var(--color-text);margin-bottom:6px;display:flex;justify-content:space-between;}
+        .ctrl-val{font-family:monospace;font-size:.8rem;color:var(--color-purple);}
+        input[type=range]{width:100%;accent-color:var(--color-purple);cursor:pointer;}
+        .hint{font-size:.76rem;color:var(--color-text-light);margin-top:4px;line-height:1.4;}
+
+        .brush-btns{display:flex;gap:8px;margin-bottom:8px;}
+        .brush-btn{flex:1;padding:8px 6px;border-radius:8px;border:2px solid var(--color-border);background:#fff;font-size:.8rem;font-weight:700;cursor:pointer;transition:var(--transition-fast);display:flex;align-items:center;justify-content:center;gap:6px;}
+        .brush-btn.active-erase{border-color:var(--color-erase);background:rgba(239,68,68,.06);color:var(--color-erase);}
+        .brush-btn.active-restore{border-color:var(--color-restore);background:rgba(16,185,129,.06);color:var(--color-restore);}
+        .brush-btn:not(.active-erase):not(.active-restore):hover{border-color:var(--color-purple);color:var(--color-purple);}
+
+        .action-stack{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+        .btn-process-again{background:var(--color-purple);color:#fff;border:none;border-radius:10px;padding:10px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;transition:var(--transition-fast);width:100%;}
+        .btn-process-again:hover{background:var(--color-purple-light);}
+        .btn-dl{background:var(--color-success);color:#fff;border:none;border-radius:10px;padding:12px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:var(--transition-fast);width:100%;}
+        .btn-dl:hover{background:#059669;}
+        .btn-new{background:none;color:var(--color-text-light);border:1px solid var(--color-border);border-radius:10px;padding:9px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;transition:var(--transition-fast);width:100%;}
+        .btn-new:hover{border-color:var(--color-purple);color:var(--color-purple);}
+
+        /* CANVAS AREA */
+        .canvas-outer{border-radius:var(--radius);overflow:hidden;position:relative;line-height:0;background:#fff;}
+        .checkerboard{background-image:linear-gradient(45deg,#d0d0d0 25%,transparent 25%),linear-gradient(-45deg,#d0d0d0 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d0d0d0 75%),linear-gradient(-45deg,transparent 75%,#d0d0d0 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0;background-color:#fff;}
+        .canvas-stack{position:relative;display:block;width:100%;}
+        #canvasBefore{display:block;width:100%;height:auto;}
+        #canvasAfter{position:absolute;top:0;left:0;width:100%;height:100%;clip-path:inset(0 50% 0 0);}
+        #canvasBrush{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;pointer-events:none;}
+        .divider-line{position:absolute;top:0;bottom:0;width:3px;background:#fff;left:50%;transform:translateX(-50%);cursor:ew-resize;box-shadow:0 0 6px rgba(0,0,0,.5);z-index:10;}
+        .divider-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.35);color:#555;font-size:.8rem;pointer-events:none;}
+        .canvas-lbl{position:absolute;top:10px;padding:3px 10px;border-radius:50px;font-size:.72rem;font-weight:700;pointer-events:none;font-family:'Outfit',sans-serif;}
+        .lbl-before{left:10px;background:rgba(0,0,0,.5);color:#fff;}
+        .lbl-after{right:10px;background:rgba(122,66,244,.85);color:#fff;}
+        .canvas-hint{font-size:.78rem;color:var(--color-text-light);text-align:center;margin-top:8px;}
+        .brush-cursor{position:absolute;border:2px solid #fff;border-radius:50%;pointer-events:none;display:none;transform:translate(-50%,-50%);box-shadow:0 0 0 1px rgba(0,0,0,.5);z-index:20;}
+
+        /* CONTENT */
+        .content-section{padding:64px 0;}
+        .content-section h2{font-size:1.8rem;font-weight:700;color:var(--color-text-accent);margin-bottom:16px;}
+        .content-section h3{font-size:1.15rem;font-weight:600;margin:28px 0 8px;}
+        .content-section p{color:var(--color-text-light);line-height:1.8;margin-bottom:14px;}
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+        .cta-strip{background:linear-gradient(135deg,#1d5175 0%,#7a42f4 100%);border-radius:var(--radius-lg);padding:40px;color:#fff;text-align:center;margin:48px 0;}
+        .cta-strip h3{font-size:1.4rem;font-weight:700;margin-bottom:10px;}
+        .cta-strip p{opacity:.88;margin-bottom:20px;}
+        .cta-btn{background:var(--color-gold);color:#1a2535;font-weight:700;padding:12px 28px;border-radius:50px;display:inline-flex;align-items:center;gap:8px;transition:var(--transition-fast);font-family:'Outfit',sans-serif;}
+        .cta-btn:hover{background:#f0990d;transform:translateY(-2px);}
+
+        /* FAQ */
+        .faq-section{padding:0 0 64px;}
+        .faq-section h2{font-size:1.6rem;font-weight:700;margin-bottom:24px;color:var(--color-text-accent);}
+        .faq-item{border:1px solid var(--color-border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;}
+        .faq-q{padding:16px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;font-size:.95rem;user-select:none;}
+        .faq-q:hover{background:#f8fafc;}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .3s ease;font-size:.9rem;color:var(--color-text-light);line-height:1.75;background:#fff;}
+        .faq-a.open{padding:0 20px 16px;max-height:300px;}
+        .faq-icon{transition:transform .3s;}
+        .faq-icon.open{transform:rotate(180deg);}
+
+        /* FOOTER */
+        footer{background:var(--color-bg-dark);border-top:1px solid rgba(255,255,255,.08);padding:80px 0 30px;color:#e2e8f0;}
+        .footer-grid{display:grid;grid-template-columns:1.2fr .7fr .7fr .7fr .7fr;gap:60px;margin-bottom:60px;}
+        .footer-brand{display:flex;flex-direction:column;gap:20px;}
+        .footer-brand p{color:#cbd5e1;font-size:.9rem;}
+        .footer-links-col h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:16px;}
+        .footer-links-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+        .footer-links-col a{font-size:.9rem;color:#cbd5e1;transition:var(--transition-fast);}
+        .footer-links-col a:hover{color:#fff;padding-left:4px;}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:#cbd5e1;}
+        .social-links{display:flex;gap:16px;}
+        .social-link{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition-fast);}
+        .social-link:hover{background:var(--color-purple);color:#fff;border-color:var(--color-purple);}
+        .footer-app-links{display:flex;flex-direction:column;gap:10px;}
+        .app-store-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 16px;color:#fff;transition:var(--transition-fast);}
+        .app-store-btn:hover{background:rgba(255,255,255,.15);}
+        .app-store-label{display:block;font-size:.7rem;opacity:.7;}
+        .app-store-name{display:block;font-size:.9rem;font-weight:600;}
+        .apps-section{margin-top:40px;border-top:1px solid rgba(255,255,255,.08);padding-top:30px;}
+        .apps-container{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+        .app-item{display:flex;align-items:center;}
+
+        @media(max-width:900px){.result-layout{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+        @media(max-width:640px){
+            .nav-menu{display:none;position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:100px 40px;gap:24px;transition:right .3s ease;border-left:1px solid var(--color-border);z-index:999;}
+            .nav-menu.active{display:flex;right:0;}.nav-actions{display:none;}.menu-toggle{display:block;}
+            .footer-grid{grid-template-columns:1fr;gap:24px;}.footer-bottom{flex-direction:column;gap:16px;text-align:center;}
+        }
+    </style>
+</head>
+<body>
+
+<header id="mainHeader">
+    <div class="container">
+        <a href="/" class="logo">
+            <div class="logo-icon"><img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+            <div class="logo-text">Vidy<span>Back</span></div>
+        </a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="/#how-it-works" class="nav-link">How It Works</a>
+            <a href="features" class="nav-link">Features</a>
+            <a href="platforms" class="nav-link">Platforms</a>
+            <a href="pricing" class="nav-link">Pricing</a>
+            <a href="faq" class="nav-link">FAQ</a>
+            <a href="blog" class="nav-link">Blog</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+</header>
+
+<section class="tool-hero">
+    <div class="container">
+        <span class="badge">Free AI Tool</span>
+        <h1>Free AI Background Remover<br>for Product Photos &mdash; Any Background</h1>
+        <p>AI segmentation that works on busy scenes, gradients, outdoor shots &mdash; not just solid colors. Model runs entirely in your browser. Nothing is uploaded.</p>
+        <div class="hero-badges">
+            <span class="hero-badge"><i class="fa-solid fa-brain"></i> AI-powered, any background</span>
+            <span class="hero-badge"><i class="fa-solid fa-lock"></i> Nothing uploaded</span>
+            <span class="hero-badge"><i class="fa-solid fa-paintbrush"></i> Manual touch-up brushes</span>
+        </div>
+        <div class="vs-badge">
+            <i class="fa-solid fa-circle-info"></i>
+            Only have a plain white/grey background? The <a href="background-remover">solid background remover</a> is instant &mdash; no model download needed.
+        </div>
+    </div>
+</section>
+
+<section class="tool-section">
+    <div class="container">
+        <div class="tool-card">
+
+            <!-- STATE: Upload -->
+            <div id="stateUpload" class="state active">
+                <div id="uploadZone" class="upload-zone" role="button" tabindex="0" aria-label="Click or drag to upload image">
+                    <i class="fa-solid fa-cloud-arrow-up big"></i>
+                    <h3>Drop your product photo here</h3>
+                    <p>PNG, JPG, or WebP &mdash; any background type</p>
+                    <div class="ai-note"><i class="fa-solid fa-microchip"></i> Uses an AI segmentation model (~40 MB, loaded once from CDN then cached in your browser)</div>
+                    <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
+                </div>
+            </div>
+
+            <!-- STATE: Loading model -->
+            <div id="stateLoading" class="state">
+                <div class="loading-card">
+                    <div class="spinner-lg"></div>
+                    <h3 id="loadingTitle">Loading AI model&hellip;</h3>
+                    <p id="loadingDesc">First use only &mdash; model is ~40 MB. It will be cached so repeat uses are instant.</p>
+                    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+                    <div class="progress-pct" id="progressPct">0%</div>
+                    <div class="progress-key" id="progressKey">&nbsp;</div>
+                </div>
+            </div>
+
+            <!-- STATE: Processing image -->
+            <div id="stateProcessing" class="state">
+                <div class="loading-card">
+                    <div class="spinner-lg"></div>
+                    <h3>Running AI segmentation&hellip;</h3>
+                    <p>Detecting subject and separating from background. This takes a few seconds.</p>
+                    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="inferenceFill" style="width:100%;animation:pulse 1.5s ease-in-out infinite;"></div></div>
+                    <style>@keyframes pulse{0%,100%{opacity:.5;}50%{opacity:1;}}</style>
+                </div>
+            </div>
+
+            <!-- STATE: Fallback (WebAssembly not supported) -->
+            <div id="stateFallback" class="state">
+                <div class="fallback-card">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <h3>Your browser doesn't support this tool</h3>
+                    <p>The AI model requires WebAssembly, which this browser doesn't support. Please try on a modern browser (Chrome, Firefox, Edge, Safari 14+) or a different device.</p>
+                    <p style="margin-top:12px;">Alternatively, if your product is on a plain white or solid background, the <a href="background-remover">solid background remover</a> works in all browsers and is instant.</p>
+                </div>
+            </div>
+
+            <!-- STATE: Result -->
+            <div id="stateResult" class="state">
+                <div class="result-layout">
+
+                    <!-- Refine panel -->
+                    <div class="refine-panel">
+                        <div class="panel-heading">Refine Result</div>
+
+                        <div class="ctrl-group">
+                            <div class="ctrl-label">Edge Feathering <span class="ctrl-val" id="featherVal">2 px</span></div>
+                            <input type="range" id="featherSlider" min="0" max="10" value="2" aria-label="Edge feathering">
+                            <p class="hint">Softens the edge between subject and transparency.</p>
+                            <button id="applyFeatherBtn" style="margin-top:8px;padding:6px 12px;font-size:.8rem;border-radius:8px;border:1px solid var(--color-purple);color:var(--color-purple);background:none;cursor:pointer;font-weight:600;width:100%;">Apply Feathering</button>
+                        </div>
+
+                        <div class="ctrl-group">
+                            <div class="ctrl-label">Touch-up Brush</div>
+                            <div class="brush-btns">
+                                <button class="brush-btn" id="btnErase" title="Erase — remove leftover background pixels"><i class="fa-solid fa-eraser"></i> Erase</button>
+                                <button class="brush-btn" id="btnRestore" title="Restore — paint back areas incorrectly removed"><i class="fa-solid fa-paintbrush"></i> Restore</button>
+                            </div>
+                            <div class="ctrl-label" style="margin-top:10px;">Brush Size <span class="ctrl-val" id="brushSizeVal">30</span></div>
+                            <input type="range" id="brushSizeSlider" min="5" max="100" value="30" aria-label="Brush size">
+                            <p class="hint">Click &amp; drag on the image to paint. Erase removes background remnants; Restore paints the original back.</p>
+                        </div>
+
+                        <div class="action-stack">
+                            <button id="reprocessBtn" class="btn-process-again"><i class="fa-solid fa-rotate"></i> Re-run AI</button>
+                            <button id="downloadBtn" class="btn-dl"><i class="fa-solid fa-download"></i> Download PNG</button>
+                            <button id="newImageBtn" class="btn-new"><i class="fa-solid fa-upload"></i> New Image</button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas -->
+                    <div>
+                        <div class="canvas-outer checkerboard" id="canvasOuter">
+                            <div class="canvas-stack" id="canvasStack">
+                                <canvas id="canvasBefore"></canvas>
+                                <canvas id="canvasAfter"></canvas>
+                                <canvas id="canvasBrush"></canvas>
+                                <div class="divider-line" id="dividerLine">
+                                    <div class="divider-knob"><i class="fa-solid fa-arrows-left-right"></i></div>
+                                </div>
+                                <span class="canvas-lbl lbl-before">Original</span>
+                                <span class="canvas-lbl lbl-after">Removed</span>
+                                <div class="brush-cursor" id="brushCursor"></div>
+                            </div>
+                        </div>
+                        <p class="canvas-hint" id="canvasHint"><i class="fa-solid fa-arrows-left-right"></i> Drag the divider to compare &nbsp;|&nbsp; Select Erase or Restore to paint edits</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="two-col">
+            <div>
+                <h2>AI vs. Simple Background Removal</h2>
+                <p>Most background removal tools — including the <a href="background-remover" style="color:var(--color-purple);">solid-background remover</a> on this site — use flood-fill algorithms that only work on plain, uniform backdrops. They identify the background color and erase everything that matches. If your background isn't a flat, consistent color, they fail.</p>
+                <p>This tool uses a deep learning segmentation model (running 100% in your browser via WebAssembly) that was trained to identify the boundary between subject and background regardless of what that background looks like. Busy scenes, gradients, wood tables, outdoor environments, other products in the frame — all handled without any color-matching heuristics.</p>
+                <h3>Privacy: nothing leaves your device</h3>
+                <p>The AI model file is downloaded once from a CDN (~40 MB) and cached in your browser. After that, every inference run is completely local — your image pixels never leave your device and are never sent to any server. This is a genuine architectural choice, not a marketing claim: there is no backend receiving your images.</p>
+            </div>
+            <div>
+                <h3>Tips for best results</h3>
+                <p><strong>Good lighting still matters.</strong> High-contrast edges between subject and background are easier for the AI to detect cleanly. A well-lit product against any background will give better results than a shadowy product against a matching-tone background.</p>
+                <p><strong>Resolution sweet spot: 1000–3000px.</strong> Very small images (under 500px) may produce rough edges because the model needs enough pixels to detect subject boundaries. Very large images (over 4000px) will process slowly on lower-end devices and may cause memory issues on mobile.</p>
+                <p><strong>Use the touch-up brushes for details.</strong> The AI handles most cases well but may miss thin details like jewelry chains, glasses frames, or loose hair. Use the Restore brush to paint those back with a small brush size. Use the Erase brush to remove any leftover background fringe.</p>
+                <p><strong>Apply feathering last.</strong> Set feathering to 0 first so you can see the exact AI edge clearly while brushing. Apply feathering after you're happy with the overall shape — it blurs the alpha mask edge for a softer, more natural look.</p>
+            </div>
+        </div>
+
+        <div class="cta-strip">
+            <h3>Spend less time on manual content creation</h3>
+            <p>VidyBack auto-generates and schedules product videos from your Shopify catalog — with your branding, on autopilot.</p>
+            <a href="https://www.vidyback.com/" class="cta-btn">Learn About VidyBack <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Is my image uploaded to a server? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+            <div class="faq-a">No. The AI model is downloaded to your browser on first use, then all processing happens locally using WebAssembly. Your image data never leaves your device. You can even use this tool offline after the model has been cached.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Why does it take a few seconds to process? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+            <div class="faq-a">The first time you use the tool, the AI model (~40 MB) downloads from a CDN. After that it is cached and loads instantly. Inference typically takes 2–10 seconds depending on your device — desktop with a dedicated GPU will be fastest, older mobile devices slowest.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How is this different from the solid-background remover? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+            <div class="faq-a">The <a href="background-remover" style="color:var(--color-purple);">solid-background remover</a> uses a fast flood-fill that only works on plain, uniform backdrops and is instant. This AI tool uses a segmentation model that works on any background — busy scenes, outdoor shots, gradients — but requires downloading the model and takes a few seconds per image.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What if the AI makes a mistake on part of my product? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
+            <div class="faq-a">After the AI pass, use the Restore brush to paint back areas incorrectly removed (thin chains, glasses, fine details), or the Erase brush to remove leftover background fragments. These brushes edit the alpha mask directly — no need to re-run the AI.</div>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <div class="logo-icon"><img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
+                    <div class="logo-text" style="color:white;">Vidy<span style="color:white;">Back</span></div>
+                </a>
+                <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+                <div class="footer-app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                        <i class="fa-brands fa-google-play"></i>
+                        <div><span class="app-store-label">Get it on</span><span class="app-store-name">Google Play</span></div>
+                    </a>
+                </div>
+            </div>
+            <nav class="footer-links-col" aria-label="Product navigation">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="features">Features</a></li>
+                    <li><a href="pricing">Pricing</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <nav class="footer-links-col" aria-label="Tools navigation">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                    <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                    <li><a href="discount-code-generator">Discount Code Generator</a></li>
+                    <li><a href="serp-preview-tool">Google SERP Preview Tool</a></li>
+                    <li><a href="hashtag-counter">Hashtag Counter</a></li>
+                    <li><a href="tools" style="color:var(--color-gold);font-weight:600;">View all tools &rarr;</a></li>
+                </ul>
+            </nav>
+            <nav class="footer-links-col" aria-label="Compare navigation">
+                <h3>Compare</h3>
+                <ul>
+                    <li><a href="minta-comparison">vs Minta</a></li>
+                    <li><a href="outify-comparison">vs Outify</a></li>
+                </ul>
+            </nav>
+            <nav class="footer-links-col" aria-label="Company navigation">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="privacypolicy">Privacy Policy</a></li>
+                    <li><a href="terms">Terms of Service</a></li>
+                    <li><a href="cookies-policy">Cookies Policy</a></li>
+                    <li><a href="disclaimer">Disclaimer</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <h3 style="color:var(--color-gold);font-size:1.5rem;margin-bottom:6px;">Connect With Us</h3>
+                <p style="color:#cbd5e1;font-size:.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width:48px;height:48px;font-size:1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="apps-section">
+            <div class="apps-container">
+                <div class="app-item">
+                    <i class="fa-brands fa-shopify" style="font-size:2rem;color:#96bf48;margin-right:12px;"></i>
+                    <div>
+                        <p style="color:#cbd5e1;font-size:.85rem;margin:0;">Available on Shopify App Store</p>
+                        <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color:#fff;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></a>
+                    </div>
+                </div>
+                <div class="app-item">
+                    <i class="fa-solid fa-store" style="font-size:2rem;color:#f39c12;margin-right:12px;"></i>
+                    <div>
+                        <p style="color:#cbd5e1;font-size:.85rem;margin:0;">Also available on</p>
+                        <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color:#fff;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size:.75rem;"></i></a>
+                    </div>
+                </div>
+                <div class="app-item">
+                    <p style="color:#cbd5e1;font-size:.85rem;margin:0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Nav + UTM + FAQ (non-module) -->
+<script>
+(function () {
+    var tog = document.getElementById('menuToggle'), nav = document.getElementById('navMenu');
+    if (tog && nav) {
+        tog.addEventListener('click', function () { nav.classList.toggle('active'); });
+        document.addEventListener('click', function (e) { if (!nav.contains(e.target) && !tog.contains(e.target)) nav.classList.remove('active'); });
+    }
+    (function () {
+        var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+        try {
+            var p = new URLSearchParams(window.location.search), u = {};
+            KEYS.forEach(function (k) { if (p.get(k)) u[k] = p.get(k); });
+            if (Object.keys(u).length) sessionStorage.setItem('vb_utms', JSON.stringify(u));
+            else { var s = sessionStorage.getItem('vb_utms'); if (s) { var su = JSON.parse(s); document.querySelectorAll('a[href*="vidyback"]').forEach(function (a) { try { var url = new URL(a.href); Object.keys(su).forEach(function (k) { url.searchParams.set(k, su[k]); }); a.href = url.toString(); } catch(e){} }); } }
+        } catch(e){}
+    })();
+    window.toggleFaq = function (el) { var a = el.nextElementSibling, i = el.querySelector('.faq-icon'); a.classList.toggle('open'); i.classList.toggle('open'); };
+})();
+</script>
+
+<!-- AI Tool Logic (ES module for @imgly/background-removal) -->
+<script type="module">
+import { removeBackground } from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/browser/index.js';
+
+/* ── Fallback check ── */
+if (typeof WebAssembly === 'undefined') {
+    showState('fallback');
+} else {
+
+/* ── State helpers ── */
+function showState(name) {
+    document.querySelectorAll('.state').forEach(function(el) { el.classList.remove('active'); });
+    var el = document.getElementById('state' + name.charAt(0).toUpperCase() + name.slice(1));
+    if (el) el.classList.add('active');
+}
+
+/* ── Element refs ── */
+var uploadZone    = document.getElementById('uploadZone');
+var fileInput     = document.getElementById('fileInput');
+var progressFill  = document.getElementById('progressFill');
+var progressPct   = document.getElementById('progressPct');
+var progressKey   = document.getElementById('progressKey');
+var loadingTitle  = document.getElementById('loadingTitle');
+var loadingDesc   = document.getElementById('loadingDesc');
+var featherSlider = document.getElementById('featherSlider');
+var featherVal    = document.getElementById('featherVal');
+var brushSizeSlider = document.getElementById('brushSizeSlider');
+var brushSizeVal  = document.getElementById('brushSizeVal');
+var btnErase      = document.getElementById('btnErase');
+var btnRestore    = document.getElementById('btnRestore');
+var applyFeatherBtn = document.getElementById('applyFeatherBtn');
+var reprocessBtn  = document.getElementById('reprocessBtn');
+var downloadBtn   = document.getElementById('downloadBtn');
+var newImageBtn   = document.getElementById('newImageBtn');
+var canvasBefore  = document.getElementById('canvasBefore');
+var canvasAfter   = document.getElementById('canvasAfter');
+var canvasBrush   = document.getElementById('canvasBrush');
+var canvasStack   = document.getElementById('canvasStack');
+var dividerLine   = document.getElementById('dividerLine');
+var brushCursor   = document.getElementById('brushCursor');
+
+/* ── State variables ── */
+var currentFile = null;
+var origCanvas  = document.createElement('canvas'); // full-res original
+var resultCanvas= document.createElement('canvas'); // full-res result (with alpha)
+var brushMode   = null; // 'erase' | 'restore' | null
+var isBrushing  = false;
+var dividing    = false;
+
+/* ── Upload ── */
+uploadZone.addEventListener('click', function () { fileInput.click(); });
+uploadZone.addEventListener('keydown', function (e) { if (e.key==='Enter'||e.key===' ') fileInput.click(); });
+uploadZone.addEventListener('dragover', function (e) { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', function () { uploadZone.classList.remove('drag-over'); });
+uploadZone.addEventListener('drop', function (e) { e.preventDefault(); uploadZone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) startProcess(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', function () { if (this.files[0]) startProcess(this.files[0]); });
+
+/* ── Process ── */
+async function startProcess(file) {
+    if (!file.type.match(/image\/(png|jpeg|webp)/)) { alert('Please upload a PNG, JPG, or WebP image.'); return; }
+    currentFile = file;
+
+    /* Load original into canvas */
+    await loadOriginal(file);
+
+    showState('loading');
+    setProgress(0, 'Initialising AI model\u2026');
+
+    try {
+        var modelCached = false;
+        var resultBlob = await removeBackground(file, {
+            publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/browser/',
+            debug: false,
+            model: 'small',
+            output: { format: 'image/png', quality: 1.0 },
+            progress: function (key, current, total) {
+                if (key.startsWith('fetch:')) {
+                    var pct = total > 0 ? Math.min(99, Math.round(current / total * 100)) : 0;
+                    var fname = key.replace('fetch:', '').split('/').pop();
+                    setProgress(pct, 'Downloading: ' + fname);
+                    if (pct > 0) { loadingTitle.textContent = 'Loading AI model\u2026'; loadingDesc.textContent = 'First use only \u2014 model will be cached for instant future use.'; }
+                } else if (key === 'compute:inference') {
+                    showState('processing');
+                }
+            }
+        });
+
+        /* Draw result to full-res canvas */
+        await blobToCanvas(resultBlob, resultCanvas);
+
+        showResult();
+
+    } catch (err) {
+        console.error('Background removal failed:', err);
+        showState('upload');
+        alert('An error occurred: ' + (err.message || err) + '\n\nPlease try a different image or browser.');
+    }
+}
+
+function setProgress(pct, label) {
+    progressFill.style.width = pct + '%';
+    progressPct.textContent = pct + '%';
+    progressKey.textContent = label || '';
+}
+
+function loadOriginal(file) {
+    return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var img = new Image();
+            img.onload = function () {
+                origCanvas.width  = img.width;
+                origCanvas.height = img.height;
+                origCanvas.getContext('2d').drawImage(img, 0, 0);
+                resolve();
+            };
+            img.onerror = reject;
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+function blobToCanvas(blob, target) {
+    return new Promise(function (resolve, reject) {
+        var url = URL.createObjectURL(blob);
+        var img = new Image();
+        img.onload = function () {
+            target.width  = img.width;
+            target.height = img.height;
+            target.getContext('2d').drawImage(img, 0, 0);
+            URL.revokeObjectURL(url);
+            resolve();
+        };
+        img.onerror = reject;
+        img.src = url;
+    });
+}
+
+/* ── Show result ── */
+function showResult() {
+    /* Render display canvases */
+    renderDisplayCanvas(canvasBefore, origCanvas);
+    renderDisplayCanvas(canvasAfter,  resultCanvas);
+
+    /* Enable brush canvas over the after canvas */
+    canvasBrush.width  = canvasBefore.width;
+    canvasBrush.height = canvasBefore.height;
+
+    setDivider(50);
+    showState('result');
+
+    /* Reset brush mode */
+    brushMode = null;
+    btnErase.className   = 'brush-btn';
+    btnRestore.className = 'brush-btn';
+}
+
+function renderDisplayCanvas(target, src) {
+    var maxW = canvasStack.offsetWidth || 700;
+    var sc = Math.min(1, maxW / src.width);
+    target.width  = Math.round(src.width  * sc);
+    target.height = Math.round(src.height * sc);
+    target.getContext('2d').drawImage(src, 0, 0, target.width, target.height);
+}
+
+/* ── Feathering ── */
+featherSlider.addEventListener('input', function () { featherVal.textContent = this.value + ' px'; });
+
+applyFeatherBtn.addEventListener('click', function () {
+    var f = parseInt(featherSlider.value);
+    if (f <= 0) { renderDisplayCanvas(canvasAfter, resultCanvas); return; }
+
+    var w = resultCanvas.width, h = resultCanvas.height;
+    var ctx = resultCanvas.getContext('2d');
+    var imgData = ctx.getImageData(0, 0, w, h);
+    var data = imgData.data;
+    var total = w * h;
+    var alpha = new Float32Array(total);
+    for (var i = 0; i < total; i++) alpha[i] = data[i*4+3];
+
+    for (var pass = 0; pass < f; pass++) {
+        var next = new Float32Array(alpha);
+        for (var fy = 1; fy < h-1; fy++) {
+            for (var fx = 1; fx < w-1; fx++) {
+                var fi = fy*w+fx;
+                if (alpha[fi] > 0 && alpha[fi] < 255) {
+                    next[fi] = (alpha[fi]+alpha[fi-1]+alpha[fi+1]+alpha[fi-w]+alpha[fi+w]) / 5;
+                }
+            }
+        }
+        alpha.set(next);
+    }
+    for (var i = 0; i < total; i++) data[i*4+3] = Math.round(alpha[i]);
+    ctx.putImageData(imgData, 0, 0);
+    renderDisplayCanvas(canvasAfter, resultCanvas);
+});
+
+/* ── Brush tools ── */
+featherSlider.addEventListener('input', function () { featherVal.textContent = this.value + ' px'; });
+brushSizeSlider.addEventListener('input', function () { brushSizeVal.textContent = this.value; updateCursorSize(); });
+
+btnErase.addEventListener('click', function () {
+    brushMode = brushMode === 'erase' ? null : 'erase';
+    btnErase.className   = brushMode === 'erase'   ? 'brush-btn active-erase'   : 'brush-btn';
+    btnRestore.className = 'brush-btn';
+    canvasAfter.style.cursor = brushMode ? 'none' : '';
+    brushCursor.style.display = brushMode ? 'block' : 'none';
+});
+
+btnRestore.addEventListener('click', function () {
+    brushMode = brushMode === 'restore' ? null : 'restore';
+    btnRestore.className = brushMode === 'restore' ? 'brush-btn active-restore' : 'brush-btn';
+    btnErase.className   = 'brush-btn';
+    canvasAfter.style.cursor = brushMode ? 'none' : '';
+    brushCursor.style.display = brushMode ? 'block' : 'none';
+});
+
+function updateCursorSize() {
+    var sz = parseInt(brushSizeSlider.value) * (canvasAfter.offsetWidth / (resultCanvas.width || 1));
+    brushCursor.style.width  = sz + 'px';
+    brushCursor.style.height = sz + 'px';
+}
+
+function getImgXY(e) {
+    var rect = canvasAfter.getBoundingClientRect();
+    var src  = e.touches ? e.touches[0] : e;
+    var cx   = src.clientX - rect.left;
+    var cy   = src.clientY - rect.top;
+    var sx   = resultCanvas.width  / canvasAfter.offsetWidth;
+    var sy   = resultCanvas.height / canvasAfter.offsetHeight;
+    return {cx: cx, cy: cy, ix: Math.round(cx * sx), iy: Math.round(cy * sy)};
+}
+
+function paintBrush(e) {
+    if (!brushMode) return;
+    var pt = getImgXY(e);
+    brushCursor.style.left = pt.cx + 'px';
+    brushCursor.style.top  = pt.cy  + 'px';
+    updateCursorSize();
+
+    if (!isBrushing) return;
+
+    var r    = parseInt(brushSizeSlider.value) / 2;
+    var w    = resultCanvas.width, h = resultCanvas.height;
+    var ctx  = resultCanvas.getContext('2d');
+    var origCtx = origCanvas.getContext('2d');
+    var imgData = ctx.getImageData(0, 0, w, h);
+    var data    = imgData.data;
+
+    var x0 = Math.max(0, Math.round(pt.ix - r));
+    var y0 = Math.max(0, Math.round(pt.iy - r));
+    var x1 = Math.min(w-1, Math.round(pt.ix + r));
+    var y1 = Math.min(h-1, Math.round(pt.iy + r));
+
+    if (brushMode === 'restore') {
+        var origData = origCtx.getImageData(x0, y0, x1-x0+1, y1-y0+1).data;
+        var oi = 0;
+        for (var py = y0; py <= y1; py++) {
+            for (var px = x0; px <= x1; px++) {
+                var dist = Math.sqrt((px-pt.ix)*(px-pt.ix)+(py-pt.iy)*(py-pt.iy));
+                if (dist <= r) {
+                    var idx = (py*w+px)*4;
+                    data[idx]   = origData[oi];
+                    data[idx+1] = origData[oi+1];
+                    data[idx+2] = origData[oi+2];
+                    data[idx+3] = 255;
+                }
+                oi += 4;
+            }
+        }
+    } else {
+        for (var py = y0; py <= y1; py++) {
+            for (var px = x0; px <= x1; px++) {
+                if (Math.sqrt((px-pt.ix)*(px-pt.ix)+(py-pt.iy)*(py-pt.iy)) <= r) {
+                    data[(py*w+px)*4+3] = 0;
+                }
+            }
+        }
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+    renderDisplayCanvas(canvasAfter, resultCanvas);
+}
+
+canvasAfter.addEventListener('mousedown', function (e) {
+    if (!brushMode) return;
+    isBrushing = true; paintBrush(e);
+});
+canvasAfter.addEventListener('mousemove', function (e) {
+    brushCursor.style.display = brushMode ? 'block' : 'none';
+    paintBrush(e);
+});
+canvasAfter.addEventListener('mouseup',   function () { isBrushing = false; });
+canvasAfter.addEventListener('mouseleave',function () { isBrushing = false; brushCursor.style.display = 'none'; });
+canvasAfter.addEventListener('touchstart', function (e) { if (!brushMode) return; isBrushing = true; e.preventDefault(); paintBrush(e); }, {passive:false});
+canvasAfter.addEventListener('touchmove',  function (e) { if (!brushMode) return; e.preventDefault(); paintBrush(e); }, {passive:false});
+canvasAfter.addEventListener('touchend',   function () { isBrushing = false; });
+
+/* ── Divider ── */
+function setDivider(pct) {
+    pct = Math.max(0, Math.min(100, pct));
+    dividerLine.style.left = pct + '%';
+    canvasAfter.style.clipPath = 'inset(0 ' + (100-pct) + '% 0 0)';
+}
+function getPct(clientX) {
+    var rect = canvasStack.getBoundingClientRect();
+    return (clientX - rect.left) / rect.width * 100;
+}
+
+dividerLine.addEventListener('mousedown', function (e) {
+    if (brushMode) return; /* don't divider while brushing */
+    dividing = true; e.preventDefault();
+});
+document.addEventListener('mousemove', function (e) { if (dividing) setDivider(getPct(e.clientX)); });
+document.addEventListener('mouseup',   function () { dividing = false; });
+dividerLine.addEventListener('touchstart', function (e) { if (brushMode) return; dividing = true; e.preventDefault(); }, {passive:false});
+document.addEventListener('touchmove',  function (e) { if (dividing) setDivider(getPct(e.touches[0].clientX)); }, {passive:false});
+document.addEventListener('touchend',   function () { dividing = false; });
+
+/* ── Re-run AI ── */
+reprocessBtn.addEventListener('click', function () {
+    if (!currentFile) return;
+    startProcess(currentFile);
+});
+
+/* ── Download ── */
+downloadBtn.addEventListener('click', function () {
+    resultCanvas.toBlob(function (blob) {
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'product-no-bg-ai.png';
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 10000);
+    }, 'image/png');
+});
+
+/* ── New image ── */
+newImageBtn.addEventListener('click', function () {
+    currentFile = null; brushMode = null;
+    fileInput.value = '';
+    showState('upload');
+});
+
+} /* end WebAssembly check */
+</script>
+</body>
+</html>
