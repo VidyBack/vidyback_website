@@ -186,56 +186,6 @@ to = "/privacypolicy"
 status = 301
 
 [[redirects]]
-from = "/profit-margin-calculator.html"
-to = "/profit-margin-calculator"
-status = 301
-
-[[redirects]]
-from = "/shipping-cost-calculator.html"
-to = "/shipping-cost-calculator"
-status = 301
-
-[[redirects]]
-from = "/privacy-policy-generator.html"
-to = "/privacy-policy-generator"
-status = 301
-
-[[redirects]]
-from = "/qr-code-generator.html"
-to = "/qr-code-generator"
-status = 301
-
-[[redirects]]
-from = "/serp-preview-tool.html"
-to = "/serp-preview-tool"
-status = 301
-
-[[redirects]]
-from = "/barcode-generator.html"
-to = "/barcode-generator"
-status = 301
-
-[[redirects]]
-from = "/sku-generator.html"
-to = "/sku-generator"
-status = 301
-
-[[redirects]]
-from = "/readability-checker.html"
-to = "/readability-checker"
-status = 301
-
-[[redirects]]
-from = "/seo-health-score.html"
-to = "/seo-health-score"
-status = 301
-
-[[redirects]]
-from = "/invoice-generator.html"
-to = "/invoice-generator"
-status = 301
-
-[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
@@ -294,6 +244,187 @@ status = 301
 from = "/pinterest-for-ecommerce.html"
 to = "/pinterest-for-ecommerce"
 status = 301
+
+[[redirects]]
+from = "/free-online-privacy-policy-generator.html"
+to = "/free-online-privacy-policy-generator"
+status = 301
+
+[[redirects]]
+from = "/privacy-policy-generator"
+to = "/free-online-privacy-policy-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-refund-return-policy-generator.html"
+to = "/free-online-refund-return-policy-generator"
+status = 301
+
+[[redirects]]
+from = "/refund-return-policy-generator"
+to = "/free-online-refund-return-policy-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-terms-conditions-generator.html"
+to = "/free-online-terms-conditions-generator"
+status = 301
+
+[[redirects]]
+from = "/terms-conditions-generator"
+to = "/free-online-terms-conditions-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-shipping-policy-generator.html"
+to = "/free-online-shipping-policy-generator"
+status = 301
+
+[[redirects]]
+from = "/shipping-policy-generator"
+to = "/free-online-shipping-policy-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-discount-code-generator.html"
+to = "/free-online-discount-code-generator"
+status = 301
+
+[[redirects]]
+from = "/discount-code-generator"
+to = "/free-online-discount-code-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-background-remover.html"
+to = "/free-online-background-remover"
+status = 301
+
+[[redirects]]
+from = "/background-remover"
+to = "/free-online-background-remover"
+status = 301
+
+[[redirects]]
+from = "/free-online-profit-margin-calculator.html"
+to = "/free-online-profit-margin-calculator"
+status = 301
+
+[[redirects]]
+from = "/profit-margin-calculator"
+to = "/free-online-profit-margin-calculator"
+status = 301
+
+[[redirects]]
+from = "/free-online-shipping-cost-calculator.html"
+to = "/free-online-shipping-cost-calculator"
+status = 301
+
+[[redirects]]
+from = "/shipping-cost-calculator"
+to = "/free-online-shipping-cost-calculator"
+status = 301
+
+[[redirects]]
+from = "/free-online-gst-calculator.html"
+to = "/free-online-gst-calculator"
+status = 301
+
+[[redirects]]
+from = "/gst-calculator"
+to = "/free-online-gst-calculator"
+status = 301
+
+[[redirects]]
+from = "/free-online-serp-preview-tool.html"
+to = "/free-online-serp-preview-tool"
+status = 301
+
+[[redirects]]
+from = "/serp-preview-tool"
+to = "/free-online-serp-preview-tool"
+status = 301
+
+[[redirects]]
+from = "/free-online-qr-code-generator.html"
+to = "/free-online-qr-code-generator"
+status = 301
+
+[[redirects]]
+from = "/qr-code-generator"
+to = "/free-online-qr-code-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-hashtag-counter.html"
+to = "/free-online-hashtag-counter"
+status = 301
+
+[[redirects]]
+from = "/hashtag-counter"
+to = "/free-online-hashtag-counter"
+status = 301
+
+[[redirects]]
+from = "/free-online-favicon-generator.html"
+to = "/free-online-favicon-generator"
+status = 301
+
+[[redirects]]
+from = "/favicon-generator"
+to = "/free-online-favicon-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-readability-checker.html"
+to = "/free-online-readability-checker"
+status = 301
+
+[[redirects]]
+from = "/readability-checker"
+to = "/free-online-readability-checker"
+status = 301
+
+[[redirects]]
+from = "/free-online-seo-health-score.html"
+to = "/free-online-seo-health-score"
+status = 301
+
+[[redirects]]
+from = "/seo-health-score"
+to = "/free-online-seo-health-score"
+status = 301
+
+[[redirects]]
+from = "/free-online-barcode-generator.html"
+to = "/free-online-barcode-generator"
+status = 301
+
+[[redirects]]
+from = "/barcode-generator"
+to = "/free-online-barcode-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-sku-generator.html"
+to = "/free-online-sku-generator"
+status = 301
+
+[[redirects]]
+from = "/sku-generator"
+to = "/free-online-sku-generator"
+status = 301
+
+[[redirects]]
+from = "/free-online-invoice-generator.html"
+to = "/free-online-invoice-generator"
+status = 301
+
+[[redirects]]
+from = "/invoice-generator"
+to = "/free-online-invoice-generator"
+status = 301
+
 
 [[headers]]
 for = "/*"
