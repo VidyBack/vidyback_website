@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <meta name="description" content="Free Shopify SEO health score checker. Paste your page's HTML for an instant on-page audit — titles, meta tags, schema, alt text & more.">
+    <title>Free Shopify SEO Health Score — Check Your Store's SEO</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vidyback.com/seo-health-score">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+    <meta property="og:title" content="Free Shopify SEO Health Score — Check Your Store's SEO">
+    <meta property="og:description" content="Paste your page's HTML for an instant on-page SEO audit, right in your browser — titles, meta tags, schema, alt text and more.">
+    <meta property="og:url" content="https://www.vidyback.com/seo-health-score">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free Shopify SEO Health Score — Check Your Store's SEO">
+    <meta name="twitter:description" content="Paste your page's HTML for an instant on-page SEO audit, right in your browser — titles, meta tags, schema, alt text and more.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <!-- FAQPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a good SEO score?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A score of 75% or higher generally means the core on-page signals (title, meta description, headings, alt text, structured data, and technical basics) are in good shape. 50-74% means there's room for improvement, and below 50% means several important signals are missing entirely."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does this check my whole site or one page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "One page at a time. Paste the HTML of a single product, collection, or landing page to audit it. Run it again for each important page on your store, since title tags, meta descriptions, and structured data are all page-specific."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I copy my page's HTML source?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open the page, right-click anywhere and choose 'View Page Source' (or press Ctrl+U / Cmd+Option+U), then select all and copy. Alternatively, right-click and choose 'Inspect', find the <html> tag at the top of the panel, right-click it, and choose 'Copy > Copy outerHTML'."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does this check backlinks or keyword rankings?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. This tool checks on-page technical SEO signals only, things fully under your control in the page's own HTML. Backlinks, domain authority, and keyword rankings depend on factors outside a single page and require different tools to measure."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-accent-green: #10b981;
+            --color-accent-red: #dc2626;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'SFMono-Regular', Menlo, Consolas, monospace;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scrollbar-gutter: stable; scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-secondary { background: rgba(32,74,107,0.04); color: var(--color-text-dark); border: 1px solid var(--color-border); }
+        .btn-secondary:hover { background: rgba(32,74,107,0.08); }
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition-normal); padding: 20px 0; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; }
+        .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+
+        /* --- Tool Hero --- */
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+        .privacy-note { max-width: 1100px; margin: 18px auto 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .privacy-note i { color: var(--color-accent-green); }
+
+        /* --- Tool layout --- */
+        .tool-section { padding: 36px 0 40px; }
+        .seo-wrap { max-width: 900px; margin: 0 auto; }
+
+        .form-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 24px; margin-bottom: 20px; }
+        .field-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: 8px; }
+        .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 8px; line-height: 1.5; }
+        .html-textarea { width: 100%; min-height: 220px; padding: 14px 16px; border-radius: 12px; border: 1.5px solid var(--color-border); font-size: 0.85rem; line-height: 1.6; font-family: var(--font-mono); color: var(--color-text-dark); background: #fbfaf8; resize: vertical; }
+        .html-textarea:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+        .form-actions { display: flex; align-items: center; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+        .char-count { font-size: 0.78rem; color: var(--color-text-muted); }
+
+        /* Gauge */
+        .gauge-card { background: var(--color-bg-dark); border-radius: var(--border-radius-lg); padding: 30px 24px; text-align: center; margin-bottom: 20px; }
+        .gauge-wrap { position: relative; width: 160px; height: 160px; margin: 0 auto 14px; }
+        .gauge-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .gauge-track { fill: none; stroke: rgba(255,255,255,0.12); stroke-width: 10; }
+        .gauge-fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 0.6s ease, stroke 0.3s ease; }
+        .gauge-fill.green { stroke: var(--color-accent-green); }
+        .gauge-fill.amber { stroke: var(--color-gold); }
+        .gauge-fill.red { stroke: #f87171; }
+        .gauge-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .gauge-number { font-family: var(--font-heading); font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1; }
+        .gauge-pct { font-size: 0.8rem; color: var(--color-text-light-muted); margin-top: 2px; }
+        .gauge-band-label { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+        .gauge-band-label.green { color: var(--color-accent-green); }
+        .gauge-band-label.amber { color: var(--color-gold); }
+        .gauge-band-label.red { color: #f87171; }
+        .gauge-summary { font-size: 0.88rem; color: var(--color-text-light-muted); max-width: 480px; margin: 0 auto; }
+        .gauge-rescale-note { font-size: 0.74rem; color: var(--color-text-light-muted); margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        /* Category cards */
+        .category-list { display: flex; flex-direction: column; gap: 12px; }
+        .cat-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); overflow: hidden; }
+        .cat-card-header { display: flex; align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer; background: none; border: none; width: 100%; text-align: left; }
+        .cat-card-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+        .cat-card-icon.green { background: rgba(16,185,129,0.12); color: #059669; }
+        .cat-card-icon.amber { background: rgba(245,166,35,0.15); color: #b45309; }
+        .cat-card-icon.red { background: rgba(220,38,38,0.1); color: var(--color-accent-red); }
+        .cat-card-icon.na { background: rgba(32,74,107,0.06); color: var(--color-text-muted); }
+        .cat-card-body { flex: 1; min-width: 0; }
+        .cat-card-title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+        .cat-card-title { font-size: 0.95rem; font-weight: 700; color: var(--color-text-dark); }
+        .cat-card-points { font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted); flex-shrink: 0; }
+        .cat-progress-track { height: 5px; background: rgba(32,74,107,0.08); border-radius: 4px; margin-top: 8px; overflow: hidden; }
+        .cat-progress-fill { height: 100%; border-radius: 4px; }
+        .cat-progress-fill.green { background: var(--color-accent-green); }
+        .cat-progress-fill.amber { background: var(--color-gold); }
+        .cat-progress-fill.red { background: var(--color-accent-red); }
+        .cat-card-chevron { color: var(--color-text-muted); transition: transform 0.2s ease; flex-shrink: 0; }
+        .cat-card.open .cat-card-chevron { transform: rotate(180deg); }
+        .cat-card-detail { display: none; padding: 4px 18px 18px 68px; }
+        .cat-card.open .cat-card-detail { display: block; }
+        .check-row { padding: 10px 0; border-top: 1px solid var(--color-border); }
+        .check-row:first-child { border-top: none; }
+        .check-head { display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; font-weight: 600; color: var(--color-text-dark); }
+        .check-head i { margin-top: 3px; flex-shrink: 0; font-size: 0.85rem; }
+        .check-head i.pass { color: var(--color-accent-green); }
+        .check-head i.fail { color: var(--color-accent-red); }
+        .check-detail { font-size: 0.84rem; color: var(--color-text-muted); margin-top: 4px; margin-left: 22px; line-height: 1.5; }
+        .check-fix { font-size: 0.82rem; color: var(--color-text-accent); background: rgba(29,81,117,0.06); border-radius: 8px; padding: 8px 10px; margin-top: 6px; margin-left: 22px; }
+
+        .empty-state { text-align: center; padding: 30px 16px; color: var(--color-text-muted); font-size: 0.95rem; }
+
+        /* --- Content Section --- */
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .content-wrapper ol, .content-wrapper ul.styled-list { padding-left: 22px; margin-bottom: 18px; }
+        .content-wrapper ol li, .content-wrapper ul.styled-list li { list-style: decimal; font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 8px; }
+        .content-wrapper ul.styled-list li { list-style: disc; }
+        .benchmark-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.92rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); overflow: hidden; }
+        .benchmark-table th, .benchmark-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--color-border); }
+        .benchmark-table th { background: rgba(29,81,117,0.04); font-weight: 700; color: var(--color-text-dark); font-family: var(--font-heading); }
+        .benchmark-table tr:last-child td { border-bottom: none; }
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        footer h4, footer .logo { color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        .app-item a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; }
+            .tool-hero h1 { font-size: 1.8rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; }
+            .app-item:last-child { margin-left: 0; margin-top: 20px; }
+        }
+        @media (max-width: 480px) {
+            .form-card { padding: 18px 16px; }
+            .cat-card-detail { padding-left: 18px; }
+            .check-detail, .check-fix { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Tool Hero --- -->
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Shopify SEO <span>Health Score</span></h1>
+            <p>Paste a page's HTML source for an instant on-page SEO audit: title tags, meta description, headings, alt text, structured data, and technical basics.</p>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Parsed entirely in your browser with the native DOMParser API — nothing you paste is uploaded anywhere.</div>
+        </div>
+    </section>
+
+    <!-- --- Tool --- -->
+    <section class="tool-section">
+        <div class="container">
+            <div class="seo-wrap">
+
+                <div class="form-card">
+                    <label class="field-label" for="htmlInput">Page HTML Source</label>
+                    <textarea id="htmlInput" class="html-textarea" placeholder="Paste your page's full HTML source here..." aria-describedby="htmlInputHint"></textarea>
+                    <div class="field-hint" id="htmlInputHint">Right-click your page &rarr; "View Page Source" (or Ctrl+U / Cmd+Option+U) &rarr; select all &rarr; copy, then paste here.</div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" id="analyzeBtn"><span><i class="fa-solid fa-magnifying-glass-chart"></i> Analyze</span></button>
+                        <span class="char-count" id="charCount"></span>
+                    </div>
+                </div>
+
+                <div id="resultsSection" style="display:none;">
+                    <div class="gauge-card">
+                        <div class="gauge-wrap">
+                            <svg class="gauge-svg" viewBox="0 0 120 120">
+                                <circle class="gauge-track" cx="60" cy="60" r="52"></circle>
+                                <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="52"></circle>
+                            </svg>
+                            <div class="gauge-center">
+                                <span class="gauge-number" id="gaugeNumber" aria-live="polite">0</span>
+                                <span class="gauge-pct">/ 100</span>
+                            </div>
+                        </div>
+                        <div class="gauge-band-label" id="gaugeBandLabel"></div>
+                        <div class="gauge-summary" id="gaugeSummary"></div>
+                        <div class="gauge-rescale-note">Scored out of 90 points across 6 categories (<span id="rawScoreNote"></span>). URL Structure (10 pts) isn't scorable from pasted HTML alone, so it's excluded and the total is rescaled to a 0-100 display.</div>
+                    </div>
+
+                    <div class="category-list" id="categoryList"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Now Make Sure People Find That Page</h2>
+                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so once search sends them your way, there's something worth watching.</p>
+                <a href="/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEO Content --- -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>What Each Category Checks, and Why It Matters</h2>
+                <p><strong>Title tag &amp; meta description</strong> are what searchers actually see in results, so length and presence directly affect click-through rate. <strong>Heading structure</strong> helps both search engines and screen readers understand your content's outline; skipping levels or missing an H1 muddies that signal. <strong>Image alt text</strong> affects accessibility and image search visibility, and is one of the most commonly skipped basics on product pages with many photos. <strong>Structured data</strong>, specifically Product schema with price, availability, and reviews, is what unlocks rich results like star ratings directly in Google's search listings. <strong>Technical basics</strong>, canonical tags, a viewport meta tag, and consistent HTTPS, are foundational signals that prevent duplicate-content issues and confirm your page is mobile-friendly.</p>
+
+                <h2>How to Copy Your Page's HTML Source</h2>
+                <ol>
+                    <li>Open the page you want to check in your browser.</li>
+                    <li>Right-click anywhere on the page and choose <strong>"View Page Source"</strong> (or press Ctrl+U on Windows, Cmd+Option+U on Mac).</li>
+                    <li>On the source page that opens, select all the text (Ctrl+A / Cmd+A) and copy it (Ctrl+C / Cmd+C).</li>
+                    <li>Paste it into the box above and click Analyze.</li>
+                </ol>
+                <p>Alternatively: right-click the page and choose <strong>"Inspect"</strong>, find the <code style="background:rgba(0,0,0,0.05); padding:1px 5px; border-radius:4px;">&lt;html&gt;</code> tag at the top of the panel that opens, right-click it, and choose <strong>Copy &gt; Copy outerHTML</strong>.</p>
+
+                <h2>What This Tool Doesn't Check</h2>
+                <p>This is an on-page technical SEO checker: it looks only at signals present in a single page's own HTML. It doesn't measure backlinks, domain authority, keyword rankings, page speed, or how you rank against competitors, those depend on factors outside any one page and require different, typically paid, tools to track properly. Treat a high score here as "the on-page fundamentals are solid," not "this page will rank."</p>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>What is a good SEO score?</h3>
+                        <p>A score of 75% or higher generally means the core on-page signals (title, meta description, headings, alt text, structured data, and technical basics) are in good shape. 50-74% means there's room for improvement, and below 50% means several important signals are missing entirely.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does this check my whole site or one page?</h3>
+                        <p>One page at a time. Paste the HTML of a single product, collection, or landing page to audit it. Run it again for each important page on your store, since title tags, meta descriptions, and structured data are all page-specific.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I copy my page's HTML source?</h3>
+                        <p>Open the page, right-click anywhere and choose "View Page Source" (or press Ctrl+U / Cmd+Option+U), then select all and copy. Alternatively, right-click and choose "Inspect", find the &lt;html&gt; tag at the top of the panel, right-click it, and choose "Copy &gt; Copy outerHTML".</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does this check backlinks or keyword rankings?</h3>
+                        <p>No. This tool checks on-page technical SEO signals only, things fully under your control in the page's own HTML. Backlinks, domain authority, and keyword rankings depend on factors outside a single page and require different tools to measure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggleIcon = menuToggle.querySelector('i');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggleIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggleIcon.className = 'fas fa-bars';
+            });
+        });
+    }
+    </script>
+
+    <!-- --- SEO Analysis Engine --- -->
+    <script>
+    (function () {
+        const htmlInput = document.getElementById('htmlInput');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const charCount = document.getElementById('charCount');
+        const resultsSection = document.getElementById('resultsSection');
+        const gaugeFill = document.getElementById('gaugeFill');
+        const gaugeNumber = document.getElementById('gaugeNumber');
+        const gaugeBandLabel = document.getElementById('gaugeBandLabel');
+        const gaugeSummary = document.getElementById('gaugeSummary');
+        const rawScoreNote = document.getElementById('rawScoreNote');
+        const categoryList = document.getElementById('categoryList');
+
+        const CIRCUMFERENCE = 2 * Math.PI * 52;
+        gaugeFill.style.strokeDasharray = CIRCUMFERENCE;
+        gaugeFill.style.strokeDashoffset = CIRCUMFERENCE;
+
+        function escapeHtml(s) {
+            return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        // ===================== Scoring functions =====================
+        function scoreTitle(doc) {
+            const max = 15;
+            let score = 0;
+            const checks = [];
+            const titles = doc.querySelectorAll('title');
+
+            if (titles.length === 0) {
+                checks.push({ label: 'Title tag present', pass: false, detail: 'No <title> tag found.', fix: 'Add a <title> tag inside <head> with your primary keyword near the front.' });
+                return { score: 0, max, checks, label: 'Title Tag', icon: 'fa-heading' };
+            }
+
+            const text = (titles[0].textContent || '').trim();
+            const len = text.length;
+
+            if (text) {
+                score += 5;
+                checks.push({ label: 'Title tag present', pass: true, detail: 'Found: "' + text + '"' });
+            } else {
+                checks.push({ label: 'Title tag present', pass: false, detail: 'Title tag exists but is empty.', fix: 'Add descriptive text to your <title> tag.' });
+            }
+
+            if (len >= 30 && len <= 60) {
+                score += 7;
+                checks.push({ label: 'Title length', pass: true, detail: len + ' characters — within the ideal 30-60 range.' });
+            } else if (len > 0) {
+                const partial = len < 30 ? (7 * (len / 30)) : (7 * Math.max(0, 1 - (len - 60) / 40));
+                score += Math.max(0, Math.min(7, partial));
+                checks.push({
+                    label: 'Title length', pass: false,
+                    detail: len + ' characters — ' + (len < 30 ? 'shorter than ideal.' : 'longer than ideal.'),
+                    fix: len < 30
+                        ? 'Your title tag is ' + len + ' characters — aim for 30-60 to use available search result space.'
+                        : 'Your title tag is ' + len + ' characters — Google typically truncates titles beyond ~60 characters.'
+                });
+            } else {
+                checks.push({ label: 'Title length', pass: false, detail: 'No title text to measure.' });
+            }
+
+            if (titles.length === 1) {
+                score += 3;
+                checks.push({ label: 'Single title tag', pass: true, detail: 'Only one <title> tag found.' });
+            } else {
+                checks.push({ label: 'Single title tag', pass: false, detail: titles.length + ' <title> tags found.', fix: 'Remove duplicate <title> tags — only one should exist per page.' });
+            }
+
+            return { score: Math.round(score), max, checks, label: 'Title Tag', icon: 'fa-heading' };
+        }
+
+        function scoreMetaDescription(doc) {
+            const max = 15;
+            let score = 0;
+            const checks = [];
+            const metas = [].slice.call(doc.querySelectorAll('meta[name="description"], meta[name="Description"]'));
+
+            if (metas.length === 0) {
+                checks.push({ label: 'Meta description present', pass: false, detail: 'No <meta name="description"> tag found.', fix: 'Add a <meta name="description" content="..."> summarizing the page in 120-158 characters.' });
+                return { score: 0, max, checks, label: 'Meta Description', icon: 'fa-align-left' };
+            }
+
+            const content = (metas[0].getAttribute('content') || '').trim();
+            const len = content.length;
+
+            if (content) {
+                score += 5;
+                checks.push({ label: 'Meta description present', pass: true, detail: 'Found: "' + content.slice(0, 100) + (content.length > 100 ? '...' : '') + '"' });
+            } else {
+                checks.push({ label: 'Meta description present', pass: false, detail: 'Meta description tag exists but is empty.', fix: 'Add content to your meta description tag.' });
+            }
+
+            if (len >= 120 && len <= 158) {
+                score += 7;
+                checks.push({ label: 'Description length', pass: true, detail: len + ' characters — within the ideal 120-158 range.' });
+            } else if (len > 0) {
+                const partial = len < 120 ? (7 * (len / 120)) : (7 * Math.max(0, 1 - (len - 158) / 60));
+                score += Math.max(0, Math.min(7, partial));
+                checks.push({
+                    label: 'Description length', pass: false,
+                    detail: len + ' characters — ' + (len < 120 ? 'shorter than ideal.' : 'longer than ideal.'),
+                    fix: len < 120
+                        ? 'Your meta description is ' + len + ' characters — aim for 120-158 to use available search result space.'
+                        : 'Your meta description is ' + len + ' characters — Google typically truncates beyond ~158 characters.'
+                });
+            } else {
+                checks.push({ label: 'Description length', pass: false, detail: 'No description text to measure.' });
+            }
+
+            if (metas.length === 1) {
+                score += 3;
+                checks.push({ label: 'Single meta description tag', pass: true, detail: 'Only one meta description tag found.' });
+            } else {
+                checks.push({ label: 'Single meta description tag', pass: false, detail: metas.length + ' meta description tags found.', fix: 'Remove duplicate meta description tags — only one should exist per page.' });
+            }
+
+            return { score: Math.round(score), max, checks, label: 'Meta Description', icon: 'fa-align-left' };
+        }
+
+        function scoreHeadings(doc) {
+            const max = 15;
+            let score = 0;
+            const checks = [];
+
+            const h1s = doc.querySelectorAll('h1');
+            if (h1s.length === 1) {
+                score += 6;
+                checks.push({ label: 'Exactly one H1', pass: true, detail: 'Found: "' + (h1s[0].textContent || '').trim().slice(0, 80) + '"' });
+            } else if (h1s.length === 0) {
+                checks.push({ label: 'Exactly one H1', pass: false, detail: 'No <h1> tag found.', fix: 'Add exactly one <h1> tag describing the main topic of the page.' });
+            } else {
+                score += 2;
+                checks.push({ label: 'Exactly one H1', pass: false, detail: h1s.length + ' <h1> tags found.', fix: 'Use only one <h1> per page — consolidate to a single main heading.' });
+            }
+
+            const allHeadings = [].slice.call(doc.querySelectorAll('h1,h2,h3,h4,h5,h6')).map(function (h) { return parseInt(h.tagName[1], 10); });
+            let skips = 0;
+            for (let i = 1; i < allHeadings.length; i++) {
+                if (allHeadings[i] - allHeadings[i - 1] > 1) skips++;
+            }
+            if (allHeadings.length === 0) {
+                checks.push({ label: 'Logical heading hierarchy', pass: false, detail: 'No headings found to evaluate.', fix: 'Add a structured heading hierarchy (H1, then H2s, then H3s as needed).' });
+            } else if (skips === 0) {
+                score += 6;
+                checks.push({ label: 'Logical heading hierarchy', pass: true, detail: 'No heading levels are skipped.' });
+            } else {
+                score += Math.max(0, 6 - skips * 2);
+                checks.push({ label: 'Logical heading hierarchy', pass: false, detail: skips + ' place(s) where a heading level is skipped (e.g. H2 straight to H4).', fix: 'Avoid skipping heading levels — follow H1 to H2 to H3 in order for a clear document outline.' });
+            }
+
+            const h2s = doc.querySelectorAll('h2');
+            if (h2s.length >= 1) {
+                score += 3;
+                checks.push({ label: 'At least one H2', pass: true, detail: h2s.length + ' <h2> tag(s) found.' });
+            } else {
+                checks.push({ label: 'At least one H2', pass: false, detail: 'No <h2> tags found.', fix: 'Break up your content with <h2> subheadings for readability and topical structure.' });
+            }
+
+            return { score: Math.round(score), max, checks, label: 'Heading Structure', icon: 'fa-list-ol' };
+        }
+
+        function scoreAltText(doc) {
+            const max = 15;
+            const imgs = doc.querySelectorAll('img');
+            if (imgs.length === 0) {
+                return { score: 15, max, checks: [{ label: 'Image alt text coverage', pass: true, detail: 'No <img> tags found on this page — nothing to check.' }], label: 'Image Alt Text', icon: 'fa-image' };
+            }
+            let withAlt = 0;
+            imgs.forEach(function (img) {
+                const alt = img.getAttribute('alt');
+                if (alt && alt.trim()) withAlt++;
+            });
+            const pct = withAlt / imgs.length;
+            const score = Math.round(pct * max);
+            const check = {
+                label: 'Image alt text coverage',
+                pass: pct === 1,
+                detail: withAlt + ' of ' + imgs.length + ' images (' + Math.round(pct * 100) + '%) have descriptive alt text.'
+            };
+            if (pct < 1) {
+                check.fix = (imgs.length - withAlt) + ' image(s) are missing alt text — add descriptive alt attributes for accessibility and image search visibility.';
+            }
+            return { score, max, checks: [check], label: 'Image Alt Text', icon: 'fa-image' };
+        }
+
+        function flattenLdJson(blocks) {
+            const items = [];
+            blocks.forEach(function (b) {
+                if (!b || b.__parseError) return;
+                if (Array.isArray(b)) { items.push.apply(items, b); }
+                else if (b['@graph'] && Array.isArray(b['@graph'])) { items.push.apply(items, b['@graph']); }
+                else { items.push(b); }
+            });
+            return items;
+        }
+        function findProductSchema(items) {
+            return items.find(function (item) {
+                const type = item && item['@type'];
+                if (!type) return false;
+                if (Array.isArray(type)) return type.indexOf('Product') > -1;
+                return type === 'Product';
+            });
+        }
+
+        function scoreSchema(doc) {
+            const max = 15;
+            let score = 0;
+            const checks = [];
+            const scripts = doc.querySelectorAll('script[type="application/ld+json"]');
+
+            if (scripts.length === 0) {
+                checks.push({ label: 'JSON-LD structured data present', pass: false, detail: 'No <script type="application/ld+json"> blocks found.', fix: 'Add JSON-LD structured data, ideally Product schema, to enable rich results in search.' });
+                return { score: 0, max, checks, label: 'Structured Data / Schema', icon: 'fa-code' };
+            }
+            score += 5;
+            checks.push({ label: 'JSON-LD structured data present', pass: true, detail: scripts.length + ' JSON-LD block(s) found.' });
+
+            const blocks = [].slice.call(scripts).map(function (s) {
+                try { return JSON.parse(s.textContent); } catch (e) { return { __parseError: true }; }
+            });
+            const items = flattenLdJson(blocks);
+            const product = findProductSchema(items);
+
+            if (!product) {
+                checks.push({ label: 'Product schema present', pass: false, detail: 'No schema.org Product type found.', fix: 'Add Product structured data with name, offers (price/availability), and, ideally, review data to enable rich results on product pages.' });
+                return { score: Math.round(score), max, checks, label: 'Structured Data / Schema', icon: 'fa-code' };
+            }
+            score += 5;
+            checks.push({ label: 'Product schema present', pass: true, detail: 'Found a Product schema block' + (product.name ? (' for "' + product.name + '"') : '') + '.' });
+
+            let offers = product.offers;
+            if (Array.isArray(offers)) offers = offers[0];
+            const hasPrice = !!(offers && (offers.price !== undefined || offers.priceSpecification));
+            const hasAvailability = !!(offers && offers.availability);
+
+            if (hasPrice && hasAvailability) {
+                score += 3;
+                checks.push({ label: 'Price & availability', pass: true, detail: 'Offers block includes both price and availability.' });
+            } else {
+                const missing = [];
+                if (!hasPrice) missing.push('price');
+                if (!hasAvailability) missing.push('availability');
+                checks.push({
+                    label: 'Price & availability', pass: false,
+                    detail: offers ? ('Offers block is missing: ' + missing.join(', ') + '.') : 'No offers block found on the Product schema.',
+                    fix: 'Add an "offers" object with "price" and "availability" fields to your Product schema.'
+                });
+            }
+
+            const hasReviews = !!(product.aggregateRating || product.review);
+            if (hasReviews) {
+                score += 2;
+                checks.push({ label: 'Review / rating data', pass: true, detail: 'Found aggregateRating or review data.' });
+            } else {
+                checks.push({ label: 'Review / rating data', pass: false, detail: 'No aggregateRating or review found.', fix: 'Add "aggregateRating" (or individual "review" entries) to show star ratings in search results.' });
+            }
+
+            return { score: Math.round(score), max, checks, label: 'Structured Data / Schema', icon: 'fa-code' };
+        }
+
+        function scoreTechnical(doc) {
+            const max = 15;
+            let score = 0;
+            const checks = [];
+
+            const canonical = doc.querySelector('link[rel="canonical"]');
+            if (canonical && canonical.getAttribute('href')) {
+                score += 5;
+                checks.push({ label: 'Canonical tag', pass: true, detail: 'Found: ' + canonical.getAttribute('href') });
+            } else {
+                checks.push({ label: 'Canonical tag', pass: false, detail: 'No canonical link tag found.', fix: 'Add <link rel="canonical" href="..."> to prevent duplicate-content issues.' });
+            }
+
+            const viewport = doc.querySelector('meta[name="viewport"]');
+            if (viewport && viewport.getAttribute('content')) {
+                score += 5;
+                checks.push({ label: 'Viewport meta tag', pass: true, detail: 'Found: ' + viewport.getAttribute('content') });
+            } else {
+                checks.push({ label: 'Viewport meta tag', pass: false, detail: 'No viewport meta tag found.', fix: 'Add <meta name="viewport" content="width=device-width, initial-scale=1"> for mobile-friendliness.' });
+            }
+
+            const resourceEls = doc.querySelectorAll('[src], link[href]');
+            const mixedContent = [];
+            resourceEls.forEach(function (el) {
+                const url = el.getAttribute('src') || el.getAttribute('href');
+                if (url && /^http:\/\//i.test(url)) mixedContent.push(url);
+            });
+            if (mixedContent.length === 0) {
+                score += 5;
+                checks.push({ label: 'No mixed-content (http://) resources', pass: true, detail: 'No insecure http:// resource references found.' });
+            } else {
+                score += Math.max(0, 5 - mixedContent.length);
+                checks.push({
+                    label: 'No mixed-content (http://) resources', pass: false,
+                    detail: mixedContent.length + ' insecure http:// reference(s) found, e.g. ' + mixedContent[0],
+                    fix: 'Update these resource URLs to https:// to avoid mixed-content warnings and broken padlock icons.'
+                });
+            }
+
+            return { score: Math.round(score), max, checks, label: 'Technical Basics', icon: 'fa-gear' };
+        }
+
+        function bandFor(pct) {
+            if (pct >= 75) return { label: 'Good', color: 'green' };
+            if (pct >= 50) return { label: 'Needs Improvement', color: 'amber' };
+            return { label: 'Poor', color: 'red' };
+        }
+
+        function analyzeHTML(htmlString) {
+            const doc = new DOMParser().parseFromString(htmlString, 'text/html');
+            const categories = [
+                scoreTitle(doc),
+                scoreMetaDescription(doc),
+                scoreHeadings(doc),
+                scoreAltText(doc),
+                scoreSchema(doc),
+                scoreTechnical(doc)
+            ];
+            const totalScore = categories.reduce(function (sum, c) { return sum + c.score; }, 0);
+            const totalMax = categories.reduce(function (sum, c) { return sum + c.max; }, 0);
+            return { categories: categories, totalScore: totalScore, totalMax: totalMax };
+        }
+
+        function renderResults(result) {
+            const pct = Math.round((result.totalScore / result.totalMax) * 100);
+            const band = bandFor(pct);
+
+            gaugeFill.style.strokeDashoffset = CIRCUMFERENCE * (1 - pct / 100);
+            gaugeFill.className = 'gauge-fill ' + band.color;
+            gaugeNumber.textContent = pct;
+            gaugeBandLabel.textContent = band.label;
+            gaugeBandLabel.className = 'gauge-band-label ' + band.color;
+            rawScoreNote.textContent = result.totalScore + ' / ' + result.totalMax + ' raw points';
+
+            const sorted = result.categories.slice().sort(function (a, b) { return (a.score / a.max) - (b.score / b.max); });
+            const lowest = sorted[0];
+            const secondLowest = sorted[1];
+            if (pct >= 75) {
+                gaugeSummary.textContent = 'Solid on-page fundamentals.' + (lowest.score < lowest.max ? (' Biggest remaining opportunity: ' + lowest.label + '.') : '');
+            } else if (pct >= 50) {
+                gaugeSummary.textContent = 'Decent foundation with real gaps. Start with ' + lowest.label + ', it has the most room to improve.';
+            } else {
+                gaugeSummary.textContent = 'Several important on-page signals are missing. Start with ' + lowest.label + ' and ' + secondLowest.label + ' for the fastest wins.';
+            }
+
+            categoryList.innerHTML = '';
+            result.categories.forEach(function (cat, idx) {
+                const catPct = cat.max > 0 ? (cat.score / cat.max) : 1;
+                const catBand = bandFor(catPct * 100);
+                const card = document.createElement('div');
+                card.className = 'cat-card';
+
+                const checksHtml = cat.checks.map(function (c) {
+                    return '<div class="check-row">' +
+                        '<div class="check-head"><i class="fa-solid ' + (c.pass ? 'fa-circle-check pass' : 'fa-circle-xmark fail') + '"></i> ' + escapeHtml(c.label) + '</div>' +
+                        '<div class="check-detail">' + escapeHtml(c.detail) + '</div>' +
+                        (c.fix ? '<div class="check-fix"><i class="fa-solid fa-wrench"></i> ' + escapeHtml(c.fix) + '</div>' : '') +
+                        '</div>';
+                }).join('');
+
+                card.innerHTML =
+                    '<button type="button" class="cat-card-header" aria-expanded="false">' +
+                    '<div class="cat-card-icon ' + catBand.color + '"><i class="fa-solid ' + cat.icon + '"></i></div>' +
+                    '<div class="cat-card-body">' +
+                    '<div class="cat-card-title-row"><span class="cat-card-title">' + escapeHtml(cat.label) + '</span><span class="cat-card-points">' + cat.score + ' / ' + cat.max + '</span></div>' +
+                    '<div class="cat-progress-track"><div class="cat-progress-fill ' + catBand.color + '" style="width:' + Math.round(catPct * 100) + '%;"></div></div>' +
+                    '</div>' +
+                    '<i class="fa-solid fa-chevron-down cat-card-chevron"></i>' +
+                    '</button>' +
+                    '<div class="cat-card-detail">' + checksHtml + '</div>';
+
+                const headerBtn = card.querySelector('.cat-card-header');
+                headerBtn.addEventListener('click', function () {
+                    const isOpen = card.classList.toggle('open');
+                    headerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+                if (idx === 0) { card.classList.add('open'); headerBtn.setAttribute('aria-expanded', 'true'); }
+
+                categoryList.appendChild(card);
+            });
+
+            resultsSection.style.display = 'block';
+        }
+
+        function runAnalysis() {
+            const html = htmlInput.value;
+            if (!html.trim()) {
+                resultsSection.style.display = 'none';
+                return;
+            }
+            const result = analyzeHTML(html);
+            renderResults(result);
+        }
+
+        analyzeBtn.addEventListener('click', runAnalysis);
+        htmlInput.addEventListener('input', function () {
+            charCount.textContent = htmlInput.value.length.toLocaleString() + ' characters';
+        });
+        htmlInput.addEventListener('paste', function () {
+            setTimeout(runAnalysis, 50);
+        });
+
+        charCount.textContent = '0 characters';
+    })();
+    </script>
+
+    <!-- --- UTM Capture + Forward Script --- -->
+    <script>
+    // Capture UTM params and carry them forward to app.vidyback.com signup links
+    (function() {
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+            document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                var extra = {};
+                if (stored) { for (var k in stored) { extra[k] = stored[k]; } }
+                var label = (a.textContent || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40);
+                if (label) { extra.cta_id = label; }
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) {
+                    var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                    a.href = a.href + sep + qs;
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+<footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Tools -->
+                <nav class="footer-links-col" aria-label="Tools navigation">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                        <li><a href="discount-code-generator">Discount Code Generator</a></li>
+                        <li><a href="serp-preview-tool">Google SERP Preview Tool</a></li>
+                        <li><a href="hashtag-counter">Hashtag Counter</a></li>
+                        <li><a href="tools" style="color:var(--color-gold);font-weight:600;">View all tools &rarr;</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 5: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

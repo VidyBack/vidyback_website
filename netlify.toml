@@ -226,6 +226,11 @@ to = "/readability-checker"
 status = 301
 
 [[redirects]]
+from = "/seo-health-score.html"
+to = "/seo-health-score"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
