@@ -246,6 +246,11 @@ to = "/pinterest-for-ecommerce"
 status = 301
 
 [[redirects]]
+from = "/jumpseller-wix-social-posting.html"
+to = "/jumpseller-wix-social-posting"
+status = 301
+
+[[redirects]]
 from = "/free-online-privacy-policy-generator.html"
 to = "/free-online-privacy-policy-generator"
 status = 301
