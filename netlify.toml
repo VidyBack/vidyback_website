@@ -231,6 +231,11 @@ to = "/seo-health-score"
 status = 301
 
 [[redirects]]
+from = "/invoice-generator.html"
+to = "/invoice-generator"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
