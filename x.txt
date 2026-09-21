@@ -1,0 +1,90 @@
+Build an "AI Background Remover" as a single, self-contained, embeddable 
+web tool for an ecommerce marketing site (VidyBack — a Shopify app that 
+auto-generates and schedules product videos).
+ 
+FUNCTIONALITY
+- Image upload via drag-and-drop or file picker (PNG, JPG, WebP)
+- Background removal runs via a client-side ML segmentation model loaded 
+  in-browser (e.g. via a library like @imgly/background-removal or a 
+  TensorFlow.js/ONNX Runtime Web build of U2-Net/MODNet) — the model 
+  file itself should be fetched from a CDN or self-hosted, but ALL 
+  inference happens in the user's browser, not on your server, so there's 
+  no per-use compute cost to you even though it's AI-powered
+- Loading state: show a clear "Loading AI model (first time only, ~X MB)" 
+  progress indicator on first use, since the model download is the main 
+  latency cost — cache it via the browser (IndexedDB/Cache API) so repeat 
+  visits and repeat uses in the same session don't re-download it
+- Processing state: show a progress/spinner state during inference 
+  (typically a few seconds depending on device), since this is slower 
+  than the pure-canvas approach and users need to know it's working, not 
+  stuck
+- Live before/after comparison with a slider or toggle, checkerboard 
+  pattern behind the transparent result
+- Post-processing refinement tools (still client-side, canvas-based, 
+  layered on top of the AI mask):
+    - Edge feathering slider — softens the AI-generated cutout edge
+    - Manual "restore" and "erase" brush tools — lets the user paint back 
+      areas the AI incorrectly removed (e.g. thin product details like 
+      jewelry chains or hair-like edges) or remove leftover background 
+      fragments the AI missed, using a simple brush over the alpha channel
+    - Zoom control for precise manual touch-up on small details
+- "Download PNG" button (true alpha transparency)
+- Batch mode (optional, if feasible): allow uploading multiple images and 
+  processing them in sequence with a combined ZIP download — flag this as 
+  a stretch goal since each image still takes several seconds to process, 
+  so set expectations with a per-image progress list rather than a single 
+  opaque loading bar
+- Graceful fallback: detect if the device/browser can't handle the model 
+  (e.g. very old mobile browsers, no WebGL/WASM support) and show a clear 
+  message rather than freezing, suggesting the user try on a different 
+  device
+ 
+DESIGN
+- Clean, modern, mobile-first, fully responsive down to 320px, but note 
+  in the UI that processing is faster/smoother on desktop given model 
+  size and compute — don't block mobile, just set expectations
+- Upload/preview as the primary focal point; refinement tools (brush, 
+  feather) in a compact panel that appears only after the first AI pass 
+  completes, to avoid overwhelming the user upfront
+- Brand palette: [insert VidyBack hex codes here — default to a modern 
+  teal/indigo palette if none given]
+- Before/after slider as the main shareable/screenshot moment
+ 
+TECH
+- Single self-contained HTML file, inline CSS, vanilla JavaScript, plus 
+  one pinned-version script tag for the segmentation library/runtime 
+  (loaded from a CDN, since the model itself is too large to inline 
+  directly in the HTML file the way the other tools in this suite are)
+- Model inference fully client-side (WebGL/WASM backend) — no image data 
+  is ever sent to a server, which is itself a privacy-friendly selling 
+  point worth stating in the on-page copy
+- Post-processing (feathering, brush tools) via standard Canvas pixel 
+  manipulation, same technique as the solid-background version
+- Semantic HTML, keyboard-accessible controls where feasible, basic ARIA 
+  labels; accept that a canvas-based brush tool has inherent accessibility 
+  limits and note this rather than over-promising
+ 
+SEO / ON-PAGE CONTENT
+- Title: "Free AI Background Remover for Product Photos — Any Background"
+- Meta description (<155 chars) targeting "ai background remover", 
+  "remove background from image free", "product photo background 
+  remover ai"
+- Below the tool, add ~250-400 words covering:
+    - How it differs from simple color-based removal (works on any 
+      background, not just solid colors — busy scenes, gradients, other 
+      products in frame)
+    - Privacy note: images are processed entirely in the browser and 
+      never uploaded to a server
+    - Tips for best results (good lighting, clear subject-background 
+      contrast still helps even with AI)
+- Add FAQ schema (JSON-LD) for 3-4 questions like "Is my image uploaded 
+  to a server?" and "Why does it take a few seconds to process?"
+ 
+CONVERSION
+- After the tool, add one subtle CTA block: "Spend less time on manual 
+  content creation — VidyBack auto-generates and schedules product videos 
+  from your Shopify catalog." linking to vidyback.com
+- Do NOT gate the tool behind an email wall — fully usable with zero 
+  signup to maximize shares and backlinks
+ 
+Output: the complete, ready-to-publish HTML file.
