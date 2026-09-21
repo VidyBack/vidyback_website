@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <meta name="description" content="Free readability checker for product descriptions. Live Flesch reading ease & grade level score, plus flags for run-ons, passive voice & more.">
+    <title>Free Product Description Readability Checker for Ecommerce</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vidyback.com/readability-checker">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+    <meta property="og:title" content="Free Product Description Readability Checker for Ecommerce">
+    <meta property="og:description" content="Live Flesch reading ease score with inline flags for run-on sentences, passive voice and adverb overuse, right in your browser.">
+    <meta property="og:url" content="https://www.vidyback.com/readability-checker">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free Product Description Readability Checker for Ecommerce">
+    <meta name="twitter:description" content="Live Flesch reading ease score with inline flags for run-on sentences, passive voice and adverb overuse, right in your browser.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <!-- FAQPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a good Flesch reading score for product descriptions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most ecommerce product copy performs best in the 60-80 range, conversational and skimmable. Scores below 50 usually mean the copy has drifted into dense, jargon-heavy writing that's harder to skim on a phone, which is where most shopping happens."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does readability actually affect sales?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Indirectly, yes. Shoppers scan product pages in seconds rather than reading carefully, especially on mobile, so copy that's easy to skim gets the key selling points across before they bounce. Dense paragraphs full of long sentences and jargon are more likely to be skipped entirely."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the syllable count 100% accurate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, and no browser-based tool's is without a full pronunciation dictionary. This tool uses a standard vowel-group counting heuristic, which is accurate for the large majority of English words but can be off by one syllable on unusual or irregular words. Treat the score as a strong estimate, not an exact measurement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between Flesch Reading Ease and Flesch-Kincaid Grade Level?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "They're calculated from the same underlying sentence-length and syllable-count data, just expressed differently. Flesch Reading Ease is a 0-100 score where higher means easier to read. Flesch-Kincaid Grade Level converts that into an approximate US school grade level needed to easily understand the text."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-accent-green: #10b981;
+            --color-accent-red: #dc2626;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scrollbar-gutter: stable; scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition-normal); padding: 20px 0; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; }
+        .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+
+        /* --- Tool Hero --- */
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+        .privacy-note { max-width: 1100px; margin: 18px auto 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .privacy-note i { color: var(--color-accent-green); }
+
+        /* --- Tool layout --- */
+        .tool-section { padding: 36px 0 40px; }
+        .rc-wrap { max-width: 900px; margin: 0 auto; }
+
+        /* Score card */
+        .score-card { background: var(--color-bg-dark); border-radius: var(--border-radius-lg); padding: 30px 24px; text-align: center; margin-bottom: 20px; }
+        .score-empty-msg { color: var(--color-text-light-muted); font-size: 0.95rem; line-height: 1.6; }
+        .score-row { display: flex; align-items: baseline; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .score-number { font-family: var(--font-heading); font-size: 3.4rem; font-weight: 800; line-height: 1; }
+        .score-number.green { color: var(--color-accent-green); }
+        .score-number.amber { color: var(--color-gold); }
+        .score-number.red { color: #f87171; }
+        .score-label { font-size: 1.1rem; font-weight: 700; color: #fff; }
+        .score-sub { font-size: 0.85rem; color: var(--color-text-light-muted); margin-top: 8px; }
+        .grade-level { font-size: 0.9rem; color: var(--color-text-light-muted); margin-top: 4px; }
+        .ecommerce-note { font-size: 0.78rem; color: var(--color-text-light-muted); margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+        .stat-tile { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); padding: 14px 10px; text-align: center; }
+        .stat-tile .val { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: var(--color-text-dark); }
+        .stat-tile .lbl { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); margin-top: 2px; }
+
+        .form-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 24px; margin-bottom: 20px; }
+        .field-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: 8px; }
+        .rc-textarea { width: 100%; min-height: 180px; padding: 14px 16px; border-radius: 12px; border: 1.5px solid var(--color-border); font-size: 0.98rem; line-height: 1.7; font-family: var(--font-body); color: var(--color-text-dark); background: #fff; resize: vertical; }
+        .rc-textarea:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+
+        .highlight-card h3 { font-size: 0.95rem; margin-bottom: 10px; }
+        .highlighted-text { font-size: 0.98rem; line-height: 1.9; color: var(--color-text-main); white-space: pre-wrap; word-wrap: break-word; }
+        .sentence-span.flagged { border-radius: 3px; padding: 1px 1px; cursor: help; }
+        .sentence-span.flag-runon { background: rgba(245,166,35,0.16); border-bottom: 2px solid var(--color-gold); }
+        .sentence-span.flag-passive { background: rgba(29,81,117,0.1); border-bottom: 2px solid var(--color-text-accent); }
+        .sentence-span.flag-adverb { background: rgba(122,66,244,0.1); border-bottom: 2px solid var(--color-purple); }
+        .sentence-span.flag-repeat { background: rgba(220,38,38,0.1); border-bottom: 2px solid var(--color-accent-red); }
+        .flag-icon { font-size: 0.68rem; color: var(--color-text-muted); }
+
+        .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--color-border); }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.76rem; color: var(--color-text-muted); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+        .legend-dot.runon { background: var(--color-gold); }
+        .legend-dot.passive { background: var(--color-text-accent); }
+        .legend-dot.adverb { background: var(--color-purple); }
+        .legend-dot.repeat { background: var(--color-accent-red); }
+
+        /* --- Content Section --- */
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .example-box { background: rgba(122,66,244,0.05); border-left: 4px solid var(--color-purple); border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0; padding: 18px 20px; margin: 20px 0; font-size: 0.92rem; }
+        .example-box .ex-label { font-weight: 700; color: var(--color-text-dark); margin-bottom: 6px; display: block; }
+        .example-box .ex-score { font-size: 0.82rem; color: var(--color-text-accent); font-weight: 700; margin-top: 8px; }
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        footer h4, footer .logo { color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        .app-item a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; }
+            .tool-hero h1 { font-size: 1.8rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; }
+            .app-item:last-child { margin-left: 0; margin-top: 20px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .form-card { padding: 18px 16px; }
+            .score-number { font-size: 2.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Tool Hero --- -->
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Readability <span>Checker</span></h1>
+            <p>Paste a product description to get a live Flesch reading score, plus inline flags for run-on sentences, passive voice, and adverb overuse.</p>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> All analysis runs in your browser — nothing you paste is saved, transmitted, or sent to any AI model.</div>
+        </div>
+    </section>
+
+    <!-- --- Tool --- -->
+    <section class="tool-section">
+        <div class="container">
+            <div class="rc-wrap">
+
+                <div class="score-card">
+                    <div id="scoreEmptyMsg" class="score-empty-msg">Paste at least a sentence or two of product copy below to see your readability score.</div>
+                    <div id="scoreContent" style="display:none;">
+                        <div class="score-row">
+                            <span class="score-number" id="scoreNumber" aria-live="polite">0</span>
+                            <span class="score-label" id="scoreLabel">&mdash;</span>
+                        </div>
+                        <div class="grade-level" id="gradeLevel"></div>
+                        <div class="ecommerce-note">Ecommerce product copy generally performs best in the <strong style="color:#fff;">60-80</strong> range &mdash; conversational and easy to skim on mobile.</div>
+                    </div>
+                </div>
+
+                <div class="stats-bar" id="statsBar" style="display:none;">
+                    <div class="stat-tile"><div class="val" id="statWords">0</div><div class="lbl">Words</div></div>
+                    <div class="stat-tile"><div class="val" id="statSentences">0</div><div class="lbl">Sentences</div></div>
+                    <div class="stat-tile"><div class="val" id="statAvgWords">0</div><div class="lbl">Words / Sentence</div></div>
+                    <div class="stat-tile"><div class="val" id="statAvgSyllables">0</div><div class="lbl">Syllables / Word</div></div>
+                </div>
+
+                <div class="form-card">
+                    <label class="field-label" for="textInput">Product Description</label>
+                    <textarea id="textInput" class="rc-textarea" placeholder="Paste your product description here..." aria-describedby="scoreNumber"></textarea>
+                </div>
+
+                <div class="form-card highlight-card" id="highlightCard" style="display:none;">
+                    <h3>Flagged Sentences</h3>
+                    <div class="highlighted-text" id="highlightedText"></div>
+                    <div class="legend">
+                        <div class="legend-item"><span class="legend-dot runon"></span> Run-on sentence</div>
+                        <div class="legend-item"><span class="legend-dot passive"></span> Passive voice</div>
+                        <div class="legend-item"><span class="legend-dot adverb"></span> Adverb overuse</div>
+                        <div class="legend-item"><span class="legend-dot repeat"></span> Repeated sentence start</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Now Turn That Copy Into Video</h2>
+                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so your best-written listings get seen, not just read.</p>
+                <a href="/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEO Content --- -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>Why Readability Actually Affects Conversion</h2>
+                <p>Shoppers don't read product pages the way they'd read an article, they scan them, deciding in seconds whether to keep reading, add to cart, or bounce, especially on a phone screen. Copy that's easy to skim, short sentences, plain words, gets the key selling points across before that decision happens. Dense, jargon-heavy paragraphs are more likely to be skipped entirely, which means the effort spent writing them never actually reaches the shopper.</p>
+
+                <h2>What "Good" Readability Looks Like, by Content Type</h2>
+                <p>Product and collection pages generally perform best around a <strong>60-80 Flesch Reading Ease</strong> score, conversational, roughly 6th-8th grade level. Blog content can comfortably run a bit denser, since readers arrive already engaged and willing to spend more time. Legal text, privacy policies, terms of service, naturally scores low on any readability formula, and that's expected; it's optimizing for precision, not skimmability, so don't apply the same 60-80 target there.</p>
+
+                <h2>Before and After: A Quick Example</h2>
+                <div class="example-box">
+                    <span class="ex-label">Before</span>
+                    <p style="margin-bottom:0;">"Our meticulously engineered ergonomic office chair utilizes premium-grade breathable mesh fabrication in conjunction with an adjustable lumbar support mechanism, thereby facilitating optimal postural alignment throughout extended periods of seated productivity."</p>
+                    <div class="ex-score">Flesch Reading Ease: ~-29 (Very Difficult, graduate level &mdash; Flesch scores can go negative on dense enough text)</div>
+                </div>
+                <div class="example-box">
+                    <span class="ex-label">After</span>
+                    <p style="margin-bottom:0;">"This ergonomic office chair keeps you comfortable all day. Breathable mesh fabric stays cool. Adjustable lumbar support keeps your back aligned, even on long work days."</p>
+                    <div class="ex-score">Flesch Reading Ease: ~68 (Easy to Fairly Easy, 6th-8th grade)</div>
+                </div>
+                <p>Same product, same features, dramatically easier to skim, just by shortening sentences and swapping "utilizes premium-grade breathable mesh fabrication" for "breathable mesh fabric."</p>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>What is a good Flesch reading score for product descriptions?</h3>
+                        <p>Most ecommerce product copy performs best in the 60-80 range, conversational and skimmable. Scores below 50 usually mean the copy has drifted into dense, jargon-heavy writing that's harder to skim on a phone, which is where most shopping happens.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does readability actually affect sales?</h3>
+                        <p>Indirectly, yes. Shoppers scan product pages in seconds rather than reading carefully, especially on mobile, so copy that's easy to skim gets the key selling points across before they bounce. Dense paragraphs full of long sentences and jargon are more likely to be skipped entirely.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is the syllable count 100% accurate?</h3>
+                        <p>No, and no browser-based tool's is without a full pronunciation dictionary. This tool uses a standard vowel-group counting heuristic, which is accurate for the large majority of English words but can be off by one syllable on unusual or irregular words. Treat the score as a strong estimate, not an exact measurement.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between Flesch Reading Ease and Flesch-Kincaid Grade Level?</h3>
+                        <p>They're calculated from the same underlying sentence-length and syllable-count data, just expressed differently. Flesch Reading Ease is a 0-100 score where higher means easier to read. Flesch-Kincaid Grade Level converts that into an approximate US school grade level needed to easily understand the text.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggleIcon = menuToggle.querySelector('i');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggleIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggleIcon.className = 'fas fa-bars';
+            });
+        });
+    }
+    </script>
+
+    <!-- --- Readability Analysis Engine --- -->
+    <script>
+    (function () {
+        const textInput = document.getElementById('textInput');
+        const scoreEmptyMsg = document.getElementById('scoreEmptyMsg');
+        const scoreContent = document.getElementById('scoreContent');
+        const scoreNumber = document.getElementById('scoreNumber');
+        const scoreLabel = document.getElementById('scoreLabel');
+        const gradeLevel = document.getElementById('gradeLevel');
+        const statsBar = document.getElementById('statsBar');
+        const statWords = document.getElementById('statWords');
+        const statSentences = document.getElementById('statSentences');
+        const statAvgWords = document.getElementById('statAvgWords');
+        const statAvgSyllables = document.getElementById('statAvgSyllables');
+        const highlightCard = document.getElementById('highlightCard');
+        const highlightedText = document.getElementById('highlightedText');
+
+        const MIN_WORDS = 10;
+        const RUNON_WORDS = 30;
+
+        // ---- syllable estimation (rule-based heuristic, not a dictionary lookup) ----
+        function countSyllables(word) {
+            word = word.toLowerCase().replace(/[^a-z]/g, '');
+            if (!word) return 0;
+            if (word.length <= 3) return 1;
+            word = word.replace(/(?:[^aeiouy]es|ed|[^aeiouy]e)$/, '');
+            word = word.replace(/^y/, '');
+            const matches = word.match(/[aeiouy]{1,2}/g);
+            return matches ? Math.max(1, matches.length) : 1;
+        }
+
+        // ---- sentence splitting heuristic ----
+        // Protects common abbreviations and decimal numbers from being treated as
+        // sentence boundaries. This is a heuristic, not a full NLP tokenizer, so
+        // unusual abbreviations or edge-case punctuation may still split incorrectly.
+        function protectText(text) {
+            return text
+                .replace(/\b(e\.g|i\.e|Mr|Mrs|Ms|Dr|Jr|Sr|vs|etc|approx|no|St|Ave|Inc|Ltd|Co)\./gi, m => m.slice(0, -1) + '')
+                .replace(/(\d)\.(\d)/g, '$1$2');
+        }
+
+        function getSentenceSpans(text) {
+            if (!text.trim()) return [];
+            const protectedText = protectText(text);
+            const boundaryRe = /[.!?]+(?=\s|$)/g;
+            const spans = [];
+            let last = 0;
+            let m;
+            while ((m = boundaryRe.exec(protectedText)) !== null) {
+                const end = m.index + m[0].length;
+                if (end > last) spans.push({ start: last, end: end });
+                last = end;
+            }
+            if (last < text.length) spans.push({ start: last, end: text.length });
+            return spans
+                .map(s => ({ start: s.start, end: s.end, text: text.slice(s.start, s.end) }))
+                .filter(s => s.text.trim().length > 0);
+        }
+
+        const PASSIVE_RE = /\b(am|is|are|was|were|be|been|being)\b\s+(\w+ed|\w+en)\b/i;
+
+        function analyzeSentence(sentenceText, prevFirstWord) {
+            const words = (sentenceText.match(/[A-Za-z']+/g) || []);
+            const flags = [];
+
+            if (words.length > RUNON_WORDS) {
+                flags.push({ type: 'runon', message: 'Consider splitting this sentence (' + words.length + ' words).' });
+            }
+            if (PASSIVE_RE.test(sentenceText)) {
+                flags.push({ type: 'passive', message: 'Consider active voice.' });
+            }
+            const adverbs = sentenceText.match(/\b\w+ly\b/gi) || [];
+            if (adverbs.length >= 2) {
+                flags.push({ type: 'adverb', message: 'Multiple adverbs (' + adverbs.join(', ') + ') — consider trimming.' });
+            }
+            const firstWord = words.length ? words[0].toLowerCase() : null;
+            if (firstWord && prevFirstWord && firstWord === prevFirstWord) {
+                flags.push({ type: 'repeat', message: 'Starts with the same word as the previous sentence.' });
+            }
+
+            return { words: words.length, flags: flags, firstWord: firstWord };
+        }
+
+        function analyzeText(text) {
+            const spans = getSentenceSpans(text);
+            const words = (text.match(/[A-Za-z']+/g) || []);
+            const wordCount = words.length;
+
+            let syllableCount = 0;
+            words.forEach(w => { syllableCount += countSyllables(w); });
+
+            let prevFirstWord = null;
+            const analyzedSpans = spans.map(s => {
+                const a = analyzeSentence(s.text, prevFirstWord);
+                prevFirstWord = a.firstWord;
+                return Object.assign({}, s, { flags: a.flags });
+            });
+
+            const sentenceCount = spans.length || (wordCount > 0 ? 1 : 0);
+            const insufficient = wordCount < MIN_WORDS;
+
+            let flesch = null, grade = null;
+            if (!insufficient && sentenceCount > 0) {
+                const wps = wordCount / sentenceCount;
+                const spw = syllableCount / wordCount;
+                flesch = 206.835 - 1.015 * wps - 84.6 * spw;
+                grade = 0.39 * wps + 11.8 * spw - 15.59;
+            }
+
+            return {
+                insufficient: insufficient,
+                wordCount: wordCount,
+                sentenceCount: sentenceCount,
+                syllableCount: syllableCount,
+                flesch: flesch,
+                grade: grade,
+                spans: analyzedSpans
+            };
+        }
+
+        function bandFor(score) {
+            if (score >= 90) return { label: 'Very Easy (5th grade)', color: 'green' };
+            if (score >= 60) return { label: 'Easy to Fairly Easy (6th-8th grade)', color: 'green' };
+            if (score >= 50) return { label: 'Fairly Difficult (10th-12th grade)', color: 'amber' };
+            if (score >= 30) return { label: 'Difficult (college level)', color: 'red' };
+            return { label: 'Very Difficult (graduate level)', color: 'red' };
+        }
+
+        function escapeHtml(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function renderHighlighted(text, spans) {
+            highlightedText.innerHTML = '';
+            let cursor = 0;
+            spans.forEach(s => {
+                if (s.start > cursor) {
+                    highlightedText.appendChild(document.createTextNode(text.slice(cursor, s.start)));
+                }
+                const span = document.createElement('span');
+                const hasFlags = s.flags.length > 0;
+                span.className = 'sentence-span' + (hasFlags ? ' flagged ' + s.flags.map(f => 'flag-' + f.type).join(' ') : '');
+                span.textContent = s.text;
+                if (hasFlags) {
+                    span.title = s.flags.map(f => f.message).join(' · ');
+                }
+                highlightedText.appendChild(span);
+                cursor = s.end;
+            });
+            if (cursor < text.length) {
+                highlightedText.appendChild(document.createTextNode(text.slice(cursor)));
+            }
+        }
+
+        function render() {
+            const text = textInput.value;
+            const result = analyzeText(text);
+
+            if (result.insufficient) {
+                scoreEmptyMsg.style.display = 'block';
+                scoreEmptyMsg.textContent = result.wordCount === 0
+                    ? 'Paste at least a sentence or two of product copy below to see your readability score.'
+                    : 'Keep typing — need at least ' + MIN_WORDS + ' words for a meaningful score (' + result.wordCount + ' so far).';
+                scoreContent.style.display = 'none';
+                statsBar.style.display = 'none';
+                highlightCard.style.display = 'none';
+                return;
+            }
+
+            scoreEmptyMsg.style.display = 'none';
+            scoreContent.style.display = 'block';
+            statsBar.style.display = 'grid';
+            highlightCard.style.display = 'block';
+
+            const clampedScore = Math.max(0, Math.min(100, Math.round(result.flesch)));
+            const band = bandFor(clampedScore);
+            scoreNumber.textContent = Math.round(result.flesch);
+            scoreNumber.className = 'score-number ' + band.color;
+            scoreLabel.textContent = band.label;
+            gradeLevel.textContent = 'Flesch-Kincaid Grade Level: ' + result.grade.toFixed(1);
+
+            statWords.textContent = result.wordCount;
+            statSentences.textContent = result.sentenceCount;
+            statAvgWords.textContent = (result.wordCount / result.sentenceCount).toFixed(1);
+            statAvgSyllables.textContent = (result.syllableCount / result.wordCount).toFixed(2);
+
+            renderHighlighted(text, result.spans);
+        }
+
+        // Debounced live analysis
+        let debounceTimer = null;
+        textInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(render, 400);
+        });
+
+        // seed with a sensible example
+        textInput.value = 'Our meticulously engineered ergonomic office chair utilizes premium-grade breathable mesh fabrication in conjunction with an adjustable lumbar support mechanism, thereby facilitating optimal postural alignment throughout extended periods of seated productivity. It was designed by a team of specialists.';
+        render();
+    })();
+    </script>
+
+    <!-- --- UTM Capture + Forward Script --- -->
+    <script>
+    // Capture UTM params and carry them forward to app.vidyback.com signup links
+    (function() {
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+            document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                var extra = {};
+                if (stored) { for (var k in stored) { extra[k] = stored[k]; } }
+                var label = (a.textContent || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40);
+                if (label) { extra.cta_id = label; }
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) {
+                    var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                    a.href = a.href + sep + qs;
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+<footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Tools -->
+                <nav class="footer-links-col" aria-label="Tools navigation">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                        <li><a href="discount-code-generator">Discount Code Generator</a></li>
+                        <li><a href="serp-preview-tool">Google SERP Preview Tool</a></li>
+                        <li><a href="hashtag-counter">Hashtag Counter</a></li>
+                        <li><a href="tools" style="color:var(--color-gold);font-weight:600;">View all tools &rarr;</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 5: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -221,6 +221,11 @@ to = "/sku-generator"
 status = 301
 
 [[redirects]]
+from = "/readability-checker.html"
+to = "/readability-checker"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
