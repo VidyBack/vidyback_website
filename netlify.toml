@@ -216,6 +216,11 @@ to = "/barcode-generator"
 status = 301
 
 [[redirects]]
+from = "/sku-generator.html"
+to = "/sku-generator"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301

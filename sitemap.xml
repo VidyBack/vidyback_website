@@ -67,6 +67,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://www.vidyback.com/sku-generator</loc>
+        <lastmod>2026-09-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://www.vidyback.com/tools</loc>
         <lastmod>2026-09-18</lastmod>
         <changefreq>monthly</changefreq>
