@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free White Background Remover for Product Photos</title>
-    <meta name="description" content="Remove white or solid-color backgrounds from product photos instantly. BFS flood-fill, tolerance slider, edge feathering — all in your browser. Free, no signup.">
+    <meta name="description" content="Remove white or solid-color backgrounds from product photos instantly. BFS flood-fill, tolerance slider, edge feathering - all in your browser. Free, no signup.">
     <link rel="canonical" href="https://www.vidyback.com/background-remover">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
                 "name": "Does this work on colored backgrounds, not just white?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes — the tool removes any solid, uniform background color, not just white. It samples border pixels to detect the background color automatically, then flood-fills from the image edges inward. Solid grey, beige, light blue, or any flat studio backdrop will work well. It will not work on patterned, gradient, or complex backgrounds."
+                    "text": "Yes - the tool removes any solid, uniform background color, not just white. It samples border pixels to detect the background color automatically, then flood-fills from the image edges inward. Solid grey, beige, light blue, or any flat studio backdrop will work well. It will not work on patterned, gradient, or complex backgrounds."
                 }
             },
             {
@@ -45,7 +45,7 @@
                 "name": "Will this work on photos with shadows?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Soft shadows are difficult — shadow pixels blend between the product and background colors, often falling within the tolerance range and getting erased. For best results use flat, even studio lighting with no visible shadows. If you need to keep a shadow, lower the tolerance slider."
+                    "text": "Soft shadows are difficult - shadow pixels blend between the product and background colors, often falling within the tolerance range and getting erased. For best results use flat, even studio lighting with no visible shadows. If you need to keep a shadow, lower the tolerance slider."
                 }
             },
             {
@@ -53,7 +53,7 @@
                 "name": "Why is part of my product being removed?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The tolerance is likely too high. Lower the slider. Note that the flood-fill only erases pixels connected to the image border — so a white product detail in the center of the frame won't be erased even at high tolerance, because it is not connected to the edge."
+                    "text": "The tolerance is likely too high. Lower the slider. Note that the flood-fill only erases pixels connected to the image border - so a white product detail in the center of the frame won't be erased even at high tolerance, because it is not connected to the edge."
                 }
             },
             {
@@ -61,7 +61,7 @@
                 "name": "Is my image uploaded to a server?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. All processing runs entirely in your browser using the HTML5 Canvas API. Your image never leaves your device — nothing is uploaded, nothing is processed by an AI model or any external service."
+                    "text": "No. All processing runs entirely in your browser using the HTML5 Canvas API. Your image never leaves your device - nothing is uploaded, nothing is processed by an AI model or any external service."
                 }
             }
         ]
@@ -254,9 +254,10 @@
 
 <section class="tool-hero">
     <div class="container">
+        <p style="margin-bottom:14px;"><a href="tools" style="color:rgba(255,255,255,.8);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-arrow-left" style="font-size:.7rem;"></i> All free tools</a></p>
         <span class="badge">Free Tool</span>
         <h1>Free White Background Remover<br>for Product Photos</h1>
-        <p>Best for product photos shot on a plain white or solid-color background. Removes the backdrop instantly &mdash; nothing uploaded to any server.</p>
+        <p>Best for product photos shot on a plain white or solid-color background. Removes the backdrop instantly - nothing uploaded to any server.</p>
         <div class="hero-badges">
             <span class="hero-badge"><i class="fa-solid fa-lock"></i> Nothing uploaded</span>
             <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Instant, in-browser</span>
@@ -272,7 +273,7 @@
             <div id="uploadZone" class="upload-zone" role="button" tabindex="0" aria-label="Click or drag to upload image">
                 <i class="fa-solid fa-cloud-arrow-up big"></i>
                 <h3>Drop your product photo here</h3>
-                <p>PNG, JPG, or WebP &mdash; click or drag &amp; drop</p>
+                <p>PNG, JPG, or WebP - click or drag &amp; drop</p>
                 <div class="scope-note"><i class="fa-solid fa-circle-info"></i> Best for plain white, grey, or solid-color studio backgrounds. Won't work on busy or patterned backgrounds.</div>
                 <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
             </div>
@@ -316,7 +317,7 @@
                             <button id="processBtn" class="btn-process"><i class="fa-solid fa-wand-magic-sparkles"></i> Remove Background</button>
                             <button id="downloadBtn" class="btn-dl"><i class="fa-solid fa-download"></i> Download PNG</button>
                         </div>
-                        <div id="warningBox" class="warning-box"><i class="fa-solid fa-triangle-exclamation"></i> Over 85% of pixels were removed — try lowering the tolerance.</div>
+                        <div id="warningBox" class="warning-box"><i class="fa-solid fa-triangle-exclamation"></i> Over 85% of pixels were removed - try lowering the tolerance.</div>
                     </div>
 
                     <div>
@@ -349,9 +350,9 @@
         <div class="two-col">
             <div>
                 <h2>Why Transparent Product Images Matter</h2>
-                <p>Marketplaces like Amazon, Flipkart, Etsy, and Google Shopping require or strongly prefer product images on white or transparent backgrounds. A transparent PNG gives you maximum flexibility — drop it onto any background color in your ad creatives, catalog pages, or social posts without awkward white boxes.</p>
+                <p>Marketplaces like Amazon, Flipkart, Etsy, and Google Shopping require or strongly prefer product images on white or transparent backgrounds. A transparent PNG gives you maximum flexibility - drop it onto any background color in your ad creatives, catalog pages, or social posts without awkward white boxes.</p>
                 <h3>When this tool works well</h3>
-                <p>This tool is designed for product photos taken in a controlled studio setting — plain white, grey, or solid-color backdrop with consistent, diffused lighting. Lightbox photography, seamless paper sweeps, and flat-lay setups all produce excellent results with minimal tolerance adjustment.</p>
+                <p>This tool is designed for product photos taken in a controlled studio setting - plain white, grey, or solid-color backdrop with consistent, diffused lighting. Lightbox photography, seamless paper sweeps, and flat-lay setups all produce excellent results with minimal tolerance adjustment.</p>
                 <h3>When to reshoot instead</h3>
                 <p>Busy, patterned, or gradient backgrounds cannot be removed by flood-fill. Similarly, photos with harsh shadows, reflective surfaces (glass, chrome), or very fine edges (hair, fur, mesh fabric) will need a professional masking service or manual editing. For those, reshooting on a plain backdrop is faster than trying to fix the image in post.</p>
             </div>
@@ -367,7 +368,7 @@
 
         <div class="cta-strip">
             <h3>Spend less time on manual content creation</h3>
-            <p>VidyBack auto-generates and schedules product videos from your Shopify catalog — with your branding, on autopilot.</p>
+            <p>VidyBack auto-generates and schedules product videos from your Shopify catalog - with your branding, on autopilot.</p>
             <a href="https://www.vidyback.com/" class="cta-btn">Learn About VidyBack <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
@@ -378,19 +379,19 @@
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">Does this work on colored backgrounds, not just white? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
-            <div class="faq-a">Yes — the tool removes any solid, uniform background color. It samples border pixels to detect the color automatically, then flood-fills from the image edges inward. Solid grey, beige, light blue, or any flat studio backdrop will work well. It won't work on patterned, gradient, or complex backgrounds.</div>
+            <div class="faq-a">Yes - the tool removes any solid, uniform background color. It samples border pixels to detect the color automatically, then flood-fills from the image edges inward. Solid grey, beige, light blue, or any flat studio backdrop will work well. It won't work on patterned, gradient, or complex backgrounds.</div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">Will this work on photos with shadows? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
-            <div class="faq-a">Soft shadows are difficult — shadow pixels blend between the product color and background, often falling within the tolerance range and getting partially or fully erased. For best results, use flat even lighting with no visible shadows. If you need to keep a shadow, lower the tolerance slider.</div>
+            <div class="faq-a">Soft shadows are difficult - shadow pixels blend between the product color and background, often falling within the tolerance range and getting partially or fully erased. For best results, use flat even lighting with no visible shadows. If you need to keep a shadow, lower the tolerance slider.</div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">Why is part of my product being removed? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
-            <div class="faq-a">The tolerance is likely too high. Lower the slider. Note that the flood-fill only erases background pixels connected to the image border — a white product detail in the centre of the frame won't be removed even at high tolerance, because it is not connected to the edge.</div>
+            <div class="faq-a">The tolerance is likely too high. Lower the slider. Note that the flood-fill only erases background pixels connected to the image border - a white product detail in the centre of the frame won't be removed even at high tolerance, because it is not connected to the edge.</div>
         </div>
         <div class="faq-item">
             <div class="faq-q" onclick="toggleFaq(this)">Is my image uploaded to a server? <i class="fa-solid fa-chevron-down faq-icon"></i></div>
-            <div class="faq-a">No. All processing runs entirely in your browser using the HTML5 Canvas API. Your image never leaves your device — nothing is uploaded to any server, and nothing is sent to any AI model or external service. The tool works fully offline after the page loads.</div>
+            <div class="faq-a">No. All processing runs entirely in your browser using the HTML5 Canvas API. Your image never leaves your device - nothing is uploaded to any server, and nothing is sent to any AI model or external service. The tool works fully offline after the page loads.</div>
         </div>
     </div>
 </section>

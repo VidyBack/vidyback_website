@@ -8,7 +8,7 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
     <meta name="description" content="Free Google SERP preview tool with pixel-accurate title & description truncation. Check your meta title checker results for desktop and mobile.">
-    <title>Free Google SERP Preview Tool — Meta Title & Description Checker</title>
+    <title>Free Google SERP Preview Tool - Meta Title & Description Checker</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.vidyback.com/serp-preview-tool">
@@ -24,12 +24,12 @@
     <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
     <meta property="og:image:width" content="640">
     <meta property="og:image:height" content="360">
-    <meta property="og:title" content="Free Google SERP Preview Tool — Meta Title & Description Checker">
+    <meta property="og:title" content="Free Google SERP Preview Tool - Meta Title & Description Checker">
     <meta property="og:description" content="See exactly how your title and description will render in Google search, with pixel-accurate truncation, right in your browser.">
     <meta property="og:url" content="https://www.vidyback.com/serp-preview-tool">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@vidyback">
-    <meta name="twitter:title" content="Free Google SERP Preview Tool — Meta Title & Description Checker">
+    <meta name="twitter:title" content="Free Google SERP Preview Tool - Meta Title & Description Checker">
     <meta name="twitter:description" content="See exactly how your title and description will render in Google search, with pixel-accurate truncation, right in your browser.">
     <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
 
@@ -317,10 +317,11 @@
     <!-- --- Tool Hero --- -->
     <section class="tool-hero">
         <div class="container">
-            <span class="badge">Free Tool</span>
+            <p style="margin-bottom:14px;"><a href="tools" style="color:rgba(255,255,255,.8);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-arrow-left" style="font-size:.7rem;"></i> All free tools</a></p>
+        <span class="badge">Free Tool</span>
             <h1>Google SERP <span>Preview Tool</span></h1>
             <p>See exactly how your title and description will look in Google search, truncated by real pixel width, not a guessed character count.</p>
-            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Measured entirely in your browser with canvas text metrics — no data ever leaves your device.</div>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Measured entirely in your browser with canvas text metrics - no data ever leaves your device.</div>
         </div>
     </section>
 
@@ -336,7 +337,7 @@
 
                         <div class="field-group">
                             <label class="field-label" for="titleInput">Page Title (Meta Title)</label>
-                            <input type="text" id="titleInput" class="text-input" placeholder="e.g. Handmade Leather Wallets — Free Shipping | Northwind Goods" autocomplete="off">
+                            <input type="text" id="titleInput" class="text-input" placeholder="e.g. Handmade Leather Wallets - Free Shipping | Northwind Goods" autocomplete="off">
                             <div class="field-counter">
                                 <span class="counter-text" id="titleCharCount">0 characters</span>
                                 <span class="counter-text" id="titlePxCount">0 / 580px</span>
@@ -443,13 +444,13 @@
                 <p>Google doesn't count characters when it decides whether to truncate your title or description, it measures rendered width in pixels. Letters aren't all the same width: an "i" or "l" takes up a fraction of the space a "W" or "M" does. That means two titles with the exact same character count can behave completely differently, one fits cleanly, the other gets cut off mid-word with an ellipsis. This is the single most common thing generic character-counter tools get wrong, and why this tool measures actual rendered text width instead of just counting letters.</p>
 
                 <h2>Ideal Length for Ecommerce Product & Collection Pages</h2>
-                <p>As a starting range, most product and collection page titles fit comfortably within <strong>50-60 characters</strong>, and descriptions within <strong>150-160 characters</strong>, but always confirm against the pixel meter above since your specific letters will vary. Product pages tend to work well with a pattern like <em>Product Name — Key Benefit | Brand</em>, while collection pages often lead with the category and a value prop, like <em>Leather Wallets for Men — Handmade, Free Shipping</em>.</p>
+                <p>As a starting range, most product and collection page titles fit comfortably within <strong>50-60 characters</strong>, and descriptions within <strong>150-160 characters</strong>, but always confirm against the pixel meter above since your specific letters will vary. Product pages tend to work well with a pattern like <em>Product Name - Key Benefit | Brand</em>, while collection pages often lead with the category and a value prop, like <em>Leather Wallets for Men - Handmade, Free Shipping</em>.</p>
 
                 <h2>Front-Load Your Primary Keyword</h2>
                 <p>Because truncation always cuts from the end, whatever you put first is the safest part of your title. Put your primary keyword and the most compelling reason to click near the front, and push less critical information, like your brand name, toward the end where it's more expendable if space runs out.</p>
                 <div class="example-box">
                     <p><strong>Weaker:</strong> "Northwind Goods | Premium Handcrafted Leather Wallets For Men and Women, Made in the USA"</p>
-                    <p><strong>Stronger:</strong> "Handmade Leather Wallets for Men & Women — Northwind Goods"</p>
+                    <p><strong>Stronger:</strong> "Handmade Leather Wallets for Men & Women - Northwind Goods"</p>
                 </div>
                 <p>The second version leads with the searchable keyword phrase, keeps the brand name at the end where it's safe to lose, and is far more likely to survive truncation intact on both desktop and mobile.</p>
 
@@ -615,7 +616,7 @@
             const rawTitle = titleInput.value;
             const domain = renderUrlBreadcrumb(urlInput.value);
             const titleIsFallback = !rawTitle.trim();
-            const effectiveTitle = titleIsFallback ? (domain + ' — Shop Online') : rawTitle.trim();
+            const effectiveTitle = titleIsFallback ? (domain + ' - Shop Online') : rawTitle.trim();
             const titleFull = measureWidth(effectiveTitle, limits.titleFontPx);
             const titleResult = truncateToWidth(effectiveTitle, limits.titleFontPx, limits.titlePx);
             previewTitle.textContent = titleResult.text;
@@ -646,8 +647,8 @@
             // Fallback note
             if (titleIsFallback || descIsFallback) {
                 let msg = [];
-                if (titleIsFallback) msg.push('no title set — Google will likely pull one from your page’s H1 or site name');
-                if (descIsFallback) msg.push('no description set — Google will likely generate a snippet from page content');
+                if (titleIsFallback) msg.push('no title set - Google will likely pull one from your page’s H1 or site name');
+                if (descIsFallback) msg.push('no description set - Google will likely generate a snippet from page content');
                 fallbackNoteText.textContent = capitalize(msg.join('; and '));
                 fallbackNote.style.display = 'flex';
             } else {
@@ -702,7 +703,7 @@
         });
 
         // seed with a sensible starting example
-        titleInput.value = 'Handmade Leather Wallets — Free Shipping | Northwind Goods';
+        titleInput.value = 'Handmade Leather Wallets - Free Shipping | Northwind Goods';
         descInput.value = 'Shop handcrafted full-grain leather wallets built to last. Free shipping on orders over $50 and a lifetime repair guarantee.';
         urlInput.value = 'northwindgoods.com/collections/wallets';
         render();

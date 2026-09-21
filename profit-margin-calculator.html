@@ -316,7 +316,8 @@
     <!-- --- Tool Hero --- -->
     <section class="tool-hero">
         <div class="container">
-            <span class="badge">Free Tool</span>
+            <p style="margin-bottom:14px;"><a href="tools" style="color:rgba(255,255,255,.8);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-arrow-left" style="font-size:.7rem;"></i> All free tools</a></p>
+        <span class="badge">Free Tool</span>
             <h1>Profit Margin <span>Calculator</span></h1>
             <p>Enter any two values, cost, selling price or margin, and the third solves itself as you type. No signup, no email wall, just the numbers.</p>
         </div>
@@ -572,12 +573,12 @@
         }
 
         function fmtMoney(n) {
-            if (!isFinite(n)) return '—';
+            if (!isFinite(n)) return '-';
             return currentSymbol() + n.toFixed(2);
         }
 
         function fmtPct(n) {
-            if (!isFinite(n)) return '—';
+            if (!isFinite(n)) return '-';
             return n.toFixed(1).replace(/\.0$/, '') + '%';
         }
 

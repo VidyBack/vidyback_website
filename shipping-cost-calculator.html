@@ -342,7 +342,8 @@
     <!-- --- Tool Hero --- -->
     <section class="tool-hero">
         <div class="container">
-            <span class="badge">Free Tool</span>
+            <p style="margin-bottom:14px;"><a href="tools" style="color:rgba(255,255,255,.8);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-arrow-left" style="font-size:.7rem;"></i> All free tools</a></p>
+        <span class="badge">Free Tool</span>
             <h1>Shipping Cost & <span>Dimensional Weight Calculator</span></h1>
             <p>Enter a package's weight and dimensions to see whether your courier bills you by actual weight or dimensional weight, and estimate the shipping cost either way.</p>
         </div>
@@ -417,10 +418,10 @@
                                 </div>
                             </div>
                             <select class="select-input" id="divisorSelect" aria-label="DIM divisor preset">
-                                <option value="5000" selected>5000 — International couriers (cm/kg)</option>
-                                <option value="6000">6000 — Air freight (cm/kg)</option>
-                                <option value="139">139 — US domestic (in/lb)</option>
-                                <option value="166">166 — US domestic air (in/lb)</option>
+                                <option value="5000" selected>5000 - International couriers (cm/kg)</option>
+                                <option value="6000">6000 - Air freight (cm/kg)</option>
+                                <option value="139">139 - US domestic (in/lb)</option>
+                                <option value="166">166 - US domestic air (in/lb)</option>
                                 <option value="custom">Custom divisor</option>
                             </select>
                             <div class="field-group" id="customDivisorWrap" style="display:none; margin-top:10px; margin-bottom:0;">
@@ -663,11 +664,11 @@
             return currencySelect.value || '$';
         }
         function fmtMoney(n) {
-            if (!isFinite(n)) return '—';
+            if (!isFinite(n)) return '-';
             return currentSymbol() + n.toFixed(2);
         }
         function fmtWeight(n) {
-            if (!isFinite(n)) return '—';
+            if (!isFinite(n)) return '-';
             return n.toFixed(2) + ' ' + weightUnit;
         }
         function round3(n) {
