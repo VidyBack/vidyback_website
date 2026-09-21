@@ -8,7 +8,7 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
     <meta name="description" content="Free QR code generator for ecommerce packaging, print & in-store displays. URLs, WiFi, vCards & more. Runs fully offline in your browser.">
-    <title>Free QR Code Generator for Ecommerce — Packaging, Print & In-Store</title>
+    <title>Free QR Code Generator for Ecommerce - Packaging, Print & In-Store</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.vidyback.com/free-online-qr-code-generator">
@@ -24,12 +24,12 @@
     <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
     <meta property="og:image:width" content="640">
     <meta property="og:image:height" content="360">
-    <meta property="og:title" content="Free QR Code Generator for Ecommerce — Packaging, Print & In-Store">
+    <meta property="og:title" content="Free QR Code Generator for Ecommerce - Packaging, Print & In-Store">
     <meta property="og:description" content="Build a print-ready QR code for URLs, WiFi, vCards, email, SMS and more, fully offline in your browser.">
     <meta property="og:url" content="https://www.vidyback.com/free-online-qr-code-generator">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@vidyback">
-    <meta name="twitter:title" content="Free QR Code Generator for Ecommerce — Packaging, Print & In-Store">
+    <meta name="twitter:title" content="Free QR Code Generator for Ecommerce - Packaging, Print & In-Store">
     <meta name="twitter:description" content="Build a print-ready QR code for URLs, WiFi, vCards, email, SMS and more, fully offline in your browser.">
     <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
 
@@ -57,7 +57,7 @@
             },
             {
                 "@type": "Question",
-                "name": "Static vs dynamic QR codes — which do I need?",
+                "name": "Static vs dynamic QR codes - which do I need?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "A static QR code is free, permanent, and best when the destination will never change, such as a WiFi network or a fixed product page. A dynamic QR code costs more (usually a subscription) but lets you redirect an already-printed code to a new URL later, useful for packaging you can't easily reprint."
@@ -335,10 +335,11 @@
     <!-- --- Tool Hero --- -->
     <section class="tool-hero">
         <div class="container">
-            <span class="badge">Free Tool</span>
+            <p style="margin-bottom:14px;"><a href="tools" style="color:var(--color-text-muted);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-arrow-left" style="font-size:.7rem;"></i> All free tools</a></p>
+        <span class="badge">Free Tool</span>
             <h1>QR Code <span>Generator</span></h1>
             <p>Build a print-ready QR code for a product page, WiFi network, contact card and more. Updates live as you type, exports in PNG and vector SVG.</p>
-            <div class="privacy-note"><i class="fa-solid fa-lock"></i> The QR encoder runs entirely in your browser — no network calls, no data ever leaves your device.</div>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> The QR encoder runs entirely in your browser - no network calls, no data ever leaves your device.</div>
         </div>
     </section>
 
@@ -473,10 +474,10 @@
                             <div class="field-group" style="margin-bottom:0;">
                                 <label class="field-label" for="ecLevelSelect">Error Correction <span style="font-weight:400; color:var(--color-text-muted); cursor:help;" title="Higher levels survive smudging, scuffing and small print defects better, at the cost of a denser code. H is recommended for packaging and print.">(?)</span></label>
                                 <select id="ecLevelSelect" class="select-input">
-                                    <option value="L">L — Low (~7%)</option>
-                                    <option value="M">M — Medium (~15%)</option>
-                                    <option value="Q">Q — Quartile (~25%)</option>
-                                    <option value="H" selected>H — High (~30%) — recommended for print</option>
+                                    <option value="L">L - Low (~7%)</option>
+                                    <option value="M">M - Medium (~15%)</option>
+                                    <option value="Q">Q - Quartile (~25%)</option>
+                                    <option value="H" selected>H - High (~30%) - recommended for print</option>
                                 </select>
                             </div>
                             <div class="field-group" style="margin-bottom:0;">
@@ -597,7 +598,7 @@
                         <p>A static QR code, like the ones this tool generates, never expires; the data is encoded directly into the pattern and works for as long as the destination itself remains valid. Only paid dynamic QR services, which redirect through a URL you control, can expire if that subscription lapses.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>Static vs dynamic QR codes — which do I need?</h3>
+                        <h3>Static vs dynamic QR codes - which do I need?</h3>
                         <p>A static QR code is free, permanent, and best when the destination will never change, such as a WiFi network or a fixed product page. A dynamic QR code costs more (usually a subscription) but lets you redirect an already-printed code to a new URL later, useful for packaging you can't easily reprint.</p>
                     </div>
                     <div class="faq-item">
@@ -3388,7 +3389,7 @@ qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
         bulkGenerateBtn.addEventListener('click', async () => {
             const lines = bulkTextarea.value.split('\n').map(l => l.trim()).filter(Boolean);
             if (!lines.length) { bulkStatus.textContent = 'Add at least one line first.'; return; }
-            if (lines.length > 200) { bulkStatus.textContent = 'Limit is 200 items per batch — trim your list.'; return; }
+            if (lines.length > 200) { bulkStatus.textContent = 'Limit is 200 items per batch - trim your list.'; return; }
 
             bulkGenerateBtn.disabled = true;
             const size = parseInt(exportSizeSelect.value, 10);
@@ -3440,7 +3441,7 @@ qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
             const url = URL.createObjectURL(zipBlob);
             triggerDownload(url, 'qr-codes.zip');
             setTimeout(() => URL.revokeObjectURL(url), 2000);
-            bulkStatus.textContent = 'Done — downloaded ' + files.length + ' QR code' + (files.length > 1 ? 's' : '') + ' as a ZIP.';
+            bulkStatus.textContent = 'Done - downloaded ' + files.length + ' QR code' + (files.length > 1 ? 's' : '') + ' as a ZIP.';
             bulkGenerateBtn.disabled = false;
         });
 

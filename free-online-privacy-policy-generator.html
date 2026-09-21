@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap"></noscript>
-    <meta name="description" content="Free privacy policy generator for Shopify & ecommerce stores. Build a GDPR/CCPA-aware template instantly — no signup, nothing stored.">
+    <meta name="description" content="Free privacy policy generator for Shopify & ecommerce stores. Build a GDPR/CCPA-aware template instantly - no signup, nothing stored.">
     <title>Free Privacy Policy Generator for Shopify & Ecommerce Stores</title>
 
     <!-- Canonical URL -->
@@ -60,7 +60,7 @@
                 "name": "Does this tool store or transmit any of my data?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. The entire policy is assembled in your browser using plain JavaScript. Nothing you type into this form is saved, transmitted to a server, or sent to any AI model — closing the tab clears everything."
+                    "text": "No. The entire policy is assembled in your browser using plain JavaScript. Nothing you type into this form is saved, transmitted to a server, or sent to any AI model - closing the tab clears everything."
                 }
             },
             {
@@ -314,7 +314,8 @@
     <!-- --- Tool Hero --- -->
     <section class="tool-hero">
         <div class="container">
-            <span class="badge">Free Tool</span>
+            <p style="margin-bottom:14px;"><a href="tools" style="color:var(--color-text-muted);font-size:.85rem;font-weight:500;display:inline-flex;align-items:center;gap:6px;"><i class="fa-solid fa-arrow-left" style="font-size:.7rem;"></i> All free tools</a></p>
+        <span class="badge">Free Tool</span>
             <h1>Privacy Policy <span>Generator</span></h1>
             <p>Answer a few questions about your store and get a formatted privacy policy template, updating live as you type. Nothing you enter ever leaves your browser.</p>
 
@@ -325,7 +326,7 @@
                     <p>This tool generates a general-purpose template for informational purposes only. It is not legal advice and does not guarantee compliance with GDPR, CCPA, or any other law. Consult a qualified lawyer before publishing your privacy policy.</p>
                 </div>
             </div>
-            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Everything runs client-side in your browser — nothing you type is saved, transmitted, or sent to any server or AI model.</div>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Everything runs client-side in your browser - nothing you type is saved, transmitted, or sent to any server or AI model.</div>
         </div>
     </section>
 
@@ -430,7 +431,7 @@
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <div>
                             <strong>Not Legal Advice</strong>
-                            <p>General-purpose template only — not a guarantee of GDPR/CCPA compliance. Have a lawyer review before publishing.</p>
+                            <p>General-purpose template only - not a guarantee of GDPR/CCPA compliance. Have a lawyer review before publishing.</p>
                         </div>
                     </div>
 
@@ -593,12 +594,12 @@
                 ? dataItems.map(i => '  - ' + i).join('\n')
                 : '  - Basic information necessary to operate the Site and fulfill orders';
 
-            const toolItems = ['Shopify — our ecommerce platform, which processes and stores order and customer data to operate the Site. (Shopify Privacy Policy: https://www.shopify.com/legal/privacy)'];
-            if (cbGA.checked) toolItems.push('Google Analytics — used to understand how visitors use our Site. (Google Privacy Policy: https://policies.google.com/privacy)');
-            if (cbPixel.checked) toolItems.push('Meta (Facebook) Pixel — used to measure and improve the effectiveness of our advertising on Meta platforms. (Meta Privacy Policy: https://www.facebook.com/privacy/policy/)');
-            if (cbEmailTool.checked) toolItems.push('Email marketing platform (such as Klaviyo or Mailchimp) — used to send order updates and, where you have opted in, marketing communications.');
-            if (cbPaymentProcessor.checked) toolItems.push('Payment processor (such as Stripe, PayPal, or Razorpay) — used to securely process your payment. We do not store your full payment card information on our servers.');
-            if (cbLiveChat.checked) toolItems.push('Live chat tool — used to provide customer support directly on our Site.');
+            const toolItems = ['Shopify - our ecommerce platform, which processes and stores order and customer data to operate the Site. (Shopify Privacy Policy: https://www.shopify.com/legal/privacy)'];
+            if (cbGA.checked) toolItems.push('Google Analytics - used to understand how visitors use our Site. (Google Privacy Policy: https://policies.google.com/privacy)');
+            if (cbPixel.checked) toolItems.push('Meta (Facebook) Pixel - used to measure and improve the effectiveness of our advertising on Meta platforms. (Meta Privacy Policy: https://www.facebook.com/privacy/policy/)');
+            if (cbEmailTool.checked) toolItems.push('Email marketing platform (such as Klaviyo or Mailchimp) - used to send order updates and, where you have opted in, marketing communications.');
+            if (cbPaymentProcessor.checked) toolItems.push('Payment processor (such as Stripe, PayPal, or Razorpay) - used to securely process your payment. We do not store your full payment card information on our servers.');
+            if (cbLiveChat.checked) toolItems.push('Live chat tool - used to provide customer support directly on our Site.');
             const toolsSection = toolItems.map(i => '  - ' + i).join('\n');
 
             const cookiesSection = cookiesAdYes.checked
@@ -670,7 +671,7 @@ storeName + addressLine + '\n' +
                 await navigator.clipboard.writeText(currentPolicyText);
                 copyStatus.textContent = 'Copied to clipboard!';
             } catch (e) {
-                copyStatus.textContent = 'Could not copy automatically — select the text and copy manually.';
+                copyStatus.textContent = 'Could not copy automatically - select the text and copy manually.';
             }
             setTimeout(() => { copyStatus.textContent = ''; }, 2500);
         });
