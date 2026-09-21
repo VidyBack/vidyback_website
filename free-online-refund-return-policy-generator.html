@@ -807,24 +807,40 @@
 
     <script>
     (function() {
-        var UTM_KEYS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
         try {
             var params = new URLSearchParams(window.location.search);
-            var found = {}, hasAny = false;
-            UTM_KEYS.forEach(function(k) { var v = params.get(k); if (v) { found[k]=v; hasAny=true; } });
-            if (hasAny) localStorage.setItem("vb_utm", JSON.stringify(found));
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
             var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
-            var pagePath = window.location.pathname.replace(/^\/|\/$/g,"") || "home";
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+            var toolSlug = pagePath.replace(/^free-online-/, "");
             document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
                 var extra = {};
-                if (stored) { for (var k in stored) extra[k]=stored[k]; }
-                var label = (a.textContent||"").trim().toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"").slice(0,40);
-                if (label) extra.cta_id = label;
+                if (stored) {
+                    for (var k in stored) { extra[k] = stored[k]; }
+                } else {
+                    extra.utm_source = "free_tools";
+                    extra.utm_medium = "referral";
+                    extra.utm_campaign = toolSlug;
+                }
+                var label = (a.textContent || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40);
+                if (label) { extra.cta_id = label; }
                 extra.cta_page = pagePath;
                 var qs = new URLSearchParams(extra).toString();
-                if (qs) { var sep = a.href.indexOf("?")===-1?"?":"&"; a.href = a.href+sep+qs; }
+                if (qs) {
+                    var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                    a.href = a.href + sep + qs;
+                }
             });
-        } catch(e) {}
+        } catch (e) {}
     })();
     </script>
 

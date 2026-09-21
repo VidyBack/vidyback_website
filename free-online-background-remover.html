@@ -501,15 +501,25 @@
 
     /* ── UTM ── */
     (function () {
-        var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+        var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
         try {
             var p = new URLSearchParams(window.location.search), u = {};
             KEYS.forEach(function (k) { if (p.get(k)) u[k] = p.get(k); });
             if (Object.keys(u).length) { sessionStorage.setItem('vb_utms', JSON.stringify(u)); }
-            else {
+            var stored = u;
+            if (!Object.keys(stored).length) {
                 var s = sessionStorage.getItem('vb_utms');
-                if (s) { var su = JSON.parse(s); document.querySelectorAll('a[href*="vidyback"]').forEach(function (a) { try { var url = new URL(a.href); Object.keys(su).forEach(function (k) { url.searchParams.set(k, su[k]); }); a.href = url.toString(); } catch (e) {} }); }
+                if (s) { stored = JSON.parse(s); }
             }
+            var toolSlug = window.location.pathname.replace(/^\/|\/$/g, '').replace(/^free-online-/, '') || 'home';
+            var defaults = Object.keys(stored).length ? stored : { utm_source: 'free_tools', utm_medium: 'referral', utm_campaign: toolSlug };
+            document.querySelectorAll('a[href*="vidyback"]').forEach(function (a) {
+                try {
+                    var url = new URL(a.href);
+                    Object.keys(defaults).forEach(function (k) { url.searchParams.set(k, defaults[k]); });
+                    a.href = url.toString();
+                } catch (e) {}
+            });
         } catch (e) {}
     })();
 
