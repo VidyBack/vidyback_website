@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+    <meta name="description" content="Free barcode generator for Code128, EAN-13 & UPC-A. Valid check digits, PNG/SVG export & bulk ZIP — runs fully offline in your browser.">
+    <title>Free Barcode Generator — Code128, EAN-13, UPC-A for Ecommerce</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.vidyback.com/barcode-generator">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="VidyBack">
+    <meta property="og:image" content="https://www.vidyback.com/images/og-image.png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+    <meta property="og:title" content="Free Barcode Generator — Code128, EAN-13, UPC-A for Ecommerce">
+    <meta property="og:description" content="Generate scannable Code128, EAN-13, UPC-A and Code39 barcodes with valid check digits, right in your browser.">
+    <meta property="og:url" content="https://www.vidyback.com/barcode-generator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vidyback">
+    <meta name="twitter:title" content="Free Barcode Generator — Code128, EAN-13, UPC-A for Ecommerce">
+    <meta name="twitter:description" content="Generate scannable Code128, EAN-13, UPC-A and Code39 barcodes with valid check digits, right in your browser.">
+    <meta name="twitter:image" content="https://www.vidyback.com/images/og-image.png">
+
+    <!-- FAQPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What's the difference between a UPC and a barcode?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A barcode is the general term for the scannable pattern of bars and spaces. UPC (Universal Product Code) is one specific barcode format, standardized as UPC-A, widely used for retail products in the US and Canada. Other common barcode formats include EAN-13 (the international equivalent) and Code128 (a flexible general-purpose format used for internal labels)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I generate my own UPC codes for free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This tool generates a scannable UPC-A symbol with a valid check digit from any 11 or 12 digit number you provide, which works for internal labeling, warehouse use, and testing. However, an officially licensed UPC number for retail sale or marketplace listing (like Amazon) requires registering a GTIN with GS1. A self-generated barcode is not the same as an officially assigned UPC, and major marketplaces can reject unlicensed codes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a check digit and why does it matter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A check digit is a final digit calculated from the other digits in a code using a fixed formula. Scanners recalculate it after reading a barcode and reject the scan if it doesn't match, which catches printing defects, smudges, or typos before bad data ever reaches your inventory system. EAN-13 and UPC-A both require a valid check digit to scan correctly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between EAN-13 and UPC-A?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "EAN-13 (13 digits) is the international retail barcode standard used across Europe and most of the world. UPC-A (12 digits) is the US and Canada retail standard, and is technically a subset of EAN-13 with an implied leading zero. Most modern scanners read both formats interchangeably."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P738P31V8L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P738P31V8L');
+    </script>
+
+    <style>
+        :root {
+            --color-bg: #FAF6F0;
+            --color-bg-alt: #ffffff;
+            --color-bg-dark: #204a6b;
+            --color-text-main: #2b3945;
+            --color-text-muted: #5e6d7a;
+            --color-text-dark: #121f2b;
+            --color-text-light: #ffffff;
+            --color-text-light-muted: #cbd5e1;
+            --color-gold: #f5a623;
+            --color-purple: #7a42f4;
+            --color-purple-hover: #5e28d9;
+            --color-text-accent: #1d5175;
+            --color-border: rgba(32, 74, 107, 0.08);
+            --color-accent-green: #10b981;
+            --color-accent-red: #dc2626;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'SFMono-Regular', Menlo, Consolas, monospace;
+            --shadow-sm: 0 1px 3px 0 rgba(32, 74, 107, 0.03), 0 1px 2px -1px rgba(32, 74, 107, 0.03);
+            --shadow-md: 0 4px 6px -1px rgba(32, 74, 107, 0.05), 0 2px 4px -2px rgba(32, 74, 107, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(32, 74, 107, 0.08), 0 8px 10px -6px rgba(32, 74, 107, 0.08);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 16px;
+            --border-radius-lg: 24px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scrollbar-gutter: stable; scroll-behavior: smooth; font-size: 16px; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; color: var(--color-text-dark); }
+        a { color: inherit; text-decoration: none; transition: var(--transition-fast); }
+        button { font-family: inherit; }
+        ul { list-style: none; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: var(--border-radius-md); font-weight: 600; font-size: 0.95rem; transition: var(--transition-normal); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-purple); color: #fff; box-shadow: 0 4px 15px rgba(122,66,244,0.2); }
+        .btn-primary:hover { background: var(--color-purple-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122,66,244,0.35); }
+        .btn-primary span { display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-secondary { background: rgba(32,74,107,0.04); color: var(--color-text-dark); border: 1px solid var(--color-border); }
+        .btn-secondary:hover { background: rgba(32,74,107,0.08); }
+        .btn-block { width: 100%; }
+        .badge { display: inline-block; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 50px; background: rgba(29,81,117,0.07); color: var(--color-text-accent); border: 1px solid rgba(29,81,117,0.15); margin-bottom: 14px; }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition-normal); padding: 20px 0; background: rgba(250, 246, 240, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--color-border); }
+        header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-text-dark); }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { color: #1d5175; }
+        .logo-text span { color: #1d5175; }
+        .nav-menu { display: flex; align-items: center; gap: 36px; }
+        .nav-link { font-size: 0.95rem; font-weight: 500; color: var(--color-text-muted); }
+        .nav-link:hover, .nav-link.active { color: var(--color-text-dark); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--color-text-dark); background: none; border: none; cursor: pointer; }
+
+        /* --- Tool Hero --- */
+        .tool-hero { padding: 150px 0 20px; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(122,66,244,0.06) 0%, rgba(250,246,240,0) 60%); }
+        .tool-hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--color-text-dark); }
+        .tool-hero h1 span { color: var(--color-text-accent); }
+        .tool-hero p { font-size: 1.1rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+        .privacy-note { max-width: 1100px; margin: 18px auto 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .privacy-note i { color: var(--color-accent-green); }
+        .gs1-note { max-width: 900px; margin: 14px auto 0; text-align: center; font-size: 0.8rem; color: #92400e; background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.3); border-radius: 10px; padding: 10px 16px; }
+
+        /* --- Tool layout --- */
+        .tool-section { padding: 36px 0 40px; }
+        .bc-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1300px; margin: 0 auto; align-items: start; }
+        @media (min-width: 960px) { .bc-grid { grid-template-columns: 1fr 1.05fr; gap: 28px; } }
+
+        .form-card { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: 26px 24px; margin-bottom: 20px; }
+        .form-card h3 { font-size: 1.05rem; margin-bottom: 16px; }
+        .field-group { margin-bottom: 18px; }
+        .field-group:last-child { margin-bottom: 0; }
+        .field-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: 7px; }
+        .field-hint { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px; }
+        .text-input, .textarea-input, .select-input { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--color-border); font-size: 0.95rem; font-weight: 500; color: var(--color-text-dark); font-family: var(--font-body); background: #fff; transition: var(--transition-fast); }
+        .text-input:focus, .textarea-input:focus, .select-input:focus { outline: none; border-color: var(--color-purple); box-shadow: 0 0 0 3px rgba(122,66,244,0.12); }
+        .code-input { font-family: var(--font-mono); font-size: 1.05rem; letter-spacing: 0.02em; }
+        .textarea-input { resize: vertical; min-height: 70px; }
+
+        .symbology-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+        .symbology-tab { padding: 9px 15px; border-radius: 10px; border: 1.5px solid var(--color-border); background: #fff; font-size: 0.83rem; font-weight: 700; color: var(--color-text-muted); cursor: pointer; transition: var(--transition-fast); }
+        .symbology-tab:hover { border-color: var(--color-purple); color: var(--color-text-dark); }
+        .symbology-tab.active { background: var(--color-purple); color: #fff; border-color: var(--color-purple); }
+
+        .error-msg { background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.25); color: var(--color-accent-red); font-size: 0.82rem; padding: 10px 14px; border-radius: var(--border-radius-sm); margin-top: 10px; display: none; }
+        .error-msg.show { display: block; }
+        .fix-btn { margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: var(--color-accent-red); background: none; border: 1px solid currentColor; border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+        .check-digit-note { font-size: 0.78rem; color: var(--color-text-accent); background: rgba(29,81,117,0.06); border-radius: 8px; padding: 8px 12px; margin-top: 10px; display: none; }
+        .check-digit-note.show { display: block; }
+        .check-digit-note strong { font-family: var(--font-mono); }
+
+        .range-row { display: flex; align-items: center; gap: 12px; }
+        .range-row input[type="range"] { flex: 1; accent-color: var(--color-purple); }
+        .range-value { font-size: 0.85rem; font-weight: 700; color: var(--color-text-dark); min-width: 48px; text-align: right; }
+        .height-warning { font-size: 0.76rem; color: #b45309; margin-top: 6px; display: none; }
+        .height-warning.show { display: block; }
+
+        .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 4px 0; gap: 10px; }
+        .toggle-row .field-label-main { display: flex; align-items: center; gap: 6px; margin-bottom: 0; }
+        .switch { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .switch-track { position: absolute; inset: 0; background: rgba(32,74,107,0.18); border-radius: 20px; cursor: pointer; transition: var(--transition-fast); }
+        .switch-track::before { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: var(--transition-fast); }
+        .switch input:checked + .switch-track { background: var(--color-purple); }
+        .switch input:checked + .switch-track::before { transform: translateX(18px); }
+
+        .info-btn { width: 16px; height: 16px; border-radius: 50%; background: rgba(29,81,117,0.1); color: var(--color-text-accent); font-size: 0.66rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: none; cursor: help; position: relative; flex-shrink: 0; }
+        .info-btn .tooltip-bubble { visibility: hidden; opacity: 0; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%) translateY(4px); background: var(--color-text-dark); color: #fff; font-size: 0.76rem; font-weight: 500; line-height: 1.4; padding: 9px 11px; border-radius: 8px; width: max-content; max-width: 220px; text-align: left; box-shadow: var(--shadow-md); transition: opacity 0.15s ease, transform 0.15s ease; z-index: 20; }
+        .info-btn .tooltip-bubble::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--color-text-dark); }
+        .info-btn:hover .tooltip-bubble, .info-btn:focus .tooltip-bubble { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Preview column */
+        .preview-col { position: relative; }
+        @media (min-width: 960px) { .preview-col { position: sticky; top: 100px; } }
+        .barcode-stage { background: #fff; border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+        .barcode-canvas-wrap { width: 100%; overflow-x: auto; display: flex; justify-content: center; }
+        #barcodeCanvas { image-rendering: pixelated; max-width: 100%; }
+        .barcode-empty-msg { font-size: 0.9rem; color: var(--color-text-muted); text-align: center; padding: 40px 20px; font-family: var(--font-body); }
+
+        .export-actions { display: flex; gap: 10px; width: 100%; margin-top: 22px; flex-wrap: wrap; }
+        .export-actions .btn { flex: 1; min-width: 130px; }
+
+        /* Bulk section */
+        .bulk-section { padding: 10px 0 60px; }
+        .bulk-card { max-width: 1300px; margin: 0 auto; }
+        .bulk-inner-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        @media (min-width: 760px) { .bulk-inner-grid { grid-template-columns: 1fr 220px; } }
+        .bulk-textarea { width: 100%; min-height: 110px; font-family: var(--font-mono); font-size: 0.85rem; }
+        .bulk-status { font-size: 0.82rem; color: var(--color-text-muted); margin-top: 10px; min-height: 1.2em; }
+
+        .bulk-table-wrap { margin-top: 18px; max-height: 320px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: var(--border-radius-md); }
+        .bulk-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .bulk-table thead th { position: sticky; top: 0; background: rgba(29,81,117,0.05); text-align: left; padding: 10px 12px; font-family: var(--font-heading); font-weight: 700; color: var(--color-text-dark); border-bottom: 1px solid var(--color-border); z-index: 2; }
+        .bulk-table tbody td { padding: 8px 12px; border-bottom: 1px solid var(--color-border); color: var(--color-text-main); }
+        .bulk-table tbody tr:last-child td { border-bottom: none; }
+        .bulk-table .code-cell { font-family: var(--font-mono); }
+        .row-status { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-size: 0.78rem; }
+        .row-status.valid { color: #0d9488; }
+        .row-status.invalid { color: #b91c1c; }
+
+        /* --- Content Section --- */
+        .content-section { padding: 20px 0 80px; }
+        .content-wrapper { max-width: 760px; margin: 0 auto; }
+        .content-wrapper h2 { font-size: 1.6rem; margin: 40px 0 14px; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper p { font-size: 1.02rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 18px; }
+        .content-wrapper strong { color: var(--color-text-dark); }
+        .benchmark-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.92rem; background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-md); overflow: hidden; }
+        .benchmark-table th, .benchmark-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--color-border); }
+        .benchmark-table th { background: rgba(29,81,117,0.04); font-weight: 700; color: var(--color-text-dark); font-family: var(--font-heading); }
+        .benchmark-table tr:last-child td { border-bottom: none; }
+        .faq-block { margin-top: 40px; }
+        .faq-item { border-bottom: 1px solid var(--color-border); padding: 18px 0; }
+        .faq-item h3 { font-size: 1.02rem; margin-bottom: 8px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--color-bg-dark); padding: 60px 0; }
+        .cta-box { max-width: 760px; margin: 0 auto; text-align: center; }
+        .cta-box h2 { color: var(--color-gold); font-size: 1.6rem; margin-bottom: 10px; }
+        .cta-box p { color: var(--color-text-light-muted); font-size: 1rem; margin-bottom: 24px; line-height: 1.6; }
+
+        /* --- Footer --- */
+        footer { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 30px; color: #e2e8f0; }
+        footer h4, footer .logo { color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+        .footer-brand p { color: #cbd5e1; font-size: 0.9rem; }
+        .footer-app-links { display: flex; flex-direction: column; gap: 12px; }
+        .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 18px; width: 100%; max-width: 170px; color: #fff; transition: var(--transition-fast); }
+        .app-store-btn:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .app-store-btn i { font-size: 1.5rem; }
+        .app-store-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .app-store-label { font-size: 0.6rem; color: #cbd5e1; text-transform: uppercase; }
+        .app-store-name { font-size: 0.85rem; font-weight: 700; }
+        .footer-links-col h3 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; color: #fff; }
+        .footer-links-col ul { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+        .footer-links-col a { font-size: 0.9rem; color: #cbd5e1; }
+        .footer-links-col a:hover { color: #fff; padding-left: 4px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #cbd5e1; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; transition: var(--transition-fast); }
+        .social-link:hover { background: var(--color-purple); color: #fff; border-color: transparent; transform: translateY(-3px); }
+        .apps-section { background-color: var(--color-bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0; margin-top: 40px; }
+        .apps-container { display: flex; align-items: center; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+        .app-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
+        .app-item:last-child { flex: none; margin-left: auto; }
+        .app-item a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .tool-hero { padding: 120px 0 10px; }
+            .tool-hero h1 { font-size: 1.8rem; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 280px; height: 100vh; background: #fff; flex-direction: column; align-items: flex-start; padding: 100px 40px; gap: 30px; transition: var(--transition-normal); border-left: 1px solid var(--color-border); z-index: 999; box-sizing: border-box; }
+            .nav-menu.active { right: 0; }
+            .menu-toggle { display: block; z-index: 1000; }
+            .nav-actions { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .apps-container { justify-content: center; flex-direction: column; text-align: center; }
+            .app-item { flex: none; }
+            .app-item:last-child { margin-left: 0; margin-top: 20px; }
+        }
+        @media (max-width: 480px) {
+            .form-card { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header id="mainHeader">
+        <div class="container">
+            <a href="/" class="logo" id="nav-logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                </div>
+                <div class="logo-text">Vidy<span>Back</span></div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="/#how-it-works" class="nav-link">How It Works</a>
+                <a href="features" class="nav-link">Features</a>
+                <a href="platforms" class="nav-link">Platforms</a>
+                <a href="pricing" class="nav-link">Pricing</a>
+                <a href="faq" class="nav-link">FAQ</a>
+                <a href="blog" class="nav-link">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get App <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- --- Tool Hero --- -->
+    <section class="tool-hero">
+        <div class="container">
+            <span class="badge">Free Tool</span>
+            <h1>Barcode <span>Generator</span></h1>
+            <p>Generate scannable Code128, EAN-13, UPC-A and Code39 barcodes with valid check digits, for packaging, warehouse labels and internal SKUs.</p>
+            <div class="privacy-note"><i class="fa-solid fa-lock"></i> Encoded entirely in your browser — no data ever leaves your device.</div>
+            <div class="gs1-note"><i class="fa-solid fa-triangle-exclamation"></i> This generates a scannable barcode symbol from a number you provide. It is not an officially licensed UPC/GTIN — retail marketplace listing requires registering with <a href="https://www.gs1.org" target="_blank" rel="noopener" style="text-decoration:underline;">GS1</a>.</div>
+        </div>
+    </section>
+
+    <!-- --- Tool --- -->
+    <section class="tool-section">
+        <div class="container">
+            <div class="bc-grid" id="bcForm">
+
+                <!-- Form column -->
+                <div class="form-col">
+                    <div class="form-card">
+                        <h3>Symbology &amp; Code</h3>
+                        <div class="symbology-tabs" role="tablist" aria-label="Barcode symbology">
+                            <button type="button" class="symbology-tab active" data-symbology="code128" role="tab" aria-selected="true">Code128</button>
+                            <button type="button" class="symbology-tab" data-symbology="ean13" role="tab" aria-selected="false">EAN-13</button>
+                            <button type="button" class="symbology-tab" data-symbology="upca" role="tab" aria-selected="false">UPC-A</button>
+                            <button type="button" class="symbology-tab" data-symbology="code39" role="tab" aria-selected="false">Code39</button>
+                        </div>
+
+                        <div class="field-group">
+                            <label class="field-label" for="codeInput" id="codeInputLabel">Code / Number</label>
+                            <input type="text" id="codeInput" class="text-input code-input" placeholder="ABC-12345" autocomplete="off">
+                            <div class="field-hint" id="codeInputHint">Accepts letters, numbers, and common punctuation.</div>
+                            <div class="error-msg" id="codeError" role="alert"></div>
+                            <button type="button" class="fix-btn" id="fixCheckDigitBtn" style="display:none;">Fix check digit</button>
+                            <div class="check-digit-note" id="checkDigitNote"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-card" style="margin-bottom:0;">
+                        <h3>Customize</h3>
+                        <div class="field-group">
+                            <label class="field-label" for="barHeightRange">Bar Height</label>
+                            <div class="range-row">
+                                <input type="range" id="barHeightRange" min="20" max="200" step="5" value="80">
+                                <span class="range-value" id="barHeightValue">80px</span>
+                            </div>
+                            <div class="height-warning" id="heightWarning">Below ~30px, this barcode risks becoming unscannable when printed small.</div>
+                        </div>
+                        <div class="field-group">
+                            <div class="toggle-row">
+                                <div class="field-label-main">
+                                    <span class="field-label" style="margin-bottom:0;">Quiet zone margin</span>
+                                    <button type="button" class="info-btn" aria-label="Why quiet zone matters">i<span class="tooltip-bubble">The blank margin scanners need to detect where the barcode starts and ends. Turning this off will likely break scanning when printed — keep it on for real-world use.</span></button>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="quietZoneToggle" checked>
+                                    <span class="switch-track"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <div class="toggle-row">
+                                <span class="field-label" style="margin-bottom:0;">Show human-readable text</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="showTextToggle" checked>
+                                    <span class="switch-track"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview column -->
+                <div class="preview-col">
+                    <div class="barcode-stage">
+                        <div class="barcode-canvas-wrap">
+                            <canvas id="barcodeCanvas" width="10" height="10" aria-label="Generated barcode preview"></canvas>
+                        </div>
+                        <div class="barcode-empty-msg" id="barcodeEmptyMsg">Enter a code to generate a barcode.</div>
+
+                        <div class="export-actions">
+                            <button type="button" class="btn btn-primary" id="downloadPngBtn" disabled><span><i class="fa-solid fa-download"></i> PNG</span></button>
+                            <button type="button" class="btn btn-secondary" id="downloadSvgBtn" disabled><i class="fa-solid fa-download"></i>&nbsp; SVG</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Bulk generation --- -->
+    <section class="bulk-section">
+        <div class="container">
+            <div class="form-card bulk-card">
+                <h3>Advanced: Bulk Generate a ZIP</h3>
+                <p class="field-hint" style="margin-bottom:14px;">One code per line, as <code>label,code</code> or a bare code. Uses the current symbology and customization settings above.</p>
+                <div class="bulk-inner-grid">
+                    <div>
+                        <textarea id="bulkTextarea" class="textarea-input bulk-textarea" placeholder="mug, ABC-1001&#10;tshirt, ABC-1002&#10;ABC-1003"></textarea>
+                        <div class="bulk-status" id="bulkStatus"></div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <label class="file-btn btn btn-secondary" style="cursor:pointer; display:inline-flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-file-csv"></i> Upload CSV
+                            <input type="file" id="csvFileInput" accept=".csv,text/csv,text/plain" style="display:none;">
+                        </label>
+                        <button type="button" class="btn btn-primary btn-block" id="bulkGenerateBtn"><span><i class="fa-solid fa-file-zipper"></i> Generate ZIP</span></button>
+                    </div>
+                </div>
+                <div class="bulk-table-wrap" id="bulkTableWrap" style="display:none;">
+                    <table class="bulk-table">
+                        <thead><tr><th>#</th><th>Label</th><th>Code</th><th>Status</th></tr></thead>
+                        <tbody id="bulkTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CTA --- -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Now Get Those Products Selling</h2>
+                <p>Spend less time on manual content creation. VidyBack auto-generates and schedules product videos straight from your Shopify catalog, so every labeled SKU gets seen, not just scanned.</p>
+                <a href="/" class="btn btn-primary"><span>See How VidyBack Works <i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SEO Content --- -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>UPC-A vs. EAN-13 vs. Code128: Which One Do You Need?</h2>
+                <p><strong>UPC-A</strong> (12 digits) is the US and Canada retail standard. <strong>EAN-13</strong> (13 digits) is the international equivalent used across most of the rest of the world, and is technically a superset that can represent every UPC-A code with a leading zero. If you're listing on Amazon or another marketplace that requires a GTIN, you'll need one of these two, backed by an officially registered number (see below). <strong>Code128</strong> is a flexible general-purpose format that accepts letters, numbers, and symbols, which makes it the better choice for internal warehouse or fulfillment labels where you control both the label and the scanner, and don't need to conform to a retail standard. <strong>Code39</strong> is an older, simpler alphanumeric format still common in some warehouse and inventory systems.</p>
+
+                <h2>What a Check Digit Is, and Why It Matters</h2>
+                <p>The last digit of a UPC-A or EAN-13 code isn't part of the product number, it's a check digit calculated from the digits before it using a fixed formula. When a scanner reads the barcode, it recalculates that digit and rejects the scan if it doesn't match. This is what catches a smudged bar, a printing defect, or a typo before bad data reaches your inventory system, rather than silently recording the wrong product. This tool calculates and validates the check digit automatically, and will tell you exactly what it should be if you enter one that doesn't match.</p>
+
+                <h2>Minimum Print Size for Reliable Scanning</h2>
+                <p>Print at <strong>300 DPI or higher</strong>, and keep the narrowest bar at least <strong>0.010in (0.254mm)</strong> wide, standard guidance for retail barcode scanners. As a rule of thumb, avoid shrinking a Code128 or EAN-13 barcode below about <strong>1 inch (2.5cm)</strong> wide, and test-scan a printed sample with the same scanner or app your team will actually use before committing to a full print run.</p>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <h3>What's the difference between a UPC and a barcode?</h3>
+                        <p>A barcode is the general term for the scannable pattern of bars and spaces. UPC (Universal Product Code) is one specific barcode format, standardized as UPC-A, widely used for retail products in the US and Canada. Other common barcode formats include EAN-13 (the international equivalent) and Code128 (a flexible general-purpose format used for internal labels).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I generate my own UPC codes for free?</h3>
+                        <p>This tool generates a scannable UPC-A symbol with a valid check digit from any 11 or 12 digit number you provide, which works for internal labeling, warehouse use, and testing. However, an officially licensed UPC number for retail sale or marketplace listing (like Amazon) requires registering a GTIN with GS1. A self-generated barcode is not the same as an officially assigned UPC, and major marketplaces can reject unlicensed codes.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What is a check digit and why does it matter?</h3>
+                        <p>A check digit is a final digit calculated from the other digits in a code using a fixed formula. Scanners recalculate it after reading a barcode and reject the scan if it doesn't match, which catches printing defects, smudges, or typos before bad data ever reaches your inventory system. EAN-13 and UPC-A both require a valid check digit to scan correctly.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between EAN-13 and UPC-A?</h3>
+                        <p>EAN-13 (13 digits) is the international retail barcode standard used across Europe and most of the world. UPC-A (12 digits) is the US and Canada retail standard, and is technically a subset of EAN-13 with an implied leading zero. Most modern scanners read both formats interchangeably.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggleIcon = menuToggle.querySelector('i');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggleIcon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggleIcon.className = 'fas fa-bars';
+            });
+        });
+    }
+    </script>
+
+    <!-- --- Barcode Encoding Engine ---
+         Bar-pattern tables (CODE128 BARS, EAN/UPC L/G/R + structure tables, CODE39
+         character/encoding tables) are sourced verbatim from the JsBarcode project
+         (github.com/lindell/JsBarcode, MIT license) to guarantee scan-correct
+         patterns; the encoding, validation and rendering logic below is original. -->
+    <script>
+    (function () {
+        // ===================== Code128 (Subset B) =====================
+        const CODE128_BARS = [
+            '11011001100','11001101100','11001100110','10010011000','10010001100',
+            '10001001100','10011001000','10011000100','10001100100','11001001000',
+            '11001000100','11000100100','10110011100','10011011100','10011001110',
+            '10111001100','10011101100','10011100110','11001110010','11001011100',
+            '11001001110','11011100100','11001110100','11101101110','11101001100',
+            '11100101100','11100100110','11101100100','11100110100','11100110010',
+            '11011011000','11011000110','11000110110','10100011000','10001011000',
+            '10001000110','10110001000','10001101000','10001100010','11010001000',
+            '11000101000','11000100010','10110111000','10110001110','10001101110',
+            '10111011000','10111000110','10001110110','11101110110','11010001110',
+            '11000101110','11011101000','11011100010','11011101110','11101011000',
+            '11101000110','11100010110','11101101000','11101100010','11100011010',
+            '11101111010','11001000010','11110001010','10100110000','10100001100',
+            '10010110000','10010000110','10000101100','10000100110','10110010000',
+            '10110000100','10011010000','10011000010','10000110100','10000110010',
+            '11000010010','11001010000','11110111010','11000010100','10001111010',
+            '10100111100','10010111100','10010011110','10111100100','10011110100',
+            '10011110010','11110100100','11110010100','11110010010','11011011110',
+            '11011110110','11110110110','10101111000','10100011110','10001011110',
+            '10111101000','10111100010','11110101000','11110100010','10111011110',
+            '10111101110','11101011110','11110101110','11010000100','11010010000',
+            '11010011100','1100011101011'
+        ];
+        const C128_START_B = 104;
+        const C128_STOP = 106;
+
+        function encodeCode128B(text) {
+            if (!text) return { error: null, empty: true };
+            for (let i = 0; i < text.length; i++) {
+                const c = text.charCodeAt(i);
+                if (c < 32 || c > 126) {
+                    return { error: 'Character "' + text[i] + '" is not supported by Code128 (use letters, numbers, spaces, and common punctuation).' };
+                }
+            }
+            let bars = CODE128_BARS[C128_START_B];
+            let checksum = C128_START_B;
+            for (let i = 0; i < text.length; i++) {
+                const value = text.charCodeAt(i) - 32;
+                bars += CODE128_BARS[value];
+                checksum += value * (i + 1);
+            }
+            checksum = checksum % 103;
+            bars += CODE128_BARS[checksum];
+            bars += CODE128_BARS[C128_STOP];
+            return { bars: bars, groups: [{ text: text, startFrac: 0, endFrac: 1, align: 'center' }] };
+        }
+
+        // ===================== EAN-13 / UPC-A =====================
+        const EAN_L = ['0001101','0011001','0010011','0111101','0100011','0110001','0101111','0111011','0110111','0001011'];
+        const EAN_G = ['0100111','0110011','0011011','0100001','0011101','0111001','0000101','0010001','0001001','0010111'];
+        const EAN_R = ['1110010','1100110','1101100','1000010','1011100','1001110','1010000','1000100','1001000','1110100'];
+        const EAN13_STRUCTURE = ['LLLLLL','LLGLGG','LLGGLG','LLGGGL','LGLLGG','LGGLLG','LGGGLL','LGLGLG','LGLGGL','LGGLGL'];
+
+        function ean13CheckDigit(digits12) {
+            let sum = 0;
+            for (let i = 0; i < 12; i++) {
+                const d = parseInt(digits12[i], 10);
+                sum += (i % 2 === 0) ? d : d * 3;
+            }
+            return (10 - (sum % 10)) % 10;
+        }
+
+        // Returns { bars, moduleGroups } where moduleGroups describe module-index
+        // ranges (within the 95-module core, before quiet zone offset) for
+        // positioning human-readable text.
+        function encodeEAN13Core(digits13) {
+            const first = digits13[0];
+            const left = digits13.substring(1, 7);
+            const right = digits13.substring(7, 13);
+            const structure = EAN13_STRUCTURE[parseInt(first, 10)];
+            let bars = '101';
+            for (let i = 0; i < 6; i++) {
+                const d = parseInt(left[i], 10);
+                bars += structure[i] === 'L' ? EAN_L[d] : EAN_G[d];
+            }
+            bars += '01010';
+            for (let i = 0; i < 6; i++) {
+                const d = parseInt(right[i], 10);
+                bars += EAN_R[d];
+            }
+            bars += '101';
+            return bars;
+        }
+
+        function buildEAN13(raw) {
+            const digits = raw.replace(/[^0-9]/g, '');
+            if (!digits) return { error: null, empty: true };
+            if (digits.length < 12) return { error: null, incomplete: true };
+            if (digits.length > 13) return { error: 'EAN-13 codes are at most 13 digits.' };
+            if (digits.length === 12) {
+                const check = ean13CheckDigit(digits);
+                const full = digits + check;
+                const bars = encodeEAN13Core(full);
+                return {
+                    bars: bars,
+                    appendedCheckDigit: check,
+                    groups: [
+                        { text: full[0], startFrac: -0.045, endFrac: 0, align: 'right', floatLeft: true },
+                        { text: full.substring(1, 7), startFrac: 3 / 95, endFrac: 45 / 95, align: 'center' },
+                        { text: full.substring(7, 13), startFrac: 50 / 95, endFrac: 92 / 95, align: 'center' }
+                    ]
+                };
+            }
+            const expected = ean13CheckDigit(digits.substring(0, 12));
+            const actual = parseInt(digits[12], 10);
+            if (expected !== actual) {
+                return { error: 'Invalid check digit: the last digit should be ' + expected + ' for this code to scan correctly (you entered ' + actual + ').', invalidCheckDigit: true, expected: expected, dataDigits: digits.substring(0, 12) };
+            }
+            const bars = encodeEAN13Core(digits);
+            return {
+                bars: bars,
+                groups: [
+                    { text: digits[0], startFrac: -0.045, endFrac: 0, align: 'right', floatLeft: true },
+                    { text: digits.substring(1, 7), startFrac: 3 / 95, endFrac: 45 / 95, align: 'center' },
+                    { text: digits.substring(7, 13), startFrac: 50 / 95, endFrac: 92 / 95, align: 'center' }
+                ]
+            };
+        }
+
+        function buildUPCA(raw) {
+            const digits = raw.replace(/[^0-9]/g, '');
+            if (!digits) return { error: null, empty: true };
+            if (digits.length < 11) return { error: null, incomplete: true };
+            if (digits.length > 12) return { error: 'UPC-A codes are at most 12 digits.' };
+            let full;
+            let appendedCheckDigit;
+            if (digits.length === 11) {
+                const check = ean13CheckDigit('0' + digits);
+                full = digits + check;
+                appendedCheckDigit = check;
+            } else {
+                const expected = ean13CheckDigit('0' + digits.substring(0, 11));
+                const actual = parseInt(digits[11], 10);
+                if (expected !== actual) {
+                    return { error: 'Invalid check digit: the last digit should be ' + expected + ' for this code to scan correctly (you entered ' + actual + ').', invalidCheckDigit: true, expected: expected, dataDigits: digits.substring(0, 11) };
+                }
+                full = digits;
+            }
+            const bars = encodeEAN13Core('0' + full);
+            const result = {
+                bars: bars,
+                groups: [
+                    { text: full[0], startFrac: -0.05, endFrac: 0, align: 'right', floatLeft: true },
+                    { text: full.substring(1, 6), startFrac: 3 / 95, endFrac: 45 / 95, align: 'center' },
+                    { text: full.substring(6, 11), startFrac: 50 / 95, endFrac: 92 / 95, align: 'center' },
+                    { text: full[11], startFrac: 1, endFrac: 1.05, align: 'left', floatRight: true }
+                ]
+            };
+            if (appendedCheckDigit !== undefined) result.appendedCheckDigit = appendedCheckDigit;
+            return result;
+        }
+
+        // ===================== Code39 =====================
+        const C39_CHARS = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','-','.',' ','$','/','+','%','*'];
+        const C39_ENCODINGS = [
+            20957,29783,23639,30485,20951,29813,23669,20855,29789,23645,
+            29975,23831,30533,22295,30149,24005,21623,29981,23837,22301,
+            30023,23879,30545,22343,30161,24017,21959,30065,23921,22385,
+            29015,18263,29141,17879,29045,18293,17783,29021,18269,17477,
+            17489,17681,20753,35770
+        ];
+        const C39_VALID = /^[0-9A-Z\-\.\ \$\/\+\%]+$/;
+
+        function encodeCode39(text) {
+            if (!text) return { error: null, empty: true };
+            const upper = text.toUpperCase();
+            if (!C39_VALID.test(upper)) {
+                for (let i = 0; i < upper.length; i++) {
+                    if (C39_CHARS.indexOf(upper[i]) === -1) {
+                        return { error: 'Character "' + text[i] + '" is not supported by Code39 (use A-Z, 0-9, space, and - . $ / + %).' };
+                    }
+                }
+                return { error: 'This code contains an unsupported character for Code39.' };
+            }
+            let bars = C39_ENCODINGS[42].toString(2) + '0'; // '*' start
+            for (let i = 0; i < upper.length; i++) {
+                const idx = C39_CHARS.indexOf(upper[i]);
+                bars += C39_ENCODINGS[idx].toString(2) + '0';
+            }
+            bars += C39_ENCODINGS[42].toString(2);
+            return { bars: bars, groups: [{ text: upper, startFrac: 0, endFrac: 1, align: 'center' }] };
+        }
+
+        // ===================== DOM & state =====================
+        const symbologyTabs = document.querySelectorAll('.symbology-tab');
+        const codeInput = document.getElementById('codeInput');
+        const codeInputLabel = document.getElementById('codeInputLabel');
+        const codeInputHint = document.getElementById('codeInputHint');
+        const codeError = document.getElementById('codeError');
+        const fixCheckDigitBtn = document.getElementById('fixCheckDigitBtn');
+        const checkDigitNote = document.getElementById('checkDigitNote');
+
+        const barHeightRange = document.getElementById('barHeightRange');
+        const barHeightValue = document.getElementById('barHeightValue');
+        const heightWarning = document.getElementById('heightWarning');
+        const quietZoneToggle = document.getElementById('quietZoneToggle');
+        const showTextToggle = document.getElementById('showTextToggle');
+
+        const canvas = document.getElementById('barcodeCanvas');
+        const ctx = canvas.getContext('2d');
+        const barcodeEmptyMsg = document.getElementById('barcodeEmptyMsg');
+        const downloadPngBtn = document.getElementById('downloadPngBtn');
+        const downloadSvgBtn = document.getElementById('downloadSvgBtn');
+
+        const bulkTextarea = document.getElementById('bulkTextarea');
+        const csvFileInput = document.getElementById('csvFileInput');
+        const bulkGenerateBtn = document.getElementById('bulkGenerateBtn');
+        const bulkStatus = document.getElementById('bulkStatus');
+        const bulkTableWrap = document.getElementById('bulkTableWrap');
+        const bulkTableBody = document.getElementById('bulkTableBody');
+
+        let symbology = 'code128';
+        let currentResult = null;
+        let lastFixDigits = null;
+
+        const SYMBOLOGY_META = {
+            code128: { label: 'Code / Text', hint: 'Accepts letters, numbers, spaces, and common punctuation.', placeholder: 'ABC-12345', inputMode: 'text', maxLength: 60 },
+            ean13: { label: 'EAN-13 Number', hint: 'Enter 12 digits and the check digit is added automatically, or enter all 13.', placeholder: '590123412345', inputMode: 'numeric', maxLength: 13 },
+            upca: { label: 'UPC-A Number', hint: 'Enter 11 digits and the check digit is added automatically, or enter all 12.', placeholder: '03600029145', inputMode: 'numeric', maxLength: 12 },
+            code39: { label: 'Code / Text', hint: 'Accepts A-Z, 0-9, space, and - . $ / + % (auto-uppercased).', placeholder: 'ABC-12345', inputMode: 'text', maxLength: 40 }
+        };
+
+        function setSymbology(next) {
+            symbology = next;
+            symbologyTabs.forEach(t => {
+                const active = t.dataset.symbology === next;
+                t.classList.toggle('active', active);
+                t.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            const meta = SYMBOLOGY_META[next];
+            codeInputLabel.textContent = meta.label;
+            codeInputHint.textContent = meta.hint;
+            codeInput.placeholder = meta.placeholder;
+            codeInput.setAttribute('inputmode', meta.inputMode);
+            codeInput.setAttribute('maxlength', meta.maxLength);
+            render();
+        }
+        symbologyTabs.forEach(tab => tab.addEventListener('click', () => setSymbology(tab.dataset.symbology)));
+
+        // Filter keystrokes for numeric-only symbologies immediately
+        codeInput.addEventListener('input', () => {
+            if (symbology === 'ean13' || symbology === 'upca') {
+                const filtered = codeInput.value.replace(/[^0-9]/g, '');
+                if (filtered !== codeInput.value) codeInput.value = filtered;
+            }
+            render();
+        });
+
+        function showError(msg) {
+            codeError.textContent = msg;
+            codeError.classList.add('show');
+        }
+        function clearError() {
+            codeError.classList.remove('show');
+            codeError.textContent = '';
+            fixCheckDigitBtn.style.display = 'none';
+        }
+        function showCheckDigitNote(digit) {
+            checkDigitNote.innerHTML = 'Check digit <strong>' + digit + '</strong> was added automatically.';
+            checkDigitNote.classList.add('show');
+        }
+        function hideCheckDigitNote() {
+            checkDigitNote.classList.remove('show');
+        }
+
+        function buildForSymbology(sym, raw) {
+            switch (sym) {
+                case 'code128': return encodeCode128B(raw);
+                case 'ean13': return buildEAN13(raw);
+                case 'upca': return buildUPCA(raw);
+                case 'code39': return encodeCode39(raw);
+            }
+        }
+
+        function drawBarcode(targetCanvas, result, opts) {
+            const moduleWidth = opts.moduleWidth || 2;
+            const quietModules = opts.quietZone ? 10 : 2;
+            const coreLen = result.bars.length;
+            const totalModules = coreLen + quietModules * 2;
+            const barsAreaHeight = opts.barHeight;
+            const textHeight = opts.showText ? 22 : 0;
+            const width = totalModules * moduleWidth;
+            const height = barsAreaHeight + textHeight + 10;
+
+            targetCanvas.width = width;
+            targetCanvas.height = height;
+            const tctx = targetCanvas.getContext('2d');
+            tctx.fillStyle = '#ffffff';
+            tctx.fillRect(0, 0, width, height);
+            tctx.fillStyle = '#000000';
+            for (let i = 0; i < coreLen; i++) {
+                if (result.bars[i] === '1') {
+                    tctx.fillRect((i + quietModules) * moduleWidth, 4, moduleWidth, barsAreaHeight);
+                }
+            }
+            if (opts.showText && result.groups) {
+                tctx.fillStyle = '#000000';
+                tctx.font = '600 13px arial, sans-serif';
+                tctx.textBaseline = 'top';
+                const baseX = quietModules * moduleWidth;
+                const coreWidth = coreLen * moduleWidth;
+                result.groups.forEach(g => {
+                    const x = baseX + g.startFrac * coreWidth + (g.align === 'center' ? (g.endFrac - g.startFrac) * coreWidth / 2 : 0);
+                    tctx.textAlign = g.align;
+                    tctx.fillText(g.text, x, barsAreaHeight + 8);
+                });
+            }
+        }
+
+        function buildSVG(result, opts) {
+            const moduleWidth = opts.moduleWidth || 2;
+            const quietModules = opts.quietZone ? 10 : 2;
+            const coreLen = result.bars.length;
+            const totalModules = coreLen + quietModules * 2;
+            const barsAreaHeight = opts.barHeight;
+            const textHeight = opts.showText ? 22 : 0;
+            const width = totalModules * moduleWidth;
+            const height = barsAreaHeight + textHeight + 10;
+
+            let rects = '';
+            for (let i = 0; i < coreLen; i++) {
+                if (result.bars[i] === '1') {
+                    rects += '<rect x="' + ((i + quietModules) * moduleWidth) + '" y="4" width="' + moduleWidth + '" height="' + barsAreaHeight + '"/>';
+                }
+            }
+            let texts = '';
+            if (opts.showText && result.groups) {
+                const baseX = quietModules * moduleWidth;
+                const coreWidth = coreLen * moduleWidth;
+                result.groups.forEach(g => {
+                    const x = baseX + g.startFrac * coreWidth + (g.align === 'center' ? (g.endFrac - g.startFrac) * coreWidth / 2 : 0);
+                    const anchor = g.align === 'right' ? 'end' : g.align === 'left' ? 'start' : 'middle';
+                    texts += '<text x="' + x.toFixed(2) + '" y="' + (barsAreaHeight + 20) + '" font-family="arial, sans-serif" font-size="13" font-weight="600" text-anchor="' + anchor + '">' + escapeXml(g.text) + '</text>';
+                });
+            }
+            return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + width + ' ' + height + '" width="' + width + '" height="' + height + '">' +
+                '<rect width="100%" height="100%" fill="#ffffff"/>' +
+                '<g fill="#000000">' + rects + '</g>' +
+                texts +
+                '</svg>';
+        }
+
+        function escapeXml(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function render() {
+            clearError();
+            hideCheckDigitNote();
+            const raw = codeInput.value;
+            const barHeight = parseInt(barHeightRange.value, 10);
+            barHeightValue.textContent = barHeight + 'px';
+            heightWarning.classList.toggle('show', barHeight < 30);
+
+            const result = buildForSymbology(symbology, raw);
+            currentResult = null;
+
+            if (result.empty || result.incomplete) {
+                canvas.width = 10; canvas.height = 10;
+                ctx.clearRect(0, 0, 10, 10);
+                barcodeEmptyMsg.style.display = 'block';
+                barcodeEmptyMsg.textContent = result.incomplete ? 'Keep typing — waiting for enough digits.' : 'Enter a code to generate a barcode.';
+                downloadPngBtn.disabled = true;
+                downloadSvgBtn.disabled = true;
+                return;
+            }
+            if (result.error) {
+                showError(result.error);
+                if (result.invalidCheckDigit) {
+                    lastFixDigits = result.dataDigits + result.expected;
+                    fixCheckDigitBtn.style.display = 'inline-block';
+                }
+                canvas.width = 10; canvas.height = 10;
+                ctx.clearRect(0, 0, 10, 10);
+                barcodeEmptyMsg.style.display = 'block';
+                barcodeEmptyMsg.textContent = 'Fix the error above to see a preview.';
+                downloadPngBtn.disabled = true;
+                downloadSvgBtn.disabled = true;
+                return;
+            }
+
+            barcodeEmptyMsg.style.display = 'none';
+            currentResult = result;
+            const opts = { barHeight: barHeight, quietZone: quietZoneToggle.checked, showText: showTextToggle.checked, moduleWidth: 2 };
+            drawBarcode(canvas, result, opts);
+            downloadPngBtn.disabled = false;
+            downloadSvgBtn.disabled = false;
+
+            if (result.appendedCheckDigit !== undefined) {
+                showCheckDigitNote(result.appendedCheckDigit);
+            }
+        }
+
+        fixCheckDigitBtn.addEventListener('click', () => {
+            if (lastFixDigits) {
+                codeInput.value = lastFixDigits;
+                render();
+            }
+        });
+
+        [barHeightRange, quietZoneToggle, showTextToggle].forEach(el => el.addEventListener('input', render));
+
+        function triggerDownload(url, filename) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        downloadPngBtn.addEventListener('click', () => {
+            if (!currentResult) return;
+            const opts = { barHeight: parseInt(barHeightRange.value, 10), quietZone: quietZoneToggle.checked, showText: showTextToggle.checked, moduleWidth: 4 };
+            const exportCanvas = document.createElement('canvas');
+            drawBarcode(exportCanvas, currentResult, opts);
+            triggerDownload(exportCanvas.toDataURL('image/png'), 'barcode.png');
+        });
+
+        downloadSvgBtn.addEventListener('click', () => {
+            if (!currentResult) return;
+            const opts = { barHeight: parseInt(barHeightRange.value, 10), quietZone: quietZoneToggle.checked, showText: showTextToggle.checked, moduleWidth: 2 };
+            const svgStr = buildSVG(currentResult, opts);
+            const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            triggerDownload(url, 'barcode.svg');
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        });
+
+        // ==================================================================
+        // Bulk ZIP generation (STORED / no-compression ZIP writer, no deps)
+        // Reused from the QR Code Generator tool for consistency.
+        // ==================================================================
+        const CRC_TABLE = (function () {
+            const t = new Uint32Array(256);
+            for (let n = 0; n < 256; n++) {
+                let c = n;
+                for (let k = 0; k < 8; k++) {
+                    c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+                }
+                t[n] = c >>> 0;
+            }
+            return t;
+        })();
+        function crc32(bytes) {
+            let crc = 0xFFFFFFFF;
+            for (let i = 0; i < bytes.length; i++) {
+                crc = CRC_TABLE[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+            }
+            return (crc ^ 0xFFFFFFFF) >>> 0;
+        }
+        function buildZip(files) {
+            const localParts = [];
+            const centralParts = [];
+            let offset = 0;
+            const encoder = new TextEncoder();
+            files.forEach(f => {
+                const nameBytes = encoder.encode(f.name);
+                const crc = crc32(f.bytes);
+                const size = f.bytes.length;
+                const dosTime = 0, dosDate = 0x21;
+                const localHeader = new Uint8Array(30 + nameBytes.length);
+                const lv = new DataView(localHeader.buffer);
+                lv.setUint32(0, 0x04034b50, true);
+                lv.setUint16(4, 20, true);
+                lv.setUint16(6, 0, true);
+                lv.setUint16(8, 0, true);
+                lv.setUint16(10, dosTime, true);
+                lv.setUint16(12, dosDate, true);
+                lv.setUint32(14, crc, true);
+                lv.setUint32(18, size, true);
+                lv.setUint32(22, size, true);
+                lv.setUint16(26, nameBytes.length, true);
+                lv.setUint16(28, 0, true);
+                localHeader.set(nameBytes, 30);
+                localParts.push(localHeader, f.bytes);
+
+                const centralHeader = new Uint8Array(46 + nameBytes.length);
+                const cv = new DataView(centralHeader.buffer);
+                cv.setUint32(0, 0x02014b50, true);
+                cv.setUint16(4, 20, true);
+                cv.setUint16(6, 20, true);
+                cv.setUint16(8, 0, true);
+                cv.setUint16(10, 0, true);
+                cv.setUint16(12, dosTime, true);
+                cv.setUint16(14, dosDate, true);
+                cv.setUint32(16, crc, true);
+                cv.setUint32(20, size, true);
+                cv.setUint32(24, size, true);
+                cv.setUint16(28, nameBytes.length, true);
+                cv.setUint16(30, 0, true);
+                cv.setUint16(32, 0, true);
+                cv.setUint16(34, 0, true);
+                cv.setUint16(36, 0, true);
+                cv.setUint32(38, 0, true);
+                cv.setUint32(42, offset, true);
+                centralHeader.set(nameBytes, 46);
+                centralParts.push(centralHeader);
+                offset += localHeader.length + f.bytes.length;
+            });
+            const centralSize = centralParts.reduce((a, p) => a + p.length, 0);
+            const centralOffset = offset;
+            const eocd = new Uint8Array(22);
+            const ev = new DataView(eocd.buffer);
+            ev.setUint32(0, 0x06054b50, true);
+            ev.setUint16(4, 0, true);
+            ev.setUint16(6, 0, true);
+            ev.setUint16(8, files.length, true);
+            ev.setUint16(10, files.length, true);
+            ev.setUint32(12, centralSize, true);
+            ev.setUint32(16, centralOffset, true);
+            ev.setUint16(20, 0, true);
+            return new Blob([...localParts, ...centralParts, eocd], { type: 'application/zip' });
+        }
+
+        function slugify(str) {
+            return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        }
+        function dataUrlToBytes(dataUrl) {
+            const base64 = dataUrl.split(',')[1];
+            const binary = atob(base64);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+            return bytes;
+        }
+        function nextTick() { return new Promise(r => setTimeout(r, 0)); }
+
+        function parseBulkLines() {
+            return bulkTextarea.value.split('\n').map(l => l.trim()).filter(Boolean).map((line, i) => {
+                const commaIdx = line.indexOf(',');
+                let label = '', code = line;
+                if (commaIdx > -1) {
+                    label = line.slice(0, commaIdx).trim();
+                    code = line.slice(commaIdx + 1).trim();
+                }
+                const result = code ? buildForSymbology(symbology, code) : { empty: true };
+                const valid = code && !result.error && !result.empty && !result.incomplete;
+                let statusText = 'Valid';
+                if (!code) statusText = 'Empty';
+                else if (result.incomplete) statusText = 'Too short';
+                else if (result.error) statusText = result.error;
+                return { index: i + 1, label: label, code: code, valid: !!valid, statusText: statusText, result: valid ? result : null };
+            });
+        }
+
+        function renderBulkTable() {
+            const rows = parseBulkLines();
+            if (!rows.length) {
+                bulkTableWrap.style.display = 'none';
+                bulkTableBody.innerHTML = '';
+                return;
+            }
+            bulkTableWrap.style.display = 'block';
+            bulkTableBody.innerHTML = rows.map(r => (
+                '<tr><td>' + r.index + '</td><td>' + escapeXml(r.label || '—') + '</td><td class="code-cell">' + escapeXml(r.code || '—') + '</td><td><span class="row-status ' + (r.valid ? 'valid' : 'invalid') + '"><i class="fa-solid ' + (r.valid ? 'fa-check' : 'fa-xmark') + '"></i> ' + escapeXml(r.valid ? 'Valid' : r.statusText) + '</span></td></tr>'
+            )).join('');
+        }
+        bulkTextarea.addEventListener('input', renderBulkTable);
+        symbologyTabs.forEach(tab => tab.addEventListener('click', renderBulkTable));
+
+        csvFileInput.addEventListener('change', () => {
+            const file = csvFileInput.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                const text = String(reader.result).trim();
+                const existing = bulkTextarea.value.trim();
+                bulkTextarea.value = (existing ? existing + '\n' : '') + text;
+                csvFileInput.value = '';
+                renderBulkTable();
+            };
+            reader.readAsText(file);
+        });
+
+        bulkGenerateBtn.addEventListener('click', async () => {
+            const rows = parseBulkLines();
+            const validRows = rows.filter(r => r.valid);
+            if (!rows.length) { bulkStatus.textContent = 'Add at least one line first.'; return; }
+            if (rows.length > 200) { bulkStatus.textContent = 'Limit is 200 items per batch — trim your list.'; return; }
+            if (!validRows.length) { bulkStatus.textContent = 'No valid codes to generate.'; return; }
+
+            bulkGenerateBtn.disabled = true;
+            const opts = { barHeight: parseInt(barHeightRange.value, 10), quietZone: quietZoneToggle.checked, showText: showTextToggle.checked, moduleWidth: 3 };
+            const files = [];
+            const usedNames = new Set();
+            const offCanvas = document.createElement('canvas');
+
+            for (let i = 0; i < validRows.length; i++) {
+                const row = validRows[i];
+                let baseName = slugify(row.label) || ('barcode-' + row.index);
+                let uniqueName = baseName, n = 1;
+                while (usedNames.has(uniqueName)) uniqueName = baseName + '-' + (++n);
+                usedNames.add(uniqueName);
+
+                drawBarcode(offCanvas, row.result, opts);
+                const bytes = dataUrlToBytes(offCanvas.toDataURL('image/png'));
+                files.push({ name: uniqueName + '.png', bytes: bytes });
+
+                if (i % 5 === 0) {
+                    bulkStatus.textContent = 'Generating ' + (i + 1) + ' of ' + validRows.length + '...';
+                    await nextTick();
+                }
+            }
+
+            const zipBlob = buildZip(files);
+            const url = URL.createObjectURL(zipBlob);
+            triggerDownload(url, 'barcodes.zip');
+            setTimeout(() => URL.revokeObjectURL(url), 2000);
+            const skipped = rows.length - validRows.length;
+            bulkStatus.textContent = 'Done — downloaded ' + files.length + ' barcode' + (files.length > 1 ? 's' : '') + ' as a ZIP' + (skipped ? ' (' + skipped + ' invalid row' + (skipped > 1 ? 's' : '') + ' skipped)' : '') + '.';
+            bulkGenerateBtn.disabled = false;
+        });
+
+        // seed with a sensible example
+        codeInput.value = 'ABC-12345';
+        render();
+    })();
+    </script>
+
+    <!-- --- UTM Capture + Forward Script --- -->
+    <script>
+    // Capture UTM params and carry them forward to app.vidyback.com signup links
+    (function() {
+        var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var found = {};
+            var hasAny = false;
+            UTM_KEYS.forEach(function(k) {
+                var v = params.get(k);
+                if (v) { found[k] = v; hasAny = true; }
+            });
+            if (hasAny) {
+                localStorage.setItem("vb_utm", JSON.stringify(found));
+            }
+            var stored = JSON.parse(localStorage.getItem("vb_utm") || "null");
+            var pagePath = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+            document.querySelectorAll("a[href^=\"https://app.vidyback.com\"]").forEach(function(a) {
+                var extra = {};
+                if (stored) { for (var k in stored) { extra[k] = stored[k]; } }
+                var label = (a.textContent || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40);
+                if (label) { extra.cta_id = label; }
+                extra.cta_page = pagePath;
+                var qs = new URLSearchParams(extra).toString();
+                if (qs) {
+                    var sep = a.href.indexOf("?") === -1 ? "?" : "&";
+                    a.href = a.href + sep + qs;
+                }
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+<footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Col 1: Brand Info -->
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="VidyBack Logo" width="32" height="32" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+                        </div>
+                        <div class="logo-text" style="color: white;">Vidy<span style="color: white;">Back</span></div>
+                    </a>
+                    <p>VidyBack provides AI-powered social media generation tools for modern digital shopfronts. Build high-converting templates automatically in seconds.</p>
+
+                    <div class="footer-app-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.vidyback.app.twa&hl=en_IN" target="_blank" rel="noopener" class="app-store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="app-store-info">
+                                <span class="app-store-label">Get it on</span>
+                                <span class="app-store-name">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <nav class="footer-links-col" aria-label="Product navigation">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="features">Features</a></li>
+                        <li><a href="pricing">Pricing</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3: Tools -->
+                <nav class="footer-links-col" aria-label="Tools navigation">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="profit-margin-calculator">Profit Margin Calculator</a></li>
+                        <li><a href="shipping-cost-calculator">Shipping Cost Calculator</a></li>
+                        <li><a href="privacy-policy-generator">Privacy Policy Generator</a></li>
+                        <li><a href="qr-code-generator">QR Code Generator</a></li>
+                        <li><a href="serp-preview-tool">Google SERP Preview Tool</a></li>
+                        <li><a href="barcode-generator">Barcode Generator</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 4: Compare -->
+                <nav class="footer-links-col" aria-label="Compare navigation">
+                    <h3>Compare</h3>
+                    <ul>
+                        <li><a href="minta-comparison">vs Minta</a></li>
+                        <li><a href="outify-comparison">vs Outify</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 5: Company / Legal -->
+                <nav class="footer-links-col" aria-label="Company navigation">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="privacypolicy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms of Service</a></li>
+                        <li><a href="cookies-policy">Cookies Policy</a></li>
+                        <li><a href="disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    <h3 style="color: var(--color-gold); font-size: 1.5rem; margin-bottom: 6px;">Connect With Us</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">Interact and auto-post products on social channels with VidyBack.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vidyback" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/vidyback/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@vidyback" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" style="width: 48px; height: 48px; font-size: 1.25rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Apps Section -->
+            <div class="apps-section">
+                <div class="apps-container">
+                    <div class="app-item">
+                        <i class="fa-brands fa-shopify" style="font-size: 2rem; color: #96bf48; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Available on Shopify App Store</p>
+                            <a href="https://apps.shopify.com/vidyback" target="_blank" rel="noopener" style="color: #ffffff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                View VidyBack on Shopify <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <i class="fa-solid fa-store" style="font-size: 2rem; color: #f39c12; margin-right: 12px;"></i>
+                        <div>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">Also available on</p>
+                            <a href="https://jumpseller.in/support/vidyback/" target="_blank" rel="noopener" style="color: #fff; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                Jumpseller App <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-item">
+                        <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0;">&copy; 2026 VidyBack. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

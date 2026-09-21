@@ -211,6 +211,11 @@ to = "/serp-preview-tool"
 status = 301
 
 [[redirects]]
+from = "/barcode-generator.html"
+to = "/barcode-generator"
+status = 301
+
+[[redirects]]
 from = "/scale.html"
 to = "/scale"
 status = 301
