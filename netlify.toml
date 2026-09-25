@@ -251,6 +251,11 @@ to = "/jumpseller-wix-social-posting"
 status = 301
 
 [[redirects]]
+from = "/etsy-shop-social-media-marketing.html"
+to = "/etsy-shop-social-media-marketing"
+status = 301
+
+[[redirects]]
 from = "/free-online-privacy-policy-generator.html"
 to = "/free-online-privacy-policy-generator"
 status = 301
