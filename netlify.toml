@@ -321,6 +321,16 @@ to = "/free-online-background-remover"
 status = 301
 
 [[redirects]]
+from = "/free-online-image-compressor.html"
+to = "/free-online-image-compressor"
+status = 301
+
+[[redirects]]
+from = "/image-compressor"
+to = "/free-online-image-compressor"
+status = 301
+
+[[redirects]]
 from = "/free-online-profit-margin-calculator.html"
 to = "/free-online-profit-margin-calculator"
 status = 301
