@@ -261,6 +261,11 @@ to = "/ecwid-social-media-marketing"
 status = 301
 
 [[redirects]]
+from = "/youtube-shorts-for-ecommerce.html"
+to = "/youtube-shorts-for-ecommerce"
+status = 301
+
+[[redirects]]
 from = "/free-online-privacy-policy-generator.html"
 to = "/free-online-privacy-policy-generator"
 status = 301
