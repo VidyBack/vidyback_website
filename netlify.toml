@@ -266,6 +266,11 @@ to = "/youtube-shorts-for-ecommerce"
 status = 301
 
 [[redirects]]
+from = "/how-many-hashtags-to-use-on-instagram.html"
+to = "/how-many-hashtags-to-use-on-instagram"
+status = 301
+
+[[redirects]]
 from = "/free-online-privacy-policy-generator.html"
 to = "/free-online-privacy-policy-generator"
 status = 301
