@@ -271,6 +271,11 @@ to = "/how-many-hashtags-to-use-on-instagram"
 status = 301
 
 [[redirects]]
+from = "/how-often-to-post-on-facebook-for-your-online-store.html"
+to = "/how-often-to-post-on-facebook-for-your-online-store"
+status = 301
+
+[[redirects]]
 from = "/free-online-privacy-policy-generator.html"
 to = "/free-online-privacy-policy-generator"
 status = 301
