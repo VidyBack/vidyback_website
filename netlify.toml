@@ -261,6 +261,26 @@ to = "/ecwid-social-media-marketing"
 status = 301
 
 [[redirects]]
+from = "/youtube-shorts-for-ecommerce.html"
+to = "/youtube-shorts-for-ecommerce"
+status = 301
+
+[[redirects]]
+from = "/how-many-hashtags-to-use-on-instagram.html"
+to = "/how-many-hashtags-to-use-on-instagram"
+status = 301
+
+[[redirects]]
+from = "/instagram-captions-for-online-store-products.html"
+to = "/instagram-captions-for-online-store-products"
+status = 301
+
+[[redirects]]
+from = "/how-often-to-post-on-facebook-for-your-online-store.html"
+to = "/how-often-to-post-on-facebook-for-your-online-store"
+status = 301
+
+[[redirects]]
 from = "/free-online-privacy-policy-generator.html"
 to = "/free-online-privacy-policy-generator"
 status = 301
