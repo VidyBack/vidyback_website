@@ -276,6 +276,11 @@ to = "/instagram-captions-for-online-store-products"
 status = 301
 
 [[redirects]]
+from = "/best-time-to-post-on-instagram-for-small-online-stores.html"
+to = "/best-time-to-post-on-instagram-for-small-online-stores"
+status = 301
+
+[[redirects]]
 from = "/how-often-to-post-on-facebook-for-your-online-store.html"
 to = "/how-often-to-post-on-facebook-for-your-online-store"
 status = 301
