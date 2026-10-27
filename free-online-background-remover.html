@@ -461,6 +461,7 @@
             <nav class="footer-links-col" aria-label="Company navigation">
                 <h3>Company</h3>
                 <ul>
+                    <li><a href="https://frekto.ai/b/vidyback" target="_blank" rel="noopener">Latest Updates</a></li>
                     <li><a href="privacypolicy">Privacy Policy</a></li>
                     <li><a href="terms">Terms of Service</a></li>
                     <li><a href="cookies-policy">Cookies Policy</a></li>
@@ -530,6 +531,7 @@
             document.querySelectorAll('a[href*="vidyback"]').forEach(function (a) {
                 try {
                     var url = new URL(a.href);
+                    if (!/(^|\.)vidyback\.com$/.test(url.hostname)) return; // e.g. frekto.ai/b/vidyback
                     Object.keys(defaults).forEach(function (k) { url.searchParams.set(k, defaults[k]); });
                     a.href = url.toString();
                 } catch (e) {}
