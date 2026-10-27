@@ -1059,6 +1059,39 @@ header .container {
     color: var(--color-text-light-muted);
 }
 
+.offer-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.offer-learn-link {
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    opacity: 0.85;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.offer-learn-link i {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.offer-learn-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.offer-learn-link:hover i {
+    transform: translateX(3px);
+}
+
 /* --- Content Ideas Section --- */
 .content-ideas {
     background: var(--color-bg);
@@ -2583,7 +2616,10 @@ footer h4, footer .logo {
                     <h3>Try It Once. VidyBack Posts For You.</h3>
                     <p>Activate <span>7 Days Auto Posting</span> and let VidyBack automatically publish content daily across your selected social media platforms.</p>
                 </div>
-                <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get Started Free <i class="fa-solid fa-gift"></i></span></a>
+                <div class="offer-actions">
+                    <a href="https://app.vidyback.com/" target="_blank" rel="noopener" class="btn btn-primary"><span>Get Started Free <i class="fa-solid fa-gift"></i></span></a>
+                    <a href="https://frekto.ai/b/vidyback" target="_blank" rel="noopener" class="offer-learn-link">Learn more about VidyBack <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
             
         </div>
