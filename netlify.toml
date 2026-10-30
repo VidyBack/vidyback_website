@@ -296,6 +296,11 @@ to = "/online-marketing-platform-for-small-businesses"
 status = 301
 
 [[redirects]]
+from = "/social-media-for-new-online-store.html"
+to = "/social-media-for-new-online-store"
+status = 301
+
+[[redirects]]
 from = "/instagram-vs-tiktok-for-small-online-stores.html"
 to = "/instagram-vs-tiktok-for-small-online-stores"
 status = 301
