@@ -3,6 +3,11 @@
 # Blog post URLs renamed from /blog-post-N.html to keyword slugs.
 # 301 redirects so old links (search indexing, backlinks, bookmarks) keep working.
 [[redirects]]
+from = "/new-product-auto-post.html"
+to = "/new-product-auto-post"
+status = 301
+
+[[redirects]]
 from = "/blog-post-1.html"
 to = "/why-your-shopify-store-isnt-getting-instagram-sales"
 status = 301

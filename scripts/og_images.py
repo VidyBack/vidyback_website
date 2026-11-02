@@ -91,7 +91,7 @@ def fit_title(draw, title, max_w, max_h):
     return fnt, lines, int(40 * 1.18)
 
 
-def render(title, category, path):
+def render(title, category, path, footer='vidyback.com/blog'):
     img = gradient()
     d = ImageDraw.Draw(img)
 
@@ -129,7 +129,7 @@ def render(title, category, path):
     # Footer
     ff = font(26, 500)
     d.line((PAD, H - PAD - 34, PAD + 64, H - PAD - 34), fill=GOLD, width=5)
-    d.text((PAD, H - PAD + 4), 'vidyback.com/blog', font=ff, fill=(255, 255, 255), anchor='ls')
+    d.text((PAD, H - PAD + 4), footer, font=ff, fill=(255, 255, 255), anchor='ls')
     d.text((W - PAD, H - PAD + 4), 'Social media automation for ecommerce', font=ff, fill=(225, 225, 245), anchor='rs')
 
     os.makedirs(os.path.dirname(path), exist_ok=True)
