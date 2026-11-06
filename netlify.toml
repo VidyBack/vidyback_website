@@ -306,6 +306,11 @@ to = "/social-media-for-new-online-store"
 status = 301
 
 [[redirects]]
+from = "/social-media-branding-for-small-online-store.html"
+to = "/social-media-branding-for-small-online-store"
+status = 301
+
+[[redirects]]
 from = "/product-photos-for-instagram.html"
 to = "/product-photos-for-instagram"
 status = 301
