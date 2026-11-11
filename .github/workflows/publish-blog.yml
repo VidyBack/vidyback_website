@@ -1,0 +1,58 @@
+name: Publish blog posts
+
+# Builds live blog posts from Markdown articles in content/blog/.
+# Frekto publishes through the /mcp endpoint (netlify/functions/mcp.mjs),
+# which commits content/blog/<slug>.md; this workflow then renders the
+# post page, blog card, sitemap entry, redirect, share image and RSS item
+# with scripts/publish_blog.py, og_images.py and update_feed.py, and
+# pushes the result to main, where Netlify deploys it.
+on:
+  push:
+    branches: [main]
+    paths: ['content/blog/**.md']
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install markdown pillow
+
+      - name: Build new posts
+        run: |
+          python3 scripts/publish_blog.py
+          python3 scripts/og_images.py
+          python3 scripts/update_feed.py
+
+      - name: Commit and push
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish"
+            exit 0
+          fi
+          titles=$(git diff --cached --name-only --diff-filter=A -- '*.html' | sed 's/\.html$//' | paste -sd ', ' -)
+          git config user.name "vidyback-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git commit -m "Publish blog post: ${titles}"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
