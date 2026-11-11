@@ -1,5 +1,6 @@
 // MCP endpoint that lets Frekto (or any MCP client) publish blog posts to
-// vidyback.com.  Served at https://www.vidyback.com/mcp.
+// vidyback.com.  Served at https://vidyback.com/mcp (use this host: www.
+// redirects to it, and a redirect can turn a POST into a GET).
 //
 // It speaks MCP's Streamable HTTP transport (plain JSON responses, no SSE
 // stream) and exposes one tool, publish_post.  The tool never edits the
