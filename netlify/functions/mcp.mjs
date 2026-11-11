@@ -73,13 +73,30 @@ function safeEqual(a, b) {
   return diff === 0;
 }
 
-function authorized(req) {
-  const expected = process.env.BLOG_MCP_TOKEN;
-  if (!expected) return false;
-  const auth = req.headers.get('authorization') || '';
-  const bearer = auth.replace(/^(Bearer|Token|ApiKey)\s+/i, '').trim();
-  const apiKey = (req.headers.get('x-api-key') || '').trim();
-  return safeEqual(bearer, expected) || safeEqual(apiKey, expected);
+// Headers clients commonly put an API key in, besides Authorization.
+const KEY_HEADERS = ['x-api-key', 'api-key', 'x-auth-token', 'x-access-token', 'x-mcp-token'];
+
+// Returns null when authorized, otherwise a reason safe to show the caller
+// (it never echoes the expected token or the one received).
+function authProblem(req) {
+  const expected = (process.env.BLOG_MCP_TOKEN || '').trim();
+  if (!expected) return 'The server has no BLOG_MCP_TOKEN set. Add it in Netlify and redeploy.';
+  const candidates = [];
+  const auth = (req.headers.get('authorization') || '').trim();
+  if (auth) candidates.push(auth.replace(/^(Bearer|Token|ApiKey|Api-Key|Key)\s+/i, '').trim());
+  for (const h of KEY_HEADERS) {
+    const v = (req.headers.get(h) || '').trim();
+    if (v) candidates.push(v.replace(/^Bearer\s+/i, '').trim());
+  }
+  const q = new URL(req.url).searchParams.get('token');
+  if (q) candidates.push(q.trim());
+  if (!candidates.length) {
+    console.log('mcp auth: no token received; header names:', [...req.headers.keys()].join(', '));
+    return 'No token received. Send it as "Authorization: Bearer <token>".';
+  }
+  if (candidates.some((c) => safeEqual(c, expected))) return null;
+  console.log('mcp auth: token mismatch; received lengths', candidates.map((c) => c.length), 'expected length', expected.length);
+  return 'The token does not match BLOG_MCP_TOKEN on the server.';
 }
 
 const slugify = (s) =>
@@ -221,8 +238,20 @@ async function handleMessage(msg) {
 
 export default async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: { Allow: 'POST, OPTIONS' } });
-  if (req.method !== 'POST') return json(rpcError(null, -32000, 'Use POST'), 405, { Allow: 'POST, OPTIONS' });
-  if (!authorized(req)) return json(rpcError(null, -32001, 'Unauthorized'), 401, { 'WWW-Authenticate': 'Bearer' });
+  if (req.method !== 'POST') {
+    // A plain GET doubles as a setup check: it says whether each secret is
+    // configured (true/false only, never the values).
+    return json(
+      {
+        ...rpcError(null, -32000, 'Use POST'),
+        configured: { BLOG_MCP_TOKEN: !!(process.env.BLOG_MCP_TOKEN || '').trim(), GITHUB_BLOG_TOKEN: !!process.env.GITHUB_BLOG_TOKEN },
+      },
+      405,
+      { Allow: 'POST, OPTIONS' },
+    );
+  }
+  const problem = authProblem(req);
+  if (problem) return json(rpcError(null, -32001, `Unauthorized: ${problem}`), 401, { 'WWW-Authenticate': 'Bearer' });
 
   let payload;
   try {
