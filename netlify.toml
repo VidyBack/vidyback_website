@@ -526,6 +526,11 @@ from = "/does-vidyback-film-your-products-or-does-it-use-what-you-have.html"
 to = "/does-vidyback-film-your-products-or-does-it-use-what-you-have"
 status = 301
 
+[[redirects]]
+from = "/free-shipping-threshold-for-small-online-stores.html"
+to = "/free-shipping-threshold-for-small-online-stores"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
