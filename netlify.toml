@@ -541,6 +541,11 @@ from = "/how-to-get-repeat-customers-online-store.html"
 to = "/how-to-get-repeat-customers-online-store"
 status = 301
 
+[[redirects]]
+from = "/instagram-bio-for-online-store.html"
+to = "/instagram-bio-for-online-store"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
