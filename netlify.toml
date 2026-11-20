@@ -536,6 +536,11 @@ from = "/batch-content-creation-for-online-stores.html"
 to = "/batch-content-creation-for-online-stores"
 status = 301
 
+[[redirects]]
+from = "/how-to-get-repeat-customers-online-store.html"
+to = "/how-to-get-repeat-customers-online-store"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
