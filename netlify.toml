@@ -546,6 +546,11 @@ from = "/instagram-bio-for-online-store.html"
 to = "/instagram-bio-for-online-store"
 status = 301
 
+[[redirects]]
+from = "/video-automation-replaces-the-tool-stack-draining-your-team.html"
+to = "/video-automation-replaces-the-tool-stack-draining-your-team"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
