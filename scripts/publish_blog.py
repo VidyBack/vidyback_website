@@ -22,6 +22,7 @@ article as Markdown (raw HTML is passed through):
     ---
     title: "Post title"
     description: "Meta description"
+    meta_title: "Shorter SEO title"  # optional, under 60 characters
     category: "social"            # social | ecommerce | automation
     image: "https://..."          # optional cover image
     tags: ["optional", "tags"]
@@ -154,7 +155,7 @@ def article_html(body_md, title):
     return '\n'.join('            ' + l if l.strip() else '' for l in html_body.splitlines())
 
 
-def build_page(tpl, slug, title, desc, cat_key, image, image_alt, body_md, today):
+def build_page(tpl, slug, title, desc, cat_key, image, image_alt, body_md, today, meta_title=''):
     s = tpl
     old_title = meta_content(s, 'property', 'og:title')
     old_desc = meta_content(s, 'name', 'description')
@@ -166,7 +167,11 @@ def build_page(tpl, slug, title, desc, cat_key, image, image_alt, body_md, today
 
     s = s.replace(old_slug, slug).replace(old_title, esc(title)).replace(old_desc, esc(desc))
     s = s.replace(old_date, today.strftime('%Y-%m-%d'))
-    s = re.sub(r'<title>.*?</title>', '<title>%s | VidyBack</title>' % esc(title), s, count=1, flags=re.S)
+    # Search title: an explicit meta_title if given (Google cuts titles around
+    # 60 characters), otherwise the post title. Brand suffix only if it fits.
+    seo = meta_title or title
+    seo = seo if len(seo) + len(' | VidyBack') > 60 else seo + ' | VidyBack'
+    s = re.sub(r'<title>.*?</title>', lambda m: '<title>%s</title>' % esc(seo), s, count=1, flags=re.S)
     s = re.sub(r'(<meta property="og:image:alt" content=")[^"]*', lambda m: m.group(1) + esc(title), s, count=1)
 
     label = CATEGORIES[cat_key][1]
@@ -271,6 +276,7 @@ def main():
             print('SKIP %s: missing title or body' % md_path, file=sys.stderr)
             continue
         title, w1 = brand_fix(title)
+        meta_title, _ = brand_fix((meta.get('meta_title') or '').strip())
         desc, w2 = brand_fix((meta.get('description') or '').strip())
         body, w3 = brand_fix(body)
         if not desc:
@@ -294,7 +300,7 @@ def main():
         if args.dry_run:
             continue
         tpl = open(template_path(), encoding='utf-8').read()
-        page, minutes = build_page(tpl, slug, title, desc, cat_key, image, image_alt, body, today)
+        page, minutes = build_page(tpl, slug, title, desc, cat_key, image, image_alt, body, today, meta_title)
         open(out, 'w', encoding='utf-8').write(page)
         add_card(slug, title, desc, cat_key, image, image_alt, minutes, today)
         add_sitemap(slug, today)

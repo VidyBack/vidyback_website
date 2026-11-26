@@ -37,6 +37,7 @@ const PUBLISH_TOOL = {
       title: { type: 'string', description: 'Post title, also used as the page <h1> and SEO title.' },
       content: { type: 'string', description: 'The full article body in Markdown (or HTML).' },
       description: { type: 'string', description: 'Meta description / excerpt, ideally under 155 characters.' },
+      meta_title: { type: 'string', description: 'Optional shorter SEO title for search results, under 60 characters.' },
       category: {
         type: 'string',
         enum: ['social', 'ecommerce', 'automation'],
@@ -159,6 +160,7 @@ async function publishPost(args = {}) {
   if (!process.env.GITHUB_BLOG_TOKEN) return toolText('Server is not configured (GITHUB_BLOG_TOKEN missing).', true);
 
   const description = pick(args, 'description', 'excerpt', 'summary', 'meta_description');
+  const metaTitle = pick(args, 'meta_title', 'seo_title');
   const image = pick(args, 'image_url', 'image', 'picture', 'featured_image', 'cover_image', 'thumbnail');
   let tags = args.tags;
   if (typeof tags === 'string') tags = tags.split(',');
@@ -187,6 +189,7 @@ async function publishPost(args = {}) {
     '---',
     `title: ${JSON.stringify(title)}`,
     `description: ${JSON.stringify(description)}`,
+    `meta_title: ${JSON.stringify(metaTitle)}`,
     `category: ${JSON.stringify(normCategory(args.category))}`,
     `image: ${JSON.stringify(/^https?:\/\//.test(image) ? image : '')}`,
     `tags: ${JSON.stringify(tags)}`,

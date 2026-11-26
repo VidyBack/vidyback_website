@@ -556,6 +556,11 @@ from = "/video-automation-replaces-the-tool-stack-draining-your-team.html"
 to = "/video-automation-replaces-the-tool-stack-draining-your-team"
 status = 301
 
+[[redirects]]
+from = "/social-media-management-platforms-for-ecommerce.html"
+to = "/social-media-management-platforms-for-ecommerce"
+status = 301
+
 [[headers]]
 for = "/*"
 [headers.values]
