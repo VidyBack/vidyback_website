@@ -15,6 +15,8 @@ Each post touches these files (see commit 2c331c5 for an example):
 - `sitemap.xml`: a `<url>` entry
 - `netlify.toml`: a `/<slug>.html` → `/<slug>` 301 redirect
 
+Give every post its own cover photo. Never reuse one that's already on another card: check with `grep -c 'photos/<id>/' blog.html` (it must be 0). If you can't find and verify a new one, leave the image out of `content/blog/<slug>.md` and `scripts/publish_blog.py` picks an unused one from its pool.
+
 After those four are in place, generate the post's social share image:
 
 ```

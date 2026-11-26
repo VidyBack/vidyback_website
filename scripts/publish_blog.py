@@ -56,12 +56,40 @@ CATEGORIES = {
     'ecommerce': ('ecommerce', 'Ecommerce Growth'),
     'automation': ('automation', 'Automation'),
 }
-# Cover photos already used on the blog, by category, for posts sent without one.
+# Pexels photos for posts sent without a cover image, by category. The first
+# one not already used on the blog is picked, so posts don't share a photo.
 DEFAULT_IMAGES = {
-    'social': ('4549413', 'Small business owner posting product content from a laptop and phone'),
-    'ecommerce': ('3183150', 'Small team planning their marketing tools around a laptop'),
-    'automation': ('733758', 'Laptop beside hourglass representing time saved through automation'),
+    'social': [
+        ('7480549', 'Two creators filming a video with a smartphone and ring light'),
+        ('7589525', 'Smartphone screen showing social media and video apps'),
+        ('7568294', 'Close-up of a smartphone screen with social media apps'),
+        ('5956083', 'Smartphone home screen with popular social media app icons'),
+        ('6690784', 'Person using a smartphone'),
+        ('7595263', 'Planning a social media strategy with content planners'),
+    ],
+    'ecommerce': [
+        ('7007174', 'Woman shopping online on a laptop with a credit card'),
+        ('6956903', 'Laptop surrounded by shopping bags and boxes'),
+        ('6214129', 'Shopping online with a laptop and paper bags'),
+        ('4440987', 'Delivery person holding packages ready to ship'),
+        ('8475172', 'Shop owner holding a crate of fresh produce'),
+        ('5025500', 'Stack of cardboard shipping boxes in sunlight'),
+    ],
+    'automation': [
+        ('7679690', 'Typing on a laptop showing a content plan'),
+        ('7668396', 'Digital content plan on a laptop screen'),
+        ('6892903', 'Planning content on a calendar'),
+        ('7679449', 'Working on a content plan on a laptop at a wooden table'),
+        ('8406965', 'Clock on a desk with papers and pencils'),
+        ('733758', 'Laptop beside an hourglass'),
+    ],
 }
+
+
+def unused_default_image(cat_key):
+    used = set(re.findall(r'images\.pexels\.com/photos/(\d+)/', open(os.path.join(ROOT, 'blog.html'), encoding='utf-8').read()))
+    pool = DEFAULT_IMAGES[cat_key] + [i for k, v in DEFAULT_IMAGES.items() if k != cat_key for i in v]
+    return next((i for i in pool if i[0] not in used), pool[0])
 WORDS_PER_MINUTE = 230
 
 
@@ -287,7 +315,7 @@ def main():
         cat_key = norm_category(meta.get('category'))
         image = (meta.get('image') or '').strip()
         if not re.match(r'https?://', image):
-            pid, alt = DEFAULT_IMAGES[cat_key]
+            pid, alt = unused_default_image(cat_key)
             image = 'https://images.pexels.com/photos/%s/pexels-photo-%s.jpeg?auto=compress&cs=tinysrgb&w=1200' % (pid, pid)
             image_alt = meta.get('image_alt') or alt
         else:
