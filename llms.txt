@@ -1,38 +1,61 @@
 # VidyBack
 
-> AI-powered social media content generator that turns e-commerce product catalogs into branded videos and posts automatically.
+> VidyBack is a social media content tool for small online stores. It connects to your store, pulls in your products and branding, and turns them into short videos, images, Reels, Stories and posts using ready-made templates, with AI-written captions. You review the content and schedule it, or let VidyBack auto-post it, to Instagram, TikTok, Facebook, YouTube and Pinterest.
 
-VidyBack connects to your Shopify, WooCommerce, Wix, Squarespace, Jumpseller, Etsy, or Ecwid store and automatically generates Instagram Reels, TikTok videos, and social media posts from your existing product catalog — no video editing or design skills required.
+## How it works
 
-## Product
+1. Connect a Shopify, Wix, Squarespace, Etsy, Ecwid or Jumpseller store (or enter its URL). VidyBack picks up your products, logo and brand colors.
+2. Choose templates. VidyBack fills them with your product photos, names and prices to make on-brand videos and images in each platform's format.
+3. Captions and hashtags are written with AI, and you can edit them.
+4. Schedule posts across the week, or post right away, to your connected Instagram, TikTok, Facebook, YouTube and Pinterest accounts.
+5. Optional: New Product Auto Post checks your store twice a day for newly added products, makes a short video for each and schedules it (up to 10 posts a day).
 
-- [Homepage](https://vidyback.netlify.app/)
-- [Features](https://vidyback.netlify.app/features.html) - Catalog sync, smart templates, AI copywriting, scheduling, and branding tools
-- [Pricing](https://vidyback.netlify.app/pricing.html) - Free plan available, paid plans for higher usage
-- [FAQ](https://vidyback.netlify.app/faq.html) - Answers about setup, credits, billing, and features
-- [About](https://vidyback.netlify.app/about.html) - VidyBack's mission and who it serves
+VidyBack is template-based with AI assistance. You stay in control of what gets posted: preview, edit, skip or reschedule any post.
 
 ## Integrations
 
-- [Platforms Overview](https://vidyback.netlify.app/platforms.html)
-- [Shopify Integration](https://vidyback.netlify.app/shopify.html)
-- [Wix Integration](https://vidyback.netlify.app/wix.html)
-- [Squarespace Integration](https://vidyback.netlify.app/squarespace.html)
-- [Jumpseller Integration](https://vidyback.netlify.app/jumpseller.html)
-- [Etsy Integration](https://vidyback.netlify.app/etsy.html)
-- [Ecwid Integration](https://vidyback.netlify.app/ecwid.html)
+- Store platforms: Shopify, Wix, Squarespace, Etsy, Ecwid, Jumpseller
+- Social channels: Instagram, TikTok, Facebook, YouTube (including Shorts), Pinterest
+- VidyBack is available on the [Shopify App Store](https://apps.shopify.com/vidyback) and as a [Jumpseller app](https://jumpseller.in/support/vidyback/).
 
-## Use Cases
+## Pricing
 
-- Auto-generating Instagram Reels and TikTok videos from product photos for Shopify and WooCommerce store owners
-- Automating social media content creation for DTC brands and solo ecommerce founders without a dedicated marketing team
-- Keeping social posts synced with live product catalog changes (pricing, inventory, new arrivals)
+- Free plan: 3 products, free templates, 480p video, no auto-posting.
+- Pro plan: $14.99/month. 5 products, Pro templates, up to 1080p, unlimited downloads, auto-posting and scheduling, bulk video ads, Brand Kit, custom music, priority support.
+- 7-day free trial.
 
-## Sign Up
+## Who it's for
 
-- [Get Started (Free Plan Available)](https://app.vidyback.com/)
-- [Contact](https://vidyback.netlify.app/contact.html)
+Small ecommerce and DTC store owners, mostly in the US, UK and Canada, who need regular social content but don't have a designer, video editor or social media manager.
+
+## Product
+
+- [Homepage](https://vidyback.com/)
+- [Features](https://vidyback.com/features): product sync, templates, AI captions, scheduling, branding
+- [New Product Auto Post](https://vidyback.com/new-product-auto-post): automatic videos for newly added products
+- [Pricing](https://vidyback.com/pricing)
+- [FAQ](https://vidyback.com/faq)
+- [About](https://vidyback.com/about)
+
+## Store platforms
+
+- [All platforms](https://vidyback.com/platforms)
+- [Shopify](https://vidyback.com/shopify)
+- [Wix](https://vidyback.com/wix)
+- [Squarespace](https://vidyback.com/squarespace)
+- [Etsy](https://vidyback.com/etsy)
+- [Ecwid](https://vidyback.com/ecwid)
+- [Jumpseller](https://vidyback.com/jumpseller)
+
+## Free tools
+
+- [All free tools](https://vidyback.com/tools): policy generators, profit and shipping calculators, QR code, barcode and SKU generators, image compressor, background remover, SERP preview, hashtag counter, readability checker, SEO health score and more. Free, no signup, run in the browser.
 
 ## Blog
 
-- [Blog Home](https://vidyback.netlify.app/blog.html)
+- [Blog](https://vidyback.com/blog): practical social media and ecommerce marketing guides for small online stores
+
+## Get started
+
+- [Sign up (free plan available)](https://app.vidyback.com/)
+- [Contact](https://vidyback.com/contact)
