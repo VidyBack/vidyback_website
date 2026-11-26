@@ -202,7 +202,12 @@ status = 301
 
 [[redirects]]
 from = "/squarespace.html"
-to = "/squarespace"
+to = "/platforms"
+status = 301
+
+[[redirects]]
+from = "/squarespace"
+to = "/platforms"
 status = 301
 
 [[redirects]]

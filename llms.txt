@@ -4,7 +4,7 @@
 
 ## How it works
 
-1. Connect a Shopify, Wix, Squarespace, Etsy, Ecwid or Jumpseller store (or enter its URL). VidyBack picks up your products, logo and brand colors.
+1. Connect a Shopify, Wix, Etsy, Ecwid or Jumpseller store (or enter its URL). VidyBack picks up your products, logo and brand colors.
 2. Choose templates. VidyBack fills them with your product photos, names and prices to make on-brand videos and images in each platform's format.
 3. Captions and hashtags are written with AI, and you can edit them.
 4. Schedule posts across the week, or post right away, to your connected Instagram, TikTok, Facebook, YouTube and Pinterest accounts.
@@ -14,7 +14,7 @@ VidyBack is template-based with AI assistance. You stay in control of what gets 
 
 ## Integrations
 
-- Store platforms: Shopify, Wix, Squarespace, Etsy, Ecwid, Jumpseller
+- Store platforms: Shopify, Wix, Etsy, Ecwid, Jumpseller
 - Social channels: Instagram, TikTok, Facebook, YouTube (including Shorts), Pinterest
 - VidyBack is available on the [Shopify App Store](https://apps.shopify.com/vidyback) and as a [Jumpseller app](https://jumpseller.in/support/vidyback/).
 
@@ -42,7 +42,6 @@ Small ecommerce and DTC store owners, mostly in the US, UK and Canada, who need 
 - [All platforms](https://vidyback.com/platforms)
 - [Shopify](https://vidyback.com/shopify)
 - [Wix](https://vidyback.com/wix)
-- [Squarespace](https://vidyback.com/squarespace)
 - [Etsy](https://vidyback.com/etsy)
 - [Ecwid](https://vidyback.com/ecwid)
 - [Jumpseller](https://vidyback.com/jumpseller)
